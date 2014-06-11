@@ -71,4 +71,43 @@ public class TurnoTest {
 		locacionInicial.agregarDestino(ciudad4);
 		Turno turno = Turno conLocacionInicial(locacionInicial);
 	}
+	
+	@Test
+	public void deberianActualizarseBienLasHoras() {
+		
+		int HORAS_TOTAL_JUEGO = 154;
+		
+		Assert.assertEquals(HORAS_TOTAL_JUEGO, turno.verTiempoRestante);
+		turno.actualizar(3);
+		
+		Assert.assertEquals(HORAS_TOTAL_JUEGO - 3, turno.verTiempoRestante);
+	}
+	
+	@Test
+	public void deberiaSaberseSiSeAcaboElTiempo() {
+		
+		int HORAS_TOTAL_JUEGO = 154;
+		
+		Assert.assertEquals(false, turno.seAcaboTiempo());
+		turno.actualizar(HORAS_TOTAL_JUEGO);
+		
+		Assert.assertEquals(true, turno.seAcaboTiempo());
+	}
+	
+	@Test
+	public void viajarDeberiaCambiarCiudadActual() {
+		
+		Velocidad velocidad = new Velocidad();
+		
+		Assert.assertEquals(ciudadOrigen, turno.ciudadActual());
+		turno.viajar(ciudad1, velocidad);
+		
+		Assert.assertEquals(ciudad1, turno.ciudadActual());
+	}
+	
+	@Test
+	public void interrogarDeberiaDevolverRespuestaCorrecta() {
+		
+		
+	}
 }

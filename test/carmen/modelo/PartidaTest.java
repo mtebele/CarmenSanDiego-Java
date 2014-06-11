@@ -154,9 +154,9 @@ public class PartidaTest {
 		ArrayList listaDestinos = partida.verDestinos();
 		Ciudad ciudadObjetivo = listaDestinos[0];
 		
-		Integer horasDeViaje = policia.viajar(ciudadObjetivo);
+		partida.viajar(ciudadObjetivo);
 		
-		Assert.assertEquals(partida.verTiempoRestante, (HORAS_TOTAL_JUEGO - horasDeViaje));
+		Assert.assertTrue(partida.verTiempoRestante < HORAS_TOTAL_JUEGO);
 	
 	}
 
@@ -185,8 +185,8 @@ public class PartidaTest {
 		Local local = ciudadActual.getLocalFinanzas();
 		
 		partida.interrogar(local);
-		parttida.interrogar(local);
-		Assert.assertEquals(2, local.vecesVisitados());
+		partida.interrogar(local);
+		Assert.assertEquals(2, local.vecesVisitado());
 		
 		Assert.assertEquals(partida.verTiempoRestante, (HORAS_TOTAL_JUEGO - 2));
 
