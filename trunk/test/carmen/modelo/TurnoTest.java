@@ -107,7 +107,28 @@ public class TurnoTest {
 	
 	@Test
 	public void interrogarDeberiaDevolverRespuestaCorrecta() {
+	
+		Assert.assertEquals("Moneda0", turno.interrogar(banco0));
+	}
+	
+	@Test
+	public void interrogarDeberiaConsumir1HoraSiNuncaFueVisitado() {
 		
+		int HORAS_TOTAL_JUEGO = 154;
+		
+		turno.interrogar(banco0);
+		Assert.assertEquals((HORAS_TOTAL_JUEGO - 1), turno.verTiempoRestante());
+		
+	}
+	
+	@Test
+	public void interrogarDeberiaConsumir2HorasSiFueVisitado2Veces(){
+		
+		int HORAS_TOTAL_JUEGO = 154;
+		
+		turno.interrogar(banco0);
+		turno.interrogar(banco0);
+		Assert.assertEquals((HORAS_TOTAL_JUEGO - 2), turno.verTiempoRestante());
 		
 	}
 }
