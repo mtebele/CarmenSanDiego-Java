@@ -10,19 +10,109 @@ public class PartidaTest {
 
 	@Test
 	public void setUp(){
-		Turno turno = new Turno();
 		Mapa mapa = new Mapa();
 		Policia policia = new Policia();
 		Ladron ladron = new Ladron();
 		Partida partida = Partida dePolicia(policia);
 		
-		setearMapa(mapa);
-		setearLadron(ladron);
-		setearTurno(turno);
+		// Setear Objeto
+		Ciudad ciudadOrigen = Ciudad conUbicacion(0,0);
+		Valor valorObjeto = new Valor();
+		valorObjeto.setearCantDeEscapes(4);
+		ObjetoRobado objeto = ObjetoRobado deCiudad(ciudadOrigen);
+		objeto.setearValor(valorObjeto);
+		ladron.robarObjeto(objeto);
 		
-		Valor
-		ObjetoRobado objeto = ObjetoRobado conValor()
+		// Crear Ciudades
+		// Crear Ciudades por las que pasara Ladron
+		Ciudad ciudad1 = Ciudad conUbicacion(10.10);
+		Ciudad ciudad2 = Ciudad conUbicacion(20,20);
+		Ciudad ciudad3 = Ciudad conUbicacion(30,30);
+		Ciudad ciudad4 = Ciudad conUbicacion(40,40);
+		// Crear resto de Ciudades
+		Ciudad ciudad5 = Ciudad conUbicacion(5,5);
+		Ciudad ciudad6 = Ciudad conUbicacion(15,15);
+		Ciudad ciudad7 = Ciudad conUbicacion(25,25);
+		Ciudad ciudad8 = Ciudad conUbicacion(35,35);
+		Ciudad ciudad9 = Ciudad conUbicacion(45,45);
+		Ciudad ciudad10 = Ciudad conUbicacion(50,50);
+		Ciudad ciudad11 = Ciudad conUbicacion(55,55);
+		Ciudad ciudad12 = Ciudad conUbicacion(60,60);
+		Ciudad ciudad13 = Ciudad conUbicacion(65,65);
+		Ciudad ciudad14 = Ciudad conUbicacion(70,70);
+		Ciudad ciudad15 = Ciudad conUbicacion(75,75);
+		Ciudad ciudad16 = Ciudad conUbicacion(80,80);
 		
+		// Setear Locales de las Ciudades por las que pasara Ladron
+		Local banco0 = Local conPista("Moneda0");
+		Local biblio0 = Local conPista("Lenguaje0");
+		Local puerto0 = Local conPista("Bandera0");
+		Local banco1 = Local conPista("Moneda1");
+		Local biblio1 = Local conPista("Lenguaje1");
+		Local puerto1 = Local conPista("Bandera1");
+		Local banco2 = Local conPista("Moneda2");
+		Local biblio2 = Local conPista("Lenguaje2");
+		Local puerto2 = Local conPista("Bandera2");
+		Local banco3 = Local conPista("Moneda3");
+		Local biblio3 = Local conPista("Lenguaje3");
+		Local puerto3 = Local conPista("Bandera3");
+		
+		ciudadOrigen.setearLocalFinanzas(banco0);
+		ciudadOrigen.setearLocalCultura(biblio0);
+		ciudadOrigen.setearLocalTurismo(puerto0);
+		ciudad1.setearLocalFinanzas(banco1);
+		ciudad1.setearLocalCultura(biblio1);
+		ciudad1.setearLocalTurismo(puerto1);
+		ciudad2.setearLocalFinanzas(banco2);
+		ciudad2.setearLocalCultura(biblio2);
+		ciudad2.setearLocalTurismo(puerto2);
+		ciudad3.setearLocalFinanzas(banco3);
+		ciudad3.setearLocalCultura(biblio3);
+		ciudad3.setearLocalTurismo(puerto3);
+		
+		//Setear Mapa
+		mapa.setearCiudad(ciudadOrigen);
+		mapa.setearCiudad(ciudad1);
+		mapa.setearCiudad(ciudad2);
+		mapa.setearCiudad(ciudad3);
+		mapa.setearCiudad(ciudad4);
+		mapa.setearCiudad(ciudad5);
+		mapa.setearCiudad(ciudad6);
+		mapa.setearCiudad(ciudad7);
+		mapa.setearCiudad(ciudad8);
+		mapa.setearCiudad(ciudad9);
+		mapa.setearCiudad(ciudad10);
+		mapa.setearCiudad(ciudad11);
+		mapa.setearCiudad(ciudad12);
+		mapa.setearCiudad(ciudad13);
+		mapa.setearCiudad(ciudad14);
+		mapa.setearCiudad(ciudad15);
+		mapa.setearCiudad(ciudad16);
+		partida.setearMapa(mapa);
+		
+		
+		// Setear Itinerario
+		ladron.planearEscape(objeto);
+		ladron.verItinerario().agregarAlRecorrido(ciudad1);
+		ladron.verItinerario().agregarAlRecorrido(ciudad2);
+		ladron.verItinerario().agregarAlRecorrido(ciudad3);
+		ladron.verItinerario().agregarAlRecorrido(ciudad4);
+		
+		// Setear Ladron
+		partida.setearLadron(ladron);
+		
+		// Setear Locacion
+		Locacion locacionInicial = Locacion estandoEnCiudad(ciudadOrigen);
+		locacionInicial.setearLadron(ladron);
+		locacionInicial.setearMapa(mapa);
+		locacionInicial.agregarDestino(ciudad1);
+		locacionInicial.agregarDestino(ciudad5);
+		locacionInicial.agregarDestino(ciudad6);
+		locacionInicial.agregarDestino(ciudad7);
+		Turno turno = Turno conLocacionInicial(locacionInicial);
+		
+		// Setear Turno
+		partida.setearTurno(turno);
 
 	}
 	
@@ -62,9 +152,9 @@ public class PartidaTest {
 		int HORAS_TOTAL_JUEGO = 154;
 		
 		ArrayList listaDestinos = partida.verDestinos();
-		Pais paisObjetivo = listaDestinos[0];
+		Ciudad ciudadObjetivo = listaDestinos[0];
 		
-		Integer horasDeViaje = policia.viajar(paisObjetivo);
+		Integer horasDeViaje = policia.viajar(ciudadObjetivo);
 		
 		Assert.assertEquals(partida.verTiempoRestante, (HORAS_TOTAL_JUEGO - horasDeViaje));
 	
@@ -75,8 +165,8 @@ public class PartidaTest {
 		
 		Turno turno = partida.getTurno();
 		Locacion locacion = turno.getLocacion();
-		Pais paisActual = locacion.paisActual();
-		Local local = paisActual.getLocalFinanzas();
+		Ciudad ciudadActual = locacion.ciudadActual();
+		Local local = ciudadActual.getLocalFinanzas();
 		
 		local.setearPista("Se fue a Kamchatka");
 		
@@ -91,8 +181,8 @@ public class PartidaTest {
 		
 		Turno turno = partida.getTurno();
 		Locacion locacion = turno.getLocacion();
-		Pais paisActual = locacion.paisActual();
-		Local local = paisActual.getLocalFinanzas();
+		Ciudad ciudadActual = locacion.ciudadActual();
+		Local local = ciudadActual.getLocalFinanzas();
 		
 		partida.interrogar(local);
 		parttida.interrogar(local);

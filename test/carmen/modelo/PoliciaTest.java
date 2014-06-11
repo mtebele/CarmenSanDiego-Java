@@ -68,12 +68,12 @@ public class PoliciaTest {
 	public void poilciaDeberiaCambiarDeLugarAlViajar() {
 		
 		ArrayList listaDestinos = policia.verDestinos();
-		Pais paisObjetivo = listaDestinos[0];
+		Ciudad ciudadObjetivo = listaDestinos[0];
 		
-		policia.viajar(paisObjetivo);
-		Pais paisActual = policia.paisActual();
+		policia.viajar(ciudadObjetivo);
+		Ciudad ciudadActual = policia ciudadActual();
 		
-		Assert.assertEquals(paisObjetivo, paisActual);
+		Assert.assertEquals(ciudadObjetivo, ciudadActual);
 	}
 }
 
@@ -82,8 +82,8 @@ public class PoliciaTest {
 	
 		Turno turno = policia.getTurno();
 		Locacion locacion = turno.getLocacion();
-		Pais paisActual = locacion.paisActual();
-		Local local = paisActual.getLocalFinanzas();
+		Ciudad ciudadActual = locacion.ciudadActual();
+		Local local = ciudadActual.getLocalFinanzas();
 	
 		local.setearPista("Se fue a Kamchatka");
 	
