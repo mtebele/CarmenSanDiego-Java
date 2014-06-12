@@ -7,6 +7,7 @@ public class Local {
 	private Ataque ataque;
 	
 	static void conPista(String pista) {
+		//es el constructor?
 		setearPista(pista);
 	}
 	

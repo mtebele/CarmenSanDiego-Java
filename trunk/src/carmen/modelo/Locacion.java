@@ -1,5 +1,5 @@
 package carmen.modelo;
-
+import java.util.ArrayList;
 public class Locacion {
 
 	private Mapa mapa;
@@ -12,7 +12,8 @@ public class Locacion {
 	}
 	
 	public int dormir(Ciudad ciudad) {
-		
+		//no sería responsabilidad de otro objeto?
+		return 0;
 	}
 	
 	public void generarNuevosDestinos() {

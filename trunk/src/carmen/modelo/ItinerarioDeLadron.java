@@ -1,5 +1,7 @@
 package carmen.modelo;
 
+import java.util.ArrayList;
+
 public class ItinerarioDeLadron {
 
 	private Mapa mapa;
