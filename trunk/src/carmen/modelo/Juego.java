@@ -6,7 +6,7 @@ public class Juego {
 	private LectorXML lectorXML;
 	
 	public Partida nuevaPartida(Rango rango) {
-		
+		return null;
 	}
 	
 }
