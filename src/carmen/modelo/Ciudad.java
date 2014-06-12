@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Ciudad {
 
 	private ArrayList<Local> locales;
-	private int ubicacion;
+	private Coordenada ubicacion;
 	
-	static void conUbicacion(int ubicacion) {
+	public Ciudad(Coordenada ubicacion) {
 		ubicacion = ubicacion;
 	}
 	
 	public void interrogar(Local local) {
-		
+		//la ciudad no deberia interrogar, sino el policia (ver como adaptar a mi disenio)
 	}
 	
 	public void setearLocal(Local local) {
