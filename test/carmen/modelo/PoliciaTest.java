@@ -10,6 +10,7 @@ public class PoliciaTest {
 
 	@Test
 	public void setUp() {
+		
 		Policia policia = new Policia();
 		
 		
@@ -17,7 +18,7 @@ public class PoliciaTest {
 	
 	@Test
 	public void policiaDeberiaIniciarComoNovato() {
-		Policia policia = new Policia();
+	
 		Assert.assertEquals(0, policia.getCantArrestos);
 		
 		Assert.assertEquals("Novato", policia.verRango.getRando);
@@ -25,9 +26,7 @@ public class PoliciaTest {
 	
 	@Test
 	public void policiaDeberiaAscenderDeRango() {
-		
-		Policia policia = new Policia();
-		
+				
 		for(int i=0; i<5; i++) {
 			policia.realizarArresto();
 		}
@@ -44,8 +43,8 @@ public class PoliciaTest {
 		Assert.assertEquals("Sargento", policia.verRango.getRango);
 	}
 	
+	@Test
 	public void policiaDeberiaTenerDeterminadaVelocidadAlAscenderDeRango() {
-		Policia policia = new Policia();
 		
 		Assert.assertEquals(900, policia.verRango.getVelocidad.getKmPorHora);
 		
@@ -64,18 +63,18 @@ public class PoliciaTest {
 		}
 		Assert.assertEquals(1500, policia.verRango.getVelocidad.getKmPorHora);
 	}
-	
-	public void poilciaDeberiaCambiarDeLugarAlViajar() {
+		
+	@Test
+	public void policiaDeberiaCambiarDeLugarAlViajar() {
 		
 		ArrayList listaDestinos = policia.verDestinos();
 		Ciudad ciudadObjetivo = listaDestinos[0];
 		
 		policia.viajar(ciudadObjetivo);
-		Ciudad ciudadActual = policia ciudadActual();
+		Ciudad ciudadActual = policia.ciudadActual();
 		
 		Assert.assertEquals(ciudadObjetivo, ciudadActual);
 	}
-}
 
 	@Test
 	public void interrogarDeberiaDevolverLaRespuestaCorrecta() {
@@ -89,7 +88,6 @@ public class PoliciaTest {
 	
 		Assert.assertEquals(local.responder(), policia.interrogar(local));
 		Assert.assertEquals("Se fue a Kamchatka", local.responder());
-		
 	}	
 }
 		
