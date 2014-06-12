@@ -6,7 +6,7 @@ public class Turno {
 	private Locacion locacion;
 
 	static void conLocacionInicial(Locacion locacion) {
-		setearLocacion(locacion);
+		locacion = locacion;
 	}
 	
 	public void actualizar(int horas){
@@ -22,14 +22,18 @@ public class Turno {
 	}
 	
 	public boolean finalizoTiempo(){
-		
+		return false;
 	}
 	
 	public Ciudad ciudadActual(){
-		
+		return null;
 	}
 	
 	public void setearLocacion(Locacion locacion){
 		this.locacion = locacion;
+	}
+
+	public int getHorasRestantes(){
+		return 0;
 	}
 }

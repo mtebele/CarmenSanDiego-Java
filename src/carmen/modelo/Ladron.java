@@ -16,7 +16,7 @@ public class Ladron {
 
     }
     
-    public void robarOjbeto(ObjetoRobado objeto) {
+    public void robarObjeto(ObjetoRobado objeto) {
 
     }
     
@@ -25,6 +25,6 @@ public class Ladron {
     }
     
     public boolean hizoUltimoEscape() {
-
+    	return false;
     }
 }

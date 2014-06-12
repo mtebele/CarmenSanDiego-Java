@@ -10,8 +10,8 @@ public class Partida {
     private Mapa mapa;
     private OrdenDeArresto orden;
     
-    static void dePolicia (Policia policia){
-    	this.policia = policia;
+    public Partida(Policia unPolicia){
+    	policia = unPolicia;
     }
     
     public void emitirOrden(Ladron ladron) {
@@ -19,7 +19,7 @@ public class Partida {
     }
     
     public boolean atraparLadron(Ladron ladron) {
-
+    	return false;
     }
      
     public void viajar(Ciudad destino) {
@@ -40,10 +40,11 @@ public class Partida {
     
     public ArrayList verDestinos() {
     	// Ver bien el tipo que devuelve
+    	return null;
     }
     
     public int verTiempoRestante() {
-    	return turno.getHorasRestantes;
+    	return turno.getHorasRestantes();
     }
     
     public void setearMapa(Mapa mapa) {
