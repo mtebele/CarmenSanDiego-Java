@@ -5,6 +5,10 @@ public class Mapa {
 
 	private ArrayList<Ciudad> ciudades;
 	
+	public Mapa() {
+		this.ciudades = new ArrayList<Ciudad>();
+	}
+	
 	public void elegirCiudadAlAzar() {
 		
 	}

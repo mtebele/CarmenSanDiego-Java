@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class ItinerarioDeLadron {
 
-	private Ciudad[] ciudades;
+	private ArrayList<Ciudad> ciudades;
 	
 	public ItinerarioDeLadron(int cantDeEscapes) {
-		this.ciudades = new Ciudad[cantDeEscapes];
+		this.ciudades = new ArrayList<Ciudad>();
 	}
 	
 	public void agregarAlRecorrido(Ciudad ciudad) {
 		this.ciudades.add(ciudad);
 	}
 	
-	public Ciudad[] ciudades() {
+	public ArrayList<Ciudad> ciudades() {
 		return this.ciudades;
 	}
 	
 	public Ciudad ciudadNro(int nro) {
-		this.ciudades[nro+1];
+		return this.ciudades.get(nro+1);
 	}
 }

@@ -8,13 +8,11 @@ public class Ciudad {
 	private Coordenada ubicacion;
 	
 	public Ciudad(Coordenada coordenadas) {
+		this.locales = new ArrayList<Local>();
 		this.ubicacion = coordenadas;
 	}
 	
 	//no tiene sentido que interrogue posta, asi que le pongo de nombre ingresar.
-	//public void interrogar(Local local) {
-		//la ciudad no deberia interrogar, sino el policia (ver como adaptar a mi disenio)
-	//}
 	public String ingresar(Local local) {
 		return local.responder();
 	}
