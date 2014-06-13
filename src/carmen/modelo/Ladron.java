@@ -12,19 +12,44 @@ public class Ladron {
 	private ObjetoRobado objeto;
 	private ItinerarioDeLadron itinerario;
 	
-    public void escapar() {
-
+	public Ladron(String nombre, String cabello, String senia, String vehiculo, String hobby, String sexo) {
+		this.nombre = nombre;
+		this.cabello = cabello;
+		this.senia = senia;
+		this.vehiculo = vehiculo;
+		this.hobby = hobby;
+		this.sexo = sexo;
+	} 
+	
+	public Ciudad ciudadActual() {
+		return this.ciudadActual;
+	}
+	
+    public boolean escapar() {
+    	int cantDeEscapes = this.objeto.valor().cantDeEscapes();
+    	if ( this.itinerario.ciudadNro(cantDeEscapes).equals(this.ciudadActual) ) {
+    		return false;
+    	}
+    	
+    	int posActual = this.itinerario.ciudades().indexOf(ciudadActual);
+    	this.ciudadActual = this.itinerario.ciudadNro(posActual + 1);
+    	return true;
     }
     
     public void robarObjeto(ObjetoRobado objeto) {
-
+    	this.objeto = objeto;
     }
     
     public void planearEscape(ObjetoRobado objeto) {
-
+    	int cantDeEscapes = objeto.valor().cantDeEscapes();
+    	this.itinerario = new ItinerarioDeLadron(cantDeEscapes);
     }
     
     public boolean hizoUltimoEscape() {
+    	int cantDeEscapes = this.objeto.valor().cantDeEscapes();
+    	if ( this.ciudadActual = this.itinerario.ciudadNro(cantDeEscapes) ) {
+    		return true;
+    	}
     	return false;
     }
 }
