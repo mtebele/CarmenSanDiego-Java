@@ -3,13 +3,13 @@ package carmen.modelo;
 public class Valor {
 
 	private String valor;
-	private int cantidadCiudadesDeEscape;
+	private int cantCiudadesDeEscape;
 
 	public int getCantidadDeEscapes(){
-		return this.cantidadCiudadesDeEscape;
+		return this.cantCiudadesDeEscape;
 	}
 	
-	public void setearCantidadCiudadesDeEscapes(int cantidad) {
-		this.cantidadCiudadesDeEscape = cantidad;
+	public void setearCantDeEscapes(int cantidad) {
+		this.cantCiudadesDeEscape = cantidad;
 	}
 }

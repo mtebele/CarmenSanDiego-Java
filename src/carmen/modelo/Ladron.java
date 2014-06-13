@@ -40,14 +40,13 @@ public class Ladron {
     	this.objeto = objeto;
     }
     
-    public void planearEscape(ObjetoRobado objeto) {
-    	int cantDeEscapes = objeto.getValor().getCantidadDeEscapes();
-    	this.itinerario = new ItinerarioDeLadron(cantDeEscapes);
+    public void planearEscape() {
+    	this.itinerario = new ItinerarioDeLadron();
     }
     
     public boolean hizoUltimoEscape() {
     	int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-    	if ( this.ciudadActual = this.itinerario.ciudadNro(cantDeEscapes) ) {
+    	if ( this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes)) ) {
     		return true;
     	}
     	return false;

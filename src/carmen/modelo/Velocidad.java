@@ -3,10 +3,12 @@ package carmen.modelo;
 public class Velocidad {
 
 	private int kmPorHora;
-	private int cantidadCiudadesDeEscape;
+	
+	public Velocidad() {
+	}
 
-	public void calcularTiempo(int distancia){
-		
+	public int calcularTiempo(int distancia){
+		return ( distancia / this.kmPorHora );
 	}
 	
 	public void setearKmPorHora(int kmPorHora) {

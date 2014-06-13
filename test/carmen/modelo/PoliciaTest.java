@@ -13,7 +13,6 @@ public class PoliciaTest {
 		
 		Policia policia = new Policia();
 		
-		
 	}
 	
 	@Test
