@@ -4,22 +4,18 @@ public class Local {
 
 	private int vecesVisitado;
 	private String pista;
-	private Ataque ataque;
 	
-	static void conPista(String pista) {
-		//es el constructor?
-		setearPista(pista);
+	public Local() {
+		this.vecesVisitado = 0;
 	}
 	
-	public void responder() {
-		
+	public String responder() {
+		return this.pista;
 	}
 	
 	public void setearPista(String pista) {
 		this.pista = pista;
 	}
 	
-	public void setearAtaque(Ataque ataque) {
-		this.ataque = ataque;
-	}
 }
+	
