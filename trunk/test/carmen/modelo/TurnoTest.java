@@ -14,20 +14,20 @@ public class TurnoTest {
 		Ladron ladron = new Ladron();
 		
 		// Setear Objeto
-		Ciudad ciudadOrigen = Ciudad conUbicacion(0,0);
+		Ciudad ciudadOrigen = new Ciudad(0,0);
 		Valor valorObjeto = new Valor();
-		valorObjeto.setearCantDeEscapes(1);
-		ObjetoRobado objeto = ObjetoRobado deCiudad(ciudadOrigen);
+		valorObjeto.setearCantidadCiudadesDeEscapes(1);
+		ObjetoRobado objeto = new ObjetoRobado(ciudadOrigen);
 		objeto.setearValor(valorObjeto);
 		ladron.robarObjeto(objeto);
 		
 		// Crear Ciudades
 		// Crear Ciudades por las que pasara Ladron
-		Ciudad ciudad1 = Ciudad conUbicacion(10.10);
+		Ciudad ciudad1 = new Ciudad(10.10);
 		// Crear resto de Ciudades
-		Ciudad ciudad2 = Ciudad conUbicacion(5,5);
-		Ciudad ciudad3 = Ciudad conUbicacion(15,15);
-		Ciudad ciudad4 = Ciudad conUbicacion(25,25);
+		Ciudad ciudad2 = new Ciudad(5,5);
+		Ciudad ciudad3 = new Ciudad(15,15);
+		Ciudad ciudad4 = new Ciudad(25,25);
 
 		
 		// Setear Locales de las Ciudades por las que pasara Ladron

@@ -17,9 +17,9 @@ public class CiudadTest extends TestCase{
 	@Before
 	public void setUp() throws Exception {
 		Coordenada unaUbicacion = new Coordenada(1,2); 
-		this.ciudad = Ciudad.conUbicacion(unaUbicacion);
-		this.local1 = new Local(PISTA_1);
-		this.local2 = new Local(PISTA_2);
+		this.ciudad = new Ciudad(unaUbicacion);
+		this.local1 = Local.conPista(PISTA_1);
+		this.local2 = Local.conPista(PISTA_2);
 	}
 
 	@Test

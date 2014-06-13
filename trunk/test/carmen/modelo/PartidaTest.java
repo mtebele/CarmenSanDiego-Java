@@ -13,13 +13,13 @@ public class PartidaTest {
 		Mapa mapa = new Mapa();
 		Policia policia = new Policia();
 		Ladron ladron = new Ladron();
-		Partida partida = Partida dePolicia(policia);
+		Partida partida = new Partida(policia);
 		
 		// Setear Objeto
-		Ciudad ciudadOrigen = Ciudad conUbicacion(0,0);
+		Ciudad ciudadOrigen = new Ciudad conUbicacion(0,0);
 		Valor valorObjeto = new Valor();
-		valorObjeto.setearCantDeEscapes(4);
-		ObjetoRobado objeto = ObjetoRobado deCiudad(ciudadOrigen);
+		valorObjeto.setearCantidadCiudadesDeEscapes(4);
+		ObjetoRobado objeto = new ObjetoRobado(ciudadOrigen);
 		objeto.setearValor(valorObjeto);
 		ladron.robarObjeto(objeto);
 		
