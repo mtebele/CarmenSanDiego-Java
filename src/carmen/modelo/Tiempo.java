@@ -6,10 +6,12 @@ public class Tiempo {
 	private int horaActual;
 
 	public void transcurrir(int horas) {
-	
+		this.horasRestantes -= horas;
 	}
 	
-	public void dormir() {
-		
+	// cambio el metodo dormir por pasarDeDia, queda mas claro.
+	public void pasarDeDia() {
+		int horasPasarDeDia = 8;
+		this.horasRestantes -= horasPasarDeDia;
 	}
 }
