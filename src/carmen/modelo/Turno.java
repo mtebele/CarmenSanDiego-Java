@@ -5,8 +5,9 @@ public class Turno {
 	private Tiempo tiempo;
 	private Locacion locacion;
 
-	static void conLocacionInicial(Locacion locacion) {
-		locacion = locacion;
+	public Turno(Locacion locacionInicial) {
+		this.locacion = locacionInicial;
+		// this.tiempo = ??? lo recibe por parametro el constructor?
 	}
 	
 	public void actualizar(int horas){

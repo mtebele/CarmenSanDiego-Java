@@ -7,8 +7,11 @@ public class Locacion {
 	private Ciudad ciudadActual;
 	private ArrayList<Ciudad> ciudadesDestino;
 	
-	static void estandoEnCiudad(Ciudad ciudadOrigen) {
-		
+	public Locacion(Mapa mapa, Ciudad ciudadActual) {
+		this.mapa = mapa;
+		this.ladron = null; //arranca en null, si el ladron viene aca se lo setea.
+		this.ciudadActual = ciudadActual;
+		this.ciudadesDestino = new ArrayList<Ciudad>();
 	}
 	
 	public int dormir(Ciudad ciudad) {
@@ -21,18 +24,22 @@ public class Locacion {
 	}
 	
 	public void interrogar(Local local) {
-		
+		this.ciudadActual.ingresar(local);
 	}
 	
 	public void agregarDestino(Ciudad destino) {
-		
+		this.ciudadesDestino.add(destino);
 	}
 	
 	public Ciudad ciudadActual() {
-		return ciudadActual;
+		return this.ciudadActual;
 	}
 	
 	public boolean estaLadron() {
-		return (ladron != null);
+		return (this.ladron != null);
+	}
+	
+	public void setearLadron(Ladron ladron) {
+		this.ladron = ladron;
 	}
 }

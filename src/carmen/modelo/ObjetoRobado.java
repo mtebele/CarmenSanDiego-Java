@@ -9,6 +9,10 @@ public class ObjetoRobado {
 		ciudadOrigen = ciudad;
 	}
 	
+	public Valor getValor() {
+		return valor;
+	}
+	
 	public void setearValor(Valor valor) {
 		this.valor = valor;
 	}
