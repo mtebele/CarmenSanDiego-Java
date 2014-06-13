@@ -2,29 +2,31 @@ package carmen.modelo;
 
 public class Coordenada {
 	//hay que determinar la unidad de posicion que usamos.
-	private double longitud;
-	private double latitud;
+	private float longitud;
+	private float latitud;
 	
-	public Coordenada(double longitud, double latitud){
+	public Coordenada(float longitud, float latitud){
 		this.longitud = longitud;
 		this.latitud = latitud;
 	}
 
-	private double getLongitud() {
+	private float getLongitud() {
 		return longitud;
 	}
-	private void setLongitud(double longitud) {
+	private void setLongitud(float longitud) {
 		this.longitud = longitud;
 	}
 	
-	private double getLatitud() {
+	private float getLatitud() {
 		return latitud;
 	}
-	private void setLatitud(double latitud) {
+	private void setLatitud(float latitud) {
 		this.latitud = latitud;
 	}
 	
-	public double distanciaAOtraCoordenada(Coordenada otraCoord){
-		return 0;
+	public float distanciaAOtraCoordenada(Coordenada otraCoord){
+		
 	}
+	
+	//estaria bueno que para hacer el cálculo del tiempo igual no se use float, sino int.
 }
