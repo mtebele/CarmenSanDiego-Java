@@ -4,14 +4,14 @@ public class Turno {
 
 	private Tiempo tiempo;
 	private Locacion locacion;
+	private ArrayList<Atacable>;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
-		// this.tiempo = ??? lo recibe por parametro el constructor?
 	}
 	
 	public void actualizar(int horas){
-		
+		this.tiempo.transcurrir(horas);
 	}
 	
 	public void viajar(Ciudad destino, Velocidad velocidad){
