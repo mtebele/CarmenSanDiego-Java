@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 
 public class PartidaTest {
 
-	@Test
+	@Before
 	public void setUp(){
 		
 		//Despues hago de nuevo el setUp desde cero porque tenia metodos que ya borramos.
