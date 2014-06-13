@@ -1,10 +1,11 @@
 package carmen.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItinerarioDeLadron {
 
-	private ArrayList<Ciudad> ciudades;
+	private List<Ciudad> ciudades;
 	
 	public ItinerarioDeLadron() {
 		this.ciudades = new ArrayList<Ciudad>();
@@ -14,7 +15,7 @@ public class ItinerarioDeLadron {
 		this.ciudades.add(ciudad);
 	}
 	
-	public ArrayList<Ciudad> ciudades() {
+	public List<Ciudad> ciudades() {
 		return this.ciudades;
 	}
 	

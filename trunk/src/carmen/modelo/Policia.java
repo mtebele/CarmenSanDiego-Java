@@ -4,30 +4,34 @@ public class Policia {
 
 	private Rango rango;
 	private Turno turno;
-	private int cantidadDeArrestos;
+	private int cantDeArrestos;
 	
     public void realizarArresto() {
-
+    	this.cantDeArrestos += cantDeArrestos;
     }
     
     public void ascender() {
-
+    	//No se bien como es eso al final del enum.
+    	rango.ascender() // ??? estoy tirandole la bocha a otro jajaja.
     }
     
-    public void viajar(Ciudad destino, Velocidad velocidad) {
-
+    public void viajar(Ciudad destino) {
+    	velocidad = this.rango.getVelocidad();
+    	this.turno.viajar(destino, velocidad);
+    	
     }
     
     public void interrogar(Local local) {
-
+    	this.turno.interrogar(local);
+    	
     }
     
-    public void ciudadActual() {
-
+    public Ciudad ciudadActual() {
+    	return this.turno.ciudadActual();
     }
     
-    public void verDestinos() {
-
+    public ArrayList verDestinos() {
+    	return this.turno.getDestinos();
     }
     
     public void setearTurno(Turno turno) {
