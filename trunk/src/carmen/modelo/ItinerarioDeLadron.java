@@ -6,7 +6,7 @@ public class ItinerarioDeLadron {
 
 	private ArrayList<Ciudad> ciudades;
 	
-	public ItinerarioDeLadron(int cantDeEscapes) {
+	public ItinerarioDeLadron() {
 		this.ciudades = new ArrayList<Ciudad>();
 	}
 	

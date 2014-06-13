@@ -18,8 +18,10 @@ public class CiudadTest extends TestCase{
 	public void setUp() throws Exception {
 		Coordenada unaUbicacion = new Coordenada(1,2); 
 		this.ciudad = new Ciudad(unaUbicacion);
-		this.local1 = Local.conPista(PISTA_1);
-		this.local2 = Local.conPista(PISTA_2);
+		this.local1 = new Local();
+		this.local1.setearPista(PISTA_1);
+		this.local2 = new Local();
+		this.local2.setearPista(PISTA_2);
 	}
 
 	@Test

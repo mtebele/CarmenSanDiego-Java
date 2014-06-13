@@ -25,6 +25,7 @@ public class Coordenada {
 	}
 	
 	public float distanciaAOtraCoordenada(Coordenada otraCoord){
+		//Calculo que dijo Lucas va acá que ni conozco.
 		return 0;
 	}
 	

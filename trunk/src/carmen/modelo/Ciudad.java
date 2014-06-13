@@ -12,7 +12,6 @@ public class Ciudad {
 		this.ubicacion = coordenadas;
 	}
 	
-	//no tiene sentido que interrogue posta, asi que le pongo de nombre ingresar.
 	public String ingresar(Local local) {
 		return local.responder();
 	}
@@ -24,10 +23,9 @@ public class Ciudad {
 	public int cantidadLocales(){
 		/*no se me ocurrio como validar que meti locales sin usar mocks, si es
 		 * muy cabeza me avisan y lo cambio */
+		// Para mi esta bien hacerlo todo manual sin hacer mocks, se nos facilita la tarea
+		// y de paso usamos ejemplos.
 		return this.locales.size();
 	}
-	//public void setearUbicacion(int ubicacion) {
-	//	this.ubicacion = ubicacion;
-	//}
-	//creo metodo de clase y la ciudad se inicia con ubicacion si o si.
+
 }
