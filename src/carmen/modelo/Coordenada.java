@@ -5,7 +5,7 @@ public class Coordenada {
 	private float longitud;
 	private float latitud;
 	
-	public Coordenada(float longitud, float latitud){
+	public Coordenada(float longitud, float latitud) {
 		this.longitud = longitud;
 		this.latitud = latitud;
 	}
@@ -24,8 +24,9 @@ public class Coordenada {
 		this.latitud = latitud;
 	}
 	
-	public float distanciaAOtraCoordenada(Coordenada otraCoord){
-		
+	public float distanciaAOtraCoordenada(Coordenada otraCoord) {
+		// hacer
+		return 0;
 	}
 	
 	//estaria bueno que para hacer el cálculo del tiempo igual no se use float, sino int.
