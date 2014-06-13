@@ -24,10 +24,10 @@ public class Coordenada {
 		this.latitud = latitud;
 	}
 	
-	public float distanciaAOtraCoordenada(Coordenada otraCoord) {
-		// hacer
+	public float distanciaAOtraCoordenada(Coordenada otraCoord){
 		return 0;
 	}
 	
-	//estaria bueno que para hacer el cálculo del tiempo igual no se use float, sino int.
+	//estaria bueno que para hacer el cï¿½lculo del tiempo igual no se use float, sino int.
+	//Lucas: adhiero, que el tiempo se mida en horas.
 }
