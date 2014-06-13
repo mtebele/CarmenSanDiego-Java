@@ -21,4 +21,13 @@ public class Ciudad {
 		this.locales.add(local);
 	}
 	
+	public int cantidadLocales(){
+		/*no se me ocurrio como validar que meti locales sin usar mocks, si es
+		 * muy cabeza me avisan y lo cambio */
+		return this.locales.size();
+	}
+	//public void setearUbicacion(int ubicacion) {
+	//	this.ubicacion = ubicacion;
+	//}
+	//creo metodo de clase y la ciudad se inicia con ubicacion si o si.
 }
