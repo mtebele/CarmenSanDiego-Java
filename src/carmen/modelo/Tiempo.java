@@ -3,7 +3,6 @@ package carmen.modelo;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.ListIterator;
 
 public class Tiempo {
 
@@ -18,7 +17,7 @@ public class Tiempo {
 		for (int i=0; i<24; i++) {
 			this.horasDelDia.add(i);
 		}
-		this.horaActual = this.horasDelDia.get(11);
+		this.horaActual = this.horasDelDia.get(10);
 		this.iterador = this.horasDelDia.iterator();
 	}
 	
@@ -33,15 +32,24 @@ public class Tiempo {
 		}
 		
 		
-		if ( this.horaActual < 4 || this.horaActual > 22 ) {	//Hardcodeo, si es muy tarde duerme.
-			this.pasarDeDia();
+		if ( this.horaActual < 6 || this.horaActual > 22 ) {	//Hardcodeo, si es muy tarde duerme.
+			this.pasarLaNoche();
 		}
 	}
 	
-	private void pasarDeDia() {
+	private void pasarLaNoche() {
 		int horasDeSueño = 8;
 		for (int i=0; i<horasDeSueño; i++) {
 			transcurrirHora();
 		}
 	}
+	
+	public int horaActual() {
+		return this.horaActual;
+	} 
+	
+	public int horasRestantes() {
+		return this.horasRestantes;
+	}
+	
 }
