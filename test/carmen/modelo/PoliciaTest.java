@@ -10,19 +10,21 @@ import junit.framework.TestCase;
 
 public class PoliciaTest {
 
+	private Policia policia;
+
 	@Test
 	public void setUp() {
 
-		Policia policia = new Policia();
+		this.policia = new Policia();
 
 	}
 
 	@Test
 	public void policiaDeberiaIniciarComoNovato() {
 
-		Assert.assertEquals(0, policia.getCantArrestos);
+		Assert.assertEquals(0, policia.getCantidadArrestos());
 
-		Assert.assertEquals("Novato", policia.verRango.getRando);
+		Assert.assertEquals("Novato", policia.getRango().getNombre());
 	}
 
 	@Test
@@ -31,45 +33,46 @@ public class PoliciaTest {
 		for (int i = 0; i < 5; i++) {
 			policia.realizarArresto();
 		}
-		Assert.assertEquals("Detective", policia.verRango.getRango);
+		Assert.assertEquals("Detective", policia.getRango().getNombre());
 
 		for (int i = 0; i < 5; i++) {
 			policia.realizarArresto();
 		}
-		Assert.assertEquals("Investigador", policia.verRango.getRango);
+		Assert.assertEquals("Investigador", policia.getRango().getNombre());
 
 		for (int i = 0; i < 5; i++) {
 			policia.realizarArresto();
 		}
-		Assert.assertEquals("Sargento", policia.verRango.getRango);
+		Assert.assertEquals("Sargento", policia.getRango().getNombre());
 	}
 
 	@Test
 	public void policiaDeberiaTenerDeterminadaVelocidadAlAscenderDeRango() {
 
-		Assert.assertEquals(900, policia.verRango.getVelocidad.getKmPorHora);
+		Assert.assertEquals(900, policia.getRango().getVelocidad().getKmPorHora());
 
 		for (int i = 0; i < 5; i++) {
 			policia.realizarArresto();
 		}
-		Assert.assertEquals(1100, policia.verRango.getVelocidad.getKmPorHora);
+		Assert.assertEquals(1100, policia.getRango().getVelocidad().getKmPorHora());
 
 		for (int i = 0; i < 5; i++) {
 			policia.realizarArresto();
 		}
-		Assert.assertEquals(1300, policia.verRango.getVelocidad.getKmPorHora);
+		Assert.assertEquals(1300, policia.getRango().getVelocidad().getKmPorHora());
 
 		for (int i = 0; i < 5; i++) {
 			policia.realizarArresto();
 		}
-		Assert.assertEquals(1500, policia.verRango.getVelocidad.getKmPorHora);
+		Assert.assertEquals(1500, policia.getRango().getVelocidad().getKmPorHora());
 	}
 
 	@Test
 	public void policiaDeberiaCambiarDeLugarAlViajar() {
 
+		// TODO: que verDestinos() devuelva un arrayList de Ciudades
 		ArrayList listaDestinos = policia.verDestinos();
-		Ciudad ciudadObjetivo = listaDestinos[0];
+		Ciudad ciudadObjetivo = (Ciudad) listaDestinos.get(0);
 
 		policia.viajar(ciudadObjetivo);
 		Ciudad ciudadActual = policia.ciudadActual();
@@ -83,7 +86,7 @@ public class PoliciaTest {
 		Turno turno = policia.getTurno();
 		Locacion locacion = turno.getLocacion();
 		Ciudad ciudadActual = locacion.ciudadActual();
-		Local local = ciudadActual.getLocalFinanzas();
+		Local local = ciudadActual.getLocalFinanzas(); // ?
 
 		local.setearPista("Se fue a Kamchatka");
 

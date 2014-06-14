@@ -4,7 +4,7 @@ public class Rango {
 
 	private Valor valorObjetoBuscado;
 	private Velocidad velocidad;
-	private String rango;
+	private String nombre;
 
 	public Rango() {
 		// No se bien como es eso del enum
@@ -18,7 +18,7 @@ public class Rango {
 		return this.velocidad;
 	}
 
-	public String rango() {
-		return this.rango;
+	public String getNombre() {
+		return this.nombre;
 	}
 }

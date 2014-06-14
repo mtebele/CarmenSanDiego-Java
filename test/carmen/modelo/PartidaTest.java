@@ -1,5 +1,7 @@
 package carmen.modelo;
 
+import java.util.ArrayList;
+
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -10,12 +12,17 @@ import junit.framework.TestCase;
 
 public class PartidaTest {
 
+	private Policia policia;
+	private Partida partida;
+	private Ladron ladron;
+	private static int HORAS_TOTAL_JUEGO = 154;
+
 	@Before
 	public void setUp() {
-		// Despues hago de nuevo el setUp desde cero porque tenia metodos que ya
-		// borramos.
-		Policia unPolicia = new Policia();
-		Partida partida = new Partida(unPolicia);
+		// Despues hago de nuevo el setUp desde cero porque tenia metodos que ya borramos.
+		this.policia = new Policia();
+		this.partida = new Partida(policia);
+		this.ladron = new Ladron("nombre", "cabello", "senia", "vehiculo", "hobby", "sexo");
 	}
 
 	@Test
@@ -25,16 +32,15 @@ public class PartidaTest {
 		partida.emitirOrden(ladron);
 		partida.atraparLadron(ladronIncorrecto);
 
-		Assert.assertEquals(unPolicia.getCantArrestos(), 0);
+		Assert.assertEquals(policia.getCantidadArrestos(), 0);
 	}
 
 	@Test
-	public void partidaDeberiaPerserseSiSeAcabaTiempo() {
-		int HORAS_TOTAL_JUEGO = 154;
-
+	public void partidaDeberiaPerderseSiSeAcabaElTiempo() {
+		// TODO: metodo actualizar
 		partida.actualizar(HORAS_TOTAL_JUEGO);
 
-		Assert.assertEquals(unPolicia.getCantArrestos(), 0);
+		Assert.assertEquals(policia.getCantidadArrestos(), 0);
 	}
 
 	@Test
@@ -42,19 +48,18 @@ public class PartidaTest {
 		partida.emitirOrden(ladron);
 		partida.atraparLadron(ladron);
 
-		Assert.assertEquals(unPolicia.getCantArrestos(), 1);
+		Assert.assertEquals(policia.getCantidadArrestos(), 1);
 	}
 
 	@Test
 	public void viajarDeberiaConsumirTiempo() {
-		int HORAS_TOTAL_JUEGO = 154;
 
 		ArrayList listaDestinos = partida.verDestinos();
-		Ciudad ciudadObjetivo = listaDestinos[0];
+		Ciudad ciudadObjetivo = (Ciudad) listaDestinos.get(0);
 
 		partida.viajar(ciudadObjetivo);
 
-		Assert.assertTrue(partida.verTiempoRestante < HORAS_TOTAL_JUEGO);
+		Assert.assertTrue(partida.verTiempoRestante() < HORAS_TOTAL_JUEGO);
 
 	}
 
@@ -75,18 +80,16 @@ public class PartidaTest {
 	@Test
 	public void interrogarDeberiaConsumir2HorasSiLoVisitaste2Veces() {
 
-		int HORAS_TOTAL_JUEGO = 154;
-
 		Turno turno = partida.getTurno();
-		Locacion locacion = turno.getLocacion();
+		Locacion locacion = turno.getLocacion(); // Es correcto?
 		Ciudad ciudadActual = locacion.ciudadActual();
-		Local local = ciudadActual.getLocalFinanzas();
+		Local local = ciudadActual.getLocalFinanzas(); // Es correcto?
 
 		partida.interrogar(local);
 		partida.interrogar(local);
 		Assert.assertEquals(2, local.vecesVisitado());
 
-		Assert.assertEquals(partida.verTiempoRestante, (HORAS_TOTAL_JUEGO - 2));
+		Assert.assertEquals(partida.verTiempoRestante(), (HORAS_TOTAL_JUEGO - 2));
 
 	}
 }

@@ -22,8 +22,7 @@ public class Ciudad {
 
 	public int cantidadLocales() {
 		/*
-		 * no se me ocurrio como validar que meti locales sin usar mocks, si es
-		 * muy cabeza me avisan y lo cambio
+		 * no se me ocurrio como validar que meti locales sin usar mocks, si es muy cabeza me avisan y lo cambio
 		 */
 		// Para mi esta bien hacerlo todo manual sin hacer mocks, se nos
 		// facilita la tarea

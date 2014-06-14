@@ -9,8 +9,19 @@ public class Policia {
 	private Turno turno;
 	private int cantDeArrestos;
 
+	// TODO: definir constructor
+	public Policia() {
+		this.rango = new Rango();
+		this.turno = new Turno(new Locacion(new Mapa(), new Ciudad(new Coordenada(0, 0))));
+		this.cantDeArrestos = 0;
+	}
+
 	public void realizarArresto() {
-		this.cantDeArrestos += cantDeArrestos;
+		this.cantDeArrestos++;
+	}
+
+	public int getCantidadArrestos() {
+		return this.cantDeArrestos;
 	}
 
 	public void ascender() {
@@ -22,19 +33,17 @@ public class Policia {
 	public void viajar(Ciudad destino) {
 		Velocidad velocidad = this.rango.getVelocidad();
 		this.turno.viajar(destino, velocidad);
-
 	}
 
 	public void interrogar(Local local) {
 		this.turno.interrogar(local);
-
 	}
 
 	public Ciudad ciudadActual() {
 		return this.turno.ciudadActual();
 	}
 
-	public ArrayList verDestinos() {
+	public ArrayList verDestinos() { // TODO: parametrizar el ArrayList
 		// return this.turno.getDestinos(); // getDestinos() pertenece a Turno?
 		return null;
 	}
@@ -45,5 +54,13 @@ public class Policia {
 
 	public void setearRango(Rango rango) {
 		this.rango = rango;
+	}
+
+	public Rango getRango() {
+		return this.rango;
+	}
+
+	public Turno getTurno() {
+		return this.turno;
 	}
 }
