@@ -41,4 +41,8 @@ public class Turno {
 	public int getHorasRestantes() {
 		return 0;
 	}
+	
+	public Locacion getLocacion() {
+		return this.locacion;
+	}
 }

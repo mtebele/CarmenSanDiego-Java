@@ -64,4 +64,8 @@ public class Partida {
 	public void setearTurno(Turno turno) {
 		this.turno = turno;
 	}
+
+	public Turno getTurno() {
+		return this.turno;
+	}
 }

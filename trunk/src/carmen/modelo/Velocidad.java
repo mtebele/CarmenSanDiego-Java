@@ -14,4 +14,8 @@ public class Velocidad {
 	public void setearKmPorHora(int kmPorHora) {
 		this.kmPorHora = kmPorHora;
 	}
+
+	public int getKmPorHora() {
+		return this.kmPorHora;
+	}
 }
