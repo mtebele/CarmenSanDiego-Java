@@ -1,5 +1,8 @@
 package carmen.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Policia {
 
 	private Rango rango;
@@ -12,11 +15,11 @@ public class Policia {
     
     public void ascender() {
     	//No se bien como es eso al final del enum.
-    	rango.ascender() // ??? estoy tirandole la bocha a otro jajaja.
+    	rango.ascender(); // ??? estoy tirandole la bocha a otro jajaja.
     }
     
     public void viajar(Ciudad destino) {
-    	velocidad = this.rango.getVelocidad();
+    	Velocidad velocidad = this.rango.getVelocidad();
     	this.turno.viajar(destino, velocidad);
     	
     }

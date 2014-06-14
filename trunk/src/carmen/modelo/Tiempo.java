@@ -13,35 +13,28 @@ public class Tiempo {
 
 	public Tiempo() {
 		this.horasRestantes = 154;
-		this.horasDelDia = new ArrayList<Integer>();
-		for (int i=0; i<24; i++) {
-			this.horasDelDia.add(i);
-		}
-		this.horaActual = this.horasDelDia.get(10);
-		this.iterador = this.horasDelDia.iterator();
+		this.horaActual = 7;
 	}
 	
-	public void transcurrirHora() {
-		this.horasRestantes -= 1;
+	public void transcurrirHoras(int horas) {
+		this.horasRestantes -= horas;
 		
-		if (this.iterador.hasNext()) {
-			this.horaActual = this.iterador.next();
+		if ( (this.horaActual + horas) < 24) {
+			this.horaActual += horas;
 		} else {
-			this.horaActual = this.horasDelDia.get(0);
-			this.iterador = this.horasDelDia.iterator();    //Creo un iterador para el nuevo dia.
+			this.horaActual = horas - (24 - this.horaActual);
 		}
-		
-		
-		if ( this.horaActual < 6 || this.horaActual > 22 ) {	//Hardcodeo, si es muy tarde duerme.
+
+		int horaMinimaParaDormir = 22;
+		int horaMaximaParaDormir = 6;
+		if ( this.horaActual < horaMaximaParaDormir || this.horaActual > horaMinimaParaDormir ) {
 			this.pasarLaNoche();
 		}
 	}
 	
 	private void pasarLaNoche() {
 		int horasDeSueño = 8;
-		for (int i=0; i<horasDeSueño; i++) {
-			transcurrirHora();
-		}
+		transcurrirHoras(horasDeSueño);
 	}
 	
 	public int horaActual() {
