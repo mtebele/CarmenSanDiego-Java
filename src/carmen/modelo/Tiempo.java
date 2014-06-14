@@ -17,11 +17,8 @@ public class Tiempo {
 	public void transcurrirHoras(int horas) {
 		this.horasRestantes -= horas;
 		
-		if ( (this.horaActual + horas) < 24) {
-			this.horaActual += horas;
-		} else {
-			this.horaActual = horas - (24 - this.horaActual);
-		}
+		int nuevaHoraActual = (this.horaActual + horas)%24;
+		this.horaActual = nuevaHoraActual;
 
 		int horaMinimaParaDormir = 22;
 		int horaMaximaParaDormir = 6;
@@ -31,8 +28,12 @@ public class Tiempo {
 	}
 	
 	private void pasarLaNoche() {
-		int horasDeSueño = 8;
-		transcurrirHoras(horasDeSueño);
+		int horasDeSuenio = 8;
+		transcurrirHoras(horasDeSuenio);
+	}
+	
+	public boolean quedaTiempo(){
+		return (this.horasRestantes > 0);
 	}
 	
 	public int horaActual() {
