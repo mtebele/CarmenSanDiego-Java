@@ -6,14 +6,14 @@ public class Turno {
 
 	private Tiempo tiempo;
 	private Locacion locacion;
-	private ArrayList<Atacable> listaAtacables;
+	private ArrayList<IAtacable> listaAtacables;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
 	}
 
 	public void actualizar(int horas) {
-		this.tiempo.transcurrir(horas);
+		this.tiempo.transcurrirHoras(horas);
 	}
 
 	public void viajar(Ciudad destino, Velocidad velocidad) {

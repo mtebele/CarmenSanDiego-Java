@@ -8,11 +8,11 @@ public class ObjetoRobado {
 	public ObjetoRobado(Ciudad ciudad) {
 		ciudadOrigen = ciudad;
 	}
-	
+
 	public Valor getValor() {
 		return valor;
 	}
-	
+
 	public void setearValor(Valor valor) {
 		this.valor = valor;
 	}
