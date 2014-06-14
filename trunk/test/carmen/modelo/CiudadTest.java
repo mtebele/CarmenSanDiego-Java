@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CiudadTest extends TestCase{
+public class CiudadTest extends TestCase {
 	private Ciudad ciudad;
 	private Local local1;
 	private Local local2;
@@ -15,7 +15,7 @@ public class CiudadTest extends TestCase{
 
 	@Before
 	public void setUp() throws Exception {
-		Coordenada unaUbicacion = new Coordenada(1,2); 
+		Coordenada unaUbicacion = new Coordenada(1, 2);
 		this.ciudad = new Ciudad(unaUbicacion);
 		this.local1 = new Local();
 		this.local1.setearPista(PISTA_1);
@@ -24,18 +24,18 @@ public class CiudadTest extends TestCase{
 	}
 
 	@Test
-	public void testCiudadSeCreaOK() throws Exception{
+	public void testCiudadSeCreaOK() throws Exception {
 		this.setUp();
 		assertNotNull(this.ciudad);
 	}
-	
+
 	@Test
-	public void testCiudadAgregaUnLocal() throws Exception{
+	public void testCiudadAgregaUnLocal() throws Exception {
 		this.setUp();
 		this.ciudad.setearLocal(this.local1);
-		assertEquals(this.ciudad.cantidadLocales(),1);
+		assertEquals(this.ciudad.cantidadLocales(), 1);
 		this.ciudad.setearLocal(this.local2);
-		assertEquals(this.ciudad.cantidadLocales(),2);
+		assertEquals(this.ciudad.cantidadLocales(), 2);
 	}
 
 }

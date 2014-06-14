@@ -10,8 +10,8 @@ public class Ladron {
 	private String sexo;
 	private Ciudad ciudadActual;
 	private ObjetoRobado objeto;
-	private ItinerarioDeLadron itinerario;
-	
+	private Itinerario itinerario;
+
 	public Ladron(String nombre, String cabello, String senia, String vehiculo, String hobby, String sexo) {
 		this.nombre = nombre;
 		this.cabello = cabello;
@@ -19,36 +19,36 @@ public class Ladron {
 		this.vehiculo = vehiculo;
 		this.hobby = hobby;
 		this.sexo = sexo;
-	} 
-	
+	}
+
 	public Ciudad ciudadActual() {
 		return this.ciudadActual;
 	}
-	
-    public boolean escapar() {
-    	int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-    	if ( this.itinerario.ciudadNro(cantDeEscapes).equals(this.ciudadActual) ) {
-    		return false;
-    	}
-    	
-    	int posActual = this.itinerario.ciudades().indexOf(ciudadActual);
-    	this.ciudadActual = this.itinerario.ciudadNro(posActual + 1);
-    	return true;
-    }
-    
-    public void robarObjeto(ObjetoRobado objeto) {
-    	this.objeto = objeto;
-    }
-    
-    public void planearEscape() {
-    	this.itinerario = new ItinerarioDeLadron();
-    }
-    
-    public boolean hizoUltimoEscape() {
-    	int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-    	if ( this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes)) ) {
-    		return true;
-    	}
-    	return false;
-    }
+
+	public boolean escapar() {
+		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
+		if (this.itinerario.ciudadNro(cantDeEscapes).equals(this.ciudadActual)) {
+			return false;
+		}
+
+		int posActual = this.itinerario.ciudades().indexOf(ciudadActual);
+		this.ciudadActual = this.itinerario.ciudadNro(posActual + 1);
+		return true;
+	}
+
+	public void robarObjeto(ObjetoRobado objeto) {
+		this.objeto = objeto;
+	}
+
+	public void planearEscape() {
+		this.itinerario = new Itinerario();
+	}
+
+	public boolean hizoUltimoEscape() {
+		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
+		if (this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes))) {
+			return true;
+		}
+		return false;
+	}
 }
