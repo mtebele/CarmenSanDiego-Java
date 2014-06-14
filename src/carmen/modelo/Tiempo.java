@@ -7,9 +7,7 @@ import java.util.Iterator;
 public class Tiempo {
 
 	private int horasRestantes;
-	private List<Integer> horasDelDia;
 	private int horaActual;
-	private Iterator<Integer> iterador;
 
 	public Tiempo() {
 		this.horasRestantes = 154;
