@@ -43,8 +43,7 @@ public class TiempoTest {
 	public void deberiaPasarLaNocheSiendoLas23hs() {
 		this.setUp();
 		
-			this.tiempo.transcurrirHoras(16); // Se hacen las 23, tiene que dormir 8 horas.
-		
+		this.tiempo.transcurrirHoras(16); // Se hacen las 23, tiene que dormir 8 horas.
 		Assert.assertEquals(7, this.tiempo.horaActual());
 		Assert.assertEquals(130, this.tiempo.horasRestantes());
 	}
@@ -53,9 +52,28 @@ public class TiempoTest {
 	public void noDeberiaPasarLaNocheSiendoLas22hs() {
 		this.setUp();
 		
-			this.tiempo.transcurrirHoras(15);
-		
+		this.tiempo.transcurrirHoras(15);
 		Assert.assertEquals(22, this.tiempo.horaActual());
+	}
+	
+	@Test
+	public void deberiaNoQuedarTiempoSiPasaronTodasLasHoras() {
+		this.setUp();
+		
+		this.tiempo.transcurrirHoras(154);
+		Assert.assertEquals(false, this.tiempo.quedaTiempo());
+		Assert.assertEquals(17, this.tiempo.horaActual());
+		Assert.assertEquals(0, this.tiempo.horasRestantes());
+	}
+	
+	@Test
+	public void deberiaQuedarTiempoSiNoPasaronTodasLasHoras() {
+		this.setUp();
+		
+		this.tiempo.transcurrirHoras(153);
+		Assert.assertEquals(1, this.tiempo.horasRestantes());
+		Assert.assertEquals(16, this.tiempo.horaActual());
+		Assert.assertEquals(true, this.tiempo.quedaTiempo());
 	}
 	
 }

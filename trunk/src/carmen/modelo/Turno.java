@@ -22,8 +22,9 @@ public class Turno {
 		
 	}
 	
-	public boolean finalizoTiempo(){
-		return false;
+	public boolean quedaTiempo(){
+		// le cambio el nombre al metodo porque quedaba confuso. Devuelve true si queda tiempo.
+		return this.tiempo.quedaTiempo();
 	}
 	
 	public Ciudad ciudadActual(){
