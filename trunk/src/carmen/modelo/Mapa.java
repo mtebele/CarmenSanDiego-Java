@@ -14,7 +14,7 @@ public class Mapa {
 
 	}
 
-	public void setearCiudad(Ciudad ciudad) {
+	public void agregarCiudad(Ciudad ciudad) {
 		this.ciudades.add(ciudad);
 	}
 

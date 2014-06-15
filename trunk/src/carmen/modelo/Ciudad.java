@@ -1,6 +1,7 @@
 package carmen.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ciudad {
 
@@ -16,8 +17,12 @@ public class Ciudad {
 		return local.responder();
 	}
 
-	public void setearLocal(Local local) {
+	public void agregarLocal(Local local) {
 		this.locales.add(local);
+	}
+	
+	public List<Local> getLocales() {
+		return this.locales;
 	}
 
 	public int cantidadLocales() {
