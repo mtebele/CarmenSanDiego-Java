@@ -3,6 +3,7 @@ import  java.lang.Math;
 
 
 public class Coordenada {
+	static final double RADIOTERRESTRE = 6371;
 	// hay que determinar la unidad de posicion que usamos.
 	private float longitud;
 	private float latitud;
@@ -29,10 +30,17 @@ public class Coordenada {
 	}
 
 	int distanciaAOtraCoordenada(Coordenada otraCoord) {
-		// Calculo que dijo Lucas va acá que ni conozco.
-		int resultado = (int) Math.pow (this.getLongitud() - otraCoord.getLongitud(),2) + (int) Math.pow (this.getLatitud() - otraCoord.getLatitud(),2) ; 
-		resultado= (int) Math.sqrt(resultado);
-		return resultado;
+		
+		double deltaLatitud = this.getLatitud() - otraCoord.getLatitud();
+		deltaLatitud= Math.toRadians(deltaLatitud);
+		double deltaLongitud= this.getLongitud()- otraCoord.getLongitud();
+		deltaLongitud = Math.toRadians(deltaLongitud);
+		double senolat=(deltaLatitud / 2);
+		double senolong= (deltaLongitud/2);
+		double raiz= (senolat*senolat) + Math.cos(this.getLatitud()) * Math.cos(otraCoord.getLatitud())*senolong*senolong;
+		double resultado= 2 * Math.asin (Math.min(1.0, Math.sqrt(raiz)));
+		resultado= resultado * RADIOTERRESTRE;
+		return (int) resultado;
 	}
 
 	// la formula es esa, estoy casteando a int porque devuelven un double esos operandos, no creo que haya problema en la conversion
