@@ -1,14 +1,14 @@
 package carmen.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Locacion {
 
 	private Mapa mapa;
 	private Ladron ladron;
 	private Ciudad ciudadActual;
-	private ArrayList<Ciudad> ciudadesDestino;
+	private List<Ciudad> ciudadesDestino;
 
 	public Locacion(Mapa mapa, Ciudad ciudadActual, Ladron ladron) {
 		this.mapa = mapa;
@@ -41,7 +41,7 @@ public class Locacion {
 	}
 
 	public boolean estaLadron() {
-
+		return ( this.ladron.ciudadActual().equals(this.ciudadActual) );
 	}
 	
 	public List<Local> getLocales() {
@@ -52,6 +52,4 @@ public class Locacion {
 		return this.ciudadesDestino;
 	}
 	
-}
-
 }

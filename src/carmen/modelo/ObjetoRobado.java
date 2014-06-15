@@ -21,5 +21,4 @@ public class ObjetoRobado {
 	public Ciudad ciudadOrigen() {
 		return this.ciudadOrigen;
 	}
-	
 }

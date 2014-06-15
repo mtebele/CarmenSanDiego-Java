@@ -12,11 +12,12 @@ public class Policia {
 	// TODO: definir constructor
 	public Policia() {
 		this.rango = new Rango();
-		this.turno = new Turno(new Locacion(new Mapa(), new Ciudad(new Coordenada(0, 0))));
+		this.turno = new Turno(new Locacion(new Mapa(), new Ciudad(new Coordenada(0, 0)))); // Esto esta bien?
 		this.cantDeArrestos = 0;
 	}
 
 	public void realizarArresto() {
+		// Este metodo hace esto?? A mi entender se fija si el ladron de la Orden es el mismo que el de la Partida.
 		this.cantDeArrestos++;
 	}
 

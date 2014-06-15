@@ -13,6 +13,7 @@ public class Partida {
 	public Partida(Policia policia) {
 		this.policia = policia;
 		this.orden = new OrdenDeArresto();
+		// Todas las demas cosas como las recibe? por parametro el constructor o como?
 	}
 
 	public void emitirOrden(Ladron ladron) {
