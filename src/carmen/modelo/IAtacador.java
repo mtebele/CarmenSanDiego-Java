@@ -1,6 +1,6 @@
 package carmen.modelo;
 
-interface IAtacable {
+interface IAtacador {
 
 	int ejecutarAtaque();
 
