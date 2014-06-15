@@ -6,14 +6,20 @@ public class ObjetoRobado {
 	private Ciudad ciudadOrigen;
 
 	public ObjetoRobado(Ciudad ciudad) {
-		ciudadOrigen = ciudad;
+		this.ciudadOrigen = ciudad;
+		this.valor = null;
 	}
 
 	public Valor getValor() {
-		return valor;
+		return this.valor;
 	}
 
 	public void setearValor(Valor valor) {
 		this.valor = valor;
 	}
+	
+	public Ciudad ciudadOrigen() {
+		return this.ciudadOrigen;
+	}
+	
 }

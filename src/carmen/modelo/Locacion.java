@@ -1,6 +1,7 @@
 package carmen.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Locacion {
 
@@ -9,18 +10,19 @@ public class Locacion {
 	private Ciudad ciudadActual;
 	private ArrayList<Ciudad> ciudadesDestino;
 
-	public Locacion(Mapa mapa, Ciudad ciudadActual) {
+	public Locacion(Mapa mapa, Ciudad ciudadActual, Ladron ladron) {
 		this.mapa = mapa;
-		this.ladron = null; // arranca en null, si el ladron viene aca se lo
-							// setea.
+		this.ladron = ladron;
+		//this.ladron = null; // arranca en null, si el ladron viene aca se lo
+							// setea. 
+							// OJO. ladron no esta para eso. esta para tener referencia al pais
+							// actual de ladron y su proximo.
+							// Ladron deberia ser pasado por parametro. Sino Locacion no tiene sentido.
+							
 		this.ciudadActual = ciudadActual;
 		this.ciudadesDestino = new ArrayList<Ciudad>();
 	}
 
-	public int dormir(Ciudad ciudad) {
-		// no seria responsabilidad de otro objeto?
-		return 0;
-	}
 
 	public void generarNuevosDestinos() {
 
@@ -39,10 +41,13 @@ public class Locacion {
 	}
 
 	public boolean estaLadron() {
-		return (this.ladron != null);
-	}
 
-	public void setearLadron(Ladron ladron) {
-		this.ladron = ladron;
 	}
+	
+	public List<Local> getLocales() {
+		return this.ciudadActual.getLocales();
+	}
+	
+}
+
 }

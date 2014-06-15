@@ -1,15 +1,17 @@
 package carmen.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Turno {
 
 	private Tiempo tiempo;
 	private Locacion locacion;
-	private ArrayList<IAtacable> listaAtacables;
+	private List<IAtacable> listaAtacables;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
+		this.tiempo = new Tiempo();
 	}
 
 	public void actualizar(int horas) {
@@ -20,13 +22,11 @@ public class Turno {
 
 	}
 
-	public void interrogar(Local local) {
+	public String interrogar(Local local) {
 
 	}
 
 	public boolean quedaTiempo() {
-		// le cambio el nombre al metodo porque quedaba confuso. Devuelve true
-		// si queda tiempo.
 		return this.tiempo.quedaTiempo();
 	}
 
@@ -34,15 +34,16 @@ public class Turno {
 		return null;
 	}
 
-	public void setearLocacion(Locacion locacion) {
-		this.locacion = locacion;
-	}
-
 	public int getHorasRestantes() {
-		return 0;
+		
 	}
 	
-	public Locacion getLocacion() {
-		return this.locacion;
+	public List<Ciudad> getDestinos() {
+		return this.locacion.getDestinos();
 	}
+	
+	public List<Local> getLocales() {
+		return this.locacion.getLocales();
+	}
+	
 }

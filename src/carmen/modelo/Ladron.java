@@ -3,22 +3,26 @@ package carmen.modelo;
 public class Ladron {
 
 	private String nombre;
+	private String sexo;
 	private String cabello;
 	private String senia;
-	private String vehiculo;
 	private String hobby;
-	private String sexo;
+	private String vehiculo;
 	private Ciudad ciudadActual;
 	private ObjetoRobado objeto;
 	private Itinerario itinerario;
 
-	public Ladron(String nombre, String cabello, String senia, String vehiculo, String hobby, String sexo) {
+	public Ladron(String nombre, String sexo, String cabello, String senia, String hobby, String vehiculo) {
 		this.nombre = nombre;
 		this.cabello = cabello;
 		this.senia = senia;
 		this.vehiculo = vehiculo;
 		this.hobby = hobby;
 		this.sexo = sexo;
+		this.ciudadActual = null;
+		this.objeto = null;
+		
+		this.itinerario = new Itinerario();
 	}
 
 	public Ciudad ciudadActual() {
@@ -38,10 +42,13 @@ public class Ladron {
 
 	public void robarObjeto(ObjetoRobado objeto) {
 		this.objeto = objeto;
+		Ciudad ciudadActual = objeto.ciudadOrigen();
+		this.ciudadActual = ciudadActual;
 	}
 
-	public void planearEscape() {
-		this.itinerario = new Itinerario();
+	
+	public void planearNuevoDestino(Ciudad ciudad) {
+		this.itinerario.agregarAlRecorrido(ciudad);
 	}
 
 	public boolean hizoUltimoEscape() {
