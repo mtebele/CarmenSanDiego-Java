@@ -7,11 +7,16 @@ public class Turno {
 
 	private Tiempo tiempo;
 	private Locacion locacion;
-	private List<IAtacable> listaAtacables;
+	private List<IAtacador> atacadores;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
 		this.tiempo = new Tiempo();
+		IAtacador cuchillazo = new Cuchillazo();
+		IAtacador disparo = new Disparo();
+		this.atacadores = new ArrayList<IAtacador>();
+		this.atacadores.add(cuchillazo);
+		this.atacadores.add(disparo);
 	}
 
 	public void actualizar(int horas) {
@@ -31,11 +36,11 @@ public class Turno {
 	}
 
 	public Ciudad ciudadActual() {
-		return null;
+		
 	}
 
 	public int getHorasRestantes() {
-		
+		return this.tiempo.horasRestantes();
 	}
 	
 	public List<Ciudad> getDestinos() {

@@ -48,6 +48,10 @@ public class Locacion {
 		return this.ciudadActual.getLocales();
 	}
 	
+	public List<Ciudad> getDestinos() {
+		return this.ciudadesDestino;
+	}
+	
 }
 
 }

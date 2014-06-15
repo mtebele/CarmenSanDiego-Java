@@ -1,6 +1,6 @@
 package carmen.modelo;
 
-public class Disparo implements IAtacable {
+public class Disparo implements IAtacador {
 
 	public int ejecutarAtaque() {
 		// TODO: sacar nro magico
