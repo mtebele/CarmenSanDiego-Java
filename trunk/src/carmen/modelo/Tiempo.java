@@ -1,14 +1,16 @@
 package carmen.modelo;
 
-
 public class Tiempo {
 
 	private int horasRestantes;
 	private int horaActual;
 
 	public Tiempo() {
-		this.horasRestantes = 154;
-		this.horaActual = 7;
+		int horas_totales = 154;
+		int hora_de_inicio = 7;
+		
+		this.horasRestantes = horas_totales;
+		this.horaActual = hora_de_inicio;
 	}
 
 	public void transcurrirHoras(int horas) {
@@ -40,5 +42,4 @@ public class Tiempo {
 	public int horasRestantes() {
 		return this.horasRestantes;
 	}
-
 }

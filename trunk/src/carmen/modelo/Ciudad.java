@@ -1,12 +1,12 @@
 package carmen.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Ciudad {
 
-	private ArrayList<Local> locales;
-	private Coordenada ubicacion;
+	private List<Local> locales;
+	private Coordenada ubicacion; // VER: No se esta usando, se deberia mandar por parametro en algun metodo que no esta creo.
 
 	public Ciudad(Coordenada coordenadas) {
 		this.locales = new ArrayList<Local>();
@@ -26,12 +26,6 @@ public class Ciudad {
 	}
 
 	public int cantidadLocales() {
-		/*
-		 * no se me ocurrio como validar que meti locales sin usar mocks, si es muy cabeza me avisan y lo cambio
-		 */
-		// Para mi esta bien hacerlo todo manual sin hacer mocks, se nos
-		// facilita la tarea
-		// y de paso usamos ejemplos.
 		return this.locales.size();
 	}
 

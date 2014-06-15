@@ -32,9 +32,9 @@ public class CiudadTest extends TestCase {
 	@Test
 	public void testCiudadAgregaUnLocal() throws Exception {
 		this.setUp();
-		this.ciudad.setearLocal(this.local1);
+		this.ciudad.agregarLocal(this.local1);
 		assertEquals(this.ciudad.cantidadLocales(), 1);
-		this.ciudad.setearLocal(this.local2);
+		this.ciudad.agregarLocal(this.local2);
 		assertEquals(this.ciudad.cantidadLocales(), 2);
 	}
 

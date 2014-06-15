@@ -12,7 +12,6 @@ public class Velocidad {
 		return (distancia / this.kmPorHora);
 	}
 
-
 	public int getKmPorHora() {
 		return this.kmPorHora;
 	}
