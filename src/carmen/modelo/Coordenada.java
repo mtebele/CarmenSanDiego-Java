@@ -1,4 +1,6 @@
 package carmen.modelo;
+import  java.lang.Math;
+
 
 public class Coordenada {
 	// hay que determinar la unidad de posicion que usamos.
@@ -26,12 +28,13 @@ public class Coordenada {
 		this.latitud = latitud;
 	}
 
-	public float distanciaAOtraCoordenada(Coordenada otraCoord) {
+	int distanciaAOtraCoordenada(Coordenada otraCoord) {
 		// Calculo que dijo Lucas va acá que ni conozco.
-		return 0;
+		int resultado = (int) Math.pow (this.getLongitud() - otraCoord.getLongitud(),2) + (int) Math.pow (this.getLatitud() - otraCoord.getLatitud(),2) ; 
+		resultado= (int) Math.sqrt(resultado);
+		return resultado;
 	}
 
-	// estaria bueno que para hacer el cï¿½lculo del tiempo igual no se use
-	// float, sino int.
+	// la formula es esa, estoy casteando a int porque devuelven un double esos operandos, no creo que haya problema en la conversion
 	// Lucas: adhiero, que el tiempo se mida en horas.
 }
