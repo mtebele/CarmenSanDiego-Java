@@ -12,30 +12,48 @@ public class Locacion {
 
 	public Locacion(Mapa mapa, Ciudad ciudadActual, Ladron ladron) {
 		this.mapa = mapa;
-		this.ladron = ladron;
-		//this.ladron = null; // arranca en null, si el ladron viene aca se lo
-							// setea. 
-							// OJO. ladron no esta para eso. esta para tener referencia al pais
-							// actual de ladron y su proximo.
-							// Ladron deberia ser pasado por parametro. Sino Locacion no tiene sentido.
-							
+		this.ladron = ladron;							
 		this.ciudadActual = ciudadActual;
 		this.ciudadesDestino = new ArrayList<Ciudad>();
 	}
 
 
-	public void generarNuevosDestinos() {
+	private void generarNuevosDestinos() {
+		
+		this.ciudadesDestino.clear();
+		this.agregarDestino(this.ladron.ciudadActual());
+		
+		for (int i=0; i<3; i++) {
+			Ciudad destino = this.mapa.elegirCiudadAlAzar();
+			while ( this.ciudadesDestino.contains(destino) ) {
+				destino = this.mapa.elegirCiudadAlAzar();
+			}
+			this.agregarDestino(destino);
+		}
 
 	}
 	
 	public void viajar(Ciudad destino) {
 		
+		Ciudad partida = this.ciudadActual;
+		this.ciudadActual = destino;
+		
+		if ( this.estaLadron() ) {
+			this.ladron.escapar();
+			this.generarNuevosDestinos();
+		} else {
+			this.ciudadesDestino.remove(destino);
+			this.agregarDestino(partida);
+		}
+		
 	}
 
 	public String interrogar(Local local) {
-		this.ciudadActual.ingresar(local);
-		
-		//Falta fijarse si el ladron esta ahi o no.
+
+		if ( this.pasoLadronRecientemente() ) {
+			return local.responder();
+		}
+		return "Lo siento, nunca he visto a esa persona.";
 	}
 
 	public void agregarDestino(Ciudad destino) {
@@ -44,6 +62,10 @@ public class Locacion {
 
 	public Ciudad ciudadActual() {
 		return this.ciudadActual;
+	}
+
+	public boolean pasoLadronRecientemente() {
+		return ( this.ladron.ciudadAnterior().equals(this.ciudadActual) );
 	}
 
 	public boolean estaLadron() {

@@ -9,6 +9,8 @@ public class Turno {
 	private Tiempo tiempo;
 	private Locacion locacion;
 	private List<IAtacador> atacadores;
+	private int probabilidadDeCuchillazo;
+	private int probabilidadDeDisparo;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
@@ -18,6 +20,17 @@ public class Turno {
 		this.atacadores = new ArrayList<IAtacador>();
 		this.atacadores.add(cuchillazo);
 		this.atacadores.add(disparo);
+		
+		this.probabilidadDeCuchillazo = 10;
+		this.probabilidadDeDisparo = 5;
+	}
+	
+	public void setearProbabilidadCuchillazo(int porcentaje) {
+		this.probabilidadDeCuchillazo = porcentaje;
+	}
+	
+	public void setearProbabilidadDisparo(int porcentaje) {
+		this.probabilidadDeDisparo = porcentaje;
 	}
 
 	public void actualizar(int horas) {
@@ -47,7 +60,10 @@ public class Turno {
 		}
 		
 		int horasPerdidasPorCuchillazo = this.recibirCuchillazo();
-		int horasPerdidasPorDisparo = this.recibirDisparo();
+		int horasPerdidasPorDisparo = 0;
+		if (horasPerdidasPorCuchillazo == 0) {
+			horasPerdidasPorDisparo = this.recibirDisparo();
+		}
 		
 		this.actualizar(horasInterrogatorio + horasPerdidasPorCuchillazo + horasPerdidasPorDisparo);
 		
@@ -58,19 +74,20 @@ public class Turno {
 		return this.tiempo.quedaTiempo();
 	}
 	
-	public int recibirCuchillazo() {
+	
+	private int recibirCuchillazo() {
 		Random random = new Random();
 		int horasPerdidas = 0;
-		if ( random.nextInt(101) < 5 ) {
+		if ( random.nextInt(100) < this.probabilidadDeCuchillazo ) {
 				horasPerdidas = this.atacadores.get(0).ejecutarAtaque();
 			}
 		return horasPerdidas;
 	}
 	
-	public int recibirDisparo() {
+	private int recibirDisparo() {
 		Random random = new Random();
 		int horasPerdidas = 0;
-		if ( random.nextInt(101) < 2 ) {
+		if ( random.nextInt(100) < this.probabilidadDeDisparo ) {
 				horasPerdidas = this.atacadores.get(1).ejecutarAtaque();
 			}
 		return horasPerdidas;
