@@ -1,27 +1,16 @@
 package carmen.modelo;
 
 public class Ladron {
-
-	private String nombre;
-	private String sexo;
-	private String cabello;
-	private String senia;
-	private String hobby;
-	private String vehiculo;
+	private Perfil perfil;
 	private Ciudad ciudadActual;
 	private ObjetoRobado objeto;
 	private Itinerario itinerario;
 
-	public Ladron(String nombre, String sexo, String cabello, String senia, String hobby, String vehiculo) {
-		this.nombre = nombre;
-		this.cabello = cabello;
-		this.senia = senia;
-		this.vehiculo = vehiculo;
-		this.hobby = hobby;
-		this.sexo = sexo;
+	public Ladron(Perfil perfil) {
+		
+		this.perfil = perfil;
 		this.ciudadActual = null;
 		this.objeto = null;
-		
 		this.itinerario = new Itinerario();
 	}
 
@@ -33,7 +22,8 @@ public class Ladron {
 		return this.ciudadActual;
 	}
 
-	public boolean escapar() {
+	public boolean escapar() throws LadronNoHaRobadoException {
+		if (this.objeto == null) throw new LadronNoHaRobadoException("El ladron no robo ningun objeto");
 		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
 		if (this.itinerario.ciudadNro(cantDeEscapes).equals(this.ciudadActual)) {
 			return false;
@@ -60,6 +50,6 @@ public class Ladron {
 	
 	//Lo puse porque me hacía falta para un test
 	public String verNombre(){
-		return this.nombre;
+		return this.perfil.verNombre();
 	}
 }
