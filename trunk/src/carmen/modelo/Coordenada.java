@@ -3,44 +3,40 @@ import  java.lang.Math;
 
 
 public class Coordenada {
-	static final double RADIOTERRESTRE = 6371;
 	// hay que determinar la unidad de posicion que usamos.
-	private float longitud;
-	private float latitud;
+	private double longitud;
+	private double latitud;
+	static final double RADIOTERRESTRE= 6371;
 
-	public Coordenada(float longitud, float latitud) {
+	public Coordenada(double longitud, double latitud) {
 		this.longitud = longitud;
 		this.latitud = latitud;
 	}
 
-	private float getLongitud() {
+	double getLongitud() {
 		return longitud;
 	}
 
-	private void setLongitud(float longitud) {
-		this.longitud = longitud;
-	}
+	
 
-	private float getLatitud() {
+	
+	double getLatitud() {
 		return latitud;
 	}
 
-	private void setLatitud(float latitud) {
-		this.latitud = latitud;
-	}
 
-	int distanciaAOtraCoordenada(Coordenada otraCoord) {
-		
-		double deltaLatitud = this.getLatitud() - otraCoord.getLatitud();
-		deltaLatitud= Math.toRadians(deltaLatitud);
-		double deltaLongitud= this.getLongitud()- otraCoord.getLongitud();
-		deltaLongitud = Math.toRadians(deltaLongitud);
-		double senolat=(deltaLatitud / 2);
-		double senolong= (deltaLongitud/2);
-		double raiz= (senolat*senolat) + Math.cos(this.getLatitud()) * Math.cos(otraCoord.getLatitud())*senolong*senolong;
-		double resultado= 2 * Math.asin (Math.min(1.0, Math.sqrt(raiz)));
-		resultado= resultado * RADIOTERRESTRE;
-		return (int) resultado;
+
+	int distanciaAOtraCoordenada(Coordenada otraCoord) {  
+		double deltaLat = Math.toRadians(otraCoord.getLatitud()-this.getLatitud());  
+        double deltaLong = Math.toRadians(otraCoord.getLongitud() -this.getLongitud());  
+        double senodeltaLat = Math.sin(deltaLat / 2);  
+        double senodeltaLong = Math.sin(deltaLong / 2);  
+        double raiz = Math.pow(senodeltaLat, 2) + Math.pow(senodeltaLong, 2) * Math.cos(Math.toRadians(this.getLatitud())) * Math.cos(Math.toRadians(otraCoord.getLatitud()));  
+        double resul = 2 * Math.atan2(Math.sqrt(raiz), Math.sqrt(1 - raiz));  
+        double distancia = RADIOTERRESTRE * resul;  
+  
+        return (int) distancia;
+	
 	}
 
 	// la formula es esa, estoy casteando a int porque devuelven un double esos operandos, no creo que haya problema en la conversion
