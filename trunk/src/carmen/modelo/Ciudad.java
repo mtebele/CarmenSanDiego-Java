@@ -28,5 +28,13 @@ public class Ciudad {
 	public int cantidadLocales() {
 		return this.locales.size();
 	}
-
+	
+	public Coordenada getUbicacion() {
+		return this.ubicacion;
+	}
+	
+	public int distanciaAOtraCiudad(Ciudad otraCiudad) {
+		return ( this.getUbicacion().distanciaAOtraCoordenada(otraCiudad.getUbicacion()) );
+	}
+	
 }

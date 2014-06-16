@@ -2,14 +2,16 @@ package carmen.modelo;
 
 public class Cuchillazo implements IAtacador {
 
-	private int vecesRecibido;
+	private int vecesEjecutado;
 
 	public int ejecutarAtaque() {
 		int horasPerdidas = 2;
-		if (vecesRecibido == 0) {
+		if (this.vecesEjecutado == 0) {
 			horasPerdidas = 1;
-			vecesRecibido++;
+			this.vecesEjecutado++;
 		}
 		return horasPerdidas;
 	}
+	
+	
 }
