@@ -27,9 +27,15 @@ public class Locacion {
 	public void generarNuevosDestinos() {
 
 	}
+	
+	public void viajar(Ciudad destino) {
+		
+	}
 
-	public void interrogar(Local local) {
+	public String interrogar(Local local) {
 		this.ciudadActual.ingresar(local);
+		
+		//Falta fijarse si el ladron esta ahi o no.
 	}
 
 	public void agregarDestino(Ciudad destino) {
