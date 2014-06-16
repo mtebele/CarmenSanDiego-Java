@@ -6,15 +6,24 @@ import org.junit.Test;
 
 
 public class LadronTest {
+	private Ladron ladron;
 	
 	@Before
 	public void setUp() throws Exception {
-		
+		ladron = new Ladron("Bernard Madoff", "Masculino", "Negro", "Cicatriz", "Alpinismo", "Limusina");
 	}
 
 	@Test
-	public void testLadronSeCreaOK() {
-		fail("Not yet implemented");
+	public void testLadronSeCreaOK() throws Exception {
+		this.setUp();
+		assertNotNull(this.ladron);
 	}
+
+	@Test
+	public void testLadronSeCreaSinItinerario() throws Exception {
+		this.setUp();
+		assertNull(this.ladron.ciudadActual());
+	}
+	
 
 }
