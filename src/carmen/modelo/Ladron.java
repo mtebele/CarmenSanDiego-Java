@@ -3,6 +3,7 @@ package carmen.modelo;
 public class Ladron {
 	private Perfil perfil;
 	private Ciudad ciudadActual;
+	private Ciudad ciudadAnterior;
 	private ObjetoRobado objeto;
 	private Itinerario itinerario;
 
@@ -10,6 +11,7 @@ public class Ladron {
 		
 		this.perfil = perfil;
 		this.ciudadActual = null;
+		this.ciudadAnterior = null;
 		this.objeto = null;
 		this.itinerario = new Itinerario();
 	}
@@ -21,6 +23,10 @@ public class Ladron {
 	public Ciudad ciudadActual() {
 		return this.ciudadActual;
 	}
+	
+	public Ciudad ciudadAnterior() {
+		return this.ciudadAnterior;
+	}
 
 	public boolean escapar() throws LadronNoHaRobadoException {
 		if (this.objeto == null) throw new LadronNoHaRobadoException("El ladron no robo ningun objeto");
@@ -29,7 +35,8 @@ public class Ladron {
 			return false;
 		}
 
-		int posActual = this.itinerario.ciudades().indexOf(ciudadActual);
+		int posActual = this.itinerario.ciudades().indexOf(this.ciudadActual);
+		this.ciudadAnterior = this.ciudadActual;
 		this.ciudadActual = this.itinerario.ciudadNro(posActual + 1);
 		return true;
 	}

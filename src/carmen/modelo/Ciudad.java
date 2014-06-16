@@ -13,10 +13,6 @@ public class Ciudad {
 		this.ubicacion = coordenadas;
 	}
 
-	public String ingresar(Local local) {
-		return local.responder();
-	}
-
 	public void agregarLocal(Local local) {
 		this.locales.add(local);
 	}
@@ -36,5 +32,33 @@ public class Ciudad {
 	public int distanciaAOtraCiudad(Ciudad otraCiudad) {
 		return ( this.getUbicacion().distanciaAOtraCoordenada(otraCiudad.getUbicacion()) );
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ubicacion == null) ? 0 : ubicacion.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ciudad other = (Ciudad) obj;
+		
+		if (ubicacion == null) {
+			if (other.ubicacion != null)
+				return false;
+		} else if (!ubicacion.equals(other.ubicacion))
+			return false;
+		return true;
+	}
+	
+	
 	
 }

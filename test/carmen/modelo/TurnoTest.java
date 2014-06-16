@@ -82,6 +82,7 @@ public class TurnoTest {
 		Assert.assertEquals(this.HORAS_TOTAL_JUEGO - 3, this.turno.getHorasRestantes());
 	}
 
+
 	@Test
 	public void deberiaSaberseSiSeAcaboElTiempo() {
 		this.setUp();
@@ -155,6 +156,39 @@ public class TurnoTest {
 		
 	}
 	
+	@Test
+	public void deberiaPerderse1HoraAlSerAcuchilladoPorPrimeraVez() {
+		this.setUp();
+		
+		this.turno.setearProbabilidadCuchillazo(100);
+		
+		Local local0 = this.turno.getLocales().get(0);
+		this.turno.interrogar(local0);
+		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1 - 1), this.turno.getHorasRestantes());
+	}
+	
+	@Test
+	public void deberianPerderse2HorasAlSerAcuchilladoPorSegundaVez() {
+		this.setUp();
+		
+		this.turno.setearProbabilidadCuchillazo(100);
+		
+		Local local0 = this.turno.getLocales().get(0);
+		this.turno.interrogar(local0);
+		this.turno.interrogar(local0);
+		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 2 - 2), this.turno.getHorasRestantes());
+	}
+	
+	@Test
+	public void deberianPerderse4HorasAlRecibirDisparo() {
+		this.setUp();
+		
+		this.turno.setearProbabilidadDisparo(100);
+		
+		Local local0 = this.turno.getLocales().get(0);
+		this.turno.interrogar(local0);
+		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1 - 4), this.turno.getHorasRestantes());
+	}
 	
 	
 }
