@@ -1,6 +1,22 @@
 package carmen.modelo;
 
-public class Valor {
+public enum Valor{
+	//El enum valor contiene la cantidad de ciudades de escape
+	COMUN (4),
+	VALIOSO (5),
+	MUY_VALIOSO (7);
+	
+	private final int cantidadCiudadesEscape;
+	
+	Valor(int cantidadCiudadesEscape){
+		this.cantidadCiudadesEscape = cantidadCiudadesEscape;
+	}
+	
+	public int getCantidadDeEscapes(){
+		return this.cantidadCiudadesEscape;
+	}
+}
+/*public class Valor {
 
 	private String valor;
 	private int cantCiudadesDeEscape;
@@ -17,4 +33,4 @@ public class Valor {
 	public String getValor() {
 		return this.valor;
 	}
-}
+}*/

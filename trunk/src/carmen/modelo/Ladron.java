@@ -25,6 +25,10 @@ public class Ladron {
 		this.itinerario = new Itinerario();
 	}
 
+	public void planearNuevoDestino(Ciudad ciudad) {
+		this.itinerario.agregarAlRecorrido(ciudad);
+	}
+	
 	public Ciudad ciudadActual() {
 		return this.ciudadActual;
 	}
@@ -44,11 +48,6 @@ public class Ladron {
 		this.objeto = objeto;
 		Ciudad ciudadActual = objeto.ciudadOrigen();
 		this.ciudadActual = ciudadActual;
-	}
-
-	
-	public void planearNuevoDestino(Ciudad ciudad) {
-		this.itinerario.agregarAlRecorrido(ciudad);
 	}
 
 	public boolean hizoUltimoEscape() {
