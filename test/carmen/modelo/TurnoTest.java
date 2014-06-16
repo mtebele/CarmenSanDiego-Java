@@ -50,13 +50,8 @@ public class TurnoTest {
 		ObjetoRobado objeto = new ObjetoRobado(ciudad0);
 		
 		//Creo Ladron
-		String nombre = "Carmen SanDiego";
-		String sexo = "Femenino";
-		String cabello = "Rojo";
-		String senia = "Anillo";
-		String hobby = "Alpinismo";
-		String vehiculo = "Limusina";
-		Ladron ladron = new Ladron(nombre, sexo, cabello, senia, hobby, vehiculo);
+		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
+		Ladron ladron= new Ladron(perfil);
 		ladron.robarObjeto(objeto);
 		ladron.planearNuevoDestino(ciudad1);
 		
