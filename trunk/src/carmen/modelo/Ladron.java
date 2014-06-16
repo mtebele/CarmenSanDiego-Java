@@ -58,4 +58,9 @@ public class Ladron {
 		}
 		return false;
 	}
+	
+	//Lo puse porque me hacía falta para un test
+	public String verNombre(){
+		return this.nombre;
+	}
 }
