@@ -7,10 +7,12 @@ import org.junit.Test;
 
 public class LadronTest {
 	private Ladron ladron;
+	private Perfil perfil1;
 	
 	@Before
 	public void setUp() throws Exception {
-		ladron = new Ladron("Bernard Madoff", "Masculino", "Negro", "Cicatriz", "Alpinismo", "Limusina");
+		perfil1 = new Perfil("Pepe", Sexo.MASCULINO, Cabello.CASTANIO, Senia.JOYAS, Vehiculo.MOTO, Hobby.MUSICA);
+		ladron = new Ladron(perfil1);
 	}
 
 	@Test
@@ -25,5 +27,16 @@ public class LadronTest {
 		assertNull(this.ladron.ciudadActual());
 	}
 	
+	@Test
+	public void testLadronNoPuedeEscaparSinRobar() throws Exception {
+		this.setUp();
+		boolean pudoEscapar = false;
+		try{
+			pudoEscapar = this.ladron.escapar();
+		} catch (LadronNoHaRobadoException exc){
+			pudoEscapar = false;
+		}
+		assertFalse(pudoEscapar);
+	}
 
 }
