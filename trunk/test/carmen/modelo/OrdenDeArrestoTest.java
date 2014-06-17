@@ -11,13 +11,14 @@ public class OrdenDeArrestoTest {
 	private Ladron ladron2;
 	private Perfil perfil1;
 	private Perfil perfil2;
+
 	@Before
 	public void setUp() throws NullPointerException{
 		this.orden = new OrdenDeArresto();
-		this.perfil1= new Perfil("Jesse James",Sexo.MASCULINO,Cabello.RUBIO,Senia.TATUAJE,Vehiculo.LIMUSINA,Hobby.TENIS);
+		this.perfil1 = new Perfil("Jesse James",Sexo.MASCULINO,Cabello.RUBIO,Senia.TATUAJE,Vehiculo.LIMUSINA,Hobby.MUSICA);
+		this.perfil2 = new Perfil("Grondona",Sexo.MASCULINO,Cabello.NEGRO,Senia.JOYAS,Vehiculo.DEPORTIVO,Hobby.PARACAIDISMO);
 		this.ladron1 = new Ladron(perfil1);
-		this.perfil2= new Perfil ("Grondona",Sexo.MASCULINO,Cabello.NEGRO,Senia.JOYAS,Vehiculo.DESCAPOTABLE,Hobby.MUSICA);
-		this.ladron2= new Ladron(perfil2);
+		this.ladron2 = new Ladron(perfil2);
 	}
 	
 	@Test
@@ -54,7 +55,6 @@ public class OrdenDeArrestoTest {
 		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
 		this.orden.emitirOrden(this.ladron2);
 		assertEquals(this.orden.verLadron().verNombre(),"Grondona");
-
 	}
 	
 	@Test

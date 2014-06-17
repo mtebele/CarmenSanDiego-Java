@@ -39,7 +39,12 @@ public class Locacion {
 		this.ciudadActual = destino;
 		
 		if ( this.estaLadron() ) {
-			this.ladron.escapar();
+			try {
+				this.ladron.escapar();
+			} catch (LadronNoHaRobadoException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
 			this.generarNuevosDestinos();
 		} else {
 			this.ciudadesDestino.remove(destino);
