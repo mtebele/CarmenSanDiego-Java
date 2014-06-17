@@ -30,11 +30,7 @@ public class Ladron {
 
 	public boolean escapar() throws LadronNoHaRobadoException {
 		if (this.objeto == null) throw new LadronNoHaRobadoException("El ladron no robo ningun objeto");
-		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-		if (this.itinerario.ciudadNro(cantDeEscapes).equals(this.ciudadActual)) {
-			return false;
-		}
-
+		if (this.hizoUltimoEscape()) return false;
 		int posActual = this.itinerario.ciudades().indexOf(this.ciudadActual);
 		this.ciudadAnterior = this.ciudadActual;
 		this.ciudadActual = this.itinerario.ciudadNro(posActual + 1);
@@ -49,13 +45,10 @@ public class Ladron {
 
 	public boolean hizoUltimoEscape() {
 		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-		if (this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes))) {
-			return true;
-		}
-		return false;
+		return this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes));
 	}
 	
-	//Lo puse porque me hacía falta para un test
+	//Lo puse porque me hacï¿½a falta para un test
 	public String verNombre(){
 		return this.perfil.verNombre();
 	}
