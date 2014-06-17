@@ -1,34 +1,27 @@
 package carmen.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Policia {
 
 	private Rango rango;
 	private Turno turno;
-	private int cantDeArrestos;
+	private int cantidadArrestos;
 
 	// TODO: definir constructor
 	public Policia() {
-		this.rango = new Rango();
-		this.turno = new Turno(new Locacion(new Mapa(), new Ciudad(new Coordenada(0, 0)))); // Esto esta bien?
-		this.cantDeArrestos = 0;
+		// this.turno = ?
+		this.cantidadArrestos = 0;
+		this.rango = DefinicionRangoPolicia.getObjetoRango(this.cantidadArrestos);
 	}
 
 	public void realizarArresto() {
-		// Este metodo hace esto?? A mi entender se fija si el ladron de la Orden es el mismo que el de la Partida.
-		this.cantDeArrestos++;
+		this.cantidadArrestos++;
+		this.rango = DefinicionRangoPolicia.getObjetoRango(this.cantidadArrestos);
 	}
 
 	public int getCantidadArrestos() {
-		return this.cantDeArrestos;
-	}
-
-	public void ascender() {
-		// No se bien como es eso al final del enum.
-		// TODO
-		// rango.ascender(); // ??? estoy tirandole la bocha a otro jajaja.
+		return this.cantidadArrestos;
 	}
 
 	public void viajar(Ciudad destino) {
@@ -49,11 +42,11 @@ public class Policia {
 		return null;
 	}
 
-	public void setearTurno(Turno turno) {
+	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
 
-	public void setearRango(Rango rango) {
+	public void setRango(Rango rango) {
 		this.rango = rango;
 	}
 

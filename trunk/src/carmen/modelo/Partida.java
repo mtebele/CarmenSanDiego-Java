@@ -10,10 +10,12 @@ public class Partida {
 	private Mapa mapa;
 	private OrdenDeArresto orden;
 
-	public Partida(Policia policia) {
+	public Partida(Policia policia, Ladron ladron, Turno turno, Mapa mapa, OrdenDeArresto orden) {
 		this.policia = policia;
-		this.orden = new OrdenDeArresto();
-		// Todas las demas cosas como las recibe? por parametro el constructor o como?
+		this.ladron = ladron;
+		this.turno = turno;
+		this.mapa = mapa;
+		this.orden = orden;
 	}
 
 	public void emitirOrden(Ladron ladron) {
@@ -52,10 +54,6 @@ public class Partida {
 
 	public int verTiempoRestante() {
 		return turno.getHorasRestantes();
-	}
-
-	public void setearMapa(Mapa mapa) {
-		this.mapa = mapa;
 	}
 
 	public void setearLadron(Ladron ladron) {

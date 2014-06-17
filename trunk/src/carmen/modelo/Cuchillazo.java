@@ -1,6 +1,6 @@
 package carmen.modelo;
 
-public class Cuchillazo implements IAtacador {
+public class Cuchillazo implements IAtaque {
 
 	private int vecesEjecutado;
 
