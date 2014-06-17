@@ -5,6 +5,9 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class CoordenadaTest {
+	
+	// TODO: hacer setUp
+	
 	@Test
 	public void testCoordenadaSeCreaOK() {
 		Coordenada coord=  new Coordenada (55,55);

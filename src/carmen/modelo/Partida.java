@@ -35,8 +35,8 @@ public class Partida {
 
 	}
 
-	public void interrogar(Local local) {
-
+	public String interrogar(Local local) {
+		return null;
 	}
 
 	public void perder() {
@@ -47,8 +47,7 @@ public class Partida {
 
 	}
 
-	public ArrayList verDestinos() {
-		// Ver bien el tipo que devuelve
+	public ArrayList<Ciudad> verDestinos() {
 		return null;
 	}
 

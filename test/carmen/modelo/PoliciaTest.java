@@ -70,9 +70,8 @@ public class PoliciaTest {
 	@Test
 	public void policiaDeberiaCambiarDeLugarAlViajar() {
 
-		// TODO: que verDestinos() devuelva un arrayList de Ciudades
-		ArrayList listaDestinos = policia.verDestinos();
-		Ciudad ciudadObjetivo = (Ciudad) listaDestinos.get(0);
+		ArrayList<Ciudad> listaDestinos = policia.verDestinos();
+		Ciudad ciudadObjetivo = listaDestinos.get(0);
 
 		policia.viajar(ciudadObjetivo);
 		Ciudad ciudadActual = policia.ciudadActual();

@@ -19,15 +19,23 @@ public class PartidaTest {
 
 	@Before
 	public void setUp() {
+		
 		// Despues hago de nuevo el setUp desde cero porque tenia metodos que ya borramos.
 		this.policia = new Policia();
-		this.partida = new Partida(policia);
-		this.ladron = new Ladron("nombre", "cabello", "senia", "vehiculo", "hobby", "sexo");
+		Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO, Hobby.ALPINISMO);
+		this.ladron = new Ladron(perfilLadron);
+		Mapa mapa = new Mapa();
+		Locacion locacionInicial = new Locacion(mapa, new Ciudad(new Coordenada(500,500)), this.ladron);
+		Turno turno = new Turno(locacionInicial);		
+		OrdenDeArresto orden = new OrdenDeArresto();
+		this.partida = new Partida(policia, ladron, turno, mapa, orden);
+		
 	}
 
 	@Test
 	public void partidaDeberiaPerderseSiAgarrasOtroLadron() {
-		Ladron ladronIncorrecto = new Ladron("nombre", "cabello", "senia", "vehiculo", "hobby", "sexo");
+		Perfil perfilLadron = new Perfil("Josepha", Sexo.FEMENINO, Cabello.CASTANIO, Senia.CICATRIZ, Vehiculo.DESCAPOTABLE, Hobby.NATACION);
+		Ladron ladronIncorrecto = new Ladron(perfilLadron);
 
 		partida.emitirOrden(ladron);
 		partida.atraparLadron(ladronIncorrecto);
@@ -54,8 +62,8 @@ public class PartidaTest {
 	@Test
 	public void viajarDeberiaConsumirTiempo() {
 
-		ArrayList listaDestinos = partida.verDestinos();
-		Ciudad ciudadObjetivo = (Ciudad) listaDestinos.get(0);
+		ArrayList<Ciudad> listaDestinos = partida.verDestinos();
+		Ciudad ciudadObjetivo = listaDestinos.get(0);
 
 		partida.viajar(ciudadObjetivo);
 
