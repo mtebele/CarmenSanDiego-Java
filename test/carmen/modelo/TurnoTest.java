@@ -47,7 +47,7 @@ public class TurnoTest {
 		mapa.agregarCiudad(ciudad4);
 		
 		//Creo ObjetoRobado
-		ObjetoRobado objeto = new ObjetoRobado(ciudad0);
+		ObjetoRobado objeto = new ObjetoRobado(Valor.MUY_VALIOSO, ciudad0);
 		
 		//Creo Ladron
 		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
