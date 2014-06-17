@@ -33,9 +33,9 @@ public class Ladron {
 			throw new LadronNoHaRobadoException("El ladron no robo ningun objeto");
 		if (this.hizoUltimoEscape())
 			return false;
-		int posActual = this.itinerario.ciudades().indexOf(this.ciudadActual);
+		int nroCiudadActual = this.itinerario.ciudades().indexOf(this.ciudadActual) + 1;
 		this.ciudadAnterior = this.ciudadActual;
-		this.ciudadActual = this.itinerario.ciudadNro(posActual + 1);
+		this.ciudadActual = this.itinerario.ciudadNro(nroCiudadActual + 1);
 		return true;
 	}
 
