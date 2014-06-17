@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Ciudad {
 
 	private List<Local> locales;
-	private Coordenada ubicacion; // VER: No se esta usando, se deberia mandar por parametro en algun metodo que no esta creo.
-
+	private Coordenada ubicacion; 
+	
 	public Ciudad(Coordenada coordenadas) {
 		this.locales = new ArrayList<Local>();
 		this.ubicacion = coordenadas;
