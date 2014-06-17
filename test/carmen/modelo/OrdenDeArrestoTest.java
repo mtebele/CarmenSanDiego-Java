@@ -9,12 +9,15 @@ public class OrdenDeArrestoTest {
 	private OrdenDeArresto orden;
 	private Ladron ladron1;
 	private Ladron ladron2;
-	
+	private Perfil perfil1;
+	private Perfil perfil2;
 	@Before
 	public void setUp() throws NullPointerException{
 		this.orden = new OrdenDeArresto();
-		this.ladron1 = new Ladron("Jesse James", "Masculino", "Rubio", "Tatuaje", "Tenis", "Limusina");
-		this.ladron2 = new Ladron("Grondona", "Masculino", "Negro", "Joyas", "Ciclismo","Descapotable");
+		this.perfil1= new Perfil("Jesse James",Sexo.MASCULINO,Cabello.RUBIO,Senia.TATUAJE,Vehiculo.LIMUSINA,Hobby.TENIS);
+		this.ladron1 = new Ladron(perfil1);
+		this.perfil2= new Perfil ("Grondona",Sexo.MASCULINO,Cabello.NEGRO,Senia.JOYAS,Vehiculo.DESCAPOTABLE,Hobby.MUSICA);
+		this.ladron2= new Ladron(perfil2);
 	}
 	
 	@Test
@@ -33,20 +36,34 @@ public class OrdenDeArrestoTest {
 	@Test
 	public void testOrdenDeArrestoEmiteOrdenOK(){
 		this.setUp();
+		assertNull(this.orden.verLadron());
+		this.orden.AgregarLadronABaseDeDatos(this.ladron1);
 		this.orden.emitirOrden(this.ladron1);
 		assertNotNull(this.orden.verLadron());
 		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
 	}
 	
+	
 	@Test
 	public void testOrdenDeArrestoCambiaLadronOK(){
 		this.setUp();
+		this.orden.AgregarLadronABaseDeDatos(this.ladron1);
+		this.orden.AgregarLadronABaseDeDatos(this.ladron2);
 		this.orden.emitirOrden(this.ladron1);
 		assertNotNull(this.orden.verLadron());
 		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
 		this.orden.emitirOrden(this.ladron2);
 		assertEquals(this.orden.verLadron().verNombre(),"Grondona");
 
+	}
+	
+	@Test
+	
+	public void testOrdenDeArrestoEsValida(){
+		this.setUp();
+		assertEquals(this.orden.arrestoEsValido(this.ladron1),false);
+	    this.orden.AgregarLadronABaseDeDatos(this.ladron1);
+	    assertEquals(this.orden.arrestoEsValido(this.ladron1),true);
 	}
 	
 }
