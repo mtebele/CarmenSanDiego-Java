@@ -1,14 +1,10 @@
 package carmen.modelo;
 
-public class Rango {
+public abstract class Rango {
 
-	private Valor valorObjetoBuscado;
-	private Velocidad velocidad;
-	private String nombre;
-
-	public Rango() {
-		// No se bien como es eso del enum
-	}
+	protected Valor valorObjetoBuscado;
+	protected Velocidad velocidad;
+	protected String nombre;
 
 	public Valor getValorObjetoBuscado() {
 		return this.valorObjetoBuscado;

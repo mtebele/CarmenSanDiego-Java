@@ -1,6 +1,6 @@
 package carmen.modelo;
 
-public class Disparo implements IAtacador {
+public class Disparo implements IAtaque {
 
 	public int ejecutarAtaque() {
 		int horasPerdidas = 4;

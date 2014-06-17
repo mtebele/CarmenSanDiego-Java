@@ -160,7 +160,7 @@ public class TurnoTest {
 	public void deberiaPerderse1HoraAlSerAcuchilladoPorPrimeraVez() {
 		this.setUp();
 		
-		this.turno.setearProbabilidadCuchillazo(100);
+		this.turno.setProbabilidadCuchillazo(100);
 		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
@@ -171,7 +171,7 @@ public class TurnoTest {
 	public void deberianPerderse2HorasAlSerAcuchilladoPorSegundaVez() {
 		this.setUp();
 		
-		this.turno.setearProbabilidadCuchillazo(100);
+		this.turno.setProbabilidadCuchillazo(100);
 		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
@@ -183,7 +183,7 @@ public class TurnoTest {
 	public void deberianPerderse4HorasAlRecibirDisparo() {
 		this.setUp();
 		
-		this.turno.setearProbabilidadDisparo(100);
+		this.turno.setProbabilidadDisparo(100);
 		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
