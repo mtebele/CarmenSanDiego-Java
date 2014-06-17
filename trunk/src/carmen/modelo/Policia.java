@@ -37,7 +37,7 @@ public class Policia {
 		return this.turno.ciudadActual();
 	}
 
-	public ArrayList verDestinos() { // TODO: parametrizar el ArrayList
+	public ArrayList<Ciudad> verDestinos() {
 		// return this.turno.getDestinos(); // getDestinos() pertenece a Turno?
 		return null;
 	}

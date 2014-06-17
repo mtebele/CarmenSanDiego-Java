@@ -9,7 +9,7 @@ public class Juego {
 		
 		// TODO: reemplazar estas hardcodeos por lo que devuelva el lectorXML
 				
-		Policia policia = new Policia();
+		this.policia = new Policia();
 		
 		Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO, Hobby.ALPINISMO);
 		Ladron ladron = new Ladron(perfilLadron);
@@ -21,6 +21,6 @@ public class Juego {
 		
 		OrdenDeArresto orden = new OrdenDeArresto();
 		
-		return new Partida(policia, ladron, turno, mapa, orden);
+		return new Partida(this.policia, ladron, turno, mapa, orden);
 	}
 }
