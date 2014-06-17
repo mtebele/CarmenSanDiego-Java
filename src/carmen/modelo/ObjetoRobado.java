@@ -5,17 +5,13 @@ public class ObjetoRobado {
 	private Valor valor;
 	private Ciudad ciudadOrigen;
 
-	public ObjetoRobado(Ciudad ciudad) {
-		this.ciudadOrigen = ciudad;
-		this.valor = null;
+	public ObjetoRobado(Valor unValor, Ciudad unaCiudad) {
+		this.ciudadOrigen = unaCiudad;
+		this.valor = unValor;
 	}
 
 	public Valor getValor() {
 		return this.valor;
-	}
-
-	public void setearValor(Valor valor) {
-		this.valor = valor;
 	}
 	
 	public Ciudad ciudadOrigen() {
