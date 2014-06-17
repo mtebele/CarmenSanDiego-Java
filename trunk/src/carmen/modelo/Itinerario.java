@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Itinerario {
 
-	private List<Ciudad> ciudades;
+	private ArrayList<Ciudad> ciudades;
 
 	public Itinerario() {
 		this.ciudades = new ArrayList<Ciudad>();
