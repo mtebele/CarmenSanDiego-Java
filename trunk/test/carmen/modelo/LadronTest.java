@@ -50,8 +50,7 @@ public class LadronTest {
 		} catch (LadronNoHaRobadoException exc){
 			pudoEscapar = false;
 		}
-		assertFalse(pudoEscapar);
-		
+		assertFalse(pudoEscapar);	
 	}
 
 	@Test

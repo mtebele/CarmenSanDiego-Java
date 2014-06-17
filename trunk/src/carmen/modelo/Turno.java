@@ -47,21 +47,8 @@ public class Turno {
 		this.actualizar(horasDeViaje);
 	}
 
-	// Separar esto
 	public String interrogar(Local local) {
-		int horasInterrogatorio;
-		switch (local.vecesVisitado()) {
-			case 0:
-				horasInterrogatorio = 1;
-				break;
-			case 1:
-				horasInterrogatorio = 2;
-				break;
-			default:
-				horasInterrogatorio = 3;
-				break;
-
-		}
+		int horasInterrogatorio = local.getHorasInterrogatorio();
 
 		int horasPerdidasPorCuchillazo = this.recibirCuchillazo();
 		int horasPerdidasPorDisparo = 0;
@@ -112,5 +99,4 @@ public class Turno {
 	public List<Local> getLocales() {
 		return this.locacion.getLocales();
 	}
-
 }

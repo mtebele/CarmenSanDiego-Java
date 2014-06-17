@@ -1,7 +1,6 @@
 package carmen.modelo;
 import  java.lang.Math;
 
-
 public class Coordenada {
 	// hay que determinar la unidad de posicion que usamos.
 	private double longitud;
@@ -17,15 +16,10 @@ public class Coordenada {
 		return longitud;
 	}
 
-	
-
-	
 	double getLatitud() {
 		return latitud;
 	}
-
-
-
+		
 	int distanciaAOtraCoordenada(Coordenada otraCoord) {  
 		double deltaLat = Math.toRadians(otraCoord.getLatitud()-this.getLatitud());  
         double deltaLong = Math.toRadians(otraCoord.getLongitud() -this.getLongitud());  
@@ -36,10 +30,6 @@ public class Coordenada {
         double distancia = RADIOTERRESTRE * resul;  
   
         return (int) distancia;
-        
-    	// la formula es esa, estoy casteando a int porque devuelven un double esos operandos, no creo que haya problema en la conversion
-    	// Lucas: adhiero, que el tiempo se mida en horas.
-	
 	}
 
 	@Override
@@ -72,9 +62,4 @@ public class Coordenada {
 			return false;
 		return true;
 	}
-
-
-	
-
-
 }

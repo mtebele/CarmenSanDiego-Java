@@ -35,7 +35,6 @@ public class CiudadTest extends TestCase {
 		this.ciudad.agregarLocal(this.local1);
 		assertEquals(this.ciudad.cantidadLocales(), 1);
 		this.ciudad.agregarLocal(this.local2);
-		
 		assertEquals(this.ciudad.cantidadLocales(), 2);
 	}
 	
@@ -45,8 +44,5 @@ public class CiudadTest extends TestCase {
 		Coordenada coord= new Coordenada(139,35);
 		Ciudad tokio= new Ciudad (coord);
 		assertEquals((this.ciudad.distanciaAOtraCiudad(tokio)),18455);
-		
-
 	}
-
 }

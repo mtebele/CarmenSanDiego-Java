@@ -1,6 +1,7 @@
 package carmen.modelo;
 
 public class Ladron {
+	
 	private Perfil perfil;
 	private Ciudad ciudadActual;
 	private Ciudad ciudadAnterior;
@@ -8,7 +9,6 @@ public class Ladron {
 	private Itinerario itinerario;
 
 	public Ladron(Perfil perfil) {
-
 		this.perfil = perfil;
 		this.ciudadActual = null;
 		this.ciudadAnterior = null;

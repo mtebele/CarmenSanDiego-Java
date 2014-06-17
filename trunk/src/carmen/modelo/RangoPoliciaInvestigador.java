@@ -6,5 +6,4 @@ public class RangoPoliciaInvestigador extends Rango {
 		this.velocidad = new Velocidad(1300);
 		this.nombre = "Investigador";
 	}
-
 }
