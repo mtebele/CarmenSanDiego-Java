@@ -17,10 +17,21 @@ public class Local {
 		this.pista = pista;
 	}
 
+	public int getHorasInterrogatorio() {
+		int horasInterrogatorio;
+		switch (this.vecesVisitado()) {
+		case 0:
+			horasInterrogatorio = 1;
+		case 1:
+			horasInterrogatorio = 2;
+		default:
+			horasInterrogatorio = 3;
+		}
+		return horasInterrogatorio;
+	}
+	
 	public String responder() {
 		this.vecesVisitado ++; //cada vez que respondo fue visitado y deberia aumentar las visitas
-		return this.pista;
-		
+		return this.pista;		
 	}
-
 }

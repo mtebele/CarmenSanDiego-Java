@@ -6,6 +6,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class MapaTest {
+	
 	private Mapa mapa;
 	private Ciudad ciudad0;
 	private Ciudad ciudad1;
@@ -18,7 +19,6 @@ public class MapaTest {
 		this.ciudad0 = new Ciudad(ubicacion0);
 		Coordenada ubicacion1 = new Coordenada(10,10);
 		this.ciudad1 = new Ciudad(ubicacion1);
-
 	}
 
 	@Test

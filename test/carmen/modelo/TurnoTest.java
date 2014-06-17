@@ -82,16 +82,15 @@ public class TurnoTest {
 		Assert.assertEquals(this.HORAS_TOTAL_JUEGO - 3, this.turno.getHorasRestantes());
 	}
 
-
 	@Test
 	public void deberiaSaberseSiSeAcaboElTiempo() {
 		this.setUp();
 
-		Assert.assertEquals(false, this.turno.quedaTiempo());
+		Assert.assertEquals(true, this.turno.quedaTiempo());
 		this.turno.actualizar(this.HORAS_TOTAL_JUEGO);
 
 		Assert.assertEquals(0, this.turno.getHorasRestantes());
-		Assert.assertEquals(true, this.turno.quedaTiempo());
+		Assert.assertEquals(false, this.turno.quedaTiempo());
 	}
 
 	@Test
@@ -112,7 +111,6 @@ public class TurnoTest {
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1), this.turno.getHorasRestantes());
-
 	}
 
 	@Test
@@ -123,7 +121,6 @@ public class TurnoTest {
 		this.turno.interrogar(local0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 2), this.turno.getHorasRestantes());
-
 	}
 	
 	@Test
@@ -139,7 +136,6 @@ public class TurnoTest {
 		
 		Local local1 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria cambiar su dinero a yenes.", this.turno.interrogar(local1));
-		
 	}
 	
 	@Test
@@ -153,7 +149,6 @@ public class TurnoTest {
 		Local local2 = this.turno.getLocales().get(0);
 		
 		Assert.assertEquals(this.MENSAJE_NO_ESTA_LADRON, this.turno.interrogar(local2));
-		
 	}
 	
 	@Test
@@ -189,6 +184,4 @@ public class TurnoTest {
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1 - 4), this.turno.getHorasRestantes());
 	}
-	
-	
 }

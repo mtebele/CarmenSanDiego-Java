@@ -17,9 +17,7 @@ public class Locacion {
 		this.ciudadesDestino = new ArrayList<Ciudad>();
 	}
 
-
 	private void generarNuevosDestinos() {
-		
 		this.ciudadesDestino.clear();
 		this.agregarDestino(this.ladron.ciudadActual());
 		
@@ -30,11 +28,9 @@ public class Locacion {
 			}
 			this.agregarDestino(destino);
 		}
-
 	}
 	
 	public void viajar(Ciudad destino) {
-		
 		Ciudad partida = this.ciudadActual;
 		this.ciudadActual = destino;
 		
@@ -49,12 +45,10 @@ public class Locacion {
 		} else {
 			this.ciudadesDestino.remove(destino);
 			this.agregarDestino(partida);
-		}
-		
+		}		
 	}
 
 	public String interrogar(Local local) {
-
 		if ( this.pasoLadronRecientemente() ) {
 			return local.responder();
 		}
@@ -83,6 +77,5 @@ public class Locacion {
 	
 	public List<Ciudad> getDestinos() {
 		return this.ciudadesDestino;
-	}
-	
+	}	
 }

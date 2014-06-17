@@ -8,7 +8,6 @@ public class Perfil {
 	private Hobby hobby;
 	private Vehiculo vehiculo;
 
-
 	public Perfil(String nombre, Sexo sexo, Cabello cabello, Senia senia, Vehiculo vehiculo, Hobby hobby){
 		this.nombre = nombre;
 		this.sexo = sexo;

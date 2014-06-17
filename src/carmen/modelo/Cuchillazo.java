@@ -11,7 +11,5 @@ public class Cuchillazo implements IAtaque {
 			this.vecesEjecutado++;
 		}
 		return horasPerdidas;
-	}
-	
-	
+	}	
 }
