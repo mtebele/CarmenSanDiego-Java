@@ -17,7 +17,7 @@ public class Local {
 		this.pista = pista;
 	}
 
-	public int getHorasInterrogatorio() {
+	public int getHorasProximoInterrogatorio() {
 		int horasInterrogatorio;
 		switch (this.vecesVisitado()) {
 		case 0:

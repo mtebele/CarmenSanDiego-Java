@@ -51,7 +51,7 @@ public class Turno {
 	}
 
 	public String interrogar(Local local) {
-		int horasInterrogatorio = local.getHorasInterrogatorio();
+		int horasInterrogatorio = local.getHorasProximoInterrogatorio();
 
 		// TODO: SEPARAR estas horas perdidas por ataques habria que meterlas en un metodo aparte.
 		int horasPerdidasPorCuchillazo = this.horasPerdidasPorCuchillazo();
