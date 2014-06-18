@@ -20,7 +20,7 @@ public class Partida {
 		this.orden.emitirOrden(ladron);
 	}
 
-	public void atraparLadron(Ladron ladron) {
+	private void atraparLadron(Ladron ladron) {
 		if (this.orden.verLadron().equals(this.ladron)) {
 			this.ganar();
 		}
