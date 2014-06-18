@@ -9,6 +9,7 @@ public class LocacionTest {
 	
 	private String MENSAJE_NO_ESTA_LADRON = "Lo siento, nunca he visto a esa persona.";
 	private Locacion locacion;
+	private Ladron ladron;
 	
 	@Before
 	public void setUp() {
@@ -46,13 +47,15 @@ public class LocacionTest {
 		mapa.agregarCiudad(ciudad4);
 		
 		//Creo ObjetoRobado
-		ObjetoRobado objeto = new ObjetoRobado(Valor.MUY_VALIOSO, ciudad0);
+		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN, ciudad0);
 		
 		//Creo Ladron
 		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
-		Ladron ladron= new Ladron(perfil);
+		this.ladron= new Ladron(perfil);
 		ladron.robarObjeto(objeto);
 		ladron.planearNuevoDestino(ciudad1);
+		ladron.planearNuevoDestino(ciudad2);
+		ladron.planearNuevoDestino(ciudad3);
 		
 		//Creo Locacion
 		Locacion locacion = new Locacion(mapa, ciudad0, ladron);
@@ -68,18 +71,32 @@ public class LocacionTest {
 	public void interrogarEnCiudadQuePasoLadronDeberiaDevolverRespuestaCorrecta() {
 		this.setUp();
 		
+		// Ladron viaja de la ciudad0 a la ciudad1.
+		try {
+		this.ladron.escapar();
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
+		
+		// Una vez que escapo, en la ciudad0 saben a donde se fue. 
 		Local local0 = this.locacion.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.locacion.interrogar(local0));
 		
-		//Viajo a pais por donde paso ladron
-		Ciudad destinoConLadron = this.locacion.getDestinos().get(0);
+		// Ladron viaja de la ciudad1 a la ciudad2.
+		try {
+		this.ladron.escapar();
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
 		
+		Ciudad destinoConLadron = this.locacion.getDestinos().get(0);
 		try {
 			this.locacion.viajar(destinoConLadron);
 		} catch (LadronNoPlaneoEscapeException e) {
 			Assert.fail();
 		}
 		
+		// Una vez que escapo, en la ciudad1 saben a donde se fue.
 		Local local1 = this.locacion.getLocales().get(0);
 		Assert.assertEquals("Queria cambiar su dinero a yenes.", this.locacion.interrogar(local1));
 	}
@@ -88,7 +105,7 @@ public class LocacionTest {
 	public void interrogarEnCiudadSinLadronDeberiaDevolverRespuestaPorDefecto() {
 		this.setUp();
 		
-		//Viajo a pais sin ladron
+		// Viajo a pais sin ladron.
 		Ciudad destinoSinLadron = this.locacion.getDestinos().get(1);
 		try {
 			this.locacion.viajar(destinoSinLadron);
@@ -97,7 +114,6 @@ public class LocacionTest {
 		}
 		
 		Local local2 = this.locacion.getLocales().get(0);
-		
 		Assert.assertEquals(this.MENSAJE_NO_ESTA_LADRON, this.locacion.interrogar(local2));
 	}
 	
@@ -126,9 +142,6 @@ public class LocacionTest {
 		} catch (LadronNoPlaneoEscapeException e) {
 			Assert.fail();
 		}
-		Assert.assertEquals(4, this.locacion.getDestinos().size());
-		
+		Assert.assertEquals(4, this.locacion.getDestinos().size());	
 	}
-	
-	
 }

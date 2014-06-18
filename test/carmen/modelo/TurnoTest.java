@@ -1,6 +1,7 @@
 package carmen.modelo;
 
 import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.Before;
 
@@ -47,13 +48,15 @@ public class TurnoTest {
 		mapa.agregarCiudad(ciudad4);
 		
 		//Creo ObjetoRobado
-		ObjetoRobado objeto = new ObjetoRobado(Valor.MUY_VALIOSO, ciudad0);
+		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN, ciudad0);
 		
 		//Creo Ladron
 		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
 		Ladron ladron= new Ladron(perfil);
 		ladron.robarObjeto(objeto);
 		ladron.planearNuevoDestino(ciudad1);
+		ladron.planearNuevoDestino(ciudad2);
+		ladron.planearNuevoDestino(ciudad3);
 		
 		//Creo Locacion
 		Locacion locacionInicial = new Locacion(mapa, ciudad0, ladron);
@@ -107,11 +110,13 @@ public class TurnoTest {
 		Assert.assertEquals(destino, this.turno.ciudadActual());
 	}
 
-
 	@Test
 	public void interrogarDeberiaConsumir1HoraSiNuncaFueVisitado() {
 		this.setUp();
-
+		
+		turno.setProbabilidadCuchillazo(0);
+		turno.setProbabilidadDisparo(0);
+		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1), this.turno.getHorasRestantes());
@@ -121,6 +126,9 @@ public class TurnoTest {
 	public void interrogarDeberiaConsumir2HorasSiFueVisitado2Veces() {
 		this.setUp();
 
+		turno.setProbabilidadCuchillazo(0);
+		turno.setProbabilidadDisparo(0);
+		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		this.turno.interrogar(local0);
@@ -130,6 +138,13 @@ public class TurnoTest {
 	@Test
 	public void interrogarEnCiudadQuePasoLadronDeberiaDevolverRespuestaCorrecta() {
 		this.setUp();
+		
+		// Ladron viaja de la ciudad0 a la ciudad1.
+		try {
+			this.turno.getLocacion().getLadron().escapar();
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
 		
 		Local local0 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.turno.interrogar(local0));
@@ -168,7 +183,8 @@ public class TurnoTest {
 	public void deberiaPerderse1HoraAlSerAcuchilladoPorPrimeraVez() {
 		this.setUp();
 		
-		this.turno.setProbabilidadCuchillazo(100);
+		turno.setProbabilidadDisparo(0);
+		turno.setProbabilidadCuchillazo(100);
 		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
@@ -179,19 +195,22 @@ public class TurnoTest {
 	public void deberianPerderse2HorasAlSerAcuchilladoPorSegundaVez() {
 		this.setUp();
 		
-		this.turno.setProbabilidadCuchillazo(100);
+		turno.setProbabilidadCuchillazo(100);
+		turno.setProbabilidadDisparo(0);
 		
 		Local local0 = this.turno.getLocales().get(0);
-		this.turno.interrogar(local0);
-		this.turno.interrogar(local0);
-		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 2 - 2), this.turno.getHorasRestantes());
+		this.turno.interrogar(local0); // 1 por interrogar + 1 por ser acuchillado.
+		this.turno.interrogar(local0); // 2 por interrogar + 2 por ser acuchillado.
+		// TODO: NO esta funcionando el ser acuchillado. Devuelve 1 la primera vez, y 0 todas las siguientes.
+		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 2 - 4), this.turno.getHorasRestantes());
 	}
 	
 	@Test
 	public void deberianPerderse4HorasAlRecibirDisparo() {
 		this.setUp();
 		
-		this.turno.setProbabilidadDisparo(100);
+		turno.setProbabilidadCuchillazo(0);
+		turno.setProbabilidadDisparo(100);
 		
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);

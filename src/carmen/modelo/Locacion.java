@@ -63,6 +63,7 @@ public class Locacion {
 	}
 
 	public boolean pasoLadronRecientemente() {
+		if ( this.ladron.ciudadAnterior() == null ) return false;
 		return ( this.ladron.ciudadAnterior().equals(this.ciudadActual) );
 	}
 
@@ -76,5 +77,10 @@ public class Locacion {
 	
 	public List<Ciudad> getDestinos() {
 		return this.ciudadesDestino;
+	}
+	
+	public Ladron getLadron() {
+		return this.ladron;
 	}	
+
 }

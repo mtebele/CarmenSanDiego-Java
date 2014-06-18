@@ -57,8 +57,5 @@ public class Ciudad {
 		} else if (!ubicacion.equals(other.ubicacion))
 			return false;
 		return true;
-	}
-	
-	
-	
+	}	
 }
