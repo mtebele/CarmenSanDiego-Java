@@ -1,6 +1,6 @@
 package carmen.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Policia {
 
@@ -8,9 +8,7 @@ public class Policia {
 	private Turno turno;
 	private int cantidadArrestos;
 
-	// TODO: definir constructor
 	public Policia() {
-		// this.turno = ?
 		this.cantidadArrestos = 0;
 		this.rango = DefinicionRangoPolicia.getObjetoRango(this.cantidadArrestos);
 	}
@@ -24,9 +22,13 @@ public class Policia {
 		return this.cantidadArrestos;
 	}
 
-	public void viajar(Ciudad destino) {
+	public void viajar(Ciudad destino) throws LadronNoPlaneoEscapeException {
 		Velocidad velocidad = this.rango.getVelocidad();
-		this.turno.viajar(destino, velocidad);
+		try {
+			this.turno.viajar(destino, velocidad);
+		} catch (LadronNoPlaneoEscapeException e) {
+			throw new LadronNoPlaneoEscapeException(e.getMessage());
+		}
 	}
 
 	public void interrogar(Local local) {
@@ -37,9 +39,8 @@ public class Policia {
 		return this.turno.ciudadActual();
 	}
 
-	public ArrayList<Ciudad> verDestinos() {
-		// return this.turno.getDestinos(); // getDestinos() pertenece a Turno?
-		return null;
+	public List<Ciudad> verDestinos() {
+		return this.turno.getDestinos();
 	}
 
 	public void setTurno(Turno turno) {
