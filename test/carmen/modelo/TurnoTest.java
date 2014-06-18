@@ -98,7 +98,11 @@ public class TurnoTest {
 		this.setUp();
 
 		Ciudad destino = this.turno.getDestinos().get(0);
-		this.turno.viajar(destino, this.velocidad);
+		try {
+			this.turno.viajar(destino, this.velocidad);
+		} catch (LadronNoPlaneoEscapeException e) {
+			assert false;
+		}
 
 		Assert.assertEquals(destino, this.turno.ciudadActual());
 	}
@@ -132,7 +136,12 @@ public class TurnoTest {
 		
 		//Viajo a pais por donde paso ladron
 		Ciudad destinoConLadron = this.turno.getDestinos().get(0);
-		this.turno.viajar(destinoConLadron, this.velocidad);
+		
+		try {
+			this.turno.viajar(destinoConLadron, this.velocidad);
+		} catch (LadronNoPlaneoEscapeException e) {
+			assert false;
+		}
 		
 		Local local1 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria cambiar su dinero a yenes.", this.turno.interrogar(local1));
@@ -144,7 +153,11 @@ public class TurnoTest {
 		
 		//Viajo a pais sin ladron
 		Ciudad destinoSinLadron = this.turno.getDestinos().get(1);
-		this.turno.viajar(destinoSinLadron, this.velocidad);
+		try {
+			this.turno.viajar(destinoSinLadron, this.velocidad);
+		} catch (LadronNoPlaneoEscapeException e) {
+			assert false;
+		}
 		
 		Local local2 = this.turno.getLocales().get(0);
 		

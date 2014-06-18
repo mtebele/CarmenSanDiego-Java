@@ -1,6 +1,6 @@
 package carmen.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Partida {
 
@@ -19,20 +19,23 @@ public class Partida {
 	}
 
 	public void emitirOrden(Ladron ladron) {
-		// setea al ladron en la orden de arresto de la partida.
 		this.orden.emitirOrden(ladron);
 	}
 
-	public boolean atraparLadron(Ladron ladron) {
-		// deberia chequear algo mas el if?
-		if (this.orden.verLadron().equals(ladron)) {
-			return true;
+	public void atraparLadron(Ladron ladron) {
+		if (this.orden.verLadron().equals(this.ladron)) {
+			this.ganar();
 		}
-		return false;
+		perder();
 	}
 
 	public void viajar(Ciudad destino) {
-
+		try {
+			this.policia.viajar(destino);
+		} catch (LadronNoPlaneoEscapeException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	public String interrogar(Local local) {
@@ -47,7 +50,7 @@ public class Partida {
 
 	}
 
-	public ArrayList<Ciudad> verDestinos() {
+	public List<Ciudad> verDestinos() {
 		return null;
 	}
 

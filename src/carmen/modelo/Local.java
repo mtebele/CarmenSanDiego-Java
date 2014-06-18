@@ -31,7 +31,7 @@ public class Local {
 	}
 	
 	public String responder() {
-		this.vecesVisitado ++; //cada vez que respondo fue visitado y deberia aumentar las visitas
+		this.vecesVisitado ++;
 		return this.pista;		
 	}
 }

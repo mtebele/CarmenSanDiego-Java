@@ -28,9 +28,9 @@ public class Ladron {
 		return this.ciudadAnterior;
 	}
 
-	public boolean escapar() throws LadronNoHaRobadoException {
-		if (this.objeto == null)
-			throw new LadronNoHaRobadoException("El ladron no robo ningun objeto");
+	public boolean escapar() throws LadronNoPlaneoEscapeException {
+		if (! this.itinerario.tieneDestinos())
+			throw new LadronNoPlaneoEscapeException("El ladron no planeo su escape.");
 		if (this.hizoUltimoEscape())
 			return false;
 		int nroCiudadActual = this.itinerario.ciudades().indexOf(this.ciudadActual) + 1;
@@ -50,7 +50,6 @@ public class Ladron {
 		return this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes));
 	}
 
-	// Lo puse porque me hacia falta para un test
 	public String verNombre() {
 		return this.perfil.verNombre();
 	}
