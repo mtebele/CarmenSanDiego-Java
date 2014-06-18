@@ -53,7 +53,6 @@ public class Turno {
 	public String interrogar(Local local) {
 		int horasInterrogatorio = local.getHorasProximoInterrogatorio();
 
-		// TODO: SEPARAR estas horas perdidas por ataques habria que meterlas en un metodo aparte.
 		int horasPerdidasPorCuchillazo = this.horasPerdidasPorCuchillazo();
 		int horasPerdidasPorDisparo = 0;
 		if (horasPerdidasPorCuchillazo == 0) {
@@ -72,7 +71,7 @@ public class Turno {
 	private int horasPerdidasPorCuchillazo() {
 		Random random = new Random();
 		int horasPerdidas = 0;
-		if (random.nextInt(100) <= this.probabilidadDeCuchillazo) {
+		if (random.nextInt(100) < this.probabilidadDeCuchillazo) {
 			horasPerdidas = this.atacadores.get(0).ejecutarAtaque();
 		}
 		return horasPerdidas;
@@ -81,7 +80,7 @@ public class Turno {
 	private int horasPerdidasPorDisparo() {
 		Random random = new Random();
 		int horasPerdidas = 0;
-		if (random.nextInt(100) <= this.probabilidadDeDisparo) {
+		if (random.nextInt(100) < this.probabilidadDeDisparo) {
 			horasPerdidas = this.atacadores.get(1).ejecutarAtaque();
 		}
 		return horasPerdidas;
