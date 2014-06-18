@@ -39,4 +39,18 @@ public class LocalTest {
 		local.responder();
 		Assert.assertEquals(2, local.vecesVisitado());
 	}
+	
+	@Test
+	public void responderDeberiaAumentarLasHorasDeInterrogatorio() {
+		this.setUp();
+		
+		local.responder();
+		Assert.assertEquals(2, local.getHorasProximoInterrogatorio());
+		local.responder();
+		Assert.assertEquals(3,local.getHorasProximoInterrogatorio());
+		local.responder();
+		Assert.assertEquals(3, local.getHorasProximoInterrogatorio());
+		
+		
+	}
 }
