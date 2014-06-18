@@ -44,13 +44,12 @@ public class LocalTest {
 	public void responderDeberiaAumentarLasHorasDeInterrogatorio() {
 		this.setUp();
 		
+		Assert.assertEquals(1, local.getHorasProximoInterrogatorio());
 		local.responder();
 		Assert.assertEquals(2, local.getHorasProximoInterrogatorio());
 		local.responder();
 		Assert.assertEquals(3,local.getHorasProximoInterrogatorio());
 		local.responder();
 		Assert.assertEquals(3, local.getHorasProximoInterrogatorio());
-		
-		
 	}
 }

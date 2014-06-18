@@ -7,23 +7,25 @@ import junit.framework.Assert;
 
 public class DisparoTest {
 	
+	Disparo disparo;
 	
-	   @Test
-	   public void testDisparoSeCreaOK() {
-		   Disparo disparo= new Disparo ();
-		   Assert.assertNotNull(disparo);
-	   }
+	@Before
+	public void setUp() {
+		this.disparo = new Disparo();
+	}
+
+	@Test
+	public void testDisparoSeCreaOK() {
+		this.setUp();
+		
+		Assert.assertNotNull(disparo);
+	}
 	   
-	   
-	   @Test
-	   public void testDisparoDescuentaCuatroHoras() {
-		   Disparo disparo= new Disparo ();
-		   int horasPerdidas=disparo.ejecutarAtaque();
-		   Assert.assertEquals(horasPerdidas, 4);
-		   
-		   
-	   }
-	   
-	   
-	   
+	@Test
+	public void testDisparoDescuentaCuatroHoras() {
+		this.setUp();
+		
+		int horasPerdidas = disparo.ejecutarAtaque();
+		Assert.assertEquals(horasPerdidas, 4);		   
+	}	   
 }	   
