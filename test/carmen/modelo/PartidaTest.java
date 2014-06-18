@@ -12,6 +12,10 @@ import junit.framework.TestCase;
 
 public class PartidaTest {
 
+	//HAY MUCHISIMAS COSAS MAL EN LOS TESTS O DESACTUALIZADAS. USAR LO YA CREADO COMO GUIA
+	//PERO SIN DARLE MUCHA BOLA.
+	
+	
 	private Policia policia;
 	private Partida partida;
 	private Ladron ladron;
