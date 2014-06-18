@@ -132,7 +132,7 @@ public class TurnoTest {
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		this.turno.interrogar(local0);
-		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 2), this.turno.getHorasRestantes());
+		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 3), this.turno.getHorasRestantes());
 	}
 	
 	@Test

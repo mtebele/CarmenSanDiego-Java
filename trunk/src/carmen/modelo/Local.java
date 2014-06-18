@@ -34,7 +34,11 @@ public class Local {
 	}
 	
 	public String responder() {
-		this.vecesVisitado++;
+		this.visitar();
 		return this.pista;		
+	}
+	
+	public void visitar() {
+		this.vecesVisitado++;
 	}
 }
