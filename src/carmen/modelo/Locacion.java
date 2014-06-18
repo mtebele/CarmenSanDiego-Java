@@ -51,6 +51,7 @@ public class Locacion {
 		if ( this.pasoLadronRecientemente() ) {
 			return local.responder();
 		}
+		local.visitar();
 		return "Lo siento, nunca he visto a esa persona.";
 	}
 
