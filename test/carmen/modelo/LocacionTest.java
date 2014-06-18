@@ -77,7 +77,7 @@ public class LocacionTest {
 		try {
 			this.locacion.viajar(destinoConLadron);
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 		
 		Local local1 = this.locacion.getLocales().get(0);
@@ -93,7 +93,7 @@ public class LocacionTest {
 		try {
 			this.locacion.viajar(destinoSinLadron);
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 		
 		Local local2 = this.locacion.getLocales().get(0);
@@ -109,7 +109,7 @@ public class LocacionTest {
 		try {
 			this.locacion.viajar(destino);
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 
 		Assert.assertEquals(destino, this.locacion.ciudadActual());
@@ -124,7 +124,7 @@ public class LocacionTest {
 		try {
 			this.locacion.viajar(this.locacion.getDestinos().get(0));
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 		Assert.assertEquals(4, this.locacion.getDestinos().size());
 		

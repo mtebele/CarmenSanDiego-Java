@@ -31,8 +31,8 @@ public class Policia {
 		}
 	}
 
-	public void interrogar(Local local) {
-		this.turno.interrogar(local);
+	public String interrogar(Local local) {
+		return this.turno.interrogar(local);
 	}
 
 	public Ciudad ciudadActual() {
