@@ -101,7 +101,7 @@ public class TurnoTest {
 		try {
 			this.turno.viajar(destino, this.velocidad);
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 
 		Assert.assertEquals(destino, this.turno.ciudadActual());
@@ -140,7 +140,7 @@ public class TurnoTest {
 		try {
 			this.turno.viajar(destinoConLadron, this.velocidad);
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 		
 		Local local1 = this.turno.getLocales().get(0);
@@ -156,7 +156,7 @@ public class TurnoTest {
 		try {
 			this.turno.viajar(destinoSinLadron, this.velocidad);
 		} catch (LadronNoPlaneoEscapeException e) {
-			assert false;
+			Assert.fail();
 		}
 		
 		Local local2 = this.turno.getLocales().get(0);
