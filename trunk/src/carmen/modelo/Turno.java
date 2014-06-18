@@ -21,7 +21,6 @@ public class Turno {
 		this.atacadores.add(cuchillazo);
 		this.atacadores.add(disparo);
 
-		// Hardcoded?
 		this.probabilidadDeCuchillazo = 10;
 		this.probabilidadDeDisparo = 5;
 	}
@@ -38,11 +37,15 @@ public class Turno {
 		this.tiempo.transcurrirHoras(horas);
 	}
 
-	public void viajar(Ciudad destino, Velocidad velocidad) {
+	public void viajar(Ciudad destino, Velocidad velocidad) throws LadronNoPlaneoEscapeException {
 		int distancia = this.ciudadActual().distanciaAOtraCiudad(destino);
 		int horasDeViaje = velocidad.calcularTiempo(distancia);
 
-		this.locacion.viajar(destino);
+		try {
+			this.locacion.viajar(destino);
+		} catch (LadronNoPlaneoEscapeException e) {
+			throw new LadronNoPlaneoEscapeException(e.getMessage());
+		}
 
 		this.actualizar(horasDeViaje);
 	}
@@ -50,10 +53,10 @@ public class Turno {
 	public String interrogar(Local local) {
 		int horasInterrogatorio = local.getHorasInterrogatorio();
 
-		int horasPerdidasPorCuchillazo = this.recibirCuchillazo();
+		int horasPerdidasPorCuchillazo = this.horasPerdidasPorCuchillazo();
 		int horasPerdidasPorDisparo = 0;
 		if (horasPerdidasPorCuchillazo == 0) {
-			horasPerdidasPorDisparo = this.recibirDisparo();
+			horasPerdidasPorDisparo = this.horasPerdidasPorDisparo();
 		}
 
 		this.actualizar(horasInterrogatorio + horasPerdidasPorCuchillazo + horasPerdidasPorDisparo);
@@ -65,8 +68,7 @@ public class Turno {
 		return this.tiempo.quedaTiempo();
 	}
 
-	// El nombre no coincide con lo que devuelve, ver de hacerlo diferente
-	private int recibirCuchillazo() {
+	private int horasPerdidasPorCuchillazo() {
 		Random random = new Random();
 		int horasPerdidas = 0;
 		if (random.nextInt(100) < this.probabilidadDeCuchillazo) {
@@ -75,7 +77,7 @@ public class Turno {
 		return horasPerdidas;
 	}
 
-	private int recibirDisparo() {
+	private int horasPerdidasPorDisparo() {
 		Random random = new Random();
 		int horasPerdidas = 0;
 		if (random.nextInt(100) < this.probabilidadDeDisparo) {

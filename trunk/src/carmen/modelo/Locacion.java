@@ -30,16 +30,15 @@ public class Locacion {
 		}
 	}
 	
-	public void viajar(Ciudad destino) {
+	public void viajar(Ciudad destino) throws LadronNoPlaneoEscapeException {
 		Ciudad partida = this.ciudadActual;
 		this.ciudadActual = destino;
 		
 		if ( this.estaLadron() ) {
 			try {
 				this.ladron.escapar();
-			} catch (LadronNoHaRobadoException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
+			} catch (LadronNoPlaneoEscapeException e) {
+				throw new LadronNoPlaneoEscapeException(e.getMessage());
 			}
 			this.generarNuevosDestinos();
 		} else {

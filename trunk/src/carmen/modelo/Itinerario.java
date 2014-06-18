@@ -22,4 +22,8 @@ public class Itinerario {
 	public Ciudad ciudadNro(int nro) {
 		return this.ciudades.get(nro - 1);
 	}
+	
+	public boolean tieneDestinos() {
+		return (! this.ciudades.isEmpty() );
+	}
 }

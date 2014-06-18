@@ -47,7 +47,7 @@ public class LadronTest {
 		boolean pudoEscapar = false;
 		try{
 			pudoEscapar = this.ladron.escapar();
-		} catch (LadronNoHaRobadoException exc){
+		} catch (LadronNoPlaneoEscapeException exc){
 			pudoEscapar = false;
 		}
 		assertFalse(pudoEscapar);	
