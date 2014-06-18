@@ -30,11 +30,11 @@ public class TurnoTest {
 		Ciudad ciudad4 = new Ciudad(ubicacion4);
 		
 		//Creo Locales
-		Local local0 = new Local();
+		Local local0 = new Local(NombreLocal.BIBLIOTECA);
 		local0.setearPista("Queria escalar el Monte Everest.");
-		Local local1 = new Local();
+		Local local1 = new Local(NombreLocal.BANCO);
 		local1.setearPista("Queria cambiar su dinero a yenes.");
-		Local local2 = new Local();
+		Local local2 = new Local(NombreLocal.BOLSA);
 		ciudad0.agregarLocal(local0);
 		ciudad1.agregarLocal(local1);
 		ciudad2.agregarLocal(local2);
