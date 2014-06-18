@@ -22,16 +22,19 @@ public class Local {
 		switch (this.vecesVisitado()) {
 		case 0:
 			horasInterrogatorio = 1;
+			break;
 		case 1:
 			horasInterrogatorio = 2;
+			break;
 		default:
 			horasInterrogatorio = 3;
+			break;
 		}
 		return horasInterrogatorio;
 	}
 	
 	public String responder() {
-		this.vecesVisitado ++;
+		this.vecesVisitado++;
 		return this.pista;		
 	}
 }

@@ -13,6 +13,7 @@ public class PoliciaTest {
 	private Policia policia;
 	private Turno turno;
 	private Velocidad velocidad;
+	private Ladron ladron;
 	
 	@Before
 	public void setUp() {
@@ -50,13 +51,15 @@ public class PoliciaTest {
 		mapa.agregarCiudad(ciudad4);
 		
 		//Creo ObjetoRobado
-		ObjetoRobado objeto = new ObjetoRobado(Valor.MUY_VALIOSO, ciudad0);
+		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN, ciudad0);
 		
 		//Creo Ladron
 		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
-		Ladron ladron= new Ladron(perfil);
+		this.ladron= new Ladron(perfil);
 		ladron.robarObjeto(objeto);
 		ladron.planearNuevoDestino(ciudad1);
+		ladron.planearNuevoDestino(ciudad2);
+		ladron.planearNuevoDestino(ciudad3);
 		
 		//Creo Locacion
 		Locacion locacionInicial = new Locacion(mapa, ciudad0, ladron);
@@ -77,11 +80,6 @@ public class PoliciaTest {
 		this.policia = new Policia();
 		this.policia.setTurno(turno);
 	}
-
-	/*@Before
-	public void setUp() {
-		this.policia = new Policia();
-	}*/
 
 	@Test
 	public void policiaDeberiaIniciarComoNovato() {
@@ -152,14 +150,28 @@ public class PoliciaTest {
 	}
 
 	@Test
-	// TODO: depende de los test de turno, va a funcionar cuando funcionen esos.
 	public void interrogarDeberiaDevolverLaRespuestaCorrecta() {
 		this.setUp();
+		
+		// Ladron viaja de la ciudad0 a la ciudad1.
+		try {
+		this.ladron.escapar();
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
+		
 		Local local0 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.turno.interrogar(local0));
 		
 		//Viajo a pais por donde paso ladron
 		Ciudad destinoConLadron = this.turno.getDestinos().get(0);
+		
+		// Ladron viaja de la ciudad1 a la ciudad2.
+		try {
+		this.ladron.escapar();
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
 		
 		try {
 			this.turno.viajar(destinoConLadron, this.velocidad);
@@ -167,8 +179,8 @@ public class PoliciaTest {
 			assert false;
 		}
 		
-		Local local1 = this.turno.getLocales().get(0);
-		Assert.assertEquals(local1.responder(), policia.interrogar(local1));
-		Assert.assertEquals("Queria cambiar su dinero a yenes.", local1.responder());
+		Local local2 = this.turno.getLocales().get(0);
+		Assert.assertEquals(local2.responder(), policia.interrogar(local2));
+		Assert.assertEquals("Queria cambiar su dinero a yenes.", local2.responder());
 	}
 }
