@@ -29,7 +29,6 @@ public class Ladron {
 	}
 
 	public boolean escapar() throws LadronNoPlaneoEscapeException {
-		// CAMBIOS RESPECTO A LA VERSION 67. DE ULTIMA VOLVEMOS A ESA
 		if (! this.itinerario.tieneDestinos())
 			throw new LadronNoPlaneoEscapeException("El ladron no planeo su escape.");
 		if (this.hizoUltimoEscape())
