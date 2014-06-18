@@ -1,12 +1,14 @@
 package carmen.modelo;
 
-public class Local {
+public class Local  {
 
 	private int vecesVisitado;
 	private String pista;
+	private NombreLocal nombre;
 
-	public Local() {
+	public Local(NombreLocal nombre) {
 		this.vecesVisitado = 0;
+		this.nombre= nombre;
 	}
 
 	public int vecesVisitado() {
