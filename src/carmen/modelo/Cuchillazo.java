@@ -12,8 +12,8 @@ public class Cuchillazo implements IAtaque {
 		int horasPerdidas = 2;
 		if (this.vecesEjecutado == 0) {
 			horasPerdidas = 1;
-			this.vecesEjecutado++;
 		}
+		this.vecesEjecutado++;
 		return horasPerdidas;
 	}	
 }

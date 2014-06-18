@@ -202,7 +202,7 @@ public class TurnoTest {
 		this.turno.interrogar(local0); // 1 por interrogar + 1 por ser acuchillado.
 		this.turno.interrogar(local0); // 2 por interrogar + 2 por ser acuchillado.
 		// TODO: NO esta funcionando el ser acuchillado. Devuelve 1 la primera vez, y 0 todas las siguientes.
-		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 2 - 4), this.turno.getHorasRestantes());
+		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 3 - 3), this.turno.getHorasRestantes());
 	}
 	
 	@Test
