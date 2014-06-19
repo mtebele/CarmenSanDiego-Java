@@ -11,7 +11,7 @@ public class LocalTest {
 	
 	@Before
 	public void setUp() {
-		this.local = new Local(NombreLocal.AEROPUERTO);
+		this.local = new Local(TipoLocal.AEROPUERTO);
 		this.local.setearPista("Soy una pista");
 	}
 	

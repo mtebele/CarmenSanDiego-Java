@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mapa>
+    <ciudad nombre="Atenas">
+       <coordenada longitud="23" latitud="37"/>
+	   <local nombre="nombre local">
+	   <local nombre="nombre local2">
+	   <local nombre="nombre localN">
+    </ciudad>
+    <ciudad nombre="Baghdad">
+       <coordenada longitud="44" latitud="33"/>
+    </ciudad>
+    <ciudad nombre="Bahia">
+       <coordenada longitud="-7" latitud="12"/>
+    </ciudad>
+    <ciudad nombre="Bangkok">
+       <coordenada longitud="100" latitud="13"/>
+    </ciudad>
+    <ciudad nombre="Budapest">
+       <coordenada longitud="19" latitud="47"/>
+    </ciudad>
+    <ciudad nombre="Buenos Aires">
+       <coordenada longitud="-58" latitud="-34"/>
+    </ciudad>
+    <ciudad nombre="Cairo">
+       <coordenada longitud="31" latitud="30"/>
+    </ciudad>                        
+    <ciudad nombre="Colombo">
+       <coordenada longitud="70" latitud="3"/>
+    </ciudad>
+    <ciudad nombre="Estambul">
+       <coordenada longitud="29" latitud="41"/>
+    </ciudad>
+    <ciudad nombre="Katmandu">
+       <coordenada longitud="87" latitud="27"/>
+    </ciudad>
+    <ciudad nombre="Kigali">
+       <coordenada longitud="30" latitud="-1"/>
+    </ciudad>
+    <ciudad nombre="Lima">
+       <coordenada longitud="-77" latitud="-12"/>
+    </ciudad>
+    <ciudad nombre="Londres">
+       <coordenada longitud="0" latitud="51"/>
+    </ciudad>
+    <ciudad nombre="Mexico DF">
+       <coordenada longitud="-99" latitud="19"/>
+    </ciudad>
+    <ciudad nombre="Montreal">
+       <coordenada longitud="-73" latitud="45"/>
+    </ciudad>
+    <ciudad nombre="Moscu">
+       <coordenada longitud="37" latitud="55"/>
+    </ciudad>
+    <ciudad nombre="Nueva Delhi">
+       <coordenada longitud="77" latitud="28"/>
+    </ciudad>
+    <ciudad nombre="Nueva York">
+       <coordenada longitud="-73" latitud="40"/>
+    </ciudad>
+    <ciudad nombre="Oslo">
+       <coordenada longitud="10" latitud="59"/>
+    </ciudad>
+    <ciudad nombre="Paris">
+       <coordenada longitud="2" latitud="48"/>
+    </ciudad>
+    <ciudad nombre="Pekin">
+       <coordenada longitud="116" latitud="39"/>
+    </ciudad>
+    <ciudad nombre="Puesto Moresby">
+       <coordenada longitud="147" latitud="-9"/>
+    </ciudad>
+    <ciudad nombre="Reykjavik">
+       <coordenada longitud="-21" latitud="64"/>
+    </ciudad>
+    <ciudad nombre="Rio de Janeiro">
+       <coordenada longitud="-43" latitud="-22"/>
+    </ciudad>
+    <ciudad nombre="Roma">
+       <coordenada longitud="12" latitud="41"/>
+    </ciudad>
+    <ciudad nombre="San Marino">
+       <coordenada longitud="12" latitud="43"/>
+    </ciudad>
+    <ciudad nombre="Singapur">
+       <coordenada longitud="103" latitud="1"/>
+    </ciudad>
+    <ciudad nombre="Sidney">
+       <coordenada longitud="150" latitud="-33"/>
+    </ciudad>
+    <ciudad nombre="Tokyo">
+       <coordenada longitud="139" latitud="35"/>
+    </ciudad>
+</mapa>

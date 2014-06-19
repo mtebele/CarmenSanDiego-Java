@@ -4,6 +4,10 @@ import java.lang.Math;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 public class Mapa {
 
 	private List<Ciudad> ciudades;
@@ -23,5 +27,18 @@ public class Mapa {
 	
 	public int cantidadCiudades(){
 		return this.ciudades.size();
+	}
+	
+	public static Mapa hidratar(Document doc) {
+		Mapa nuevoMapa = new Mapa();
+		Element unMapa = (Element)doc.getElementsByTagName("mapa").item(0);
+		
+		// Recorro las ciudades
+		for (int i = 0; i < unMapa.getChildNodes().getLength(); i++) {
+			Ciudad unaCiudad = Ciudad.hidratar(unMapa.getChildNodes().item(i));
+			nuevoMapa.ciudades.add(unaCiudad);			
+		}
+
+		return nuevoMapa;
 	}
 }
