@@ -17,7 +17,7 @@ public class OrdenDeArresto {
 		return baseLadrones.contains(ladron);
 	}
 
-	public void AgregarLadronABaseDeDatos(Ladron ladron) {
+	public void agregarLadronABaseDeDatos(Ladron ladron) {
 		if (!arrestoEsValido(ladron)) {
 			baseLadrones.add(ladron);
 		}
