@@ -44,7 +44,7 @@ public class Partida {
 
 	public String interrogar(Local local) {
 		
-		String pista = this.turno.interrogar(local);
+		String pista = this.policia.interrogar(local);
 		
 		if (! this.quedaTiempo()) {
 			this.perder();
