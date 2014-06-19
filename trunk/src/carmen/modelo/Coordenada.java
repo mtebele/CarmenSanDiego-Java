@@ -1,6 +1,9 @@
 package carmen.modelo;
 import  java.lang.Math;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 public class Coordenada {
 	// hay que determinar la unidad de posicion que usamos.
 	private double longitud;
@@ -30,6 +33,12 @@ public class Coordenada {
         double distancia = RADIOTERRESTRE * resul;  
   
         return (int) distancia;
+	}
+	
+	public static Coordenada hidratar(Node elementoCoordenada) {
+		double latitud = Double.parseDouble(((Element)elementoCoordenada).getAttribute("latitud"));
+		double longitud = Double.parseDouble(((Element)elementoCoordenada).getAttribute("longitud"));
+		return new Coordenada(longitud, latitud);
 	}
 
 	@Override

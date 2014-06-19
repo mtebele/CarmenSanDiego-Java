@@ -17,9 +17,9 @@ public class CiudadTest extends TestCase {
 	public void setUp() throws Exception {
 		Coordenada unaUbicacion = new Coordenada(-58, -34);
 		this.ciudad = new Ciudad(unaUbicacion);
-		this.local1 = new Local(NombreLocal.AEROPUERTO);
+		this.local1 = new Local(TipoLocal.AEROPUERTO);
 		this.local1.setearPista(PISTA_1);
-		this.local2 = new Local(NombreLocal.BANCO);
+		this.local2 = new Local(TipoLocal.BANCO);
 		this.local2.setearPista(PISTA_2);
 	}
 

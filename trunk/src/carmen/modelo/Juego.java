@@ -14,7 +14,7 @@ public class Juego {
 		Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO, Hobby.ALPINISMO);
 		Ladron ladron = new Ladron(perfilLadron);
 		
-		Mapa mapa = new Mapa();
+		Mapa mapa = LectorXML.cargarMapa();
 		Ciudad ciudadActual = new Ciudad(new Coordenada(500,500));
 		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
 		Turno turno = new Turno(locacionInicial);

@@ -3,10 +3,19 @@ package carmen.modelo;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 public class Ciudad {
 
 	private List<Local> locales;
-	private Coordenada ubicacion; 
+	private Coordenada ubicacion;
+	private String nombre;
+	
+	public Ciudad() {
+		
+	}
 	
 	public Ciudad(Coordenada coordenadas) {
 		this.locales = new ArrayList<Local>();
@@ -57,5 +66,27 @@ public class Ciudad {
 		} else if (!ubicacion.equals(other.ubicacion))
 			return false;
 		return true;
-	}	
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public static Ciudad hidratar(Node elementoCiudad) {
+		Ciudad nuevaCiudad = new Ciudad();
+		nuevaCiudad.nombre = ((Element)elementoCiudad).getAttribute("nombre");
+		nuevaCiudad.ubicacion = Coordenada.hidratar(elementoCiudad.getChildNodes().item(0));
+		
+		// Recorro los locales
+		for (int i = 1; i < elementoCiudad.getChildNodes().getLength(); i++) {
+			Local unLocal = Local.hidratar(elementoCiudad.getChildNodes().item(i));
+			nuevaCiudad.locales.add(unLocal);
+		}
+
+		return nuevaCiudad;
+	}
 }
