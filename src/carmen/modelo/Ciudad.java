@@ -14,7 +14,7 @@ public class Ciudad {
 	private String nombre;
 	
 	public Ciudad() {
-		
+		this.locales = new ArrayList<Local>();
 	}
 	
 	public Ciudad(Coordenada coordenadas) {
@@ -84,7 +84,7 @@ public class Ciudad {
 		// Recorro los locales
 		for (int i = 1; i < elementoCiudad.getChildNodes().getLength(); i++) {
 			Local unLocal = Local.inaugurar(elementoCiudad.getChildNodes().item(i));
-			nuevaCiudad.locales.add(unLocal);
+			nuevaCiudad.agregarLocal(unLocal);
 		}
 
 		return nuevaCiudad;

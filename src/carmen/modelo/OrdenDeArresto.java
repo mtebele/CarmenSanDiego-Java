@@ -1,10 +1,15 @@
 package carmen.modelo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
 public class OrdenDeArresto {
-	private List<Ladron> baseLadrones;
+	private ArrayList<Ladron> baseLadrones;
 
 	private Ladron ladron;
 
@@ -31,5 +36,10 @@ public class OrdenDeArresto {
 
 	public Ladron verLadron() {
 		return this.ladron;
+	}
+	
+	public void CargarBaseDeDatos() throws ParserConfigurationException, SAXException, IOException
+	{
+		this.baseLadrones = LectorXML.cargarLadrones();
 	}
 }

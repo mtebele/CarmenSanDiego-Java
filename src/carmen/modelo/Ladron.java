@@ -1,7 +1,11 @@
 package carmen.modelo;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 public class Ladron {
-	
+
 	private Perfil perfil;
 	private Ciudad ciudadActual;
 	private Ciudad ciudadAnterior;
@@ -29,7 +33,7 @@ public class Ladron {
 	}
 
 	public boolean escapar() throws LadronNoPlaneoEscapeException {
-		if (! this.itinerario.tieneDestinos())
+		if (!this.itinerario.tieneDestinos())
 			throw new LadronNoPlaneoEscapeException("El ladron no planeo su escape.");
 		if (this.hizoUltimoEscape())
 			return false;
@@ -48,10 +52,15 @@ public class Ladron {
 
 	public boolean hizoUltimoEscape() {
 		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-		return this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes-1));
+		return this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes - 1));
 	}
 
 	public String verNombre() {
 		return this.perfil.verNombre();
+	}
+
+	public static Ladron deserializar(Node elementoLadron) {
+		Perfil unPerfil = Perfil.deserializar(elementoLadron.getChildNodes().item(0));
+		return new Ladron(unPerfil);
 	}
 }
