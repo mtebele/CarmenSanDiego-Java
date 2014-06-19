@@ -47,7 +47,7 @@ public class Local {
 		this.vecesVisitado++;
 	}
 
-	public static Local hidratar(Node elementoLocal) {
+	public static Local inaugurar(Node elementoLocal) {
 
 		String strNombre = ((Element) elementoLocal).getAttribute("nombre");
 		TipoLocal tipo = TipoLocal.valueOf(strNombre.toUpperCase());

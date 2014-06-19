@@ -29,13 +29,13 @@ public class Mapa {
 		return this.ciudades.size();
 	}
 	
-	public static Mapa hidratar(Document doc) {
+	public static Mapa establecerFronteras(Document doc) {
 		Mapa nuevoMapa = new Mapa();
 		Element unMapa = (Element)doc.getElementsByTagName("mapa").item(0);
 		
 		// Recorro las ciudades
 		for (int i = 0; i < unMapa.getChildNodes().getLength(); i++) {
-			Ciudad unaCiudad = Ciudad.hidratar(unMapa.getChildNodes().item(i));
+			Ciudad unaCiudad = Ciudad.fundar(unMapa.getChildNodes().item(i));
 			nuevoMapa.ciudades.add(unaCiudad);			
 		}
 
