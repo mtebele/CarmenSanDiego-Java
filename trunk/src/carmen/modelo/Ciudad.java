@@ -76,14 +76,14 @@ public class Ciudad {
 		this.nombre = nombre;
 	}
 	
-	public static Ciudad hidratar(Node elementoCiudad) {
+	public static Ciudad fundar(Node elementoCiudad) {
 		Ciudad nuevaCiudad = new Ciudad();
 		nuevaCiudad.nombre = ((Element)elementoCiudad).getAttribute("nombre");
-		nuevaCiudad.ubicacion = Coordenada.hidratar(elementoCiudad.getChildNodes().item(0));
+		nuevaCiudad.ubicacion = Coordenada.localizar(elementoCiudad.getChildNodes().item(0));
 		
 		// Recorro los locales
 		for (int i = 1; i < elementoCiudad.getChildNodes().getLength(); i++) {
-			Local unLocal = Local.hidratar(elementoCiudad.getChildNodes().item(i));
+			Local unLocal = Local.inaugurar(elementoCiudad.getChildNodes().item(i));
 			nuevaCiudad.locales.add(unLocal);
 		}
 

@@ -26,7 +26,7 @@ public class LectorXML {
 		doc = dBuilder.parse(archivo);
 		doc.getDocumentElement().normalize();
 
-		Mapa mapaCargado = Mapa.hidratar(doc);
+		Mapa mapaCargado = Mapa.establecerFronteras(doc);
 		return mapaCargado;
 	}
 
