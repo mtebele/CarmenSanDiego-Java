@@ -12,6 +12,7 @@ public class Local {
 	public Local(TipoLocal nombre) {
 		this.vecesVisitado = 0;
 		this.nombre = nombre;
+		this.pista = null;
 	}
 
 	public int vecesVisitado() {

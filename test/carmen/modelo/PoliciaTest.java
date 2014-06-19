@@ -11,7 +11,6 @@ public class PoliciaTest {
 
 	private Policia policia;
 	private Turno turno;
-	private Velocidad velocidad;
 	private Ladron ladron;
 	
 	@Before
@@ -70,10 +69,6 @@ public class PoliciaTest {
 		//Creo Turno
 		Turno turno = new Turno(locacionInicial);
 		this.turno = turno;
-		
-		//Creo Velocidad
-		Velocidad velocidad = new Velocidad(700);
-		this.velocidad = velocidad;
 		
 		//Creo Policia
 		this.policia = new Policia();
@@ -173,7 +168,7 @@ public class PoliciaTest {
 		}
 		
 		try {
-			this.turno.viajar(destinoConLadron, this.velocidad);
+			this.turno.viajar(destinoConLadron, this.policia.getRango().getVelocidad());
 		} catch (LadronNoPlaneoEscapeException e) {
 			assert false;
 		}

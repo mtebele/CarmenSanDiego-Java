@@ -8,6 +8,7 @@ public class Partida {
 	private Ladron ladron;
 	private Turno turno;
 	private OrdenDeArresto orden;
+	private Juego juego;
 
 	public Partida(Policia policia, Ladron ladron, Turno turno, OrdenDeArresto orden) {
 		this.policia = policia;
@@ -20,11 +21,12 @@ public class Partida {
 		this.orden.emitirOrden(ladron);
 	}
 
-	private void atraparLadron(Ladron ladron) {
-		if (this.orden.verLadron().equals(this.ladron)) {
+	public void atraparLadron() {
+		if ( (this.orden.verLadron() != null) && (this.orden.verLadron().equals(this.ladron)) ) {
 			this.ganar();
+		} else {
+			this.perder();
 		}
-		this.perder();
 	}
 
 	public void viajar(Ciudad destino) {
@@ -34,21 +36,23 @@ public class Partida {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+		
+		if (! this.quedaTiempo()) {
+			this.perder();
+		}
 	}
 
 	public String interrogar(Local local) {
 		
 		String pista = this.turno.interrogar(local);
+		
 		if (! this.quedaTiempo()) {
 			this.perder();
-		}
-		
-		if (this.policia.ciudadActual().equals(this.ladron.ciudadActual()) && this.ladron.hizoUltimoEscape()) {
-			this.atraparLadron(this.ladron);
+		} else if (this.policia.ciudadActual().equals(this.ladron.ciudadActual()) && this.ladron.hizoUltimoEscape()) {
+			this.atraparLadron();
 		}
 		
 		return pista;
-		
 	}
 
 	private void perder() {
@@ -61,7 +65,12 @@ public class Partida {
 	}
 	
 	private void terminarPartida() {
+		//this.juego.terminarPartida();
+		//Esto pondria en null la referencia a Partida de Juego.
 		
+		
+		//Mas adelante este metodo deberia actualizar las vistas o algo asi para que
+		//el usuario sepa que termino la partida.
 	}
 
 	public List<Ciudad> verDestinos() {
@@ -70,6 +79,10 @@ public class Partida {
 
 	public boolean quedaTiempo() {
 		return turno.quedaTiempo();
+	}
+	
+	public Ciudad ciudadActual() {
+		return this.policia.ciudadActual();
 	}
 
 
