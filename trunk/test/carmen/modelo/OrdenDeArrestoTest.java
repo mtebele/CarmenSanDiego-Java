@@ -38,7 +38,7 @@ public class OrdenDeArrestoTest {
 	public void testOrdenDeArrestoEmiteOrdenOK(){
 		this.setUp();
 		assertNull(this.orden.verLadron());
-		this.orden.AgregarLadronABaseDeDatos(this.ladron1);
+		this.orden.agregarLadronABaseDeDatos(this.ladron1);
 		this.orden.emitirOrden(this.ladron1);
 		assertNotNull(this.orden.verLadron());
 		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
@@ -48,8 +48,8 @@ public class OrdenDeArrestoTest {
 	@Test
 	public void testOrdenDeArrestoCambiaLadronOK(){
 		this.setUp();
-		this.orden.AgregarLadronABaseDeDatos(this.ladron1);
-		this.orden.AgregarLadronABaseDeDatos(this.ladron2);
+		this.orden.agregarLadronABaseDeDatos(this.ladron1);
+		this.orden.agregarLadronABaseDeDatos(this.ladron2);
 		this.orden.emitirOrden(this.ladron1);
 		assertNotNull(this.orden.verLadron());
 		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
@@ -62,7 +62,7 @@ public class OrdenDeArrestoTest {
 	public void testOrdenDeArrestoEsValida(){
 		this.setUp();
 		assertEquals(this.orden.arrestoEsValido(this.ladron1),false);
-	    this.orden.AgregarLadronABaseDeDatos(this.ladron1);
+	    this.orden.agregarLadronABaseDeDatos(this.ladron1);
 	    assertEquals(this.orden.arrestoEsValido(this.ladron1),true);
 	}
 	
