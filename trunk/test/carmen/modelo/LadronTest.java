@@ -1,9 +1,9 @@
 package carmen.modelo;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
 
 public class LadronTest {
 	private Ladron ladron;
@@ -12,8 +12,8 @@ public class LadronTest {
 	private ObjetoRobado unObjetoComun;
 	private ObjetoRobado unObjetoValioso;
 	private ObjetoRobado unObjetoMuyValioso;
+
 	@Before
-	
 	public void setUp() throws Exception {
 		perfil1 = new Perfil("Pepe", Sexo.MASCULINO, Cabello.CASTANIO, Senia.JOYAS, Vehiculo.MOTO, Hobby.MUSICA);
 		ladron = new Ladron(perfil1);
@@ -24,9 +24,9 @@ public class LadronTest {
 		ciudad4 = new Ciudad(new Coordenada(-43, 3432));
 		ciudad5 = new Ciudad(new Coordenada(9, 3432));
 		ciudad6 = new Ciudad(new Coordenada(21, -234));
-		unObjetoComun = new ObjetoRobado(Valor.COMUN,ciudad0);
-		unObjetoValioso = new ObjetoRobado(Valor.VALIOSO,ciudad0);
-		unObjetoMuyValioso = new ObjetoRobado(Valor.MUY_VALIOSO,ciudad0);
+		unObjetoComun = new ObjetoRobado(Valor.COMUN, ciudad0);
+		unObjetoValioso = new ObjetoRobado(Valor.VALIOSO, ciudad0);
+		unObjetoMuyValioso = new ObjetoRobado(Valor.MUY_VALIOSO, ciudad0);
 	}
 
 	@Test
@@ -40,62 +40,62 @@ public class LadronTest {
 		this.setUp();
 		assertNull(this.ladron.ciudadActual());
 	}
-	
+
 	@Test
 	public void testLadronNoPuedeEscaparSinRobar() throws Exception {
 		this.setUp();
 		boolean pudoEscapar = false;
-		try{
+		try {
 			pudoEscapar = this.ladron.escapar();
-		} catch (LadronNoPlaneoEscapeException exc){
+		} catch (LadronNoPlaneoEscapeException exc) {
 			pudoEscapar = false;
 		}
-		assertFalse(pudoEscapar);	
+		assertFalse(pudoEscapar);
 	}
 
 	@Test
-	public void testLadronPuedeEscapar3VecesAlRobarComun() throws Exception{
+	public void testLadronPuedeEscapar3VecesAlRobarComun() throws Exception {
 		this.setUp();
 		ladron.robarObjeto(unObjetoComun);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
-		assertEquals(ladron.ciudadActual(),ciudad0);
+		assertEquals(ladron.ciudadActual(), ciudad0);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad1);
+		assertEquals(ladron.ciudadActual(), ciudad1);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad2);
+		assertEquals(ladron.ciudadActual(), ciudad2);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad3);
+		assertEquals(ladron.ciudadActual(), ciudad3);
 		assertFalse(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad3);
+		assertEquals(ladron.ciudadActual(), ciudad3);
 		assertTrue(ladron.hizoUltimoEscape());
 	}
-	
+
 	@Test
-	public void testLadronPuedeEscapar4VecesAlRobarValioso() throws Exception{
+	public void testLadronPuedeEscapar4VecesAlRobarValioso() throws Exception {
 		this.setUp();
 		ladron.robarObjeto(unObjetoValioso);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
 		ladron.planearNuevoDestino(ciudad4);
-		assertEquals(ladron.ciudadActual(),ciudad0);
+		assertEquals(ladron.ciudadActual(), ciudad0);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad1);
+		assertEquals(ladron.ciudadActual(), ciudad1);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad2);
+		assertEquals(ladron.ciudadActual(), ciudad2);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad3);
+		assertEquals(ladron.ciudadActual(), ciudad3);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad4);
+		assertEquals(ladron.ciudadActual(), ciudad4);
 		assertFalse(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad4);
+		assertEquals(ladron.ciudadActual(), ciudad4);
 		assertTrue(ladron.hizoUltimoEscape());
 	}
-	
+
 	@Test
-	public void testLadronPuedeEscapar6VecesAlRobarMuyValioso() throws Exception{
+	public void testLadronPuedeEscapar6VecesAlRobarMuyValioso() throws Exception {
 		this.setUp();
 		ladron.robarObjeto(unObjetoMuyValioso);
 		ladron.planearNuevoDestino(ciudad1);
@@ -104,21 +104,21 @@ public class LadronTest {
 		ladron.planearNuevoDestino(ciudad4);
 		ladron.planearNuevoDestino(ciudad5);
 		ladron.planearNuevoDestino(ciudad6);
-		assertEquals(ladron.ciudadActual(),ciudad0);
+		assertEquals(ladron.ciudadActual(), ciudad0);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad1);
+		assertEquals(ladron.ciudadActual(), ciudad1);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad2);
+		assertEquals(ladron.ciudadActual(), ciudad2);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad3);
+		assertEquals(ladron.ciudadActual(), ciudad3);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad4);
+		assertEquals(ladron.ciudadActual(), ciudad4);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad5);
+		assertEquals(ladron.ciudadActual(), ciudad5);
 		assertTrue(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad6);
+		assertEquals(ladron.ciudadActual(), ciudad6);
 		assertFalse(ladron.escapar());
-		assertEquals(ladron.ciudadActual(),ciudad6);
+		assertEquals(ladron.ciudadActual(), ciudad6);
 		assertTrue(ladron.hizoUltimoEscape());
 	}
 }

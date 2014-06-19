@@ -1,6 +1,10 @@
 package carmen.modelo;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 public class Perfil {
+
 	private String nombre;
 	private Sexo sexo;
 	private Cabello cabello;
@@ -8,7 +12,7 @@ public class Perfil {
 	private Hobby hobby;
 	private Vehiculo vehiculo;
 
-	public Perfil(String nombre, Sexo sexo, Cabello cabello, Senia senia, Vehiculo vehiculo, Hobby hobby){
+	public Perfil(String nombre, Sexo sexo, Cabello cabello, Senia senia, Vehiculo vehiculo, Hobby hobby) {
 		this.nombre = nombre;
 		this.sexo = sexo;
 		this.cabello = cabello;
@@ -16,8 +20,20 @@ public class Perfil {
 		this.hobby = hobby;
 		this.vehiculo = vehiculo;
 	}
-	
-	public String verNombre(){
+
+	public String verNombre() {
 		return this.nombre;
+	}
+	
+	public static Perfil deserializar(Node elementoPerfil) {
+		
+		String nombre = ((Element) elementoPerfil).getAttribute("nombre");
+		Sexo sexo = Sexo.valueOf(((Element) elementoPerfil).getAttribute("sexo").toUpperCase());
+		Cabello cabello = Cabello.valueOf(((Element) elementoPerfil).getAttribute("cabello").toUpperCase());
+		Senia senia = Senia.valueOf(((Element) elementoPerfil).getAttribute("senia").toUpperCase());
+		Vehiculo vehiculo = Vehiculo.valueOf(((Element) elementoPerfil).getAttribute("vehiculo").toUpperCase());
+		Hobby hobby = Hobby.valueOf(((Element) elementoPerfil).getAttribute("hobby").toUpperCase());
+		
+		return new Perfil(nombre, sexo, cabello, senia, vehiculo, hobby);
 	}
 }
