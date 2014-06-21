@@ -23,12 +23,14 @@ public class Policia {
 	}
 
 	public void viajar(Ciudad destino) throws LadronNoPlaneoEscapeException {
+		// TODO: ver excepcion.
+		
 		Velocidad velocidad = this.rango.getVelocidad();
-		try {
+		//try {
 			this.turno.viajar(destino, velocidad);
-		} catch (LadronNoPlaneoEscapeException e) {
-			throw new LadronNoPlaneoEscapeException(e.getMessage());
-		}
+		//} catch (LadronNoPlaneoEscapeException e) {
+		//	throw new LadronNoPlaneoEscapeException(e.getMessage());
+		//}
 	}
 
 	public String interrogar(Local local) {

@@ -31,6 +31,8 @@ public class Locacion {
 	}
 	
 	public void viajar(Ciudad destino) throws LadronNoPlaneoEscapeException {
+		// TODO: ver excepcion.
+		
 		Ciudad partida = this.ciudadActual;
 		this.ciudadActual = destino;
 		

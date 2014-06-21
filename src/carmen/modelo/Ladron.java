@@ -37,9 +37,8 @@ public class Ladron {
 			throw new LadronNoPlaneoEscapeException("El ladron no planeo su escape.");
 		if (this.hizoUltimoEscape())
 			return false;
-		int nroCiudadActual = this.itinerario.ciudades().indexOf(this.ciudadActual);
 		this.ciudadAnterior = this.ciudadActual;
-		this.ciudadActual = this.itinerario.ciudadNro(nroCiudadActual + 1);
+		this.ciudadActual = this.itinerario.ciudadSiguiente(ciudadActual);
 		return true;
 	}
 
@@ -52,7 +51,7 @@ public class Ladron {
 
 	public boolean hizoUltimoEscape() {
 		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
-		return this.ciudadActual.equals(this.itinerario.ciudadNro(cantDeEscapes - 1));
+		return this.itinerario.esCiudadFinal(cantDeEscapes, ciudadActual);
 	}
 
 	public String verNombre() {
