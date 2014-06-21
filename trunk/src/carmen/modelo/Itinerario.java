@@ -19,6 +19,15 @@ public class Itinerario {
 		return this.ciudades;
 	}
 
+	public Ciudad ciudadSiguiente(Ciudad ciudadActual) {
+		int nroCiudadActual = this.ciudades.indexOf(ciudadActual);
+		return this.ciudadNro(nroCiudadActual + 1);
+	}
+	
+	public boolean esCiudadFinal(int cantDeEscapes, Ciudad ciudad) {
+		return ciudad.equals(this.ciudadNro(cantDeEscapes - 1));
+	}
+	
 	public Ciudad ciudadNro(int nro) {
 		return this.ciudades.get(nro);
 	}

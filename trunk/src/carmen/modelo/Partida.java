@@ -30,6 +30,7 @@ public class Partida {
 	}
 
 	public void viajar(Ciudad destino) {
+		// TODO: ver lo de la excepcion.
 		try {
 			this.policia.viajar(destino);
 		} catch (LadronNoPlaneoEscapeException e) {
