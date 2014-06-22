@@ -16,7 +16,7 @@ import carmen.modelo.perfil.Vehiculo;
 public class LadronTest {
 	private Ladron ladron;
 	private Perfil perfil1;
-	private Ciudad ciudad0, ciudad1, ciudad2, ciudad3, ciudad4, ciudad5, ciudad6, ciudad7;
+	private Ciudad ciudad0, ciudad1, ciudad2, ciudad3, ciudad4, ciudad5, ciudad6;
 	private ObjetoRobado unObjetoComun;
 	private ObjetoRobado unObjetoValioso;
 	private ObjetoRobado unObjetoMuyValioso;

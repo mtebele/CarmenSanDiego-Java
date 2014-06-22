@@ -1,7 +1,5 @@
 package carmen.modelo;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
@@ -36,9 +34,10 @@ public class Ladron {
 	}
 
 	public boolean escapar() throws LadronNoPlaneoEscapeException {
+		// TODO: ver tema de excepcion
 		if (!this.itinerario.tieneDestinos())
 			throw new LadronNoPlaneoEscapeException("El ladron no planeo su escape.");
-		if (this.hizoUltimoEscape())
+		if (hizoUltimoEscape())
 			return false;
 		this.ciudadAnterior = this.ciudadActual;
 		this.ciudadActual = this.itinerario.ciudadSiguiente(ciudadActual);

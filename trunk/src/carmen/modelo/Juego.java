@@ -16,12 +16,12 @@ import carmen.modelo.perfil.Vehiculo;
 public class Juego {
 
 	private Policia policia;
-	private LectorXML lectorXML;
 
 	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException {
 
 		this.policia = new Policia();
-
+		
+		// TODO: elegir un perfil
 		Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO, Hobby.ALPINISMO);
 		Ladron ladron = new Ladron(perfilLadron);
 
