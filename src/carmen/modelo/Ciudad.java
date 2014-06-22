@@ -3,7 +3,6 @@ package carmen.modelo;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -76,14 +75,14 @@ public class Ciudad {
 		this.nombre = nombre;
 	}
 	
-	public static Ciudad fundar(Node elementoCiudad) {
+	public static Ciudad deserializar(Node elementoCiudad) {
 		Ciudad nuevaCiudad = new Ciudad();
 		nuevaCiudad.nombre = ((Element)elementoCiudad).getAttribute("nombre");
 		nuevaCiudad.ubicacion = Coordenada.localizar(elementoCiudad.getChildNodes().item(0));
 		
-		// Recorro los locales
+		// Recorre los locales
 		for (int i = 1; i < elementoCiudad.getChildNodes().getLength(); i++) {
-			Local unLocal = Local.inaugurar(elementoCiudad.getChildNodes().item(i));
+			Local unLocal = Local.deserializar(elementoCiudad.getChildNodes().item(i));
 			nuevaCiudad.agregarLocal(unLocal);
 		}
 

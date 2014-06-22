@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 public class Mapa {
 
@@ -29,13 +28,13 @@ public class Mapa {
 		return this.ciudades.size();
 	}
 	
-	public static Mapa establecerFronteras(Document doc) {
+	public static Mapa deserializar(Document doc) {
 		Mapa nuevoMapa = new Mapa();
 		Element unMapa = (Element)doc.getElementsByTagName("mapa").item(0);
 		
-		// Recorro las ciudades
+		// Recorre las ciudades
 		for (int i = 0; i < unMapa.getChildNodes().getLength(); i++) {
-			Ciudad unaCiudad = Ciudad.fundar(unMapa.getChildNodes().item(i));
+			Ciudad unaCiudad = Ciudad.deserializar(unMapa.getChildNodes().item(i));
 			nuevoMapa.ciudades.add(unaCiudad);			
 		}
 

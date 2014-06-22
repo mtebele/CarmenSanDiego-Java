@@ -1,7 +1,6 @@
 package carmen.modelo;
 
 import java.util.Random;
-import java.util.ArrayList;
 import java.util.List;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
@@ -55,7 +54,7 @@ public class Turno {
 	public boolean quedaTiempo() {
 		return this.tiempo.quedaTiempo();
 	}
-	
+
 	private int horasPerdidasPorAtaque(IAtaque ataque) {
 		Random random = new Random();
 		int horasPerdidas = 0;
@@ -80,20 +79,19 @@ public class Turno {
 	public List<Local> getLocales() {
 		return this.locacion.getLocales();
 	}
-	
+
 	public Locacion getLocacion() {
 		return this.locacion;
 	}
-	
+
 	public IAtaque getDisparo() {
 		return this.disparo;
 	}
-	
+
 	public IAtaque getCuchillazo() {
 		return this.cuchillazo;
 	}
-	
-	// Estos dos se usan para las pruebas:
+
 	public void setProbabilidadCuchillazo(int porcentaje) {
 		cuchillazo.setProbabilidadDeAtaque(porcentaje);
 	}

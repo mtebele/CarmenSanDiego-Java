@@ -3,7 +3,6 @@ package carmen.modelo;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,7 +29,7 @@ public class LectorXML {
 		doc = dBuilder.parse(archivo);
 		doc.getDocumentElement().normalize();
 
-		Mapa mapaCargado = Mapa.establecerFronteras(doc);
+		Mapa mapaCargado = Mapa.deserializar(doc);
 		return mapaCargado;
 	}
 	
@@ -50,7 +49,7 @@ public class LectorXML {
 		ArrayList<Ladron> listaLadrones = new ArrayList<Ladron>();
 		Element ladrones = (Element)doc.getElementsByTagName("ladrones").item(0);
 		
-		// Recorro los ladrones
+		// Recorre los ladrones
 		for (int i = 0; i < ladrones.getChildNodes().getLength(); i++) {
 			Ladron unLadron = Ladron.deserializar(ladrones.getChildNodes().item(i));
 			listaLadrones.add(unLadron);

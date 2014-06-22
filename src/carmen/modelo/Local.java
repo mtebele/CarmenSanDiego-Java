@@ -48,7 +48,7 @@ public class Local {
 		this.vecesVisitado++;
 	}
 
-	public static Local inaugurar(Node elementoLocal) {
+	public static Local deserializar(Node elementoLocal) {
 
 		String strNombre = ((Element) elementoLocal).getAttribute("nombre");
 		TipoLocal tipo = TipoLocal.valueOf(strNombre.toUpperCase());
