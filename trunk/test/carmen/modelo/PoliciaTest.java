@@ -5,6 +5,13 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.perfil.Cabello;
+import carmen.modelo.perfil.Hobby;
+import carmen.modelo.perfil.Perfil;
+import carmen.modelo.perfil.Senia;
+import carmen.modelo.perfil.Sexo;
+import carmen.modelo.perfil.Vehiculo;
 import junit.framework.Assert;
 
 public class PoliciaTest {

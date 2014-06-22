@@ -4,6 +4,9 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 
+import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.interfaces.IAtaque;
+
 public class Turno {
 
 	private Tiempo tiempo;

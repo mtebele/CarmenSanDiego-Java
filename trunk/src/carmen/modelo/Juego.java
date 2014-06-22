@@ -6,6 +6,13 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import carmen.modelo.perfil.Cabello;
+import carmen.modelo.perfil.Hobby;
+import carmen.modelo.perfil.Perfil;
+import carmen.modelo.perfil.Senia;
+import carmen.modelo.perfil.Sexo;
+import carmen.modelo.perfil.Vehiculo;
+
 public class Juego {
 
 	private Policia policia;

@@ -2,6 +2,8 @@ package carmen.modelo;
 
 import java.util.List;
 
+import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+
 public class Partida {
 
 	private Policia policia;
