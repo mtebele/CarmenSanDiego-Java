@@ -1,6 +1,6 @@
-package carmen.modelo;
+package carmen.modelo.interfaces;
 
-interface IAtaque {
+public interface IAtaque {
 
 	int ejecutarAtaque();
 	void setProbabilidadDeAtaque(int porcentaje);

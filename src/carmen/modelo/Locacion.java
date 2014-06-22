@@ -3,6 +3,8 @@ package carmen.modelo;
 import java.util.List;
 import java.util.ArrayList;
 
+import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+
 public class Locacion {
 
 	private Mapa mapa;

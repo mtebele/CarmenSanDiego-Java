@@ -4,6 +4,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.perfil.Perfil;
+
 public class Ladron {
 
 	private Perfil perfil;

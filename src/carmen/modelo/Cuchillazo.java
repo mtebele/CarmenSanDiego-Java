@@ -1,5 +1,7 @@
 package carmen.modelo;
 
+import carmen.modelo.interfaces.IAtaque;
+
 public class Cuchillazo implements IAtaque {
 
 	private int vecesEjecutado;

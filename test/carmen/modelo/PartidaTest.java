@@ -1,8 +1,17 @@
 package carmen.modelo;
 
 import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.perfil.Cabello;
+import carmen.modelo.perfil.Hobby;
+import carmen.modelo.perfil.Perfil;
+import carmen.modelo.perfil.Senia;
+import carmen.modelo.perfil.Sexo;
+import carmen.modelo.perfil.Vehiculo;
 
 public class PartidaTest {
 	

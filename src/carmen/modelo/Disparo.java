@@ -1,5 +1,7 @@
 package carmen.modelo;
 
+import carmen.modelo.interfaces.IAtaque;
+
 public class Disparo implements IAtaque {
 	
 	private int probabilidad;
