@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<partida>
+	<ladron>
+		<perfil nombre="Nick Brunch" sexo="Masculino" cabello="Negro" senia="Anillo" vehiculo="Moto" hobby="Alpinismo" />
+		<itinerario>
+			<ciudad nombre="Buenos Aires">
+				<coordenada longitud="-58" latitud="-34" />
+				<local nombre="Museo" pista="El hombre buscaba fotografias del monte Fuji " />
+				<local nombre="Aeropuerto" pista="se fue con una bandera blanca con un circulo rojo, tenia el pelo negro" />
+				<local nombre="Banco" pista="vino en busca de yenes" />
+			</ciudad>
+			<ciudad nombre="Tokyo">
+				<coordenada longitud="139" latitud="35" />
+				<local nombre="Banco" pista="Cambio su dinero por la moneda Corona Noruega" />
+				<local nombre="Biblioteca" pista="Se encontraba interesado en la historia de los vikingos" />
+				<local nombre="Puerto" pista="El sospechoso tenia un anillo y en su bolso poseia una bandera roja con una cruz azul" />
+			</ciudad>
+			<ciudad nombre="Oslo">
+				<coordenada longitud="10" latitud="59" />
+				<local nombre="Puerto" pista="El sospechoso poseia una bandera verde amarilla y azul" />
+				<local nombre="Banco" pista="Llegó en una moto, y cambio su dinero por reales" />
+				<local nombre="Biblioteca" pista="Vino a averiguar curiosidades sobre la sede del mundial de futbol 2014" />
+			</ciudad>
+			<ciudad nombre="Rio De Janeiro">
+				<coordenada longitud="-43" latitud="-22" />
+				<local nombre="Museo" pista="Estuvo por aqui hace instantes" />
+				<local nombre="Bolsa" pista="Te encuentras cerca" />
+				<local nombre="Aeropuerto" pista="Algo raro esta pasando en la ciudad" />
+			</ciudad>
+		</itinerario>
+	</ladron>
+</partida>
