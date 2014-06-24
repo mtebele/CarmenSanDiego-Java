@@ -5,6 +5,11 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Coordenada;
+import carmen.modelo.mapa.Local;
+import carmen.modelo.mapa.TipoLocal;
+
 public class CiudadTest extends TestCase {
 	private Ciudad ciudad;
 	private Local local1;

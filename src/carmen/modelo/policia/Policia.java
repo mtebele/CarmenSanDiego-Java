@@ -1,8 +1,11 @@
-package carmen.modelo;
+package carmen.modelo.policia;
 
 import java.util.List;
 
+import carmen.modelo.Turno;
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Local;
 
 public class Policia {
 

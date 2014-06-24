@@ -5,12 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import carmen.modelo.perfil.Cabello;
-import carmen.modelo.perfil.Hobby;
-import carmen.modelo.perfil.Perfil;
-import carmen.modelo.perfil.Senia;
-import carmen.modelo.perfil.Sexo;
-import carmen.modelo.perfil.Vehiculo;
+import carmen.modelo.ladron.Ladron;
+import carmen.modelo.ladron.perfil.Cabello;
+import carmen.modelo.ladron.perfil.Hobby;
+import carmen.modelo.ladron.perfil.Perfil;
+import carmen.modelo.ladron.perfil.Senia;
+import carmen.modelo.ladron.perfil.Sexo;
+import carmen.modelo.ladron.perfil.Vehiculo;
+import carmen.modelo.policia.OrdenDeArresto;
 
 public class OrdenDeArrestoTest {
 	private OrdenDeArresto orden;

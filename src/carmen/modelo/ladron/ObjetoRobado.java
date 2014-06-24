@@ -1,4 +1,5 @@
-package carmen.modelo;
+package carmen.modelo.ladron;
+
 
 public class ObjetoRobado {
 

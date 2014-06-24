@@ -1,4 +1,4 @@
-package carmen.modelo;
+package carmen.modelo.mapa;
 import  java.lang.Math;
 
 import org.w3c.dom.Element;
@@ -15,15 +15,15 @@ public class Coordenada {
 		this.latitud = latitud;
 	}
 
-	double getLongitud() {
+	public double getLongitud() {
 		return longitud;
 	}
 
-	double getLatitud() {
+	public double getLatitud() {
 		return latitud;
 	}
 		
-	int distanciaAOtraCoordenada(Coordenada otraCoord) {  
+	public int distanciaAOtraCoordenada(Coordenada otraCoord) {  
 		double deltaLat = Math.toRadians(otraCoord.getLatitud()-this.getLatitud());  
         double deltaLong = Math.toRadians(otraCoord.getLongitud() -this.getLongitud());  
         double senodeltaLat = Math.sin(deltaLat / 2);  

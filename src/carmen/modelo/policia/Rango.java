@@ -1,4 +1,6 @@
-package carmen.modelo;
+package carmen.modelo.policia;
+
+import carmen.modelo.ladron.Valor;
 
 public abstract class Rango {
 

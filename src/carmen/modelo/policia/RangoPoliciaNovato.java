@@ -1,4 +1,5 @@
-package carmen.modelo;
+package carmen.modelo.policia;
+
 
 public class RangoPoliciaNovato extends Rango {
 	

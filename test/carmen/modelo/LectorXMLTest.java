@@ -11,6 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import carmen.modelo.ladron.Ladron;
+import carmen.modelo.mapa.Mapa;
+import carmen.modelo.policia.OrdenDeArresto;
+import carmen.modelo.policia.Policia;
+
 public class LectorXMLTest {
 
 	private Mapa mapa;

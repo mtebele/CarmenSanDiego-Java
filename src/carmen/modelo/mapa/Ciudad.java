@@ -1,4 +1,4 @@
-package carmen.modelo;
+package carmen.modelo.mapa;
 
 import java.util.List;
 import java.util.ArrayList;

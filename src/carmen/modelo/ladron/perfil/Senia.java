@@ -1,3 +1,3 @@
-package carmen.modelo.perfil;
+package carmen.modelo.ladron.perfil;
 
 public enum Senia {ANILLO, TATUAJE, CICATRIZ, JOYAS}

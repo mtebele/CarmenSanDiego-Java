@@ -3,6 +3,9 @@ package carmen.modelo;
 import org.junit.Before;
 import org.junit.Test;
 
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Coordenada;
+import carmen.modelo.mapa.Mapa;
 import junit.framework.Assert;
 
 public class MapaTest {

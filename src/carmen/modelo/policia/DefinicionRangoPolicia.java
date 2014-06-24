@@ -1,4 +1,5 @@
-package carmen.modelo;
+package carmen.modelo.policia;
+
 
 public enum DefinicionRangoPolicia {
 	NOVATO(0, 4, new RangoPoliciaNovato()), 

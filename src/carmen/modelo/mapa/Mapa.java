@@ -1,4 +1,4 @@
-package carmen.modelo;
+package carmen.modelo.mapa;
 
 import java.lang.Math;
 import java.util.List;
