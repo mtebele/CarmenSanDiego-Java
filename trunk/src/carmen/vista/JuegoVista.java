@@ -42,7 +42,14 @@ public class JuegoVista extends JFrame{
 		
 		btnSalirJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int salida = JOptionPane.showConfirmDialog(null, "¿Desea Salir del Juego?");
+				int salida = JOptionPane.showOptionDialog(null,
+						"¿Desea Salir del Juego?", 
+						"Confirmar salida", 
+						JOptionPane.OK_CANCEL_OPTION, 
+						JOptionPane.INFORMATION_MESSAGE, 
+						null,  
+						new String[]{"Sí", "No"}, 
+						"default");
 				if (salida==0){
 					System.exit(0);
 				}
