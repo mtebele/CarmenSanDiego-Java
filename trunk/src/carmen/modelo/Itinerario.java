@@ -3,6 +3,8 @@ package carmen.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.w3c.dom.Node;
+
 public class Itinerario {
 
 	private ArrayList<Ciudad> ciudades;
@@ -34,5 +36,15 @@ public class Itinerario {
 	
 	public boolean tieneDestinos() {
 		return (! this.ciudades.isEmpty() );
+	}
+
+	public static Itinerario deserializar(Node elementoItinerario) {
+		Itinerario nuevoItinerario = new Itinerario();		
+		// Recorre las ciudades
+		for (int i = 0; i < elementoItinerario.getChildNodes().getLength(); i++) {
+			Ciudad unaCiudad = Ciudad.deserializar(elementoItinerario.getChildNodes().item(i));
+			nuevoItinerario.agregarAlRecorrido(unaCiudad);	
+		}		
+		return nuevoItinerario;
 	}
 }

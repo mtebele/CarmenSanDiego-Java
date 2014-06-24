@@ -2,6 +2,10 @@ package carmen.modelo;
 
 import java.util.List;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
 
 public class Partida {
@@ -87,4 +91,19 @@ public class Partida {
 		return this.policia.ciudadActual();
 	}
 
+	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {
+		Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
+
+		Node nodeLadron = unaPartida.getChildNodes().item(0);
+		Ladron ladron = Ladron.deserializar(nodeLadron);
+
+		Node nodeItinerario = nodeLadron.getChildNodes().item(1);
+		ladron.setItinerario(Itinerario.deserializar(nodeItinerario));
+
+		Ciudad ciudadActual = Ciudad.deserializar(nodeItinerario.getFirstChild());
+		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
+		Turno turno = new Turno(locacionInicial);
+
+		return new Partida(policia, ladron, turno, orden);
+	}
 }
