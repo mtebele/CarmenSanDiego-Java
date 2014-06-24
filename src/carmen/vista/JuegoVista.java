@@ -14,6 +14,7 @@ public class JuegoVista extends JFrame{
 	
 	PanelFondo fondoMenu = new PanelFondo("fondo.png");
 	PanelCarga carga = new PanelCarga();
+	PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida("newspaper.png");
 	BotonNuevoJuego btnNuevoJuego = new BotonNuevoJuego();
 	BotonSalirJuego btnSalirJuego = new BotonSalirJuego();
 	
@@ -34,21 +35,23 @@ public class JuegoVista extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				fondoMenu.esconder();
 				getContentPane().add(carga);
+				getContentPane().add(pnlNuevaPartida);
+				pnlNuevaPartida.mostrarAviso();
 				//hacer que la carga se mueva con la lectura de los archivos
 				getContentPane().remove(carga);
-				fondoMenu.setVisible(true);
+//				fondoMenu.setVisible(true);
 			}
 		});
 		
 		btnSalirJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int salida = JOptionPane.showOptionDialog(null,
-						"¿Desea Salir del Juego?", 
+						"Â¿Desea Salir del Juego?", 
 						"Confirmar salida", 
 						JOptionPane.OK_CANCEL_OPTION, 
 						JOptionPane.INFORMATION_MESSAGE, 
 						null,  
-						new String[]{"Sí", "No"}, 
+						new String[]{"Si", "No"}, 
 						"default");
 				if (salida==0){
 					System.exit(0);
