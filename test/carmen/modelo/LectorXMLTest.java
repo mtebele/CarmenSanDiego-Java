@@ -43,7 +43,7 @@ public class LectorXMLTest {
 	
 	@Test
 	public void testLadronesCantidad() throws Exception {
-		assertEquals(this.ladrones.size(), 11);
+		assertEquals(this.ladrones.size(), 10);
 	}
 	
 	@Test
