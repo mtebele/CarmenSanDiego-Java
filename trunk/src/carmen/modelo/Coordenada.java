@@ -5,7 +5,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class Coordenada {
-	// hay que determinar la unidad de posicion que usamos.
+
 	private double longitud;
 	private double latitud;
 	static final double RADIOTERRESTRE= 6371;
