@@ -32,9 +32,9 @@ public class LadronTest {
 		ciudad4 = new Ciudad(new Coordenada(-43, 3432));
 		ciudad5 = new Ciudad(new Coordenada(9, 3432));
 		ciudad6 = new Ciudad(new Coordenada(21, -234));
-		unObjetoComun = new ObjetoRobado(Valor.COMUN, ciudad0);
-		unObjetoValioso = new ObjetoRobado(Valor.VALIOSO, ciudad0);
-		unObjetoMuyValioso = new ObjetoRobado(Valor.MUY_VALIOSO, ciudad0);
+		unObjetoComun = new ObjetoRobado(Valor.COMUN);
+		unObjetoValioso = new ObjetoRobado(Valor.VALIOSO);
+		unObjetoMuyValioso = new ObjetoRobado(Valor.MUY_VALIOSO);
 	}
 
 	@Test
@@ -64,10 +64,11 @@ public class LadronTest {
 	@Test
 	public void testLadronPuedeEscapar3VecesAlRobarComun() throws Exception {
 		this.setUp();
-		ladron.robarObjeto(unObjetoComun);
+		ladron.planearNuevoDestino(ciudad0);	
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
+		ladron.robarObjeto(unObjetoComun);
 		assertEquals(ladron.ciudadActual(), ciudad0);
 		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad1);
@@ -83,11 +84,12 @@ public class LadronTest {
 	@Test
 	public void testLadronPuedeEscapar4VecesAlRobarValioso() throws Exception {
 		this.setUp();
-		ladron.robarObjeto(unObjetoValioso);
+		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
 		ladron.planearNuevoDestino(ciudad4);
+		ladron.robarObjeto(unObjetoValioso);
 		assertEquals(ladron.ciudadActual(), ciudad0);
 		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad1);
@@ -105,13 +107,14 @@ public class LadronTest {
 	@Test
 	public void testLadronPuedeEscapar6VecesAlRobarMuyValioso() throws Exception {
 		this.setUp();
-		ladron.robarObjeto(unObjetoMuyValioso);
+		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
 		ladron.planearNuevoDestino(ciudad4);
 		ladron.planearNuevoDestino(ciudad5);
 		ladron.planearNuevoDestino(ciudad6);
+		ladron.robarObjeto(unObjetoMuyValioso);
 		assertEquals(ladron.ciudadActual(), ciudad0);
 		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad1);

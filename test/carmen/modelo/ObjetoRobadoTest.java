@@ -15,7 +15,7 @@ public class ObjetoRobadoTest {
 	public void setUp() {
 		this.ciudad = new Ciudad(new Coordenada(10, 10));
 		this.valor = Valor.COMUN;
-		this.objeto = new ObjetoRobado(Valor.COMUN, ciudad);
+		this.objeto = new ObjetoRobado(Valor.COMUN);
 	}
 	
 	@Test
@@ -24,6 +24,6 @@ public class ObjetoRobadoTest {
 		
 		Assert.assertNotNull(this.objeto);
 		Assert.assertEquals(this.valor, this.objeto.getValor());
-		Assert.assertEquals(this.ciudad, this.objeto.ciudadOrigen());
+	
 	}
 }

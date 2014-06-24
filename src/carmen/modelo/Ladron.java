@@ -46,8 +46,7 @@ public class Ladron {
 
 	public void robarObjeto(ObjetoRobado objeto) {
 		this.objeto = objeto;
-		Ciudad ciudadActual = objeto.ciudadOrigen();
-		planearNuevoDestino(ciudadActual);
+		Ciudad ciudadActual = this.itinerario.ciudadNro(0);
 		this.ciudadActual = ciudadActual;
 	}
 
