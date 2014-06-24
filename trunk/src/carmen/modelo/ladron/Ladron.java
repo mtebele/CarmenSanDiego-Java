@@ -1,9 +1,10 @@
-package carmen.modelo;
+package carmen.modelo.ladron;
 
 import org.w3c.dom.Node;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
-import carmen.modelo.perfil.Perfil;
+import carmen.modelo.ladron.perfil.Perfil;
+import carmen.modelo.mapa.Ciudad;
 
 public class Ladron {
 

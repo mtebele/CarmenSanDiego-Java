@@ -6,12 +6,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
-import carmen.modelo.perfil.Cabello;
-import carmen.modelo.perfil.Hobby;
-import carmen.modelo.perfil.Perfil;
-import carmen.modelo.perfil.Senia;
-import carmen.modelo.perfil.Sexo;
-import carmen.modelo.perfil.Vehiculo;
+import carmen.modelo.ladron.Ladron;
+import carmen.modelo.ladron.ObjetoRobado;
+import carmen.modelo.ladron.Valor;
+import carmen.modelo.ladron.perfil.Cabello;
+import carmen.modelo.ladron.perfil.Hobby;
+import carmen.modelo.ladron.perfil.Perfil;
+import carmen.modelo.ladron.perfil.Senia;
+import carmen.modelo.ladron.perfil.Sexo;
+import carmen.modelo.ladron.perfil.Vehiculo;
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Coordenada;
+import carmen.modelo.mapa.Locacion;
+import carmen.modelo.mapa.Local;
+import carmen.modelo.mapa.Mapa;
+import carmen.modelo.mapa.TipoLocal;
+import carmen.modelo.policia.Policia;
 import junit.framework.Assert;
 
 public class PoliciaTest {

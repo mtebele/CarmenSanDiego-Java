@@ -11,11 +11,11 @@ import javax.imageio.ImageIO;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import carmen.modelo.perfil.Cabello;
-import carmen.modelo.perfil.Hobby;
-import carmen.modelo.perfil.Senia;
-import carmen.modelo.perfil.Sexo;
-import carmen.modelo.perfil.Vehiculo;
+import carmen.modelo.ladron.perfil.Cabello;
+import carmen.modelo.ladron.perfil.Hobby;
+import carmen.modelo.ladron.perfil.Senia;
+import carmen.modelo.ladron.perfil.Sexo;
+import carmen.modelo.ladron.perfil.Vehiculo;
 
 public class PanelOrdenArresto extends JPanel{
 	

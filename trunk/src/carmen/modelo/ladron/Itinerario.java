@@ -1,9 +1,11 @@
-package carmen.modelo;
+package carmen.modelo.ladron;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.w3c.dom.Node;
+
+import carmen.modelo.mapa.Ciudad;
 
 public class Itinerario {
 

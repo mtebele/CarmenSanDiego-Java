@@ -1,4 +1,4 @@
-package carmen.modelo;
+package carmen.modelo.ladron;
 
 public enum Valor{
 	//El enum valor contiene la cantidad de ciudades de escape

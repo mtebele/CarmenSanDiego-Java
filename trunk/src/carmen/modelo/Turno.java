@@ -5,6 +5,10 @@ import java.util.List;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
 import carmen.modelo.interfaces.IAtaque;
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Locacion;
+import carmen.modelo.mapa.Local;
+import carmen.modelo.policia.Velocidad;
 
 public class Turno {
 

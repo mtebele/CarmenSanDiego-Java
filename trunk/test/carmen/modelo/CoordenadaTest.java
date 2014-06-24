@@ -1,6 +1,7 @@
 package carmen.modelo;
 import org.junit.Test;
 
+import carmen.modelo.mapa.Coordenada;
 import junit.framework.Assert;
 
 public class CoordenadaTest {

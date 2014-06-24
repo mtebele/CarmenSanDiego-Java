@@ -1,4 +1,4 @@
-package carmen.modelo;
+package carmen.modelo.policia;
 
 public class Velocidad {
 

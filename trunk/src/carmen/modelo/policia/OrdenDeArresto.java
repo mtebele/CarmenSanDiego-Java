@@ -1,10 +1,14 @@
-package carmen.modelo;
+package carmen.modelo.policia;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
+
+import carmen.modelo.LectorXML;
+import carmen.modelo.ladron.Ladron;
 
 public class OrdenDeArresto {
 	private ArrayList<Ladron> baseLadrones;

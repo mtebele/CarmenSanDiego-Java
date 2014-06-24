@@ -5,6 +5,11 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import carmen.modelo.ladron.ObjetoRobado;
+import carmen.modelo.ladron.Valor;
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Coordenada;
+
 public class ObjetoRobadoTest {
 
 	private ObjetoRobado objeto;

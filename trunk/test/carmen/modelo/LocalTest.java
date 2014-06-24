@@ -5,6 +5,9 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import carmen.modelo.mapa.Local;
+import carmen.modelo.mapa.TipoLocal;
+
 public class LocalTest {
 
 	private Local local;

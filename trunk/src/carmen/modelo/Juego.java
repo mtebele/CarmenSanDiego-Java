@@ -6,12 +6,15 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import carmen.modelo.perfil.Cabello;
-import carmen.modelo.perfil.Hobby;
-import carmen.modelo.perfil.Perfil;
-import carmen.modelo.perfil.Senia;
-import carmen.modelo.perfil.Sexo;
-import carmen.modelo.perfil.Vehiculo;
+import carmen.modelo.ladron.perfil.Cabello;
+import carmen.modelo.ladron.perfil.Hobby;
+import carmen.modelo.ladron.perfil.Perfil;
+import carmen.modelo.ladron.perfil.Senia;
+import carmen.modelo.ladron.perfil.Sexo;
+import carmen.modelo.ladron.perfil.Vehiculo;
+import carmen.modelo.mapa.Mapa;
+import carmen.modelo.policia.OrdenDeArresto;
+import carmen.modelo.policia.Policia;
 
 public class Juego {
 

@@ -7,6 +7,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.ladron.Itinerario;
+import carmen.modelo.ladron.Ladron;
+import carmen.modelo.mapa.Ciudad;
+import carmen.modelo.mapa.Locacion;
+import carmen.modelo.mapa.Local;
+import carmen.modelo.mapa.Mapa;
+import carmen.modelo.policia.OrdenDeArresto;
+import carmen.modelo.policia.Policia;
 
 public class Partida {
 

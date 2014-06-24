@@ -3,6 +3,7 @@ package carmen.modelo;
 import org.junit.Before;
 import org.junit.Test;
 
+import carmen.modelo.policia.Velocidad;
 import junit.framework.Assert;
 
 public class VelocidadTest {

@@ -12,6 +12,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import carmen.modelo.ladron.Ladron;
+import carmen.modelo.mapa.Mapa;
+import carmen.modelo.policia.OrdenDeArresto;
+import carmen.modelo.policia.Policia;
+
 public class LectorXML {
 
 	static final String PATH = "xml/";

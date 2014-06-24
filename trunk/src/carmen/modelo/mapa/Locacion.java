@@ -1,9 +1,10 @@
-package carmen.modelo;
+package carmen.modelo.mapa;
 
 import java.util.List;
 import java.util.ArrayList;
 
 import carmen.modelo.excepciones.LadronNoPlaneoEscapeException;
+import carmen.modelo.ladron.Ladron;
 
 public class Locacion {
 
