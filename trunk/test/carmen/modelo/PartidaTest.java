@@ -64,11 +64,12 @@ public class PartidaTest {
 		mapa.agregarCiudad(ciudad4);
 		
 		//Creo ObjetoRobado
-		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN, ciudad0);
+		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN);
 		
 		//Creo Ladron
 		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
 		Ladron ladron= new Ladron(perfil);
+		ladron.planearNuevoDestino(ciudad0);
 		ladron.robarObjeto(objeto);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);

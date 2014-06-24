@@ -56,15 +56,16 @@ public class TurnoTest {
 		mapa.agregarCiudad(ciudad4);
 		
 		//Creo ObjetoRobado
-		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN, ciudad0);
+		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN);
 		
 		//Creo Ladron
 		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
 		Ladron ladron= new Ladron(perfil);
-		ladron.robarObjeto(objeto);
+		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
+		ladron.robarObjeto(objeto);
 		
 		//Creo Locacion
 		Locacion locacionInicial = new Locacion(mapa, ciudad0, ladron);
