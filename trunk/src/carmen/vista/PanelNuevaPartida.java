@@ -3,7 +3,9 @@ package carmen.vista;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GridBagLayout;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
@@ -12,9 +14,14 @@ import java.io.IOException;
 public class PanelNuevaPartida extends JPanel {
 	  private BufferedImage img;
 	  static final String PATH = "images/";
+	  private JLabel introduccion = new JLabel();
+	  private JLabel objetoRobado = new JLabel();
+	  private JLabel ubicacion = new JLabel();
+	  private JLabel deadline = new JLabel();
+	  private JButton btnContinuar = new JButton("Iniciar investigacion");
 	  
 	  public PanelNuevaPartida(String filename) {
-	    // carga el fondo
+		// carga el fondo
 	    try {
 	      img = ImageIO.read(new File(PATH + filename));
 	    } catch(IOException e) {
@@ -33,8 +40,21 @@ public class PanelNuevaPartida extends JPanel {
 		  setVisible(false);
 	  }
 	  
-	  public void mostrarAviso(/*Acá iría info del ladrón y del lugar de partida*/){
-		  JLabel aviso = new JLabel("PAPAPAPAPA");
-		  add(aviso);
+	  public void mostrarAviso(/*Acï¿½ irï¿½a info del ladrï¿½n y del lugar de partida*/){
+		  introduccion.setText("\nEn el dia de la fecha se ha reportado un robo de un objeto importante.\n");
+		  introduccion.setForeground(Color.black);
+		  introduccion.setHorizontalAlignment(JLabel.CENTER);
+		  add(introduccion);
+		  objetoRobado.setText("\nSe trata de <objetoRobado>.\n");
+		  objetoRobado.setForeground(Color.black);
+		  objetoRobado.setHorizontalAlignment(JLabel.CENTER);
+		  add(objetoRobado);
+		  ubicacion.setText("\nLas mismas se robaron de la ciudad de <nombreCiudad>.\n");
+		  ubicacion.setForeground(Color.black);
+		  add(ubicacion);
+		  deadline.setText("\nTiene una semana para resolver el caso.\n");
+		  deadline.setForeground(Color.black);
+		  add(deadline);
+		  add(btnContinuar);
 	  }
 	}
