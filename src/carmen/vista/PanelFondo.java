@@ -28,4 +28,8 @@ public class PanelFondo extends JPanel {
 	    // pinta el panel con el fondo
 	    g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 	  }
+	  
+	  public void esconder(){
+		  setVisible(false);
+	  }
 	}
