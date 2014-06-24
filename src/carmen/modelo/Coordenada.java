@@ -35,7 +35,7 @@ public class Coordenada {
         return (int) distancia;
 	}
 	
-	public static Coordenada localizar(Node elementoCoordenada) {
+	public static Coordenada deserializar(Node elementoCoordenada) {
 		double latitud = Double.parseDouble(((Element)elementoCoordenada).getAttribute("latitud"));
 		double longitud = Double.parseDouble(((Element)elementoCoordenada).getAttribute("longitud"));
 		return new Coordenada(longitud, latitud);

@@ -78,7 +78,7 @@ public class Ciudad {
 	public static Ciudad deserializar(Node elementoCiudad) {
 		Ciudad nuevaCiudad = new Ciudad();
 		nuevaCiudad.nombre = ((Element)elementoCiudad).getAttribute("nombre");
-		nuevaCiudad.ubicacion = Coordenada.localizar(elementoCiudad.getChildNodes().item(0));
+		nuevaCiudad.ubicacion = Coordenada.deserializar(elementoCiudad.getChildNodes().item(0));
 		
 		// Recorre los locales
 		for (int i = 1; i < elementoCiudad.getChildNodes().getLength(); i++) {

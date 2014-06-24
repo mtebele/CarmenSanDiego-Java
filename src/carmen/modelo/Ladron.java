@@ -64,4 +64,8 @@ public class Ladron {
 		Perfil unPerfil = Perfil.deserializar(elementoLadron.getChildNodes().item(0));
 		return new Ladron(unPerfil);
 	}
+	
+	public void setItinerario(Itinerario itinerario) {
+		this.itinerario = itinerario;
+	}
 }

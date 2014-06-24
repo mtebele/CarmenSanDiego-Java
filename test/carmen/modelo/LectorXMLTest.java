@@ -15,34 +15,39 @@ public class LectorXMLTest {
 
 	private Mapa mapa;
 	private ArrayList<Ladron> ladrones;
+	private Partida partida;
 	
 	@Before
 	public void setUp() throws ParserConfigurationException, SAXException, IOException {
 		this.mapa = LectorXML.cargarMapa();
 		this.ladrones = LectorXML.cargarLadrones();
+		OrdenDeArresto orden = new OrdenDeArresto();
+		orden.CargarBaseDeDatos();
+		this.partida = LectorXML.cargarPartida(new Policia(), this.mapa, orden);
 	}
 
 	@Test
 	public void testMapaSeCargaOK() throws Exception {
-		this.setUp();		
 		assertNotNull(this.mapa);
 	}
 	
 	@Test
 	public void testMapaCantidadCiudades() throws Exception {
-		this.setUp();
 		assertEquals(this.mapa.cantidadCiudades(), 29);
 	}
 	
 	@Test
 	public void testLadronesSeCarganOK() throws Exception {
-		this.setUp();
 		assertNotNull(this.ladrones);
 	}
 	
 	@Test
 	public void testLadronesCantidad() throws Exception {
-		this.setUp();
 		assertEquals(this.ladrones.size(), 11);
+	}
+	
+	@Test
+	public void testPartidaSeCargaOK() throws Exception {
+		assertNotNull(this.partida);
 	}
 }

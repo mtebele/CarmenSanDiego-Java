@@ -20,19 +20,24 @@ public class Juego {
 	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException {
 
 		this.policia = new Policia();
-		
-		// TODO: elegir un perfil
-		Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO, Hobby.ALPINISMO);
-		Ladron ladron = new Ladron(perfilLadron);
-
 		Mapa mapa = LectorXML.cargarMapa();
-		Ciudad ciudadActual = new Ciudad(new Coordenada(500, 500));
-		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
-		Turno turno = new Turno(locacionInicial);
+
+		// TODO: elegir un perfil
+		/*
+		 * Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO,
+		 * Hobby.ALPINISMO); Ladron ladron = new Ladron(perfilLadron);
+		 * 
+		 * 
+		 * Ciudad ciudadActual = new Ciudad(new Coordenada(500, 500)); Locacion locacionInicial = new Locacion(mapa,
+		 * ciudadActual, ladron); Turno turno = new Turno(locacionInicial);
+		 */
 
 		OrdenDeArresto orden = new OrdenDeArresto();
 		orden.CargarBaseDeDatos();
 
-		return new Partida(this.policia, ladron, turno, orden);
+		Partida partida = LectorXML.cargarPartida(this.policia, mapa, orden);
+
+		// return new Partida(this.policia, ladron, turno, orden);
+		return partida;
 	}
 }
