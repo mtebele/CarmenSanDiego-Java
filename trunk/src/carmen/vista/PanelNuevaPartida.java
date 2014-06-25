@@ -13,36 +13,16 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class PanelNuevaPartida extends JPanel {
-	  private BufferedImage img;
-	  static final String PATH = "images/";
+public class PanelNuevaPartida extends PanelConFondo {
+	  static final String FONDO = "newspaper.png";
 	  private JLabel introduccion = new JLabel();
 	  private JLabel objetoRobado = new JLabel();
 	  private JLabel ubicacion = new JLabel();
 	  private JLabel deadline = new JLabel();
 	  private JButton btnContinuar = new JButton("Iniciar investigacion");
 	  
-	  public PanelNuevaPartida(String filename) {
-		// carga el fondo
-	    try {
-	      img = ImageIO.read(new File(PATH + filename));
-	    } catch(IOException e) {
-	      e.printStackTrace();
-	    }
-	  }
-	 
-	  @Override
-	  protected void paintComponent(Graphics g) {
-	    super.paintComponent(g);
-	    // pinta el panel con el fondo
-	    g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-	  }
-	  
-	  public void esconder(){
-		  setVisible(false);
-	  }
-	  
-	  public void mostrarAviso(/*Ac� ir�a info del ladr�n y del lugar de partida*/){
+	  public PanelNuevaPartida() {
+		  super(FONDO);
 		  introduccion.setText("\nEn el dia de la fecha se ha reportado un robo de un objeto importante.\n");
 		  introduccion.setForeground(Color.black);
 		  introduccion.setHorizontalAlignment(JLabel.CENTER);
@@ -66,7 +46,11 @@ public class PanelNuevaPartida extends JPanel {
 					pepe.add(new PanelOrdenArresto("ordenarresto.jpg"));
 				}
 			});
-
+		  
 	  }
-	  
+	 
+	  public void esconder(){
+		  setVisible(false);
+	  }
+	  	  
 	}
