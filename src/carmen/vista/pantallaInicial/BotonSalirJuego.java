@@ -1,4 +1,4 @@
-package carmen.vista;
+package carmen.vista.pantallaInicial;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,12 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 public class BotonSalirJuego extends JButton{
-	private static int MAX_ALTURA = 100;
-	private static int MAX_ANCHURA = 200;
 	
 	public BotonSalirJuego(){
 		super("Salir del Juego");
-		setSize(MAX_ALTURA,MAX_ANCHURA);
 		setVisible(true);
 		addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

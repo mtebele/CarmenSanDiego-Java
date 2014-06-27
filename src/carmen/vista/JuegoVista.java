@@ -1,46 +1,39 @@
 package carmen.vista;
-import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import carmen.vista.pantallaInicial.BotonNuevoJuego;
+import carmen.vista.pantallaInicial.BotonSalirJuego;
+import carmen.vista.pantallaInicial.PanelInicial;
 
-public class JuegoVista extends JFrame{
-	private static int MAX_ALTURA = 500;
-	private static int MAX_ANCHURA = 400;
+public class JuegoVista extends JFrame implements Observer{ 
+	private static int MAX_ALTURA = 800;
+	private static int MAX_ANCHURA = 600;
 	
-	PanelFondo fondoMenu = new PanelFondo("fondo.png");
 	PanelCarga carga = new PanelCarga();
-	PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida();
-	BotonNuevoJuego btnNuevoJuego = new BotonNuevoJuego();
-	BotonSalirJuego btnSalirJuego = new BotonSalirJuego();
+	PanelInicial pnlNuevaPartida = new PanelInicial();
 	
 	public static void main(String[] args){
-		new JuegoVista();
+		JuegoVista vista = new JuegoVista();		
 	}
 	
 	public JuegoVista(){
 		super("Carmen SanDiego - 75.07 FIUBA");
+		final PanelesAdministrador admin = new PanelesAdministrador(this);
 		setSize(MAX_ALTURA,MAX_ANCHURA);
 		setResizable(true);
 		setVisible(true);
-		getContentPane().add(fondoMenu);
-		fondoMenu.add(btnNuevoJuego);
-		fondoMenu.add(btnSalirJuego);
+		getContentPane().add(pnlNuevaPartida);
 		
-		btnNuevoJuego.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				fondoMenu.esconder();
-				getContentPane().add(carga);
-				getContentPane().add(pnlNuevaPartida);
-				//hacer que la carga se mueva con la lectura de los archivos
-				getContentPane().remove(carga);
-//				fondoMenu.setVisible(true);
-			}
-		});
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 }

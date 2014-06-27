@@ -1,17 +1,12 @@
 package carmen.vista;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import carmen.vista.pantallaOrdenArresto.PanelOrdenArresto;
+
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.*;
-import java.io.File;
-import java.io.IOException;
-
 
 public class PanelNuevaPartida extends PanelConFondo {
 	  static final String FONDO = "newspaper.png";
@@ -20,9 +15,11 @@ public class PanelNuevaPartida extends PanelConFondo {
 	  private JLabel ubicacion = new JLabel();
 	  private JLabel deadline = new JLabel();
 	  private JButton btnContinuar = new JButton("Iniciar investigacion");
+	  private JButton btnVolver = new BotonVolver();
 	  
 	  public PanelNuevaPartida() {
 		  super(FONDO);
+		  setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		  introduccion.setText("\nEn el dia de la fecha se ha reportado un robo de un objeto importante.\n");
 		  introduccion.setForeground(Color.black);
 		  introduccion.setHorizontalAlignment(JLabel.CENTER);
@@ -38,6 +35,7 @@ public class PanelNuevaPartida extends PanelConFondo {
 		  deadline.setForeground(Color.black);
 		  add(deadline);
 		  add(btnContinuar);
+		  add(btnVolver);
 		  btnContinuar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					JFrame pepe = new JFrame();
@@ -49,8 +47,5 @@ public class PanelNuevaPartida extends PanelConFondo {
 		  
 	  }
 	 
-	  public void esconder(){
-		  setVisible(false);
-	  }
 	  	  
 	}
