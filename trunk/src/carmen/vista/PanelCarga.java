@@ -1,15 +1,10 @@
 package carmen.vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.Component;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JFrame;
 
 public class PanelCarga extends PanelConFondo {
 	static final String FILENAME = "fondo.png";
@@ -17,9 +12,11 @@ public class PanelCarga extends PanelConFondo {
 	
 	public PanelCarga(){
 		super(FILENAME);
+		//para superponer usar transparencia 0
 		barraCarga.setValue(0);
 	    barraCarga.setStringPainted(true);
 	    barraCarga.setString("Cargando...");
+	    barraCarga.setAlignmentX(Component.CENTER_ALIGNMENT);
 	    add(barraCarga);
 	    /*FALTAR�A ASOCIAR ESTO A LA CARGA DEL XML*/
 	}

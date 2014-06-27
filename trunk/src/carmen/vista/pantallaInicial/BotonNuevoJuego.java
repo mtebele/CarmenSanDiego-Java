@@ -1,4 +1,4 @@
-package carmen.vista;
+package carmen.vista.pantallaInicial;
 
 import javax.swing.JButton;
 

@@ -1,6 +1,7 @@
-package carmen.vista;
+package carmen.vista.pantallaOrdenArresto;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -8,20 +9,23 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 
 import carmen.modelo.ladron.perfil.Cabello;
 import carmen.modelo.ladron.perfil.Hobby;
 import carmen.modelo.ladron.perfil.Senia;
 import carmen.modelo.ladron.perfil.Sexo;
 import carmen.modelo.ladron.perfil.Vehiculo;
+import carmen.vista.BotonVolver;
+import carmen.vista.PanelConFondo;
 
-public class PanelOrdenArresto extends JPanel{
+public class PanelOrdenArresto extends PanelConFondo{
+
+	static final String fondo = "ordenarresto.jpg";
 	
-	private BufferedImage img;
-	static final String PATH = "images/";
-
 	private String[] opcionesCabello = {
 		"Seleccione color de cabello",
 		Cabello.CASTANIO.toString(),
@@ -66,28 +70,21 @@ public class PanelOrdenArresto extends JPanel{
 	private JComboBox<String> cajaSenia = new JComboBox<String>(opcionesSenia);
 	private JComboBox<String> cajaSexo = new JComboBox<String>(opcionesSexo);
 	private JComboBox<String> cajaVehiculo = new JComboBox<String>(opcionesVehiculo);
-	
-	
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		// pinta el panel con el fondo
-		g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-	}
+	private AreaSospechosos areaSospechosos = new AreaSospechosos();
+	private BotonEmitirOrdenArresto btnOrden = new BotonEmitirOrdenArresto();
+	private BotonVolver btnVolver = new BotonVolver();
 	
 	public PanelOrdenArresto(String filename) {
-		// carga el fondo
-		try {
-			img = ImageIO.read(new File(PATH + filename));
-	    } catch(IOException e) {
-	    	e.printStackTrace();
-	    }
-		
+		super(fondo);
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		add(cajaCabello);
 		add(cajaHobby);
 		add(cajaSenia);
 		add(cajaSexo);
 		add(cajaVehiculo);
+		add(btnOrden);
+		add(areaSospechosos);
+		add(btnVolver);
 	}
 	
 }

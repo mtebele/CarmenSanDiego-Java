@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class PanelConFondo extends JPanel {
@@ -15,11 +16,12 @@ public class PanelConFondo extends JPanel {
 	static final String PATH = "images/";
 	
 	public PanelConFondo(String filename){
-	    try {
+		try {
 	      img = ImageIO.read(new File(PATH + filename));
 	    } catch(IOException e) {
 	      e.printStackTrace();
 	    }
+	//	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	}
 	
 	@Override
@@ -29,4 +31,11 @@ public class PanelConFondo extends JPanel {
 	  g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 	}
 	
+	public void esconder(){
+		setVisible(false);
+	}
+	
+	public void mostrar(){
+		setVisible(true);
+	}
 }
