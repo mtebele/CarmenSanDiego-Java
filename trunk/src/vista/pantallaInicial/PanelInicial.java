@@ -20,4 +20,12 @@ public class PanelInicial extends PanelConFondo {
 		add(btnNuevaPartida);
 		add(btnSalirJuego);
 	}
+	
+	public void addNuevaPartidaListener(ActionListener l) {
+		btnNuevaPartida.addActionListener(l);
+	}
+	
+	public void addSalirJuegoListener(ActionListener l) {
+		btnSalirJuego.addActionListener(l);
+	}
 }
