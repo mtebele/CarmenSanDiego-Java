@@ -1,19 +1,8 @@
 package modelo;
 
 import java.io.IOException;
-
 import javax.xml.parsers.ParserConfigurationException;
-
-import modelo.ladron.perfil.Cabello;
-import modelo.ladron.perfil.Hobby;
-import modelo.ladron.perfil.Perfil;
-import modelo.ladron.perfil.Senia;
-import modelo.ladron.perfil.Sexo;
-import modelo.ladron.perfil.Vehiculo;
-import modelo.mapa.Mapa;
-import modelo.policia.OrdenDeArresto;
 import modelo.policia.Policia;
-
 import org.xml.sax.SAXException;
 
 public class Juego {
@@ -21,26 +10,7 @@ public class Juego {
 	private Policia policia;
 
 	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException {
-
 		this.policia = new Policia();
-		Mapa mapa = LectorXML.cargarMapa();
-
-		// TODO: elegir un perfil
-		/*
-		 * Perfil perfilLadron = new Perfil("Mark", Sexo.MASCULINO, Cabello.ROJO, Senia.TATUAJE, Vehiculo.MOTO,
-		 * Hobby.ALPINISMO); Ladron ladron = new Ladron(perfilLadron);
-		 * 
-		 * 
-		 * Ciudad ciudadActual = new Ciudad(new Coordenada(500, 500)); Locacion locacionInicial = new Locacion(mapa,
-		 * ciudadActual, ladron); Turno turno = new Turno(locacionInicial);
-		 */
-
-		OrdenDeArresto orden = new OrdenDeArresto();
-		orden.CargarBaseDeDatos();
-
-		Partida partida = LectorXML.cargarPartida(this.policia, mapa, orden);
-
-		// return new Partida(this.policia, ladron, turno, orden);
-		return partida;
+		return LectorXML.cargarPartida(this.policia);
 	}
 }

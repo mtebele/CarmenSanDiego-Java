@@ -44,7 +44,7 @@ public class PanelOrdenArresto extends PanelConFondo{
 		};
 	
 	private String[] opcionesSenia = {
-			"Seleccione SeÃ±a",
+			"Seleccione Seña",
 			Senia.ANILLO.toString(),
 			Senia.CICATRIZ.toString(),
 			Senia.JOYAS.toString(),
@@ -58,7 +58,7 @@ public class PanelOrdenArresto extends PanelConFondo{
 			};
 	
 	private String[] opcionesVehiculo = {
-		"Seleccione vehiculo",
+		"Seleccione vehículo",
 		Vehiculo.DEPORTIVO.toString(),
 		Vehiculo.DESCAPOTABLE.toString(),
 		Vehiculo.LIMUSINA.toString(),

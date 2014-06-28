@@ -63,7 +63,7 @@ public class LectorXML {
 		return listaLadrones;
 	}
 
-	public static Partida cargarPartida(Policia policia, Mapa mapa, OrdenDeArresto orden)
+	public static Partida cargarPartida(Policia policia)
 			throws ParserConfigurationException, SAXException, IOException {
 
 		// TODO: cargar file segun rango de policia
@@ -77,6 +77,11 @@ public class LectorXML {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(archivo);
 		doc.getDocumentElement().normalize();
+		
+		Mapa mapa = cargarMapa();
+		
+		OrdenDeArresto orden = new OrdenDeArresto();
+		orden.CargarBaseDeDatos();
 
 		Partida unaPartida = Partida.deserializar(doc, policia, mapa, orden);
 		return unaPartida;
