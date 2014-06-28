@@ -17,7 +17,7 @@ public class BotonNuevoJuego extends JButton {
 		super("Nuevo Juego");
 		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setVisible(true);
-		addActionListener(new ActionListener() {
+		/*addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO: nueva partida
 				JFrame frmPartida = new JFrame();
@@ -25,6 +25,6 @@ public class BotonNuevoJuego extends JButton {
 				frmPartida.setVisible(true);
 				frmPartida.add(new PanelNuevaPartida());
 			}
-		});
+		});*/
 	}
 }
