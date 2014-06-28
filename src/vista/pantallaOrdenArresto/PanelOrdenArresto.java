@@ -75,7 +75,7 @@ public class PanelOrdenArresto extends PanelConFondo{
 	private BotonVolver btnVolver = new BotonVolver();
 	
 	public PanelOrdenArresto(String filename) {
-		super(fondo);
+		super(filename);
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		add(cajaCabello);
 		add(cajaHobby);
