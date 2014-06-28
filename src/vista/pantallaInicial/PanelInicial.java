@@ -1,15 +1,20 @@
 package vista.pantallaInicial;
-import javax.swing.JPanel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import vista.paneles.PanelConFondo;
+import vista.paneles.PanelNuevaPartida;
 
-public class PanelInicial extends PanelConFondo{
-	static final String FONDO = "fondo.png";
+public class PanelInicial extends PanelConFondo {
+	private static final long serialVersionUID = -4043817001005784022L;
+	private static final String IMGPATH = "images/";
+	static final String FONDO = IMGPATH + "fondo.png";
 	private JButton btnNuevaPartida = new BotonNuevoJuego();
 	private JButton btnSalirJuego = new BotonSalirJuego();
-	
+
 	public PanelInicial() {
 		super(FONDO);
 		add(btnNuevaPartida);

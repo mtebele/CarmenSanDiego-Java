@@ -11,16 +11,17 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 
 public class PanelPerfilLadron extends PanelConFondo {
-	
-	public PanelPerfilLadron(String filename){
+	private static final String IMGPATH = "images/";
+
+	public PanelPerfilLadron(String filename) {
 		super(filename);
 	}
-	    
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		JFrame frame = new JFrame("pepe");
-		frame.setSize(500,500);
-		PanelPerfilLadron panel = new PanelPerfilLadron("fichacarmen.png");
+		frame.setSize(500, 500);
+		PanelPerfilLadron panel = new PanelPerfilLadron(IMGPATH + "fichacarmen.png");
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
-	  }
+	}
 }

@@ -10,20 +10,20 @@ import javax.swing.JButton;
 public class PanelesAdministrador {
 	private JFrame ventana;
 
-	public PanelesAdministrador(JFrame unaVentana){
+	public PanelesAdministrador(JFrame unaVentana) {
 		ventana = unaVentana;
 	}
-	
-	public void agregarPanel(JPanel unPanel){
+
+	public void agregarPanel(JPanel unPanel) {
 		unPanel.setVisible(false);
 		ventana.getContentPane().add(unPanel);
 	}
-	
-	public void esconderPanel(JPanel unPanel){
+
+	public void esconderPanel(JPanel unPanel) {
 		unPanel.setVisible(false);
 	}
-	
-	public void mostrarPanel(JPanel unPanel){
+
+	public void mostrarPanel(JPanel unPanel) {
 		unPanel.setVisible(true);
 	}
 

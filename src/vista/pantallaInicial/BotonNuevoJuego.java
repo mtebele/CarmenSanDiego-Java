@@ -1,14 +1,30 @@
 package vista.pantallaInicial;
 
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BotonNuevoJuego extends JButton{
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+import vista.paneles.PanelNuevaPartida;
+import vista.pantallaOrdenArresto.PanelOrdenArresto;
+
+public class BotonNuevoJuego extends JButton {
 	private static int MAX_ALTURA = 100;
 	private static int MAX_ANCHURA = 200;
-	
-	public BotonNuevoJuego(){
+
+	public BotonNuevoJuego() {
 		super("Nuevo Juego");
-		setSize(MAX_ALTURA,MAX_ANCHURA);
+		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setVisible(true);
+		addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO: nueva partida
+				JFrame frmPartida = new JFrame();
+				frmPartida.setSize(800, 600);
+				frmPartida.setVisible(true);
+				frmPartida.add(new PanelNuevaPartida());
+			}
+		});
 	}
 }

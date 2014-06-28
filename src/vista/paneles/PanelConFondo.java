@@ -13,29 +13,28 @@ import javax.swing.JPanel;
 
 public class PanelConFondo extends JPanel {
 	private BufferedImage img;
-	static final String PATH = "images/";
-	
-	public PanelConFondo(String filename){
+
+	public PanelConFondo(String filename) {
 		try {
-	      img = ImageIO.read(new File(PATH + filename));
-	    } catch(IOException e) {
-	      e.printStackTrace();
-	    }
-	//	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+			img = ImageIO.read(new File(filename));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
-	  super.paintComponent(g);
-	  // pinta el panel con el fondo
-	  g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+		super.paintComponent(g);
+		// pinta el panel con el fondo
+		g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 	}
-	
-	public void esconder(){
+
+	public void esconder() {
 		setVisible(false);
 	}
-	
-	public void mostrar(){
+
+	public void mostrar() {
 		setVisible(true);
 	}
 }
