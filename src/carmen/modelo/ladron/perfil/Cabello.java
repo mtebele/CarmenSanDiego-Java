@@ -1,3 +1,0 @@
-package carmen.modelo.ladron.perfil;
-
-public enum Cabello {CASTANIO, RUBIO, ROJO, NEGRO}
