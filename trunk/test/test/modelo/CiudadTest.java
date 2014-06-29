@@ -29,24 +29,24 @@ public class CiudadTest extends TestCase {
 
 	@Test
 	public void testCiudadSeCreaOK() throws Exception {
-		this.setUp();
+
 		assertNotNull(this.ciudad);
 	}
 
 	@Test
 	public void testCiudadAgregaUnLocal() throws Exception {
-		this.setUp();
+
 		this.ciudad.agregarLocal(this.local1);
 		assertEquals(this.ciudad.cantidadLocales(), 1);
 		this.ciudad.agregarLocal(this.local2);
 		assertEquals(this.ciudad.cantidadLocales(), 2);
 	}
-	
+
 	@Test
 	public void testCiudadDistanciaAOtraCiudad() throws Exception {
-		this.setUp();
-		Coordenada coord= new Coordenada(139,35);
-		Ciudad tokio= new Ciudad (coord);
-		assertEquals((this.ciudad.distanciaAOtraCiudad(tokio)),18455);
+
+		Coordenada coord = new Coordenada(139, 35);
+		Ciudad tokio = new Ciudad(coord);
+		assertEquals((this.ciudad.distanciaAOtraCiudad(tokio)), 18455);
 	}
 }

@@ -21,20 +21,21 @@ public class OrdenDeArrestoTest {
 	private Perfil perfil2;
 
 	@Before
-	public void setUp() throws NullPointerException{
+	public void setUp() throws NullPointerException {
 		this.orden = new OrdenDeArresto();
-		this.perfil1 = new Perfil("Jesse James",Sexo.MASCULINO,Cabello.RUBIO,Senia.TATUAJE,Vehiculo.LIMUSINA,Hobby.MUSICA);
-		this.perfil2 = new Perfil("Grondona",Sexo.MASCULINO,Cabello.NEGRO,Senia.JOYAS,Vehiculo.DEPORTIVO,Hobby.PARACAIDISMO);
+		this.perfil1 = new Perfil("Jesse James", Sexo.MASCULINO, Cabello.RUBIO, Senia.TATUAJE, Vehiculo.LIMUSINA,
+				Hobby.MUSICA);
+		this.perfil2 = new Perfil("Grondona", Sexo.MASCULINO, Cabello.NEGRO, Senia.JOYAS, Vehiculo.DEPORTIVO,
+				Hobby.PARACAIDISMO);
 		this.ladron1 = new Ladron(perfil1);
 		this.ladron2 = new Ladron(perfil2);
 	}
-	
+
 	@Test
 	public void testOrdenDeArrestoSeCreaOK() throws Exception {
-		try{
-			this.setUp();
-		}
-		catch (NullPointerException e){
+		try {
+
+		} catch (NullPointerException e) {
 			e.printStackTrace();
 			fail("La orden no fue creada");
 		}
@@ -43,35 +44,33 @@ public class OrdenDeArrestoTest {
 	}
 
 	@Test
-	public void testOrdenDeArrestoEmiteOrdenOK(){
-		this.setUp();
+	public void testOrdenDeArrestoEmiteOrdenOK() {
+
 		assertNull(this.orden.verLadron());
 		this.orden.agregarLadronABaseDeDatos(this.ladron1);
 		this.orden.emitirOrden(this.ladron1);
 		assertNotNull(this.orden.verLadron());
-		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
+		assertEquals(this.orden.verLadron().verNombre(), "Jesse James");
 	}
-	
-	
+
 	@Test
-	public void testOrdenDeArrestoCambiaLadronOK(){
-		this.setUp();
+	public void testOrdenDeArrestoCambiaLadronOK() {
+
 		this.orden.agregarLadronABaseDeDatos(this.ladron1);
 		this.orden.agregarLadronABaseDeDatos(this.ladron2);
 		this.orden.emitirOrden(this.ladron1);
 		assertNotNull(this.orden.verLadron());
-		assertEquals(this.orden.verLadron().verNombre(),"Jesse James");
+		assertEquals(this.orden.verLadron().verNombre(), "Jesse James");
 		this.orden.emitirOrden(this.ladron2);
-		assertEquals(this.orden.verLadron().verNombre(),"Grondona");
+		assertEquals(this.orden.verLadron().verNombre(), "Grondona");
 	}
-	
+
 	@Test
-	
-	public void testOrdenDeArrestoEsValida(){
-		this.setUp();
-		assertEquals(this.orden.arrestoEsValido(this.ladron1),false);
-	    this.orden.agregarLadronABaseDeDatos(this.ladron1);
-	    assertEquals(this.orden.arrestoEsValido(this.ladron1),true);
+	public void testOrdenDeArrestoEsValida() {
+
+		assertEquals(this.orden.arrestoEsValido(this.ladron1), false);
+		this.orden.agregarLadronABaseDeDatos(this.ladron1);
+		assertEquals(this.orden.arrestoEsValido(this.ladron1), true);
 	}
-	
+
 }

@@ -56,7 +56,7 @@ public class LectorXMLTest {
 	public void testPartidaSeCargaOK() throws Exception {
 		assertNotNull(this.partida);
 	}
-	
+
 	@Test
 	public void testPoliciaSeCargaOK() throws Exception {
 		this.policia = LectorXML.cargarPolicia();

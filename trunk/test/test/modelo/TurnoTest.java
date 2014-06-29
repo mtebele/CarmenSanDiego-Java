@@ -29,25 +29,25 @@ public class TurnoTest {
 	private String MENSAJE_NO_ESTA_LADRON = "Lo siento, nunca he visto a esa persona.";
 	private Turno turno;
 	private Velocidad velocidad;
-	
+
 	@Before
 	public void setUp() {
 
-		//Creo Coordenadas
-		Coordenada ubicacion0 = new Coordenada(0,0);
-		Coordenada ubicacion1 = new Coordenada(5,5);
-		Coordenada ubicacion2 = new Coordenada(10,10);
-		Coordenada ubicacion3 = new Coordenada(15,15);
-		Coordenada ubicacion4 = new Coordenada(20,20);
-		
-		//Creo Ciudades
+		// Creo Coordenadas
+		Coordenada ubicacion0 = new Coordenada(0, 0);
+		Coordenada ubicacion1 = new Coordenada(5, 5);
+		Coordenada ubicacion2 = new Coordenada(10, 10);
+		Coordenada ubicacion3 = new Coordenada(15, 15);
+		Coordenada ubicacion4 = new Coordenada(20, 20);
+
+		// Creo Ciudades
 		Ciudad ciudad0 = new Ciudad(ubicacion0);
 		Ciudad ciudad1 = new Ciudad(ubicacion1);
 		Ciudad ciudad2 = new Ciudad(ubicacion2);
 		Ciudad ciudad3 = new Ciudad(ubicacion3);
 		Ciudad ciudad4 = new Ciudad(ubicacion4);
-		
-		//Creo Locales
+
+		// Creo Locales
 		Local local0 = new Local(TipoLocal.BIBLIOTECA);
 		local0.setearPista("Queria escalar el Monte Everest.");
 		Local local1 = new Local(TipoLocal.BANCO);
@@ -56,39 +56,40 @@ public class TurnoTest {
 		ciudad0.agregarLocal(local0);
 		ciudad1.agregarLocal(local1);
 		ciudad2.agregarLocal(local2);
-		
-		//Creo Mapa
+
+		// Creo Mapa
 		Mapa mapa = new Mapa();
 		mapa.agregarCiudad(ciudad0);
 		mapa.agregarCiudad(ciudad1);
 		mapa.agregarCiudad(ciudad2);
 		mapa.agregarCiudad(ciudad3);
 		mapa.agregarCiudad(ciudad4);
-		
-		//Creo ObjetoRobado
+
+		// Creo ObjetoRobado
 		ObjetoRobado objeto = new ObjetoRobado(Valor.COMUN);
-		
-		//Creo Ladron
-		Perfil perfil = new Perfil ("Carmen SanDiego",Sexo.FEMENINO,Cabello.ROJO,Senia.ANILLO,Vehiculo.LIMUSINA,Hobby.ALPINISMO);
-		Ladron ladron= new Ladron(perfil);
+
+		// Creo Ladron
+		Perfil perfil = new Perfil("Carmen SanDiego", Sexo.FEMENINO, Cabello.ROJO, Senia.ANILLO, Vehiculo.LIMUSINA,
+				Hobby.ALPINISMO);
+		Ladron ladron = new Ladron(perfil);
 		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
 		ladron.robarObjeto(objeto);
-		
-		//Creo Locacion
+
+		// Creo Locacion
 		Locacion locacionInicial = new Locacion(mapa, ciudad0, ladron);
 		locacionInicial.agregarDestino(ciudad1);
 		locacionInicial.agregarDestino(ciudad2);
 		locacionInicial.agregarDestino(ciudad3);
 		locacionInicial.agregarDestino(ciudad4);
-		
-		//Creo Turno
+
+		// Creo Turno
 		Turno turno = new Turno(locacionInicial);
 		this.turno = turno;
-		
-		//Creo Velocidad
+
+		// Creo Velocidad
 		Velocidad velocidad = new Velocidad(700);
 		this.velocidad = velocidad;
 
@@ -96,7 +97,6 @@ public class TurnoTest {
 
 	@Test
 	public void deberianActualizarseBienLasHoras() {
-		this.setUp();
 
 		Assert.assertEquals(this.HORAS_TOTAL_JUEGO, this.turno.getHorasRestantes());
 		this.turno.actualizar(3);
@@ -106,8 +106,6 @@ public class TurnoTest {
 
 	@Test
 	public void deberiaSaberseSiSeAcaboElTiempo() {
-		this.setUp();
-
 		Assert.assertEquals(true, this.turno.quedaTiempo());
 		this.turno.actualizar(this.HORAS_TOTAL_JUEGO);
 
@@ -117,7 +115,6 @@ public class TurnoTest {
 
 	@Test
 	public void viajarDeberiaCambiarCiudadActual() {
-		this.setUp();
 
 		Ciudad destino = this.turno.getDestinos().get(0);
 		try {
@@ -131,11 +128,10 @@ public class TurnoTest {
 
 	@Test
 	public void interrogarDeberiaConsumir1HoraSiNuncaFueVisitado() {
-		this.setUp();
-		
+
 		turno.setProbabilidadCuchillazo(0);
 		turno.setProbabilidadDisparo(0);
-		
+
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1), this.turno.getHorasRestantes());
@@ -143,94 +139,88 @@ public class TurnoTest {
 
 	@Test
 	public void interrogarDeberiaConsumir2HorasSiFueVisitado2Veces() {
-		this.setUp();
 
 		turno.setProbabilidadCuchillazo(0);
 		turno.setProbabilidadDisparo(0);
-		
+
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 3), this.turno.getHorasRestantes());
 	}
-	
+
 	@Test
 	public void interrogarEnCiudadQuePasoLadronDeberiaDevolverRespuestaCorrecta() {
-		this.setUp();
-		
+
 		// Ladron viaja de la ciudad0 a la ciudad1.
 		try {
 			this.turno.getLocacion().getLadron().escapar();
 		} catch (LadronNoPlaneoEscapeException e) {
 			Assert.fail();
 		}
-		
+
 		Local local0 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.turno.interrogar(local0));
-		
-		//Viajo a pais por donde paso ladron
+
+		// Viajo a pais por donde paso ladron
 		Ciudad destinoConLadron = this.turno.getDestinos().get(0);
-		
+
 		try {
 			this.turno.viajar(destinoConLadron, this.velocidad);
 		} catch (LadronNoPlaneoEscapeException e) {
 			Assert.fail();
 		}
-		
+
 		Local local1 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria cambiar su dinero a yenes.", this.turno.interrogar(local1));
 	}
-	
+
 	@Test
 	public void interrogarEnCiudadSinLadronDeberiaDevolverRespuestaPorDefecto() {
-		this.setUp();
-		
-		//Viajo a pais sin ladron
+
+		// Viajo a pais sin ladron
 		Ciudad destinoSinLadron = this.turno.getDestinos().get(1);
 		try {
 			this.turno.viajar(destinoSinLadron, this.velocidad);
 		} catch (LadronNoPlaneoEscapeException e) {
 			Assert.fail();
 		}
-		
+
 		Local local2 = this.turno.getLocales().get(0);
-		
+
 		Assert.assertEquals(this.MENSAJE_NO_ESTA_LADRON, this.turno.interrogar(local2));
 	}
-	
+
 	@Test
 	public void deberiaPerderse1HoraAlSerAcuchilladoPorPrimeraVez() {
-		this.setUp();
-		
+
 		turno.setProbabilidadDisparo(0);
 		turno.setProbabilidadCuchillazo(100);
-		
+
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1 - 1), this.turno.getHorasRestantes());
 	}
-	
+
 	@Test
 	public void deberianPerderse2HorasAlSerAcuchilladoPorSegundaVez() {
-		this.setUp();
-		
+
 		turno.setProbabilidadCuchillazo(100);
 		turno.setProbabilidadDisparo(0);
-		
+
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0); // 1 por interrogar + 1 por ser acuchillado.
 		this.turno.interrogar(local0); // 2 por interrogar + 2 por ser acuchillado.
 		// TODO: NO esta funcionando el ser acuchillado. Devuelve 1 la primera vez, y 0 todas las siguientes.
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 3 - 3), this.turno.getHorasRestantes());
 	}
-	
+
 	@Test
 	public void deberianPerderse4HorasAlRecibirDisparo() {
-		this.setUp();
-		
+
 		turno.setProbabilidadCuchillazo(0);
 		turno.setProbabilidadDisparo(100);
-		
+
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
 		Assert.assertEquals((this.HORAS_TOTAL_JUEGO - 1 - 4), this.turno.getHorasRestantes());

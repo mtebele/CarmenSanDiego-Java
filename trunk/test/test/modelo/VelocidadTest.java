@@ -18,15 +18,12 @@ public class VelocidadTest {
 
 	@Test
 	public void testVelocidadSeCreaOK() {
-		this.setUp();
 		Assert.assertNotNull(this.velocidad);
 		Assert.assertEquals(this.velocidad.getKmPorHora(), 100);
 	}
-	
+
 	@Test
 	public void testDeberiaCalcularElTiempoEnRecorrerUnaDistancia() {
-		this.setUp();
-		
 		int distancia = 100;
 		// Distancia = 100 / Velocidad = 100 => Tiempo = 1
 		Assert.assertEquals(this.velocidad.calcularTiempo(distancia), 1);
