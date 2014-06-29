@@ -14,11 +14,13 @@ public class PanelInicial extends PanelConFondo {
 	static final String FONDO = IMGPATH + "fondo.png";
 	private JButton btnNuevaPartida = new BotonNuevoJuego();
 	private JButton btnSalirJuego = new BotonSalirJuego();
+	private JButton btnCargarPartida = new BotonCargarJuego();
 
 	public PanelInicial() {
 		super(FONDO);
 		add(btnNuevaPartida);
 		add(btnSalirJuego);
+		add(btnCargarPartida);
 	}
 	
 	public void addNuevaPartidaListener(ActionListener l) {
@@ -27,5 +29,9 @@ public class PanelInicial extends PanelConFondo {
 	
 	public void addSalirJuegoListener(ActionListener l) {
 		btnSalirJuego.addActionListener(l);
+	}
+	
+	public void addCargarPartidaListener(ActionListener l) {
+		btnCargarPartida.addActionListener(l);
 	}
 }
