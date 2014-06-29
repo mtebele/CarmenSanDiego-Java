@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
 import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.ladron.Itinerario;
 import modelo.ladron.Ladron;
@@ -97,6 +100,11 @@ public class Partida {
 
 	public Ciudad ciudadActual() {
 		return this.policia.ciudadActual();
+	}
+	
+	public void guardarPartida() throws ParserConfigurationException, TransformerException {
+		Juego juego = new Juego();
+		juego.guardarPartida(this.policia);
 	}
 
 	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {

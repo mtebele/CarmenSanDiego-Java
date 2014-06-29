@@ -39,9 +39,8 @@ public class OrdenDeArresto {
 	public Ladron verLadron() {
 		return this.ladron;
 	}
-	
-	public void CargarBaseDeDatos() throws ParserConfigurationException, SAXException, IOException
-	{
+
+	public void CargarBaseDeDatos() throws ParserConfigurationException, SAXException, IOException {
 		this.baseLadrones = LectorXML.cargarLadrones();
 	}
 }

@@ -2,6 +2,9 @@ package modelo.policia;
 
 import java.util.List;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 import modelo.Turno;
 import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.mapa.Ciudad;
@@ -12,10 +15,18 @@ public class Policia {
 	private Rango rango;
 	private Turno turno;
 	private int cantidadArrestos;
+	private String nombre;
 
-	public Policia() {
+	public Policia(String nombre) {
 		this.cantidadArrestos = 0;
 		this.rango = DefinicionRangoPolicia.getObjetoRango(this.cantidadArrestos);
+		this.nombre = nombre;
+	}
+	
+	public Policia(String nombre, Rango rango, int cantArrestos) {
+		this.cantidadArrestos = cantArrestos;
+		this.rango = rango;
+		this.nombre = nombre;
 	}
 
 	public void realizarArresto() {
@@ -28,14 +39,8 @@ public class Policia {
 	}
 
 	public void viajar(Ciudad destino) throws LadronNoPlaneoEscapeException {
-		// TODO: ver excepcion.
-		
 		Velocidad velocidad = this.rango.getVelocidad();
-		//try {
-			this.turno.viajar(destino, velocidad);
-		//} catch (LadronNoPlaneoEscapeException e) {
-		//	throw new LadronNoPlaneoEscapeException(e.getMessage());
-		//}
+		this.turno.viajar(destino, velocidad);
 	}
 
 	public String interrogar(Local local) {
@@ -64,5 +69,26 @@ public class Policia {
 
 	public Turno getTurno() {
 		return this.turno;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public static Policia deserializar(Document doc) {
+		Element elePolicia = (Element) doc.getElementsByTagName("policia").item(0);
+		String nombre = elePolicia.getAttribute("nombre");
+		int cantArrestos = Integer.parseInt(elePolicia.getAttribute("arrestos"));
+		Rango rango = DefinicionRangoPolicia.getObjetoRango(cantArrestos);
+		
+		return new Policia(nombre, rango, cantArrestos);
+	}
+
+	public Element serializar(Document doc) {
+		Element elementoPolicia = doc.createElement("policia");
+		elementoPolicia.setAttribute("nombre", this.nombre);
+		elementoPolicia.setAttribute("rango", this.rango.getNombre());
+		elementoPolicia.setAttribute("arrestos", Integer.toString(this.cantidadArrestos));
+		return elementoPolicia;
 	}
 }

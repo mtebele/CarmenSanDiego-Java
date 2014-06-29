@@ -23,12 +23,13 @@ public class LectorXMLTest {
 	private Mapa mapa;
 	private ArrayList<Ladron> ladrones;
 	private Partida partida;
+	private Policia policia;
 
 	@Before
 	public void setUp() throws ParserConfigurationException, SAXException, IOException {
 		this.mapa = LectorXML.cargarMapa();
 		this.ladrones = LectorXML.cargarLadrones();
-		this.partida = LectorXML.cargarPartida(new Policia());
+		this.partida = LectorXML.cargarPartida(new Policia("Phil"));
 	}
 
 	@Test
@@ -54,5 +55,11 @@ public class LectorXMLTest {
 	@Test
 	public void testPartidaSeCargaOK() throws Exception {
 		assertNotNull(this.partida);
+	}
+	
+	@Test
+	public void testPoliciaSeCargaOK() throws Exception {
+		this.policia = LectorXML.cargarPolicia();
+		assertNotNull(this.policia);
 	}
 }
