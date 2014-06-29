@@ -24,6 +24,8 @@ public class JuegoControlador {
 
 		this.vista.addNuevaPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				nuevaPartida();
+
 				JFrame frmPartida = new JFrame();
 				frmPartida.setSize(800, 600);
 				frmPartida.setVisible(true);
@@ -41,13 +43,40 @@ public class JuegoControlador {
 				}
 			}
 		});
+		
+		this.vista.addCargarPartidaListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cargarPartida();
+
+				JFrame frmPartida = new JFrame();
+				frmPartida.setSize(800, 600);
+				frmPartida.setVisible(true);
+				frmPartida.add(new PanelNuevaPartida());
+			}
+		});
 	}
-	
-	public void nuevaPartida() {
+
+	private void nuevaPartida() {
 		try {
 			this.modelo.nuevaPartida();
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
 		}
 	}
+
+	private void cargarPartida() {
+		try {
+			this.modelo.cargarPartida();
+		} catch (ParserConfigurationException | SAXException | IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	/*private void guardarPartida() {
+		try {
+			this.modelo.guardarPartida(policia);
+		} catch (ParserConfigurationException | SAXException | IOException e1) {
+			e1.printStackTrace();
+		}
+	}*/
 }

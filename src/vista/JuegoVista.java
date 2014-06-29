@@ -37,6 +37,10 @@ public class JuegoVista extends JFrame implements Observer {
 	public void addSalirJuegoListener(ActionListener l) {
 		pnlNuevaPartida.addSalirJuegoListener(l);
 	}
+	
+	public void addCargarPartidaListener(ActionListener l) {
+		pnlNuevaPartida.addCargarPartidaListener(l);
+	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
