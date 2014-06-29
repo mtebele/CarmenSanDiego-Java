@@ -119,8 +119,6 @@ public class PartidaTest {
 
 	@Test
 	public void partidaDeberiaPerderseSiAgarrasOtroLadron() {
-		this.setUp();
-
 		Perfil perfilLadron = new Perfil("Josepha", Sexo.FEMENINO, Cabello.CASTANIO, Senia.CICATRIZ,
 				Vehiculo.DESCAPOTABLE, Hobby.NATACION);
 		Ladron ladronIncorrecto = new Ladron(perfilLadron);
@@ -133,26 +131,18 @@ public class PartidaTest {
 
 	@Test
 	public void partidaDeberiaPerderseSiSeAcabaElTiempo() {
-		this.setUp();
-
 		this.turno.actualizar(this.HORAS_TOTAL_JUEGO);
-
 		Assert.assertEquals(this.policia.getCantidadArrestos(), 0);
 	}
 
 	@Test
 	public void partidaDeberiaPerderseSiNoSeEmiteOrden() {
-		this.setUp();
-
 		this.partida.atraparLadron();
-
 		Assert.assertEquals(this.policia.getCantidadArrestos(), 0);
 	}
 
 	@Test
 	public void partidaDeberiaGanarseSiSeAgarraAlLadronCorrecto() {
-		this.setUp();
-
 		this.partida.emitirOrden(this.ladron);
 		this.partida.atraparLadron();
 
@@ -161,8 +151,6 @@ public class PartidaTest {
 
 	@Test
 	public void interrogarEnCiudadQuePasoLadronDeberiaDevolverRespuestaCorrecta() {
-		this.setUp();
-
 		// Ladron viaja de la ciudad0 a la ciudad1.
 		try {
 			this.turno.getLocacion().getLadron().escapar();
@@ -183,8 +171,6 @@ public class PartidaTest {
 
 	@Test
 	public void interrogarEnCiudadSinLadronDeberiaDevolverRespuestaPorDefecto() {
-		this.setUp();
-
 		// Viajo a pais sin ladron
 		Ciudad destinoSinLadron = this.turno.getDestinos().get(1);
 		this.partida.viajar(destinoSinLadron);
@@ -196,8 +182,6 @@ public class PartidaTest {
 
 	@Test
 	public void interrogarDeberiaAtraparLadronSiLadronTerminoItinerario() {
-		this.setUp();
-
 		// Ladron viaja de ciudad en ciudad hasta llegar a la ultima del recorrido.
 		try {
 			for (int i = 0; i < 3; i++) {
@@ -221,21 +205,14 @@ public class PartidaTest {
 
 	@Test
 	public void ciudadActualDeberiaCambiarAlViajar() {
-		this.setUp();
-
 		Ciudad ciudadDestino = this.partida.verDestinos().get(0);
 		this.partida.viajar(ciudadDestino);
 
 		Assert.assertEquals(ciudadDestino, this.partida.ciudadActual());
 	}
-/*
-	@Test
-	public void partidaSeGuardaOK() {
-		try {
-			this.partida.guardarPartida();
-		} catch (ParserConfigurationException | TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}*/
+	/*
+	 * @Test public void partidaSeGuardaOK() { try { this.partida.guardarPartida(); } catch
+	 * (ParserConfigurationException | TransformerException e) { // TODO Auto-generated catch block e.printStackTrace();
+	 * } }
+	 */
 }

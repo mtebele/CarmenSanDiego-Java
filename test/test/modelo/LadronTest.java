@@ -43,19 +43,19 @@ public class LadronTest {
 
 	@Test
 	public void testLadronSeCreaOK() throws Exception {
-		this.setUp();
+
 		assertNotNull(this.ladron);
 	}
 
 	@Test
 	public void testLadronSeCreaSinItinerario() throws Exception {
-		this.setUp();
+
 		assertNull(this.ladron.ciudadActual());
 	}
 
 	@Test
 	public void testLadronNoPuedeEscaparSinRobar() throws Exception {
-		this.setUp();
+
 		boolean pudoEscapar = false;
 		try {
 			pudoEscapar = this.ladron.escapar();
@@ -67,8 +67,8 @@ public class LadronTest {
 
 	@Test
 	public void testLadronPuedeEscapar3VecesAlRobarComun() throws Exception {
-		this.setUp();
-		ladron.planearNuevoDestino(ciudad0);	
+
+		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
@@ -87,7 +87,7 @@ public class LadronTest {
 
 	@Test
 	public void testLadronPuedeEscapar4VecesAlRobarValioso() throws Exception {
-		this.setUp();
+
 		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
@@ -110,7 +110,7 @@ public class LadronTest {
 
 	@Test
 	public void testLadronPuedeEscapar6VecesAlRobarMuyValioso() throws Exception {
-		this.setUp();
+
 		ladron.planearNuevoDestino(ciudad0);
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
