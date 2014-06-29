@@ -228,7 +228,7 @@ public class PartidaTest {
 
 		Assert.assertEquals(ciudadDestino, this.partida.ciudadActual());
 	}
-
+/*
 	@Test
 	public void partidaSeGuardaOK() {
 		try {
@@ -237,5 +237,5 @@ public class PartidaTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
