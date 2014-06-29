@@ -91,7 +91,7 @@ public class PoliciaTest {
 		this.turno = turno;
 		
 		//Creo Policia
-		this.policia = new Policia();
+		this.policia = new Policia("John");
 		this.policia.setTurno(turno);
 	}
 
