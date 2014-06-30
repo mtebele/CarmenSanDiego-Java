@@ -35,7 +35,6 @@ public class Ladron {
 	}
 
 	public boolean escapar() throws LadronNoPlaneoEscapeException {
-		// TODO: ver tema de excepcion
 		if (!this.itinerario.tieneDestinos())
 			throw new LadronNoPlaneoEscapeException("El ladron no planeo su escape.");
 		if (hizoUltimoEscape())

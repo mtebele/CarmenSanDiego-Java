@@ -1,4 +1,4 @@
-package vista.paneles;
+package vista.panelesGenericos;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

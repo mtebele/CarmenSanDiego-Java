@@ -10,8 +10,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import vista.JuegoVista;
-import vista.paneles.PanelNuevaPartida;
+import vista.pantallas.JuegoVista;
+import vista.pantallas.PanelNuevaPartida;
 import modelo.Juego;
 
 public class JuegoControlador {

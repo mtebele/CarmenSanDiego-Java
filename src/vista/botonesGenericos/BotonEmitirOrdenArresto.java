@@ -1,4 +1,4 @@
-package vista.pantallaOrdenArresto;
+package vista.botonesGenericos;
 import javax.swing.JButton;
 
 public class BotonEmitirOrdenArresto extends JButton {

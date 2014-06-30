@@ -1,4 +1,4 @@
-package vista.pantallaOrdenArresto;
+package vista;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;

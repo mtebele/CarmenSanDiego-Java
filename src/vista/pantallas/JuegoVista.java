@@ -1,4 +1,4 @@
-package vista;
+package vista.pantallas;
 
 import java.awt.event.ActionListener;
 import java.util.Observable;
@@ -7,10 +7,7 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 import controlador.JuegoControlador;
-import vista.paneles.PanelCarga;
-import vista.paneles.PanelNuevaPartida;
-import vista.paneles.PanelesAdministrador;
-import vista.pantallaInicial.PanelInicial;
+import vista.panelesGenericos.PanelCarga;
 import modelo.Juego;
 
 public class JuegoVista extends JFrame implements Observer {
@@ -23,7 +20,6 @@ public class JuegoVista extends JFrame implements Observer {
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
-		final PanelesAdministrador admin = new PanelesAdministrador(this);
 		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setResizable(true);
 		setVisible(true);

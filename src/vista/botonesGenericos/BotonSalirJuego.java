@@ -1,4 +1,4 @@
-package vista.pantallaInicial;
+package vista.botonesGenericos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
