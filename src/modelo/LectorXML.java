@@ -93,7 +93,7 @@ public class LectorXML {
 	}
 
 	public static Policia cargarPolicia() throws ParserConfigurationException, SAXException, IOException {
-		File archivo = new File(PATH + "saved/partidaGuardada.xml");
+		File archivo = new File(SAVEDPATH + "partidaGuardada.xml");
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();

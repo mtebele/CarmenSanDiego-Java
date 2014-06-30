@@ -21,10 +21,6 @@ public class Perfil {
 		this.vehiculo = vehiculo;
 	}
 
-	public String verNombre() {
-		return this.nombre;
-	}
-	
 	public static Perfil deserializar(Node elementoPerfil) {
 		
 		String nombre = ((Element) elementoPerfil).getAttribute("nombre");
@@ -35,5 +31,29 @@ public class Perfil {
 		Hobby hobby = Hobby.valueOf(((Element) elementoPerfil).getAttribute("hobby").toUpperCase());
 		
 		return new Perfil(nombre, sexo, cabello, senia, vehiculo, hobby);
+	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public Sexo getSexo() {
+		return this.sexo;
+	}
+
+	public Cabello getCabello() {
+		return cabello;
+	}
+
+	public Senia getSenia() {
+		return senia;
+	}
+
+	public Hobby getHobby() {
+		return hobby;
+	}
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
 	}
 }

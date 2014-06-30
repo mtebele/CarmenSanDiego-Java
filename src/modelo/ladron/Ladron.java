@@ -57,7 +57,7 @@ public class Ladron {
 	}
 
 	public String verNombre() {
-		return this.perfil.verNombre();
+		return this.perfil.getNombre();
 	}
 
 	public static Ladron deserializar(Node elementoLadron) {
@@ -67,5 +67,22 @@ public class Ladron {
 	
 	public void setItinerario(Itinerario itinerario) {
 		this.itinerario = itinerario;
+	}
+	
+	public String verDatos() {
+		StringBuilder datos = new StringBuilder();
+		datos.append("Nombre: " +  this.perfil.getNombre());
+		datos.append(System.lineSeparator());
+		datos.append("Sexo: " +  this.perfil.getSexo().toString());
+		datos.append(System.lineSeparator());
+		datos.append("Cabello: " +  this.perfil.getCabello().toString());
+		datos.append(System.lineSeparator());
+		datos.append("Seña: " +  this.perfil.getSenia().toString());
+		datos.append(System.lineSeparator());
+		datos.append("Hobby: " +  this.perfil.getHobby().toString());
+		datos.append(System.lineSeparator());
+		datos.append("Vehículo: " +  this.perfil.getVehiculo().toString());
+		datos.append(System.lineSeparator());
+		return datos.toString();
 	}
 }
