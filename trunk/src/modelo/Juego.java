@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.IOException;
+import java.util.Observable;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -22,7 +23,7 @@ public class Juego {
 		this.policia = LectorXML.cargarPolicia();
 		return LectorXML.cargarPartida(this.policia);
 	}
-	
+
 	public void guardarPartida(Policia policia) throws ParserConfigurationException, TransformerException {
 		LectorXML.guardarPartida(policia);
 	}
