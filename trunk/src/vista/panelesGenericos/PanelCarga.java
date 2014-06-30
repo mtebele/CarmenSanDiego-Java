@@ -1,4 +1,4 @@
-package vista.paneles;
+package vista.panelesGenericos;
 
 import java.awt.Component;
 

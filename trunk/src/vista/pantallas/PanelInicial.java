@@ -1,12 +1,14 @@
-package vista.pantallaInicial;
+package vista.pantallas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import vista.paneles.PanelConFondo;
-import vista.paneles.PanelNuevaPartida;
+import vista.botonesGenericos.BotonCargarJuego;
+import vista.botonesGenericos.BotonNuevoJuego;
+import vista.botonesGenericos.BotonSalirJuego;
+import vista.panelesGenericos.PanelConFondo;
 
 public class PanelInicial extends PanelConFondo {
 	private static final long serialVersionUID = -4043817001005784022L;

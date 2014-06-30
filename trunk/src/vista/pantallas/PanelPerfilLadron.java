@@ -1,5 +1,5 @@
 //TODAVIA NO LO ADAPTE, IGNOREN EL ARCHIVO
-package vista.paneles;
+package vista.pantallas;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -9,6 +9,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+
+import vista.panelesGenericos.PanelConFondo;
 
 public class PanelPerfilLadron extends PanelConFondo {
 	private static final String IMGPATH = "images/";

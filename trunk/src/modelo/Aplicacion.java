@@ -7,7 +7,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import controlador.JuegoControlador;
-import vista.JuegoVista;
+import vista.pantallas.JuegoVista;
 
 public class Aplicacion {
 

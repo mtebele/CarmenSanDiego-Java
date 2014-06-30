@@ -1,4 +1,4 @@
-package vista;
+package vista.botonesGenericos;
 
 import javax.swing.JButton;
 

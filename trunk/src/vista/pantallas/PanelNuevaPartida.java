@@ -1,9 +1,9 @@
-package vista.paneles;
+package vista.pantallas;
 
 import javax.swing.*;
 
-import vista.BotonVolver;
-import vista.pantallaOrdenArresto.PanelOrdenArresto;
+import vista.botonesGenericos.BotonVolver;
+import vista.panelesGenericos.PanelConFondo;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
