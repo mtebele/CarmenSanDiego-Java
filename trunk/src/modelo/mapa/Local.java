@@ -47,6 +47,10 @@ public class Local {
 	public void visitar() {
 		this.vecesVisitado++;
 	}
+	
+	public String getNombre() {
+		return this.nombre.toString();
+	}
 
 	public static Local deserializar(Node elementoLocal) {
 

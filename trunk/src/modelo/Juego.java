@@ -27,4 +27,5 @@ public class Juego {
 	public void guardarPartida(Policia policia) throws ParserConfigurationException, TransformerException {
 		LectorXML.guardarPartida(policia);
 	}
+
 }

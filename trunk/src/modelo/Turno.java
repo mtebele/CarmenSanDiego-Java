@@ -75,6 +75,10 @@ public class Turno {
 	public int getHorasRestantes() {
 		return this.tiempo.horasRestantes();
 	}
+	
+	public int getHoraActual() {
+		return this.tiempo.horaActual();
+	}
 
 	public List<Ciudad> getDestinos() {
 		return this.locacion.getDestinos();
@@ -82,6 +86,10 @@ public class Turno {
 
 	public List<Local> getLocales() {
 		return this.locacion.getLocales();
+	}
+	
+	public Ciudad verDestinoNro(int nro) {
+		return this.locacion.verDestinoNro(nro);
 	}
 
 	public Locacion getLocacion() {
