@@ -1,9 +1,7 @@
 package vista.pantallas;
+
 import vista.botonesGenericos.BotonMenuPrincipal;
 import vista.botonesGenericos.BotonSalirJuego;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
 
 import vista.panelesGenericos.PanelConFondo;
 import javax.swing.SpringLayout;
@@ -11,7 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 
-public class PanelGanador extends PanelConFondo{
+public class PanelGanador extends PanelConFondo {
 	/**
 	 * 
 	 */
@@ -21,8 +19,8 @@ public class PanelGanador extends PanelConFondo{
 	private BotonMenuPrincipal botonSaltarInicio = new BotonMenuPrincipal();
 	private BotonSalirJuego btnSalirJuego = new BotonSalirJuego();
 	private JLabel mensajeGanaste = new JLabel("FELICITACIONES, HAS RESUELTO EL CASO");
-	
-	public PanelGanador(){
+
+	public PanelGanador() {
 		super(FONDO);
 		SpringLayout springLayout = new SpringLayout();
 		springLayout.putConstraint(SpringLayout.SOUTH, botonSaltarInicio, -60, SpringLayout.SOUTH, this);
@@ -38,5 +36,5 @@ public class PanelGanador extends PanelConFondo{
 		mensajeGanaste.setForeground(Color.WHITE);
 		this.add(mensajeGanaste);
 	}
-	
+
 }

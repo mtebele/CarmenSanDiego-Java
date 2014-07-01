@@ -7,11 +7,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class LabelImagen extends JLabel {
 
+	private static final long serialVersionUID = 5920643308535132013L;
 	private BufferedImage img;
 
 	public LabelImagen(String filename) {
@@ -26,7 +26,6 @@ public class LabelImagen extends JLabel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		// pinta el panel con el fondo
 		g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 	}
 

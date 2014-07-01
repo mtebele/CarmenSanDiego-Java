@@ -1,7 +1,6 @@
 package vista.pantallas;
 
 import javax.swing.*;
-
 import vista.LabelImagen;
 import vista.botonesGenericos.BotonBaseLadrones;
 import vista.botonesGenericos.BotonInfoPolicia;
@@ -9,15 +8,11 @@ import vista.botonesGenericos.BotonInterrogar;
 import vista.botonesGenericos.BotonViajar;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
-
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Label;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PanelPartida extends PanelConFondo {
 
+	private static final long serialVersionUID = -441040584998861794L;
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "partida.png";
 
@@ -39,7 +34,7 @@ public class PanelPartida extends PanelConFondo {
 	public PanelPartida(int hsRestantes, int horaActual, String nombreLocal1, String nombreCiudad) {
 		super(FONDO);
 		setLayout(null);
-		
+
 		lblReloj.setText("HORA: " + Integer.toString(horaActual));
 		lblReloj.setForeground(Color.white);
 		this.add(lblReloj);
@@ -74,5 +69,4 @@ public class PanelPartida extends PanelConFondo {
 		this.add(btnInterrogarCultura);
 		btnInterrogarCultura.setBounds(650, 400, 125, 40);
 	}
-
 }

@@ -2,10 +2,7 @@ package modelo;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -113,9 +110,10 @@ public class LectorXML {
 		Document doc = db.newDocument();
 
 		Element policiaSerializado = policia.serializar(doc);
-		/*Date date = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
-		String fileName = dateFormat.format(date) + ".xml";*/
+		/*
+		 * Date date = new Date(); SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss"); String
+		 * fileName = dateFormat.format(date) + ".xml";
+		 */
 		String fileName = "partidaGuardada.xml";
 
 		doc.appendChild(policiaSerializado);

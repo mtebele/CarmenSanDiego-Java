@@ -1,29 +1,12 @@
 package test.modelo;
 
-import java.io.File;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
 import junit.framework.Assert;
 import modelo.Partida;
 import modelo.Turno;
 import modelo.excepciones.LadronNoPlaneoEscapeException;
-import modelo.ladron.Ladron;
-import modelo.ladron.ObjetoRobado;
-import modelo.ladron.Valor;
-import modelo.ladron.perfil.Cabello;
-import modelo.ladron.perfil.Hobby;
-import modelo.ladron.perfil.Perfil;
-import modelo.ladron.perfil.Senia;
-import modelo.ladron.perfil.Sexo;
-import modelo.ladron.perfil.Vehiculo;
-import modelo.mapa.Ciudad;
-import modelo.mapa.Coordenada;
-import modelo.mapa.Locacion;
-import modelo.mapa.Local;
-import modelo.mapa.Mapa;
-import modelo.mapa.TipoLocal;
+import modelo.ladron.*;
+import modelo.ladron.perfil.*;
+import modelo.mapa.*;
 import modelo.policia.OrdenDeArresto;
 import modelo.policia.Policia;
 
@@ -42,21 +25,21 @@ public class PartidaTest {
 	@Before
 	public void setUp() {
 
-		// Creo Coordenadas
+		// Coordenadas
 		Coordenada ubicacion0 = new Coordenada(0, 0);
 		Coordenada ubicacion1 = new Coordenada(5, 5);
 		Coordenada ubicacion2 = new Coordenada(10, 10);
 		Coordenada ubicacion3 = new Coordenada(15, 15);
 		Coordenada ubicacion4 = new Coordenada(20, 20);
 
-		// Creo Ciudades
+		// Ciudades
 		Ciudad ciudad0 = new Ciudad(ubicacion0);
 		Ciudad ciudad1 = new Ciudad(ubicacion1);
 		Ciudad ciudad2 = new Ciudad(ubicacion2);
 		Ciudad ciudad3 = new Ciudad(ubicacion3);
 		Ciudad ciudad4 = new Ciudad(ubicacion4);
 
-		// Creo Locales
+		// Locales
 		Local local0 = new Local(TipoLocal.BIBLIOTECA);
 		local0.setPista("Queria escalar el Monte Everest.");
 		Local local1 = new Local(TipoLocal.BANCO);
