@@ -28,6 +28,7 @@ public class Partida {
 		this.ladron = ladron;
 		this.turno = turno;
 		this.orden = orden;
+		this.policia.setTurno(turno);
 		this.partidaGanada = false;
 		this.partidaTerminada = false;
 	}
@@ -128,6 +129,10 @@ public class Partida {
 	
 	public Local verLocalNro(int nro) {
 		return this.ciudadActual().verLocalNro(nro);
+	}
+	
+	public Ladron getLadron() {
+		return this.ladron;
 	}
 	
 	public void guardarPartida() throws ParserConfigurationException, TransformerException {
