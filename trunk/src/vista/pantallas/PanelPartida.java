@@ -11,23 +11,19 @@ import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelPartida extends PanelConFondo {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "partida.png";
-	
-	private JTextArea logInvestigacion = new JTextArea("<INFORMACION DE PISTAS>");
-	private JTextArea reloj = new JTextArea("<HORA>");
-	private JTextArea horasRestantes = new JTextArea("<HORAS RESTANTES>");
+
+	private JLabel lblLogInvestigacion = new JLabel("<INFORMACION DE PISTAS>");
+	private JLabel lblReloj = new JLabel("<HORA>");
+	private JLabel lblHsRestantes = new JLabel("<HORAS RESTANTES>");
 	private BotonInterrogar btnInterrogarEconomia = new BotonInterrogar();
 	private BotonInterrogar btnInterrogarCultura = new BotonInterrogar();
 	private BotonInterrogar btnInterrogarTransportes = new BotonInterrogar();
@@ -39,16 +35,22 @@ public class PanelPartida extends PanelConFondo {
 	private LabelImagen imagenEconomia = new LabelImagen("images/banco.png");
 	private LabelImagen imagenCultura = new LabelImagen("images/cultura.png");
 	private LabelImagen imagenTransportes = new LabelImagen("images/transporte.png");
-	
-	public PanelPartida(){
+
+	public PanelPartida(int hsRestantes, int horaActual, String nombreLocal1, String nombreCiudad) {
 		super(FONDO);
 		setLayout(null);
-		this.add(reloj);
-		reloj.setBounds(150, 10, 125, 20);
-		this.add(horasRestantes);
-		horasRestantes.setBounds(10, 10, 125, 20);
-		this.add(logInvestigacion);
-		logInvestigacion.setBounds(10, 300, 300, 150);
+		
+		lblReloj.setText("HORA: " + Integer.toString(horaActual));
+		lblReloj.setForeground(Color.white);
+		this.add(lblReloj);
+		lblReloj.setBounds(150, 10, 125, 20);
+		lblHsRestantes.setText("HORAS RESTANTES: " + Integer.toString(hsRestantes));
+		lblHsRestantes.setForeground(Color.white);
+		this.add(lblHsRestantes);
+		lblHsRestantes.setBounds(10, 10, 150, 20);
+		lblLogInvestigacion.setForeground(Color.white);
+		this.add(lblLogInvestigacion);
+		lblLogInvestigacion.setBounds(10, 300, 300, 150);
 		this.add(btnInfoPolicia);
 		btnInfoPolicia.setBounds(10, 50, 200, 40);
 		this.add(btnVolver);
@@ -72,5 +74,5 @@ public class PanelPartida extends PanelConFondo {
 		this.add(btnInterrogarCultura);
 		btnInterrogarCultura.setBounds(650, 400, 125, 40);
 	}
-	
+
 }
