@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
@@ -26,10 +25,10 @@ public class JuegoControlador {
 			public void actionPerformed(ActionEvent e) {
 				nuevaPartida();
 
-				JFrame frmPartida = new JFrame();
+				/*JFrame frmPartida = new JFrame();
 				frmPartida.setSize(800, 600);
 				frmPartida.setVisible(true);
-				frmPartida.add(new PanelNuevaPartida());
+				frmPartida.add(new PanelNuevaPartida());*/
 			}
 		});
 
@@ -57,6 +56,10 @@ public class JuegoControlador {
 	}
 
 	private void nuevaPartida() {
+		vista.getContentPane().add(new PanelNuevaPartida());
+		vista.getContentPane().getComponent(0).setVisible(false);
+		vista.getContentPane().getComponent(1).setVisible(true);
+		
 		try {
 			this.modelo.nuevaPartida();
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
