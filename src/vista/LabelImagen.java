@@ -10,11 +10,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class LabelImagen extends JLabel{
-	
+public class LabelImagen extends JLabel {
+
 	private BufferedImage img;
-	
-	public LabelImagen(String filename){
+
+	public LabelImagen(String filename) {
 		try {
 			img = ImageIO.read(new File(filename));
 		} catch (IOException e) {
@@ -22,7 +22,7 @@ public class LabelImagen extends JLabel{
 		}
 		this.setIcon(new ImageIcon(img));
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

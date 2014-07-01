@@ -1,29 +1,13 @@
-//TODAVIA NO LO ADAPTE, IGNOREN EL ARCHIVO
 package vista.pantallas;
-
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
 
 import vista.panelesGenericos.PanelConFondo;
 
 public class PanelPerfilLadron extends PanelConFondo {
-	private static final String IMGPATH = "images/";
+	private static final long serialVersionUID = 4764145977854800531L;
+	private static final String IMGPATH = "images/fichas/";
 
-	public PanelPerfilLadron(String filename) {
-		super(filename);
-	}
-
-	public static void main(String[] args) {
-		JFrame frame = new JFrame("pepe");
-		frame.setSize(500, 500);
-		PanelPerfilLadron panel = new PanelPerfilLadron(IMGPATH + "fichacarmen.png");
-		frame.getContentPane().add(panel);
-		frame.setVisible(true);
+	public PanelPerfilLadron(String fileName) {
+		super(IMGPATH + fileName + ".png");
+		setVisible(true);
 	}
 }
