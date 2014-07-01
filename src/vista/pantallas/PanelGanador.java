@@ -1,29 +1,23 @@
 package vista.pantallas;
+import vista.botonesGenericos.BotonMenuPrincipal;
+import vista.botonesGenericos.BotonSalirJuego;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
 import javax.swing.JButton;
 
-import vista.AreaSospechosos;
-import vista.botonesGenericos.BotonEmitirOrdenArresto;
-import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
-import modelo.ladron.perfil.Cabello;
-import modelo.ladron.perfil.Hobby;
-import modelo.ladron.perfil.Senia;
-import modelo.ladron.perfil.Sexo;
-import modelo.ladron.perfil.Vehiculo;
-
 public class PanelGanador extends PanelConFondo{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String FONDO = "ganador.png";
+	private BotonMenuPrincipal botonSaltarInicio = new BotonMenuPrincipal();
+	
+	public PanelGanador(){
+		super(FONDO);
+		this.add(botonSaltarInicio);
+		this.add(new BotonSalirJuego());
+	}
 	
 }
