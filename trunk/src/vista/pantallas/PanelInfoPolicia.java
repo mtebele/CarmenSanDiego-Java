@@ -57,9 +57,9 @@ public class PanelInfoPolicia extends PanelConFondo{
 		cantarrestos.setForeground(Color.black);
 		cantarrestos.setText("ARRESTOS");
 		btnVolver.setBounds(POS_BOTON,POS_BOTON,BOT_ANCHURA,BOT_ALTURA);
-		add (cantarrestos);
-		add (btnVolver);
-		add (rango);
+		add(cantarrestos);
+		add(btnVolver);
+		add(rango);
 		setVisible(true);
 		
 	}	
