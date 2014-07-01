@@ -23,7 +23,7 @@ public class PartidaControlador {
 		this.vista = vista;
 		this.controladorPantallas = controladorPantallas;
 
-		this.vista.addViajarListener(new ActionListener() {
+		/*this.vista.addViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String destinoString = ((JButton) e.getSource()).getText();
 				viajar(destinoString);
@@ -41,7 +41,7 @@ public class PartidaControlador {
 			public void actionPerformed(ActionEvent e) {
 				emitirOrden();
 			}
-		});
+		});*/
 
 	}
 
