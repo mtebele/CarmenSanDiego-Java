@@ -17,6 +17,7 @@ public class JuegoVista extends JFrame implements Observer {
 	private static int MAX_ALTURA = 800;
 	private static int MAX_ANCHURA = 600;
 
+
 	PanelCarga carga = new PanelCarga();
 	// PanelInicial pnlInicial = new PanelInicial();
 	PanelViajar pnlInicial = new PanelViajar ();//CAMBIAR DESPUES SE USA PARA PROBAR PANELES
@@ -30,7 +31,7 @@ public class JuegoVista extends JFrame implements Observer {
 		getContentPane().add(pnlInicial);
 	}
 
-	public void addNuevaPartidaListener(ActionListener l) {
+/*	public void addNuevaPartidaListener(ActionListener l) {
 		pnlInicial.addNuevaPartidaListener(l);
 	}
 
@@ -40,7 +41,7 @@ public class JuegoVista extends JFrame implements Observer {
 
 	public void addCargarPartidaListener(ActionListener l) {
 		pnlInicial.addCargarPartidaListener(l);
-	}
+	}*/
 
 	@Override
 	public void update(Observable o, Object arg) {
