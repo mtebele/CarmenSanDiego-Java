@@ -1,6 +1,7 @@
 package vista.pantallas;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -29,18 +31,33 @@ import modelo.ladron.perfil.Vehiculo;
 
 public class PanelOrdenArresto extends PanelConFondo{
 
-	static final String fondo = "ordenarresto.jpg";
+	private static final String IMGPATH = "images/";
+	static final String FONDO = IMGPATH + "ordenarresto.jpg";
 	
-	private JList listaLadrones = new JList();
 	private BotonVolver btnVolver = new BotonVolver();
 	private BotonEmitirOrdenArresto btnArresto = new BotonEmitirOrdenArresto();
+ 
+	private String[] ladrones = {
+            "Seleccione un ladron",
+            "Nick Brunch",
+            "Len Bulk",
+            "Ihor Ihorovitch",
+            "Fast Eddie B.",
+            "Scar Graynolt",
+            "Merey Laroc",
+            "Lady Agatha",
+            "Katherine Drib",
+            "Dazzle Annie",
+            "Carmen Sandiego"
+    };
+    
+    private JComboBox<String> cmbLadrones = new JComboBox<String>(ladrones); 
 	
 	public PanelOrdenArresto() {
-		super(fondo);
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		add(listaLadrones);
-		add(btnVolver);
+		super(FONDO);
+		add(cmbLadrones);
 		add(btnArresto);
+		add(btnVolver);
 	}
 	
 	
