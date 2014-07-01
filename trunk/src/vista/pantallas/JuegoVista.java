@@ -16,26 +16,26 @@ public class JuegoVista extends JFrame implements Observer {
 	private static int MAX_ANCHURA = 600;
 
 	PanelCarga carga = new PanelCarga();
-	PanelInicial pnlNuevaPartida = new PanelInicial();
+	PanelInicial pnlInicial = new PanelInicial();
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
 		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setResizable(true);
 		setVisible(true);
-		getContentPane().add(pnlNuevaPartida);
+		getContentPane().add(pnlInicial);
 	}
 
 	public void addNuevaPartidaListener(ActionListener l) {
-		pnlNuevaPartida.addNuevaPartidaListener(l);
+		pnlInicial.addNuevaPartidaListener(l);
 	}
 
 	public void addSalirJuegoListener(ActionListener l) {
-		pnlNuevaPartida.addSalirJuegoListener(l);
+		pnlInicial.addSalirJuegoListener(l);
 	}
 
 	public void addCargarPartidaListener(ActionListener l) {
-		pnlNuevaPartida.addCargarPartidaListener(l);
+		pnlInicial.addCargarPartidaListener(l);
 	}
 
 	@Override
