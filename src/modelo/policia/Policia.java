@@ -54,6 +54,10 @@ public class Policia {
 	public List<Ciudad> verDestinos() {
 		return this.turno.getDestinos();
 	}
+	
+	public Ciudad verDestinoNro(int nro) {
+		return this.turno.verDestinoNro(nro);
+	}
 
 	public void setTurno(Turno turno) {
 		this.turno = turno;

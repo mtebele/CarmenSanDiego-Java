@@ -28,6 +28,10 @@ public class Ciudad {
 	public List<Local> getLocales() {
 		return this.locales;
 	}
+	
+	public Local verLocalNro(int nro) {
+		return this.locales.get(nro);
+	}
 
 	public int cantidadLocales() {
 		return this.locales.size();

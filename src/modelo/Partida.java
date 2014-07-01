@@ -26,12 +26,16 @@ public class Partida {
 	private Turno turno;
 	private OrdenDeArresto orden;
 	private Juego juego;
+	private boolean partidaGanada;
+	private boolean partidaTerminada;
 
 	public Partida(Policia policia, Ladron ladron, Turno turno, OrdenDeArresto orden) {
 		this.policia = policia;
 		this.ladron = ladron;
 		this.turno = turno;
 		this.orden = orden;
+		this.partidaGanada = false;
+		this.partidaTerminada = false;
 	}
 
 	public void emitirOrden(Ladron ladron) {
@@ -79,27 +83,48 @@ public class Partida {
 
 	private void ganar() {
 		this.policia.realizarArresto();
+		this.partidaGanada = true;
 		this.terminarPartida();
 	}
 
 	private void terminarPartida() {
-		// this.juego.terminarPartida();
-		// Esto pondria en null la referencia a Partida de Juego.
-
-		// Mas adelante este metodo deberia actualizar las vistas o algo asi para que
-		// el usuario sepa que termino la partida.
+		this.partidaTerminada = true;
+	}
+	
+	public boolean partidaGanada() {
+		return ( this.partidaGanada );
+	}
+	
+	public boolean partidaTerminada() {
+		return ( this.partidaTerminada );
 	}
 
 	public List<Ciudad> verDestinos() {
 		return this.policia.verDestinos();
 	}
+	
+	public Ciudad verDestinoNro(int nro) {
+		return this.policia.verDestinoNro(nro);
+	}
 
 	public boolean quedaTiempo() {
 		return turno.quedaTiempo();
 	}
+	
+	public int getHorasRestantes() {
+		return this.turno.getHorasRestantes();
+	}
+	
+	public int getHoraActual() {
+		return this.turno.getHoraActual();
+	}
 
 	public Ciudad ciudadActual() {
 		return this.policia.ciudadActual();
+	}
+	
+	public Local verLocalNro(int nro) {
+		ciudadActual().verLocalNro(nro);
 	}
 	
 	public void guardarPartida() throws ParserConfigurationException, TransformerException {
