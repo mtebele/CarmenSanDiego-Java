@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 
 import vista.AreaSospechosos;
+import vista.LabelImagen;
 import vista.botonesGenericos.BotonCargarJuego;
 import vista.botonesGenericos.BotonEmitirOrdenArresto;
 import vista.botonesGenericos.BotonNuevoJuego;

@@ -19,7 +19,7 @@ public class JuegoVista extends JFrame implements Observer {
 
 	PanelCarga carga = new PanelCarga();
 	// PanelInicial pnlInicial = new PanelInicial();
-	PanelInterrogar pnlInicial = new PanelInterrogar("esto es una pista. blab la bla bla bla. bla bla bla bla.");
+	PanelPerfilLadron pnlInicial = new PanelPerfilLadron("Carmen Sandiego");
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
