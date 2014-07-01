@@ -45,10 +45,11 @@ public class JuegoControlador {
 			public void actionPerformed(ActionEvent e) {
 				cargarPartida();
 
-				JFrame frmPartida = new JFrame();
+				//Esto no va mas, se trabaja sobre un mismo frame. Lo dejo comentado por las dudas, despues se borra.
+				/*JFrame frmPartida = new JFrame();
 				frmPartida.setSize(800, 600);
 				frmPartida.setVisible(true);
-				frmPartida.add(new PanelNuevaPartida());
+				frmPartida.add(new PanelNuevaPartida());*/
 			}
 		});
 
@@ -72,6 +73,7 @@ public class JuegoControlador {
 	private void cargarPartida() {
 		try {
 			Partida modeloPartida = this.modelo.cargarPartida();
+			// TODO: VER esto, esta mal el llamado al new.
 			new PartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {

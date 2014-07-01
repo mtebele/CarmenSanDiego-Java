@@ -19,8 +19,8 @@ public class JuegoVista extends JFrame implements Observer {
 
 
 	PanelCarga carga = new PanelCarga();
-	// PanelInicial pnlInicial = new PanelInicial();
-	PanelLadrones pnlInicial = new PanelLadrones();//DESCOMENTAR EL DE ARRIBA EN LA VERSION FINAL. SE USA PARA PROBAR PANELES ESTO
+	PanelInicial pnlInicial = new PanelInicial();
+	//PanelLadrones pnlInicial = new PanelLadrones();//DESCOMENTAR EL DE ARRIBA EN LA VERSION FINAL. SE USA PARA PROBAR PANELES ESTO
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
@@ -31,7 +31,7 @@ public class JuegoVista extends JFrame implements Observer {
 		getContentPane().add(pnlInicial);
 	}
 
-/*	public void addNuevaPartidaListener(ActionListener l) {
+	public void addNuevaPartidaListener(ActionListener l) {
 		pnlInicial.addNuevaPartidaListener(l);
 	}
 
@@ -41,7 +41,7 @@ public class JuegoVista extends JFrame implements Observer {
 
 	public void addCargarPartidaListener(ActionListener l) {
 		pnlInicial.addCargarPartidaListener(l);
-	}*/
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {

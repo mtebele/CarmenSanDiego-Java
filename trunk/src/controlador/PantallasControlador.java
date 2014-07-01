@@ -99,10 +99,14 @@ public class PantallasControlador {
 		String nombreLocal3 = modeloPartida.verLocalNro(3).getNombre();
 		String nombreCiudad = modeloPartida.ciudadActual().getNombre();
 
-		PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
+		// Las que dos lineas que estan comentantadas son las que van, el add sin comentar es el que deberia funcionar de prueba,
+		// y que en un principio nos funcionaba. Pero al hacer el controlador pantallas dejo de funcionar.
+		
+		//PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
 
 		vista.getContentPane().removeAll();
-		vista.add(pnlPartida);
+		//vista.add(pnlPartida);
+		vista.add(new PanelNuevaPartida());
 		vista.getContentPane().validate();
 	}
 
