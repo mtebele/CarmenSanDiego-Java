@@ -45,11 +45,11 @@ public class JuegoControlador {
 			public void actionPerformed(ActionEvent e) {
 				cargarPartida();
 
-				//Esto no va mas, se trabaja sobre un mismo frame. Lo dejo comentado por las dudas, despues se borra.
-				/*JFrame frmPartida = new JFrame();
-				frmPartida.setSize(800, 600);
-				frmPartida.setVisible(true);
-				frmPartida.add(new PanelNuevaPartida());*/
+				// Esto no va mas, se trabaja sobre un mismo frame. Lo dejo comentado por las dudas, despues se borra.
+				/*
+				 * JFrame frmPartida = new JFrame(); frmPartida.setSize(800, 600); frmPartida.setVisible(true);
+				 * frmPartida.add(new PanelNuevaPartida());
+				 */
 			}
 		});
 

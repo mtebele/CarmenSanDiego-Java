@@ -75,7 +75,8 @@ public class PantallasControlador {
 		Ciudad destino2 = this.modeloPartida.verDestinoNro(2);
 		Ciudad destino3 = this.modeloPartida.verDestinoNro(3);
 		Ciudad destino4 = this.modeloPartida.verDestinoNro(4);
-		PanelViajar pnlViajar = new PanelViajar(destino1, destino2, destino3, destino4);
+		PanelViajar pnlViajar = new PanelViajar(destino1.getNombre(), destino2.getNombre(), destino3.getNombre(),
+				destino4.getNombre());
 
 		vista.getContentPane().removeAll();
 		vista.add(pnlViajar);
@@ -99,13 +100,14 @@ public class PantallasControlador {
 		String nombreLocal3 = modeloPartida.verLocalNro(3).getNombre();
 		String nombreCiudad = modeloPartida.ciudadActual().getNombre();
 
-		// Las que dos lineas que estan comentantadas son las que van, el add sin comentar es el que deberia funcionar de prueba,
+		// Las que dos lineas que estan comentantadas son las que van, el add sin comentar es el que deberia funcionar
+		// de prueba,
 		// y que en un principio nos funcionaba. Pero al hacer el controlador pantallas dejo de funcionar.
-		
-		//PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
+
+		// PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
 
 		vista.getContentPane().removeAll();
-		//vista.add(pnlPartida);
+		// vista.add(pnlPartida);
 		vista.add(new PanelNuevaPartida());
 		vista.getContentPane().validate();
 	}
