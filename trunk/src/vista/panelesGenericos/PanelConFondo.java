@@ -1,14 +1,11 @@
 package vista.panelesGenericos;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class PanelConFondo extends JPanel {
@@ -27,7 +24,6 @@ public class PanelConFondo extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		// pinta el panel con el fondo
 		g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 	}
 

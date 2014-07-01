@@ -1,23 +1,24 @@
 package vista.pantallas;
+
 import java.awt.Color;
 import java.awt.Font;
 
 import vista.botonesGenericos.BotonMenuPrincipal;
 import vista.botonesGenericos.BotonSalirJuego;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SpringLayout;
 
 import vista.panelesGenericos.PanelConFondo;
+
 public class PanelPerdedor extends PanelConFondo {
+
+	private static final long serialVersionUID = -8392658315975218132L;
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "perdedor.png";
 	private BotonMenuPrincipal botonSaltarInicio = new BotonMenuPrincipal();
 	private BotonSalirJuego btnSalirJuego = new BotonSalirJuego();
 	private JLabel mensajePerdiste = new JLabel("NO HAS PODIDO ATRAPAR AL LADRON");
-	
 
 	public PanelPerdedor() {
 		super(FONDO);
@@ -34,7 +35,7 @@ public class PanelPerdedor extends PanelConFondo {
 		mensajePerdiste.setFont(new Font("Trebuchet MS", Font.BOLD, 32));
 		mensajePerdiste.setForeground(Color.WHITE);
 		this.add(mensajePerdiste);
-		
+
 	}
-	
+
 }

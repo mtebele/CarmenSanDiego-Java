@@ -1,10 +1,5 @@
 package controlador;
 
-import java.awt.event.*;
-
-import javax.swing.JPanel;
-import javax.swing.JButton;
-
 import controlador.PantallasControlador;
 import vista.pantallas.*;
 import modelo.Partida;
@@ -23,25 +18,16 @@ public class PartidaControlador {
 		this.vista = vista;
 		this.controladorPantallas = controladorPantallas;
 
-		/*this.vista.addViajarListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String destinoString = ((JButton) e.getSource()).getText();
-				viajar(destinoString);
-			}
-		});
-
-		this.vista.addInterrogarListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String localString = ((JButton) e.getSource()).getText();
-				interrogar(localString);
-			}
-		});
-
-		this.vista.addEmitirOrdenListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				emitirOrden();
-			}
-		});*/
+		/*
+		 * this.vista.addViajarListener(new ActionListener() { public void actionPerformed(ActionEvent e) { String
+		 * destinoString = ((JButton) e.getSource()).getText(); viajar(destinoString); } });
+		 * 
+		 * this.vista.addInterrogarListener(new ActionListener() { public void actionPerformed(ActionEvent e) { String
+		 * localString = ((JButton) e.getSource()).getText(); interrogar(localString); } });
+		 * 
+		 * this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
+		 * emitirOrden(); } });
+		 */
 
 	}
 

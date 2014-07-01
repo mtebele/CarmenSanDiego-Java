@@ -1,12 +1,10 @@
 package vista.botonesGenericos;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 public class BotonSalirJuego extends JButton {
+
+	private static final long serialVersionUID = 6938340967994715268L;
 
 	public BotonSalirJuego() {
 		super("Salir del Juego");
