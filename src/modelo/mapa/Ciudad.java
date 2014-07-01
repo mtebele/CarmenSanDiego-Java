@@ -11,11 +11,11 @@ public class Ciudad {
 	private List<Local> locales;
 	private Coordenada ubicacion;
 	private String nombre;
-	
+
 	public Ciudad() {
 		this.locales = new ArrayList<Local>();
 	}
-	
+
 	public Ciudad(Coordenada coordenadas) {
 		this.locales = new ArrayList<Local>();
 		this.ubicacion = coordenadas;
@@ -24,25 +24,25 @@ public class Ciudad {
 	public void agregarLocal(Local local) {
 		this.locales.add(local);
 	}
-	
+
 	public List<Local> getLocales() {
 		return this.locales;
 	}
-	
+
 	public Local verLocalNro(int nro) {
-		return this.locales.get(nro);
+		return this.locales.get(nro - 1);
 	}
 
 	public int cantidadLocales() {
 		return this.locales.size();
 	}
-	
+
 	public Coordenada getUbicacion() {
 		return this.ubicacion;
 	}
-	
+
 	public int distanciaAOtraCiudad(Ciudad otraCiudad) {
-		return ( this.getUbicacion().distanciaAOtraCoordenada(otraCiudad.getUbicacion()) );
+		return (this.getUbicacion().distanciaAOtraCoordenada(otraCiudad.getUbicacion()));
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class Ciudad {
 		if (getClass() != obj.getClass())
 			return false;
 		Ciudad other = (Ciudad) obj;
-		
+
 		if (ubicacion == null) {
 			if (other.ubicacion != null)
 				return false;
@@ -78,12 +78,12 @@ public class Ciudad {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public static Ciudad deserializar(Node elementoCiudad) {
 		Ciudad nuevaCiudad = new Ciudad();
-		nuevaCiudad.nombre = ((Element)elementoCiudad).getAttribute("nombre");
+		nuevaCiudad.nombre = ((Element) elementoCiudad).getAttribute("nombre");
 		nuevaCiudad.ubicacion = Coordenada.deserializar(elementoCiudad.getChildNodes().item(0));
-		
+
 		// Recorre los locales
 		for (int i = 1; i < elementoCiudad.getChildNodes().getLength(); i++) {
 			Local unLocal = Local.deserializar(elementoCiudad.getChildNodes().item(i));

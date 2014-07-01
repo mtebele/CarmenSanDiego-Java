@@ -19,7 +19,7 @@ public class PantallasControlador {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
 
-		this.vista.addAbrirPanelViajarListener(new ActionListener() {
+		/*this.vista.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				abrirPanelViajar();
 			}
@@ -66,7 +66,7 @@ public class PantallasControlador {
 			public void actionPerformed(ActionEvent e) {
 				abrirPanelOrdenOK();
 			}
-		});
+		});*/
 
 	}
 
@@ -148,14 +148,15 @@ public class PantallasControlador {
 
 	public void abrirPanelPerfilLadron() {
 		vista.getContentPane().removeAll();
-		vista.add(new PanelPerfilLadron());
+		String nombreLadron = this.modeloPartida.getLadron().verNombre();
+		vista.add(new PanelPerfilLadron(nombreLadron));
 		vista.getContentPane().validate();
 	}
 
-	public void abrirPanelOrdenOK() {
+	/*public void abrirPanelOrdenOK() {
 		vista.getContentPane().removeAll();
 		vista.add(new PanelOrdenOK());
 		vista.getContentPane().validate();
-	}
+	}*/
 
 }
