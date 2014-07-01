@@ -1,5 +1,7 @@
 package vista.pantallas;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
@@ -16,10 +18,12 @@ public class JuegoVista extends JFrame implements Observer {
 	private static int MAX_ANCHURA = 600;
 
 	PanelCarga carga = new PanelCarga();
-	PanelInicial pnlInicial = new PanelInicial();
+	// PanelInicial pnlInicial = new PanelInicial();
+	PanelInterrogar pnlInicial = new PanelInterrogar("esto es una pista. blab la bla bla bla. bla bla bla bla.");
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
+		setLocationRelativeTo(null);
 		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setResizable(true);
 		setVisible(true);

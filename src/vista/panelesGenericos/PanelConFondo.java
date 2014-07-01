@@ -12,6 +12,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class PanelConFondo extends JPanel {
+	private static final long serialVersionUID = 690194458739127251L;
 	private BufferedImage img;
 
 	public PanelConFondo(String filename) {
