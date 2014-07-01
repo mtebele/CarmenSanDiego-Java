@@ -4,12 +4,18 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
 import modelo.LectorXML;
 import modelo.Partida;
+import modelo.Turno;
+import modelo.ladron.Itinerario;
 import modelo.ladron.Ladron;
+import modelo.mapa.Ciudad;
+import modelo.mapa.Coordenada;
+import modelo.mapa.Local;
 import modelo.mapa.Mapa;
 import modelo.policia.OrdenDeArresto;
 import modelo.policia.Policia;
@@ -61,5 +67,31 @@ public class LectorXMLTest {
 	public void testPoliciaSeCargaOK() throws Exception {
 		this.policia = LectorXML.cargarPolicia();
 		assertNotNull(this.policia);
+	}
+
+	@Test
+	public void testPartidaCargaDatosCorrectamente() {
+		assertFalse(this.partida.partidaGanada());
+		assertFalse(this.partida.partidaTerminada());
+		assertTrue(this.partida.quedaTiempo());
+		
+		Itinerario itinerario = this.partida.getLadron().getItinerario();
+		
+		List<Ciudad> destinos = itinerario.ciudades();
+		assertTrue(destinos.size() > 0);
+		for (Ciudad destino : destinos) {
+			assertNotNull(destino.getNombre());
+
+			Coordenada ubicacion = destino.getUbicacion();
+			assertNotNull(ubicacion.getLatitud());
+			assertNotNull(ubicacion.getLongitud());
+
+			List<Local> locales = destino.getLocales();
+			for (Local local : locales) {
+				assertEquals(local.vecesVisitado(), 0);
+				assertNotNull(local.responder());
+				assertNotNull(local.getNombre());
+			}
+		}
 	}
 }

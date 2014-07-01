@@ -9,17 +9,22 @@ public class Local {
 	private String pista;
 	private TipoLocal nombre;
 
+	public Local(TipoLocal nombre, String pista) {
+		this.vecesVisitado = 0;
+		this.nombre = nombre;
+		this.pista = pista;
+	}
+
 	public Local(TipoLocal nombre) {
 		this.vecesVisitado = 0;
 		this.nombre = nombre;
-		this.pista = null;
 	}
 
 	public int vecesVisitado() {
 		return this.vecesVisitado;
 	}
 
-	public void setearPista(String pista) {
+	public void setPista(String pista) {
 		this.pista = pista;
 	}
 
@@ -47,7 +52,7 @@ public class Local {
 	public void visitar() {
 		this.vecesVisitado++;
 	}
-	
+
 	public String getNombre() {
 		return this.nombre.toString();
 	}
@@ -56,7 +61,8 @@ public class Local {
 
 		String strNombre = ((Element) elementoLocal).getAttribute("nombre");
 		TipoLocal tipo = TipoLocal.valueOf(strNombre.toUpperCase());
+		String pista = ((Element) elementoLocal).getAttribute("pista");
 
-		return new Local(tipo);
+		return new Local(tipo, pista);
 	}
 }

@@ -58,13 +58,13 @@ public class PartidaTest {
 
 		// Creo Locales
 		Local local0 = new Local(TipoLocal.BIBLIOTECA);
-		local0.setearPista("Queria escalar el Monte Everest.");
+		local0.setPista("Queria escalar el Monte Everest.");
 		Local local1 = new Local(TipoLocal.BANCO);
-		local1.setearPista("Queria cambiar su dinero a yenes.");
+		local1.setPista("Queria cambiar su dinero a yenes.");
 		Local local2 = new Local(TipoLocal.BOLSA);
-		local2.setearPista("Ansiaba conocer verdaderos gauchos.");
+		local2.setPista("Ansiaba conocer verdaderos gauchos.");
 		Local local3 = new Local(TipoLocal.AEROPUERTO);
-		local3.setearPista("Se marcho en un barco que flameaba una bandera blanca y roja.");
+		local3.setPista("Se marcho en un barco que flameaba una bandera blanca y roja.");
 
 		ciudad0.agregarLocal(local0);
 		ciudad1.agregarLocal(local1);

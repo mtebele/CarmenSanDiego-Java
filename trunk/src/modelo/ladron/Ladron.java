@@ -68,6 +68,10 @@ public class Ladron {
 		this.itinerario = itinerario;
 	}
 	
+	public Itinerario getItinerario() {
+		return this.itinerario;
+	}
+	
 	public String verDatos() {
 		StringBuilder datos = new StringBuilder();
 		datos.append("Nombre: " +  this.perfil.getNombre());

@@ -40,7 +40,7 @@ public class JuegoControlador {
 				}
 			}
 		});
-		
+
 		this.vista.addCargarPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cargarPartida();
@@ -51,20 +51,19 @@ public class JuegoControlador {
 				frmPartida.add(new PanelNuevaPartida());
 			}
 		});
-		
-		
+
 	}
 
 	private void nuevaPartida() {
 
 		try {
 			Partida modeloPartida = this.modelo.nuevaPartida();
-			
+
 			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
 			this.controladorPartida = new PartidaControlador(modeloPartida, vista, controladorPantallas);
-			
+
 			this.controladorPantallas.abrirPanelPartida();
-			
+
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
 		}
@@ -74,17 +73,14 @@ public class JuegoControlador {
 		try {
 			Partida modeloPartida = this.modelo.cargarPartida();
 			new PartidaControlador(modeloPartida, this.vista);
-			
+
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
-	/*private void guardarPartida() {
-		try {
-			this.modelo.guardarPartida(policia);
-		} catch (ParserConfigurationException | SAXException | IOException e1) {
-			e1.printStackTrace();
-		}
-	}*/
+
+	/*
+	 * private void guardarPartida() { try { this.modelo.guardarPartida(policia); } catch (ParserConfigurationException
+	 * | SAXException | IOException e1) { e1.printStackTrace(); } }
+	 */
 }

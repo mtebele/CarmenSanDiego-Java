@@ -22,9 +22,9 @@ public class CiudadTest extends TestCase {
 		Coordenada unaUbicacion = new Coordenada(-58, -34);
 		this.ciudad = new Ciudad(unaUbicacion);
 		this.local1 = new Local(TipoLocal.AEROPUERTO);
-		this.local1.setearPista(PISTA_1);
+		this.local1.setPista(PISTA_1);
 		this.local2 = new Local(TipoLocal.BANCO);
-		this.local2.setearPista(PISTA_2);
+		this.local2.setPista(PISTA_2);
 	}
 
 	@Test
