@@ -9,15 +9,16 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import vista.pantallas.JuegoVista;
-import vista.pantallas.PanelNuevaPartida;
+import vista.pantallas.*;
 import modelo.Juego;
 import modelo.Partida;
-import controlador.PartidaControlador;
+import controlador.*;
 
 public class JuegoControlador {
 	private Juego modelo;
 	private JuegoVista vista;
+	private PartidaControlador controladorPartida;
+	private PantallasControlador controladorPantallas;
 
 	public JuegoControlador(Juego modelo, JuegoVista vista) {
 		this.modelo = modelo;
@@ -26,11 +27,6 @@ public class JuegoControlador {
 		this.vista.addNuevaPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nuevaPartida();
-
-				/*JFrame frmPartida = new JFrame();
-				frmPartida.setSize(800, 600);
-				frmPartida.setVisible(true);
-				frmPartida.add(new PanelNuevaPartida());*/
 			}
 		});
 
@@ -60,13 +56,14 @@ public class JuegoControlador {
 	}
 
 	private void nuevaPartida() {
-		vista.getContentPane().removeAll();
-		vista.add(new PanelNuevaPartida());
-		vista.getContentPane().validate();
-		
+
 		try {
 			Partida modeloPartida = this.modelo.nuevaPartida();
-			new PartidaControlador(modeloPartida, this.vista);
+			
+			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
+			this.controladorPartida = new PartidaControlador(modeloPartida, vista, controladorPantallas);
+			
+			this.controladorPantallas.abrirPanelPartida();
 			
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();

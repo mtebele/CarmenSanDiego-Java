@@ -6,14 +6,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import modelo.excepciones.LadronNoPlaneoEscapeException;
-import modelo.ladron.Itinerario;
-import modelo.ladron.Ladron;
-import modelo.mapa.Ciudad;
-import modelo.mapa.Locacion;
-import modelo.mapa.Local;
-import modelo.mapa.Mapa;
-import modelo.policia.OrdenDeArresto;
-import modelo.policia.Policia;
+import modelo.ladron.*;
+import modelo.mapa.*;
+import modelo.policia.*;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -25,7 +20,6 @@ public class Partida {
 	private Ladron ladron;
 	private Turno turno;
 	private OrdenDeArresto orden;
-	private Juego juego;
 	private boolean partidaGanada;
 	private boolean partidaTerminada;
 
@@ -40,6 +34,7 @@ public class Partida {
 
 	public void emitirOrden(Ladron ladron) {
 		this.orden.emitirOrden(ladron);
+		this.turno.actualizar(3);
 	}
 
 	public void atraparLadron() {
@@ -111,6 +106,14 @@ public class Partida {
 		return turno.quedaTiempo();
 	}
 	
+	public int verCantDeArrestos() {
+		return this.policia.getCantidadArrestos();
+	}
+	
+	public Rango verRangoPolicia() {
+		return this.policia.getRango();
+	}
+	
 	public int getHorasRestantes() {
 		return this.turno.getHorasRestantes();
 	}
@@ -124,7 +127,7 @@ public class Partida {
 	}
 	
 	public Local verLocalNro(int nro) {
-		ciudadActual().verLocalNro(nro);
+		return this.ciudadActual().verLocalNro(nro);
 	}
 	
 	public void guardarPartida() throws ParserConfigurationException, TransformerException {

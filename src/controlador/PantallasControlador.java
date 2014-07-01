@@ -6,8 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
-import modelo.Partida;
+import modelo.*;
 import modelo.mapa.*;
+import modelo.policia.Rango;
 import vista.pantallas.*;
 
 
@@ -19,9 +20,9 @@ public class PantallasControlador {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
 		
-		this.vista.addAbrirPanelViajesListener(new ActionListener() {
+		this.vista.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				abrirPanelViajes();
+				abrirPanelViajar();
 			}
 		});
 		
@@ -31,9 +32,46 @@ public class PantallasControlador {
 			}
 		});
 		
+		this.vista.addAbrirPanelPerdedorListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				abrirPanelPerdedor();
+			}
+		});
+		
+		this.vista.addAbrirPanelOrdenArrestoListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				abrirPanelOrdenArresto();
+			}
+		});
+		
+		this.vista.addAbrirPanelInfoPoliciaListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				abrirPanelInfoPolicia();
+			}
+		});
+		
+		this.vista.addAbrirPanelLadronesListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				abrirPanelLadrones();
+			}
+		});
+		
+		this.vista.addAbrirPanelPerfilLadronListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				abrirPanelPerfilLadron();
+			}
+		});
+		
+		this.vista.addAbrirPanelOrdenOKListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				abrirPanelOrdenOK();
+			}
+		});
+		
 	}
 	
-	public void abrirPanelViajes() {
+	public void abrirPanelViajar() {
 		Ciudad destino1 = this.modeloPartida.verDestinoNro(1);
 		Ciudad destino2 = this.modeloPartida.verDestinoNro(2);
 		Ciudad destino3 = this.modeloPartida.verDestinoNro(3);
@@ -74,6 +112,48 @@ public class PantallasControlador {
 		vista.add(new PanelGanador());
 		vista.getContentPane().validate();
 	}
+	
+	public void abrirPanelPerdedor() {
+		vista.getContentPane().removeAll();
+		vista.add(new PanelPerdedor());
+		vista.getContentPane().validate();
+	}
+	
+	public void abrirPanelOrdenArresto() {
+		vista.getContentPane().removeAll();
+		vista.add(new PanelOrdenArresto());
+		vista.getContentPane().validate();
+	}
+	
+	public void abrirPanelInfoPolicia() {
+		int cantArrestos = modeloPartida.verCantDeArrestos();
+		Rango rangoPolicia = modeloPartida.verRangoPolicia();
+		PanelInfoPolicia pnlInfoPolicia = new PanelInfoPolicia(rangoPolicia.getNombre(), cantArrestos);
+		
+		vista.getContentPane().removeAll();
+		vista.add(pnlInfoPolicia);
+		vista.getContentPane().validate();
+	}
+	
+	public void abrirPanelLadrones() {
+		vista.getContentPane().removeAll();
+		vista.add(new PanelLadrones());
+		vista.getContentPane().validate();
+	}
+	
+	public void abrirPanelPerfilLadron() {
+		vista.getContentPane().removeAll();
+		vista.add(new PanelPerfilLadron());
+		vista.getContentPane().validate();
+	}
+	
+	public void abrirPanelOrdenOK() {
+		vista.getContentPane().removeAll();
+		vista.add(new PanelOrdenOK());
+		vista.getContentPane().validate();
+	}
+	
+	
 	
 	
 }

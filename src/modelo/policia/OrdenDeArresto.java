@@ -12,16 +12,17 @@ import org.xml.sax.SAXException;
 
 public class OrdenDeArresto {
 	private ArrayList<Ladron> baseLadrones;
-
+	private boolean ordenYaEmitida;
 	private Ladron ladron;
 
 	public OrdenDeArresto() {
+		this.ordenYaEmitida = false;
 		this.ladron = null;
 		this.baseLadrones = new ArrayList<Ladron>();
 	}
 
 	public boolean arrestoEsValido(Ladron ladron) {
-		return baseLadrones.contains(ladron);
+		return ( baseLadrones.contains(ladron) && !this.ordenYaEmitida );
 	}
 
 	public void agregarLadronABaseDeDatos(Ladron ladron) {
@@ -33,6 +34,7 @@ public class OrdenDeArresto {
 	public void emitirOrden(Ladron ladron) {
 		if (arrestoEsValido(ladron)) {
 			this.ladron = ladron;
+			this.ordenYaEmitida = true;
 		}
 	}
 

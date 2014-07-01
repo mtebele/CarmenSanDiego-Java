@@ -1,7 +1,6 @@
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -17,10 +16,10 @@ public class PartidaControlador {
 	private JuegoVista vista;
 	private PantallasControlador controladorPantallas;
 	
-	public PartidaControlador(Partida modeloPartida, JuegoVista vista) {
+	public PartidaControlador(Partida modeloPartida, JuegoVista vista, PantallasControlador controladorPantallas) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
-		this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
+		this.controladorPantallas = controladorPantallas;
 		
 		this.vista.addViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -33,6 +32,12 @@ public class PartidaControlador {
 			public void actionPerformed(ActionEvent e) {
 				String localString = ((JButton) e.getSource()).getText();
 				interrogar(localString);
+			}
+		});
+		
+		this.vista.addEmitirOrdenListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				emitirOrden();
 			}
 		});
 		
@@ -52,10 +57,11 @@ public class PartidaControlador {
 	}
 	
 	public void interrogar(String localString) {
+		String pista = null;
 		for ( int i=0; i<3; i++ ) {
 			Local local = modeloPartida.verLocalNro(i);
 			if ( local.getNombre() == localString ) {
-				String pista = modeloPartida.interrogar(local);
+				pista = modeloPartida.interrogar(local);
 				break;
 			}
 			if ( modeloPartida.partidaGanada() ) controladorPantallas.abrirPanelGanador();
