@@ -2,6 +2,7 @@ package vista.pantallas;
 
 import javax.swing.*;
 
+import modelo.mapa.Ciudad;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
@@ -18,16 +19,15 @@ public class PanelNuevaPartida extends PanelConFondo {
 	private JButton btnContinuar = new JButton("Iniciar investigacion");
 	private JButton btnVolver = new BotonVolver();
 
-	public PanelNuevaPartida() {
+	public PanelNuevaPartida(Ciudad ciudadActual) {
 		super(FONDO);
 		setLayout(null);
 		textoReporte.setOpaque(false);
 		textoReporte.setEditable(false);
 		textoReporte.setText
 		("\nEn el dia de la fecha se ha reportado un robo de un objeto importante."
-				+ "\nSe trata de <objetoRobado>."+
-				"\nEl mismo se reporto en la ciudad de <nombreCiudad>."+
-				"\nTiene una semana para resolver el caso.\n");
+				+"\nEl mismo se reporto en la ciudad de "+ciudadActual.getNombre()+"."
+				+"\nTiene una semana para resolver el caso.\n");
 		add(textoReporte);
 		textoReporte.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		textoReporte.setBounds(200, 200, 500, 500);
@@ -37,5 +37,11 @@ public class PanelNuevaPartida extends PanelConFondo {
 		btnVolver.setBounds(425, 400, 200, 40);
 		
 	}
+	
+	public void addAbrirPanelPartidaListener(ActionListener l) {
+		btnContinuar.addActionListener(l);
+	}
+	
+	//Faltaria hacer el Volver este.
 
 }
