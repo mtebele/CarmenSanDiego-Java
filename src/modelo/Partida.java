@@ -140,6 +140,10 @@ public class Partida {
 		return this.ladron;
 	}
 	
+	public OrdenDeArresto verOrdenDeArresto() {
+		return this.orden;
+	}
+	
 	public void guardarPartida() throws ParserConfigurationException, TransformerException {
 		Juego juego = new Juego();
 		juego.guardarPartida(this.policia);

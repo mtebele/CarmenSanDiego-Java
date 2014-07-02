@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
 import vista.pantallas.JuegoVista;
 import vista.pantallas.PanelViajar;
 import modelo.Partida;
@@ -35,7 +36,6 @@ public class ViajeControlador {
 			public void actionPerformed(ActionEvent e) {
 				String destinoString = ((JButton) e.getSource()).getText();
 				viajar(destinoString);
-				volverAPanelPartida();
 			}
 		});
 		
@@ -55,6 +55,13 @@ public class ViajeControlador {
 				break;
 			}
 		}
+		
+		if (!modeloPartida.quedaTiempo()) {
+			new PerdedorControlador(this.vista);
+		} else {
+			volverAPanelPartida();
+		}
+		
 	}
 	
 	public void volverAPanelPartida() {

@@ -62,7 +62,7 @@ public class PanelPartida extends PanelConFondo {
 		lblHsRestantes.setText("HORAS RESTANTES: " + Integer.toString(hsRestantes));
 		lblHsRestantes.setForeground(Color.white);
 		this.add(lblHsRestantes);
-		lblHsRestantes.setBounds(10, 60, 150, 20);
+		lblHsRestantes.setBounds(10, 60, 150, 30);
 		this.add(btnInfoPolicia);
 		btnInfoPolicia.setBounds(10, 110, 200, 40);
 		this.add(btnVolver);

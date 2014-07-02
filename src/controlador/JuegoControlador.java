@@ -18,7 +18,6 @@ public class JuegoControlador {
 	private Juego modelo;
 	private JuegoVista vista;
 	private PartidaControlador controladorPartida;
-	private PantallasControlador controladorPantallas; // BORRAR
 
 	public JuegoControlador(Juego modelo, JuegoVista vista) {
 		this.modelo = modelo;
@@ -55,7 +54,6 @@ public class JuegoControlador {
 
 			Partida modeloPartida = this.modelo.nuevaPartida();
 
-			this.controladorPantallas = new PantallasControlador(modeloPartida, vista); // TODO BORRAR
 			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
@@ -67,7 +65,6 @@ public class JuegoControlador {
 		try {
 			Partida modeloPartida = this.modelo.cargarPartida();
 
-			this.controladorPantallas = new PantallasControlador(modeloPartida, vista); // TODO BORRAR
 			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {

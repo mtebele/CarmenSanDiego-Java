@@ -3,24 +3,20 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import vista.pantallas.JuegoVista;
-import vista.pantallas.PanelNuevaPartida;
-import vista.pantallas.PanelLadrones;
 import modelo.Partida;
-import modelo.mapa.Ciudad;
+import controlador.*;
+import vista.pantallas.*;
 
-public class LadronesControlador {
-
-	private JuegoVista vista;
-	private PanelLadrones panel;
+public class OrdenOKControlador {
 	private Partida modeloPartida;
-
-	public LadronesControlador(Partida modeloPartida, JuegoVista vista) {
-		
-		this.vista = vista;
+	private JuegoVista vista;
+	private PanelOrdenOK panel;
+	
+	public OrdenOKControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
-		this.panel = new PanelLadrones();
-
+		this.vista = vista;
+		this.panel = new PanelOrdenOK();
+		
 		vista.getContentPane().removeAll();
 		vista.add(panel);
 		vista.getContentPane().validate();
@@ -30,12 +26,10 @@ public class LadronesControlador {
 				volverAPanelPartida();
 			}
 		});
-		
 	}
 	
 	public void volverAPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
 	}
 	
-
 }
