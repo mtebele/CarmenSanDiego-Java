@@ -23,7 +23,6 @@ public class PanelPartida extends PanelConFondo {
 	static final String FONDO = IMGPATH + "partida.png";
 	static final String ICONOBANCO = IMGPATH + "banco.png";
 	static final String ICONOCULTURA = IMGPATH + "cultura.png";
-	static final String IMGCIUDAD = IMGPATHCIUDADES + "buenos aires.png";
 	static final String ICONOTRANSPORTE = IMGPATH + "transporte.png";
 	
 	private JLabel lblReloj = new JLabel("<HORA>");
@@ -35,7 +34,7 @@ public class PanelPartida extends PanelConFondo {
 	private BotonVolver btnVolver = new BotonVolver();
 	private BotonBaseLadrones btnLadrones = new BotonBaseLadrones();
 	private BotonViajar btnViajar = new BotonViajar();
-	private LabelImagen imagenCiudad = new LabelImagen(IMGCIUDAD);
+	private LabelImagen imagenCiudad;
 	private LabelImagen imagenEconomia = new LabelImagen(ICONOBANCO);
 	private LabelImagen imagenCultura = new LabelImagen(ICONOCULTURA);
 	private LabelImagen imagenTransportes = new LabelImagen(ICONOTRANSPORTE);
@@ -50,6 +49,7 @@ public class PanelPartida extends PanelConFondo {
 		btnInterrogarCultura = new BotonInterrogar(nombreLocal2);
 		btnInterrogarTransportes = new BotonInterrogar(nombreLocal3);
 
+		imagenCiudad = new LabelImagen(IMGPATHCIUDADES + nombreCiudad + ".png");
 		ImageIcon imageIcon = new ImageIcon("images/relojarena.gif");
 		imagenReloj.setIcon(imageIcon);
 		imagenReloj.setBounds(230, 0, 120, 120);
