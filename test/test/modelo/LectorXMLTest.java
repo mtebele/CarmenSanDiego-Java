@@ -11,6 +11,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import modelo.LectorXML;
 import modelo.Partida;
 import modelo.Turno;
+import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.ladron.Itinerario;
 import modelo.ladron.Ladron;
 import modelo.mapa.Ciudad;
@@ -32,7 +33,7 @@ public class LectorXMLTest {
 	private Policia policia;
 
 	@Before
-	public void setUp() throws ParserConfigurationException, SAXException, IOException {
+	public void setUp() throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
 		this.mapa = LectorXML.cargarMapa();
 		this.ladrones = LectorXML.cargarLadrones();
 		this.partida = LectorXML.cargarPartida(new Policia("Phil"));

@@ -6,6 +6,7 @@ import java.util.Observable;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.policia.Policia;
 
 import org.xml.sax.SAXException;
@@ -14,12 +15,12 @@ public class Juego {
 
 	private Policia policia;
 
-	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException {
+	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
 		this.policia = new Policia("Jack Bauer");
 		return LectorXML.cargarPartida(this.policia);
 	}
 
-	public Partida cargarPartida() throws ParserConfigurationException, SAXException, IOException {
+	public Partida cargarPartida() throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
 		this.policia = LectorXML.cargarPolicia();
 		return LectorXML.cargarPartida(this.policia);
 	}

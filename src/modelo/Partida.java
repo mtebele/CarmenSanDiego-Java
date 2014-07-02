@@ -145,25 +145,31 @@ public class Partida {
 		juego.guardarPartida(this.policia);
 	}
 
-	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {
-		Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
-
-		Node nodeLadron = unaPartida.getChildNodes().item(0);
-		Ladron ladron = Ladron.deserializar(nodeLadron);
-
-		Node nodeItinerario = nodeLadron.getChildNodes().item(1);
-		ladron.setItinerario(Itinerario.deserializar(nodeItinerario));
-
-		Ciudad ciudadActual = Ciudad.deserializar(nodeItinerario.getFirstChild());
-		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
-		
-		// Agrega las ciudades como destinos de locacion
-		for (Ciudad destino : ladron.getItinerario().ciudades()) {
-			locacionInicial.agregarDestino(destino);
-		}
-		
-		Turno turno = new Turno(locacionInicial);
-
-		return new Partida(policia, ladron, turno, orden);
+	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) throws LadronNoPlaneoEscapeException {
+	    Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
+	 
+	    Node nodeLadron = unaPartida.getChildNodes().item(0);
+	    Ladron ladron = Ladron.deserializar(nodeLadron);
+	       
+	   
+	 
+	    Node nodeItinerario = nodeLadron.getChildNodes().item(1);
+	    ladron.setItinerario(Itinerario.deserializar(nodeItinerario));
+	 
+	    Ciudad ciudadActual = Ciudad.deserializar(nodeItinerario.getFirstChild());
+	    Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
+	   
+	    // Agrega las ciudades como destinos de locacion
+	    for (Ciudad destino : ladron.getItinerario().ciudades()) {
+	            locacionInicial.agregarDestino(destino);
+	    }
+	    
+	    Node nodeObjeto = nodeLadron.getChildNodes().item(2);
+	    ladron.robarObjeto(ObjetoRobado.deserializar(nodeObjeto));
+	   
+	    Turno turno = new Turno(locacionInicial);
+	 
+	    return new Partida(policia, ladron, turno, orden);
 	}
+
 }

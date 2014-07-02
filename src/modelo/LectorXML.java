@@ -3,6 +3,7 @@ package modelo;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,6 +13,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.ladron.Ladron;
 import modelo.mapa.Mapa;
 import modelo.policia.OrdenDeArresto;
@@ -68,7 +70,7 @@ public class LectorXML {
 		return listaLadrones;
 	}
 
-	public static Partida cargarPartida(Policia policia) throws ParserConfigurationException, SAXException, IOException {
+	public static Partida cargarPartida(Policia policia) throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
 		File archivo = new File(PATH + "partidaNovato.xml");
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
