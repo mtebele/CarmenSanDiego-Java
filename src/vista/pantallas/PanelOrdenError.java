@@ -15,7 +15,7 @@ public class PanelOrdenError extends PanelConFondo {
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "error.png";
 	private BotonVolver volver = new BotonVolver();
-	private JLabel mensajeok = new JLabel("ERROR:Ya hay una orden en proceso!");
+	private JLabel mensajeok = new JLabel("ERROR: Ya hay una orden en proceso.");
 	
 	public PanelOrdenError() {
 	    super(FONDO);

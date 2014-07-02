@@ -15,7 +15,7 @@ public class PanelOrdenOK extends PanelConFondo {
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "ok.jpg";
 	private BotonVolver volver = new BotonVolver();
-	private JLabel mensajeok = new JLabel("La orden fue emitida correctamente");
+	private JLabel mensajeok = new JLabel("La orden fue emitida correctamente.");
 	
 	public PanelOrdenOK() {
 	    super(FONDO);
