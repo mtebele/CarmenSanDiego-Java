@@ -135,10 +135,6 @@ public class Partida {
 		return this.ladron;
 	}
 	
-	public ObjetoRobado getObjetoRobado() {
-		return this.ladron.getObjeto();
-	}
-	
 	public void guardarPartida() throws ParserConfigurationException, TransformerException {
 		Juego juego = new Juego();
 		juego.guardarPartida(this.policia);

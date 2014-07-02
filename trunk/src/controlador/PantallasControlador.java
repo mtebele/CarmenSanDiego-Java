@@ -68,6 +68,12 @@ public class PantallasControlador {
 				abrirPanelNuevaPartida();
 			}
 		});
+		
+		this.vista.addAbrirPanelPartidaListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				abrirPanelPartida();
+			}
+		});
 
 	}
 
@@ -101,7 +107,7 @@ public class PantallasControlador {
 		String nombreLocal3 = modeloPartida.verLocalNro(3).getNombre();
 		String nombreCiudad = modeloPartida.ciudadActual().getNombre();
 
-		PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
+		PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreLocal2, nombreLocal3, nombreCiudad);
 
 		vista.getContentPane().removeAll();
 		vista.add(pnlPartida);
@@ -150,9 +156,8 @@ public class PantallasControlador {
 	}
 	
 	public void abrirPanelNuevaPartida() {
-		ObjetoRobado objetoRobado = modeloPartida.getObjetoRobado();
 		Ciudad ciudadActual = modeloPartida.ciudadActual();
-		PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida(ciudadActual, objetoRobado);
+		PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida(ciudadActual);
 		
 		vista.getContentPane().removeAll();
 		vista.add(pnlNuevaPartida);

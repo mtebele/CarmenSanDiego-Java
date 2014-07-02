@@ -9,6 +9,8 @@ import vista.botonesGenericos.BotonViajar;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PanelPartida extends PanelConFondo {
 
@@ -18,9 +20,9 @@ public class PanelPartida extends PanelConFondo {
 
 	private JLabel lblReloj = new JLabel("<HORA>");
 	private JLabel lblHsRestantes = new JLabel("<HORAS RESTANTES>");
-	private BotonInterrogar btnInterrogarEconomia = new BotonInterrogar();
-	private BotonInterrogar btnInterrogarCultura = new BotonInterrogar();
-	private BotonInterrogar btnInterrogarTransportes = new BotonInterrogar();
+	private BotonInterrogar btnInterrogarEconomia;
+	private BotonInterrogar btnInterrogarCultura;
+	private BotonInterrogar btnInterrogarTransportes;
 	private BotonInfoPolicia btnInfoPolicia = new BotonInfoPolicia();
 	private BotonVolver btnVolver = new BotonVolver();
 	private BotonBaseLadrones btnLadrones = new BotonBaseLadrones();
@@ -35,6 +37,10 @@ public class PanelPartida extends PanelConFondo {
 	public PanelPartida(int hsRestantes, int horaActual, String nombreLocal1, String nombreLocal2, String nombreLocal3, String nombreCiudad) {
 		super(FONDO);
 		setLayout(null);
+		
+		btnInterrogarEconomia = new BotonInterrogar(nombreLocal1);
+		btnInterrogarCultura = new BotonInterrogar(nombreLocal2);
+		btnInterrogarTransportes = new BotonInterrogar(nombreLocal3);
 
 		ImageIcon imageIcon = new ImageIcon("images/relojarena.gif");
 		imagenReloj.setIcon(imageIcon);
@@ -72,4 +78,28 @@ public class PanelPartida extends PanelConFondo {
 		this.add(btnInterrogarCultura);
 		btnInterrogarCultura.setBounds(650, 450, 125, 40);
 	}
+	
+	public void addInterrogarListener(ActionListener l) {
+		btnInterrogarEconomia.addActionListener(l);
+		btnInterrogarCultura.addActionListener(l);
+		btnInterrogarTransportes.addActionListener(l);
+	}
+	
+	public void addAbrirPanelInfoPoliciaListener(ActionListener l) {
+		btnInfoPolicia.addActionListener(l);
+	}
+	
+	public void addAbrirPanelPartidaListener(ActionListener l) {
+		btnVolver.addActionListener(l);
+	}
+	
+	public void addAbrirPanelLadronesListener(ActionListener l) {
+		btnLadrones.addActionListener(l);
+	}
+	
+	public void addViajarListener(ActionListener l) {
+		btnViajar.addActionListener(l);
+	}
+	
+	
 }

@@ -3,7 +3,7 @@ import javax.swing.JButton;
 
 public class BotonInterrogar extends JButton {
 	
-	public BotonInterrogar(){
-		super("Interrogar");
+	public BotonInterrogar(String nombreLocal){
+		super(nombreLocal);
 	}
 }
