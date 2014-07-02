@@ -1,6 +1,7 @@
 package modelo.policia;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -11,7 +12,7 @@ import modelo.ladron.Ladron;
 import org.xml.sax.SAXException;
 
 public class OrdenDeArresto {
-	private ArrayList<Ladron> baseLadrones;
+	private List<Ladron> baseLadrones;
 	private boolean ordenYaEmitida;
 	private Ladron ladron;
 
@@ -22,6 +23,7 @@ public class OrdenDeArresto {
 	}
 
 	public boolean arrestoEsValido(Ladron ladron) {
+		if ( ladron == null ) return false;
 		return ( baseLadrones.contains(ladron) && !this.ordenYaEmitida );
 	}
 
@@ -38,6 +40,10 @@ public class OrdenDeArresto {
 		}
 	}
 
+	public List<Ladron> getBaseDeLadrones() {
+		return this.baseLadrones;
+	}
+	
 	public Ladron verLadron() {
 		return this.ladron;
 	}

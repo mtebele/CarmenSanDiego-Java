@@ -1,6 +1,7 @@
 package vista.pantallas;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
@@ -25,6 +26,10 @@ public class PanelOrdenOK extends PanelConFondo {
 		mensajeok.setForeground(Color.black);
 		mensajeok.setBounds(250,0,300,100);
 		
+	}
+	
+	public void addVolverAPanelPartidaListener(ActionListener l) {
+		volver.addActionListener(l);
 	}
 
 }

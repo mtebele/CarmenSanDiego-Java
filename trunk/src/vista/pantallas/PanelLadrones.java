@@ -67,7 +67,7 @@ public class PanelLadrones extends PanelConFondo {
 		ladron10.setBounds(630,250,150,250);
 	}
 	
-	public void addVolverAPanelPartida(ActionListener l) {
+	public void addVolverAPanelPartidaListener(ActionListener l) {
 		btnVolver.addActionListener(l);
 	}
 	
