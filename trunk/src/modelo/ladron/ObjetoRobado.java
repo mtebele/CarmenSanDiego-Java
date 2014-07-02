@@ -1,5 +1,7 @@
 package modelo.ladron;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 public class ObjetoRobado {
 
@@ -15,5 +17,10 @@ public class ObjetoRobado {
 		return this.valor;
 	}
 	
+	public static ObjetoRobado deserializar(Node elementoObjeto) {
+        Valor valor = Valor.valueOf(((Element) elementoObjeto).getAttribute("valor").toUpperCase());
+        ObjetoRobado objetoRobado = new ObjetoRobado(valor);    
+        return objetoRobado;
+	}
 
 }
