@@ -21,11 +21,11 @@ public class JuegoVista extends JFrame implements Observer {
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
-		setLocationRelativeTo(null);
 		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setResizable(true);
 		setVisible(true);
 		getContentPane().add(pnlInicial);
+		setLocationRelativeTo(null);
 	}
 
 	public void addNuevaPartidaListener(ActionListener l) {

@@ -19,29 +19,27 @@ public class PanelNuevaPartida extends PanelConFondo {
 	private JButton btnContinuar = new JButton("Iniciar investigacion");
 	private JButton btnVolver = new BotonVolver();
 
-	public PanelNuevaPartida(Ciudad ciudadActual) {
+	public PanelNuevaPartida(String ciudadActual) {
 		super(FONDO);
 		setLayout(null);
 		textoReporte.setOpaque(false);
 		textoReporte.setEditable(false);
-		textoReporte.setText
-		("\nEn el dia de la fecha se ha reportado un robo de un objeto importante."
-				+"\nEl mismo se reporto en la ciudad de "+ciudadActual.getNombre()+"."
-				+"\nTiene una semana para resolver el caso.\n");
+		textoReporte.setText("\nEn el dia de la fecha se ha reportado un robo de un objeto importante."
+				+ "\nEl mismo se reporto en la ciudad de " + ciudadActual + "."
+				+ "\nTiene una semana para resolver el caso.\n");
 		add(textoReporte);
 		textoReporte.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		textoReporte.setBounds(200, 200, 500, 500);
+		textoReporte.setBounds(200, 200, 500, 200);
 		add(btnContinuar);
 		btnContinuar.setBounds(175, 400, 200, 40);
 		add(btnVolver);
 		btnVolver.setBounds(425, 400, 200, 40);
-		
 	}
-	
+
 	public void addAbrirPanelPartidaListener(ActionListener l) {
 		btnContinuar.addActionListener(l);
 	}
-	
-	//Faltaria hacer el Volver este.
+
+	// Faltaria hacer el Volver este.
 
 }

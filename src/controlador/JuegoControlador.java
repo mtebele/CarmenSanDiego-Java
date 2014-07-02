@@ -58,13 +58,14 @@ public class JuegoControlador {
 	private void nuevaPartida() {
 
 		try {
-			
+
 			Partida modeloPartida = this.modelo.nuevaPartida();
 
 			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
 			this.controladorPartida = new PartidaControlador(modeloPartida, vista, controladorPantallas);
 
-			this.controladorPantallas.abrirPanelNuevaPartida();
+			//this.controladorPantallas.abrirPanelNuevaPartida();//
+			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();

@@ -2,6 +2,10 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Console;
+
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import controlador.PantallasControlador;
 import vista.pantallas.*;
@@ -21,18 +25,27 @@ public class PartidaControlador {
 		this.vista = vista;
 		this.controladorPantallas = controladorPantallas;
 
-		 this.vista.addViajarListener(new ActionListener() { public void actionPerformed(ActionEvent e) { String
-		 destinoString = ((JButton) e.getSource()).getText(); viajar(destinoString); } });
-		  
-		 this.vista.addInterrogarListener(new ActionListener() { public void actionPerformed(ActionEvent e) { String
-		 localString = ((JButton) e.getSource()).getText(); interrogar(localString); } });
- 
-		 this.vista.addEmitirOrdenListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-					emitirOrden();
-				}
-			});
+		/*this.vista.addViajarListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String destinoString = ((JButton) e.getSource()).getText();
+				viajar(destinoString);
+				JOptionPane.showMessageDialog(null, "funciona :)");
+			}
+		});
+
+		this.vista.addInterrogarListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String localString = ((JButton) e.getSource()).getText();
+				interrogar(localString);
+			}
+		});
+
+		this.vista.addEmitirOrdenListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				emitirOrden();
+			}
+		});*/
 
 	}
 

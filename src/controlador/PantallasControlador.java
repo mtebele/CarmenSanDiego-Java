@@ -20,7 +20,7 @@ public class PantallasControlador {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
 
-		this.vista.addAbrirPanelViajarListener(new ActionListener() {
+		/*this.vista.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				abrirPanelViajar();
 			}
@@ -73,7 +73,7 @@ public class PantallasControlador {
 			public void actionPerformed(ActionEvent e) {
 				abrirPanelPartida();
 			}
-		});
+		});*/
 
 	}
 
@@ -156,7 +156,7 @@ public class PantallasControlador {
 	}
 	
 	public void abrirPanelNuevaPartida() {
-		Ciudad ciudadActual = modeloPartida.ciudadActual();
+		String ciudadActual = modeloPartida.ciudadActual().getNombre();
 		PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida(ciudadActual);
 		
 		vista.getContentPane().removeAll();

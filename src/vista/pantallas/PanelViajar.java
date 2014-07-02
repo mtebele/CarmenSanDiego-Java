@@ -1,6 +1,8 @@
 package vista.pantallas;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -70,5 +72,9 @@ public class PanelViajar extends PanelConFondo {
 		add(btnDestino4);
 		add(btnVolver);
 		add(mapa);
+	}
+	
+	public void addViajarListener(ActionListener l) {
+		btnDestino1.addActionListener(l);
 	}
 }
