@@ -54,6 +54,10 @@ public class Ladron {
 		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
 		return this.itinerario.esCiudadFinal(cantDeEscapes, ciudadActual);
 	}
+	
+	public boolean sigueEnCiudadDelRobo() {
+		return this.itinerario.esCiudadInicial(this.ciudadActual);
+	}
 
 	public String verNombre() {
 		return this.perfil.getNombre();
