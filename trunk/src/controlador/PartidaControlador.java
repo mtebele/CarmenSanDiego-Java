@@ -113,9 +113,8 @@ public class PartidaControlador {
 		String pista = null;
 		for (int i = 1; i <= MAX_LOCALES; i++) {
 			Local local = modeloPartida.verLocalNro(i);
-			if (local.getNombre() == localString) {
+			if (local.getNombre().toUpperCase() == localString.toUpperCase()) {
 				pista = modeloPartida.interrogar(local);
-				break;
 			}
 			if (modeloPartida.partidaGanada()){
 				new GanadorControlador(this.vista);
