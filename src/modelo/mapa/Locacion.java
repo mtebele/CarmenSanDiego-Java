@@ -12,6 +12,7 @@ public class Locacion {
 	private Ladron ladron;
 	private Ciudad ciudadActual;
 	private List<Ciudad> ciudadesDestino;
+	private static int CANTIDAD_DESTINOS = 3;
 
 	public Locacion(Mapa mapa, Ciudad ciudadActual, Ladron ladron) {
 		this.mapa = mapa;
@@ -24,7 +25,7 @@ public class Locacion {
 		this.ciudadesDestino.clear();
 		this.agregarDestino(this.ladron.ciudadActual());
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < CANTIDAD_DESTINOS; i++) {
 			Ciudad destino = this.mapa.elegirCiudadAlAzar();
 			while (this.ciudadesDestino.contains(destino)) {
 				destino = this.mapa.elegirCiudadAlAzar();
@@ -34,13 +35,11 @@ public class Locacion {
 	}
 
 	public void viajar(Ciudad destino) throws LadronNoPlaneoEscapeException {
-		// TODO: ver excepcion.
 
-		Ciudad partida = this.ciudadActual;
+		Ciudad ciudadAnterior = this.ciudadActual;
 		this.ciudadActual = destino;
 
-				
-		//Hago escapar al ladron si el policia lo alcanza.
+		// Hago escapar al ladron si el policia lo alcanza.
 		if (estaLadron()) {
 			try {
 				this.ladron.escapar();
@@ -50,7 +49,7 @@ public class Locacion {
 			this.generarNuevosDestinos();
 		} else {
 			this.ciudadesDestino.remove(destino);
-			this.agregarDestino(partida);
+			this.agregarDestino(ciudadAnterior);
 		}
 	}
 
