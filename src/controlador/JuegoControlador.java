@@ -18,7 +18,7 @@ public class JuegoControlador {
 	private Juego modelo;
 	private JuegoVista vista;
 	private PartidaControlador controladorPartida;
-	private PantallasControlador controladorPantallas;
+	private PantallasControlador controladorPantallas; // BORRAR
 
 	public JuegoControlador(Juego modelo, JuegoVista vista) {
 		this.modelo = modelo;
@@ -44,12 +44,6 @@ public class JuegoControlador {
 		this.vista.addCargarPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cargarPartida();
-
-				// Esto no va mas, se trabaja sobre un mismo frame. Lo dejo comentado por las dudas, despues se borra.
-				/*
-				 * JFrame frmPartida = new JFrame(); frmPartida.setSize(800, 600); frmPartida.setVisible(true);
-				 * frmPartida.add(new PanelNuevaPartida());
-				 */
 			}
 		});
 
@@ -61,7 +55,7 @@ public class JuegoControlador {
 
 			Partida modeloPartida = this.modelo.nuevaPartida();
 
-			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
+			this.controladorPantallas = new PantallasControlador(modeloPartida, vista); // TODO BORRAR
 			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
@@ -73,7 +67,7 @@ public class JuegoControlador {
 		try {
 			Partida modeloPartida = this.modelo.cargarPartida();
 
-			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
+			this.controladorPantallas = new PantallasControlador(modeloPartida, vista); // TODO BORRAR
 			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {

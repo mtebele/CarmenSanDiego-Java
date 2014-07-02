@@ -61,8 +61,7 @@ public class PanelLadrones extends PanelConFondo {
 		ladron9.setBounds(480,250,150,250);
 		add(ladron10);
 		add(volver);
-		volver.setBounds(0,500,900,75);
+		volver.setBounds(0,500,784,75);
 		ladron10.setBounds(630,250,150,250);
-
 	}
 }

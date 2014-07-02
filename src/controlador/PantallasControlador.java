@@ -77,6 +77,7 @@ public class PantallasControlador {
 
 	}
 
+	// YA SE HIZO
 	public void abrirPanelViajar() {
 		Ciudad destino1 = this.modeloPartida.verDestinoNro(1);
 		Ciudad destino2 = this.modeloPartida.verDestinoNro(2);
@@ -99,6 +100,8 @@ public class PantallasControlador {
 		vista.getContentPane().validate();
 	}
 
+	
+	// YA SE HIZO
 	public void abrirPanelPartida() {
 		int horasRestantes = modeloPartida.getHorasRestantes();
 		int horaActual = modeloPartida.getHoraActual();
@@ -114,12 +117,14 @@ public class PantallasControlador {
 		vista.getContentPane().validate();
 	}
 
+
 	public void abrirPanelGanador() {
 		vista.getContentPane().removeAll();
 		vista.add(new PanelGanador());
 		vista.getContentPane().validate();
 	}
 
+	// YA SE HIZO
 	public void abrirPanelPerdedor() {
 		vista.getContentPane().removeAll();
 		vista.add(new PanelPerdedor());
@@ -132,16 +137,19 @@ public class PantallasControlador {
 		vista.getContentPane().validate();
 	}
 
+	// YA SE HIZO
 	public void abrirPanelInfoPolicia() {
 		int cantArrestos = modeloPartida.verCantDeArrestos();
 		Rango rangoPolicia = modeloPartida.verRangoPolicia();
-		PanelInfoPolicia pnlInfoPolicia = new PanelInfoPolicia(rangoPolicia.getNombre(), cantArrestos);
+		//PanelInfoPolicia pnlInfoPolicia = new PanelInfoPolicia(rangoPolicia.getNombre(), cantArrestos);
 
 		vista.getContentPane().removeAll();
-		vista.add(pnlInfoPolicia);
+		//vista.add(pnlInfoPolicia);
 		vista.getContentPane().validate();
 	}
 
+	
+	// YA SE HIZO
 	public void abrirPanelLadrones() {
 		vista.getContentPane().removeAll();
 		vista.add(new PanelLadrones());
@@ -155,6 +163,8 @@ public class PantallasControlador {
 		vista.getContentPane().validate();
 	}
 	
+	
+	// YA SE HIZO
 	public void abrirPanelNuevaPartida() {
 		String ciudadActual = modeloPartida.ciudadActual().getNombre();
 		PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida(ciudadActual);
