@@ -73,8 +73,6 @@ public class LadronTest {
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
 		ladron.robarObjeto(unObjetoComun);
-		assertEquals(ladron.ciudadActual(), ciudad0);
-		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad1);
 		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad2);
@@ -94,8 +92,6 @@ public class LadronTest {
 		ladron.planearNuevoDestino(ciudad3);
 		ladron.planearNuevoDestino(ciudad4);
 		ladron.robarObjeto(unObjetoValioso);
-		assertEquals(ladron.ciudadActual(), ciudad0);
-		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad1);
 		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad2);
@@ -119,8 +115,6 @@ public class LadronTest {
 		ladron.planearNuevoDestino(ciudad5);
 		ladron.planearNuevoDestino(ciudad6);
 		ladron.robarObjeto(unObjetoMuyValioso);
-		assertEquals(ladron.ciudadActual(), ciudad0);
-		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad1);
 		assertTrue(ladron.escapar());
 		assertEquals(ladron.ciudadActual(), ciudad2);
