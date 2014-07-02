@@ -16,7 +16,7 @@ public class JuegoVista extends JFrame implements Observer {
 	PanelCarga carga = new PanelCarga();
 	PanelInicial pnlInicial = new PanelInicial();
 
-	// PanelViajar pnlInicial = new PanelViajar("a","b","c","d");//DESCOMENTAR EL DE ARRIBA EN LA VERSION FINAL. SE USA
+    //PanelOrdenOK pnlInicial = new PanelOrdenOK();//DESCOMENTAR EL DE ARRIBA EN LA VERSION FINAL. SE USA
 	// PARA PROBAR PANELES ESTO
 
 	public JuegoVista() {
