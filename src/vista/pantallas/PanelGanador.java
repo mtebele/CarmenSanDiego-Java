@@ -12,9 +12,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 
 public class PanelGanador extends PanelConFondo {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "ganador.png";
@@ -37,6 +35,7 @@ public class PanelGanador extends PanelConFondo {
 		mensajeGanaste.setFont(new Font("Trebuchet MS", Font.BOLD, 32));
 		mensajeGanaste.setForeground(Color.WHITE);
 		this.add(mensajeGanaste);
+		setVisible(true);
 	}
 
 	public void addVolverAPanelInicialListener(ActionListener l) {

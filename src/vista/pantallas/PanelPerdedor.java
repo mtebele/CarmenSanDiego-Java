@@ -36,7 +36,7 @@ public class PanelPerdedor extends PanelConFondo {
 		mensajePerdiste.setFont(new Font("Trebuchet MS", Font.BOLD, 32));
 		mensajePerdiste.setForeground(Color.WHITE);
 		this.add(mensajePerdiste);
-
+		setVisible(true);
 	}
 	
 	public void addVolverAPanelInicialListener(ActionListener l) {
