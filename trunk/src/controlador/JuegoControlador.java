@@ -58,6 +58,7 @@ public class JuegoControlador {
 	private void nuevaPartida() {
 
 		try {
+			
 			Partida modeloPartida = this.modelo.nuevaPartida();
 
 			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
