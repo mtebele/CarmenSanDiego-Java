@@ -97,16 +97,16 @@ public class PanelPartida extends PanelConFondo {
 		btnInfoPolicia.addActionListener(l);
 	}
 	
-	public void addAbrirPanelPartidaListener(ActionListener l) {
-		btnVolver.addActionListener(l);
-	}
-	
 	public void addAbrirPanelLadronesListener(ActionListener l) {
 		btnLadrones.addActionListener(l);
 	}
 	
 	public void addAbrirPanelViajarListener(ActionListener l) {
 		btnViajar.addActionListener(l);
+	}
+	
+	public void addVolverAPanelNuevaPartidaListener(ActionListener l) {
+		btnVolver.addActionListener(l);
 	}
 
 }

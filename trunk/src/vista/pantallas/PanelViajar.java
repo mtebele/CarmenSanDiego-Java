@@ -84,5 +84,12 @@ public class PanelViajar extends PanelConFondo {
 	
 	public void addViajarListener(ActionListener l) {
 		btnDestino1.addActionListener(l);
+		btnDestino2.addActionListener(l);
+		btnDestino3.addActionListener(l);
+		btnDestino4.addActionListener(l);
+	}
+	
+	public void addVolverAPanelPartida(ActionListener l) {
+		btnVolver.addActionListener(l);
 	}
 }

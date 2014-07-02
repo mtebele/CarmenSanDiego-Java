@@ -3,33 +3,23 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import modelo.Partida;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 import modelo.Juego;
-import modelo.mapa.Ciudad;
 import vista.pantallas.*;
-import controlador.*;
 
-public class NuevaPartidaControlador {
+public class GanadorControlador {
 
+	private JPanel panel;
 	private JuegoVista vista;
-	private PanelNuevaPartida panel;
-	private Partida modeloPartida;
-
-	public NuevaPartidaControlador(Partida partida, JuegoVista vista) {
-		String ciudadActual = partida.ciudadActual().getNombre();
-		this.panel = new PanelNuevaPartida(ciudadActual);
-		this.modeloPartida = partida;
+	
+	public GanadorControlador(JuegoVista vista) {
 		this.vista = vista;
-
+		this.panel = new PanelGanador();
 		vista.getContentPane().removeAll();
 		vista.add(panel);
 		vista.getContentPane().validate();
-
-		this.panel.addAbrirPanelPartidaListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				abrirPanelPartida();
-			}
-		});
 		
 		this.panel.addVolverAPanelInicialListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -37,10 +27,16 @@ public class NuevaPartidaControlador {
 			}
 		});
 		
-	}
-
-	public void abrirPanelPartida() {
-		new PartidaControlador(modeloPartida, vista);
+		this.panel.addSalirJuegoListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int salida = JOptionPane.showOptionDialog(null, "¿Desea Salir del Juego?", "Confirmar salida",
+						JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+						new String[] { "Si", "No" }, "default");
+				if (salida == 0) {
+					System.exit(0);
+				}
+			}
+		});
 	}
 	
 	public void volverAPanelInicial() {

@@ -2,6 +2,7 @@ package vista.pantallas;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 
 import vista.botonesGenericos.BotonMenuPrincipal;
 import vista.botonesGenericos.BotonSalirJuego;
@@ -37,5 +38,13 @@ public class PanelPerdedor extends PanelConFondo {
 		this.add(mensajePerdiste);
 
 	}
+	
+	public void addVolverAPanelInicialListener(ActionListener l) {
+		botonSaltarInicio.addActionListener(l);
+	}
 
+	public void addSalirJuegoListener(ActionListener l) {
+		btnSalirJuego.addActionListener(l);
+	}
+	
 }

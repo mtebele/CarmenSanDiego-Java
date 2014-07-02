@@ -1,5 +1,8 @@
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import vista.pantallas.JuegoVista;
 import vista.pantallas.PanelNuevaPartida;
 import vista.pantallas.PanelInfoPolicia;
@@ -25,6 +28,16 @@ public class InfoPoliciaControlador {
 		vista.getContentPane().removeAll();
 		vista.add(panel);
 		vista.getContentPane().validate();
+	
+		this.panel.addVolverAPanelPartida(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				volverAPanelPartida();
+			}
+		});
+	}
+	
+	public void volverAPanelPartida() {
+		new PartidaControlador(modeloPartida, vista);
 	}
 
 }

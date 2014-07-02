@@ -2,12 +2,14 @@ package vista.pantallas;
 
 import vista.botonesGenericos.BotonMenuPrincipal;
 import vista.botonesGenericos.BotonSalirJuego;
-
 import vista.panelesGenericos.PanelConFondo;
+
 import javax.swing.SpringLayout;
 import javax.swing.JLabel;
+
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 
 public class PanelGanador extends PanelConFondo {
 	/**
@@ -37,4 +39,12 @@ public class PanelGanador extends PanelConFondo {
 		this.add(mensajeGanaste);
 	}
 
+	public void addVolverAPanelInicialListener(ActionListener l) {
+		botonSaltarInicio.addActionListener(l);
+	}
+
+	public void addSalirJuegoListener(ActionListener l) {
+		btnSalirJuego.addActionListener(l);
+	}
+	
 }
