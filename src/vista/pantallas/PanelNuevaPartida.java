@@ -16,7 +16,7 @@ public class PanelNuevaPartida extends PanelConFondo {
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "newspaper.png";
 	private JTextArea textoReporte = new JTextArea();
-	private JButton btnContinuar = new JButton("Investigacion");
+	private JButton btnContinuar = new JButton("Investigar");
 	private JButton btnVolver = new BotonVolver();
 
 	public PanelNuevaPartida(String ciudadActual) {
@@ -24,8 +24,8 @@ public class PanelNuevaPartida extends PanelConFondo {
 		setLayout(null);
 		textoReporte.setOpaque(false);
 		textoReporte.setEditable(false);
-		textoReporte.setText("\nEn el dia de la fecha se ha reportado un robo de un objeto importante."
-				+ "\nEl mismo se reporto en la ciudad de " + ciudadActual + "."
+		textoReporte.setText("\nEn el día de la fecha se ha reportado un robo de un objeto importante."
+				+ "\nEl mismo se reportó en la ciudad de " + ciudadActual + "."
 				+ "\nTiene una semana para resolver el caso.\n");
 		add(textoReporte);
 		textoReporte.setFont(new Font("Trebuchet MS", Font.BOLD, 14));

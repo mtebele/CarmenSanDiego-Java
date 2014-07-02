@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.*;
@@ -17,11 +18,12 @@ import controlador.*;
 public class JuegoControlador {
 	private Juego modelo;
 	private JuegoVista vista;
-	private PartidaControlador controladorPartida;
+	private static final String SAVEDPATH = "xml/saved/partidaGuardada.xml";
 
 	public JuegoControlador(Juego modelo, JuegoVista vista) {
 		this.modelo = modelo;
 		this.vista = vista;
+		checkPartidaGuardada();
 
 		this.vista.addNuevaPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -46,6 +48,11 @@ public class JuegoControlador {
 			}
 		});
 
+	}
+
+	private void checkPartidaGuardada() {
+		File archivo = new File(SAVEDPATH);
+		this.vista.enableCargarPartida(archivo.exists());
 	}
 
 	private void nuevaPartida() {
