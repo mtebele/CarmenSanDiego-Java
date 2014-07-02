@@ -32,6 +32,10 @@ public class Itinerario {
 		return ciudad.equals(this.ciudadNro(cantDeEscapes - 1));
 	}
 	
+	public boolean esCiudadInicial(Ciudad ciudad) {
+		return ciudad.equals(this.ciudadNro(0));
+	}
+	
 	public Ciudad ciudadNro(int nro) {
 		return this.ciudades.get(nro);
 	}
