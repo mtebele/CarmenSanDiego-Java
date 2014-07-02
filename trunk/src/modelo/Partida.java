@@ -1,5 +1,6 @@
 package modelo;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -151,6 +152,12 @@ public class Partida {
 
 		Ciudad ciudadActual = Ciudad.deserializar(nodeItinerario.getFirstChild());
 		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
+		
+		// Agrega las ciudades como destinos de locacion
+		for (Ciudad destino : ladron.getItinerario().ciudades()) {
+			locacionInicial.agregarDestino(destino);
+		}
+		
 		Turno turno = new Turno(locacionInicial);
 
 		return new Partida(policia, ladron, turno, orden);

@@ -105,7 +105,7 @@ public class PanelPartida extends PanelConFondo {
 		btnLadrones.addActionListener(l);
 	}
 	
-	public void addViajarListener(ActionListener l) {
+	public void addAbrirPanelViajarListener(ActionListener l) {
 		btnViajar.addActionListener(l);
 	}
 
