@@ -24,6 +24,7 @@ public class JuegoVista extends JFrame implements Observer {
 		setSize(MAX_ALTURA, MAX_ANCHURA);
 		setResizable(false);
 		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().add(pnlInicial);
 		setLocationRelativeTo(null);
 	}
@@ -38,6 +39,10 @@ public class JuegoVista extends JFrame implements Observer {
 
 	public void addCargarPartidaListener(ActionListener l) {
 		pnlInicial.addCargarPartidaListener(l);
+	}
+	
+	public void enableCargarPartida(boolean valor) {
+		pnlInicial.enableCargarPartida(valor);
 	}
 
 	@Override

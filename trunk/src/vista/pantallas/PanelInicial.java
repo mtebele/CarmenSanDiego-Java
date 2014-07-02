@@ -21,24 +21,28 @@ public class PanelInicial extends PanelConFondo {
 	public PanelInicial() {
 		super(FONDO);
 		setLayout(null);
-		btnNuevaPartida.setBounds(150,100,150,40);
-		btnSalirJuego.setBounds(550,100,150,40);
-		btnCargarPartida.setBounds(350,100,150,40);
+		btnNuevaPartida.setBounds(150, 100, 150, 40);
+		btnSalirJuego.setBounds(550, 100, 150, 40);
+		btnCargarPartida.setBounds(350, 100, 150, 40);
 		add(btnNuevaPartida);
 		add(btnCargarPartida);
 		add(btnSalirJuego);
 	}
-	
+
 	public void addNuevaPartidaListener(ActionListener l) {
 		btnNuevaPartida.addActionListener(l);
 	}
-	
+
 	public void addSalirJuegoListener(ActionListener l) {
 		btnSalirJuego.addActionListener(l);
 	}
-	
+
 	public void addCargarPartidaListener(ActionListener l) {
 		btnCargarPartida.addActionListener(l);
 	}
-	
+
+	public void enableCargarPartida(boolean valor) {
+		btnCargarPartida.setEnabled(valor);
+	}
+
 }
