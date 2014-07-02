@@ -39,15 +39,6 @@ public class Locacion {
 		Ciudad partida = this.ciudadActual;
 		this.ciudadActual = destino;
 
-		/*
-		//Hago escapar al ladron por primera vez.
-		/*if ( this.ladron.sigueEnCiudadDelRobo() ) {
-			try {
-				this.ladron.escapar();
-			} catch (LadronNoPlaneoEscapeException e) {
-				throw new LadronNoPlaneoEscapeException(e.getMessage());
-			}
-		}*/
 				
 		//Hago escapar al ladron si el policia lo alcanza.
 		if (estaLadron()) {
