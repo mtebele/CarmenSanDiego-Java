@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -23,7 +24,29 @@ public class PartidaControlador {
 	public PartidaControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
+		
+		update();
 
+		this.panel.addViajarListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String destinoString = ((JButton) e.getSource()).getText();
+				viajar(destinoString);
+			}
+		});
+
+		/*
+		 * this.vista.addInterrogarListener(new ActionListener() { public void actionPerformed(ActionEvent e) { String
+		 * localString = ((JButton) e.getSource()).getText(); interrogar(localString); } });
+		 * 
+		 * this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
+		 * 
+		 * emitirOrden(); } });
+		 */
+
+	}
+
+	private void update() {
+		
 		int horasRestantes = modeloPartida.getHorasRestantes();
 		int horaActual = modeloPartida.getHoraActual();
 		String nombreLocal1 = modeloPartida.verLocalNro(1).getNombre();
@@ -36,49 +59,44 @@ public class PartidaControlador {
 
 		vista.getContentPane().removeAll();
 		vista.add(panel);
-		vista.getContentPane().validate();
-
-		this.panel.addViajarListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				/*String destinoString = ((JButton) e.getSource()).getText();
-				viajar(destinoString);*/
-				JOptionPane.showMessageDialog(null, "funciona :)");
-			}
-		});
-
-		/*this.vista.addInterrogarListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String localString = ((JButton) e.getSource()).getText();
-				interrogar(localString);
-			}
-		});
-
-		this.vista.addEmitirOrdenListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				emitirOrden();
-			}
-		});*/
-
+		vista.getContentPane().validate();		
 	}
 
-	/*
-	 * public void viajar(String destinoString) { for (int i = 0; i < MAX_CIUDADES; i++) { Ciudad destino =
-	 * modeloPartida.verDestinoNro(i); if (destino.getNombre() == destinoString) { modeloPartida.viajar(destino); break;
-	 * } } if (!modeloPartida.quedaTiempo()) controladorPantallas.abrirPanelPerdedor();
-	 * 
-	 * controladorPantallas.abrirPanelPartida(); }
-	 * 
-	 * public void interrogar(String localString) { String pista = null; for (int i = 0; i < MAX_LOCALES; i++) { Local
-	 * local = modeloPartida.verLocalNro(i); if (local.getNombre() == localString) { pista =
-	 * modeloPartida.interrogar(local); break; } if (modeloPartida.partidaGanada())
-	 * controladorPantallas.abrirPanelGanador(); else if (!modeloPartida.partidaGanada() &&
-	 * modeloPartida.partidaTerminada()) controladorPantallas.abrirPanelPerdedor();
-	 * 
-	 * controladorPantallas.abrirPanelInterrogar(pista); } if (!modeloPartida.quedaTiempo())
-	 * controladorPantallas.abrirPanelPerdedor(); }
-	 * 
-	 * /* public void emitirOrden() { this.modeloPartida.emitirOrden(ladron); }
-	 */
+	public void viajar(String destinoString) {
+		for (Ciudad destino : modeloPartida.verDestinos()) {
+			if (destino.getNombre() == destinoString) {
+				modeloPartida.viajar(destino);
+				break;
+			}
+		}
+		if (!modeloPartida.quedaTiempo()) {
+			new PerdedorControlador(this.vista);
+		}
+		
+		update();
+	}
+
+	/*public void interrogar(String localString) {
+		String pista = null;
+		for (int i = 1; i <= MAX_LOCALES; i++) {
+			Local local = modeloPartida.verLocalNro(i);
+			if (local.getNombre() == localString) {
+				pista = modeloPartida.interrogar(local);
+				break;
+			}
+			if (modeloPartida.partidaGanada())
+				controladorPantallas.abrirPanelGanador();
+			else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada())
+				new PerdedorControlador(this.vista);
+
+			controladorPantallas.abrirPanelInterrogar(pista);
+		}
+		if (!modeloPartida.quedaTiempo())
+			new PerdedorControlador(this.vista);
+	}*/
+
+	/*public void emitirOrden() {
+		this.modeloPartida.emitirOrden(ladron);
+	}*/
 
 }
