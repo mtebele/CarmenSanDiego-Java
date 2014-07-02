@@ -145,7 +145,7 @@ public class Partida {
 		juego.guardarPartida(this.policia);
 	}
 
-	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) throws LadronNoPlaneoEscapeException {
+	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {
 	    Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
 	 
 	    Node nodeLadron = unaPartida.getChildNodes().item(0);
@@ -165,7 +165,8 @@ public class Partida {
 	    }
 	    
 	    Node nodeObjeto = nodeLadron.getChildNodes().item(2);
-	    ladron.robarObjeto(ObjetoRobado.deserializar(nodeObjeto));
+	    try { ladron.robarObjeto(ObjetoRobado.deserializar(nodeObjeto));
+	    } catch (LadronNoPlaneoEscapeException e) { System.exit(0); }
 	   
 	    Turno turno = new Turno(locacionInicial);
 	 

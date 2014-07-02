@@ -70,7 +70,7 @@ public class LectorXML {
 		return listaLadrones;
 	}
 
-	public static Partida cargarPartida(Policia policia) throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
+	public static Partida cargarPartida(Policia policia) throws ParserConfigurationException, SAXException, IOException {
 		File archivo = new File(PATH + "partidaNovato.xml");
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

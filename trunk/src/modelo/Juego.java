@@ -15,12 +15,12 @@ public class Juego {
 
 	private Policia policia;
 
-	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
+	public Partida nuevaPartida() throws ParserConfigurationException, SAXException, IOException {
 		this.policia = new Policia("Jack Bauer");
 		return LectorXML.cargarPartida(this.policia);
 	}
 
-	public Partida cargarPartida() throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
+	public Partida cargarPartida() throws ParserConfigurationException, SAXException, IOException {
 		this.policia = LectorXML.cargarPolicia();
 		return LectorXML.cargarPartida(this.policia);
 	}
