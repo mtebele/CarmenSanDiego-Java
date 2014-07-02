@@ -33,6 +33,10 @@ public class Ladron {
 	public Ciudad ciudadAnterior() {
 		return this.ciudadAnterior;
 	}
+	
+	public ObjetoRobado getObjeto() {
+		return this.objeto;
+	}
 
 	public boolean escapar() throws LadronNoPlaneoEscapeException {
 		if (!this.itinerario.tieneDestinos())
