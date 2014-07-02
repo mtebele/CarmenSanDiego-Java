@@ -73,16 +73,10 @@ public class JuegoControlador {
 	private void cargarPartida() {
 		try {
 			Partida modeloPartida = this.modelo.cargarPartida();
-<<<<<<< .mine
 
 			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
 			this.controladorPartida = new PartidaControlador(modeloPartida, vista, controladorPantallas);
-
 			this.controladorPantallas.abrirPanelPartida();
-=======
-			// TODO: VER esto, esta mal el llamado al new.
-			new PartidaControlador(modeloPartida, this.vista, this.controladorPantallas);
->>>>>>> .r140
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
