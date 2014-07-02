@@ -64,7 +64,7 @@ public class PanelPartida extends PanelConFondo {
 		lblHsRestantes.setText("HORAS RESTANTES: " + Integer.toString(hsRestantes));
 		lblHsRestantes.setForeground(Color.white);
 		this.add(lblHsRestantes);
-		lblHsRestantes.setBounds(10, 60, 150, 30);
+		lblHsRestantes.setBounds(10, 60, 200, 20);
 		this.add(btnInfoPolicia);
 		btnInfoPolicia.setBounds(10, 110, 200, 40);
 		this.add(btnVolver);
@@ -78,11 +78,11 @@ public class PanelPartida extends PanelConFondo {
 		this.add(imagenCiudad);
 		imagenCiudad.setBounds(375, 110, 400, 200);
 		this.add(imagenEconomia);
-		imagenEconomia.setBounds(365, 350, 100, 100);
+		imagenEconomia.setBounds(515, 350, 100, 100);
 		this.add(imagenCultura);
-		imagenCultura.setBounds(515, 350, 100, 100);
+		imagenCultura.setBounds(665, 350, 100, 100);
 		this.add(imagenTransportes);
-		imagenTransportes.setBounds(665, 350, 100, 100);
+		imagenTransportes.setBounds(365, 350, 100, 100);
 		this.add(btnInterrogarTransportes);
 		btnInterrogarTransportes.setBounds(350, 450, 125, 40);
 		this.add(btnInterrogarEconomia);
