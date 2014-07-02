@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 
 import modelo.*;
+import modelo.ladron.*;
 import modelo.mapa.*;
 import modelo.policia.Rango;
 import vista.pantallas.*;
@@ -61,10 +62,10 @@ public class PantallasControlador {
 				abrirPanelPerfilLadron();
 			}
 		});
-
-		this.vista.addAbrirPanelOrdenOKListener(new ActionListener() {
+		
+		this.vista.addAbrirPanelNuevaPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				abrirPanelOrdenOK();
+				abrirPanelNuevaPartida();
 			}
 		});
 
@@ -100,15 +101,10 @@ public class PantallasControlador {
 		String nombreLocal3 = modeloPartida.verLocalNro(3).getNombre();
 		String nombreCiudad = modeloPartida.ciudadActual().getNombre();
 
-		// Las que dos lineas que estan comentantadas son las que van, el add sin comentar es el que deberia funcionar
-		// de prueba,
-		// y que en un principio nos funcionaba. Pero al hacer el controlador pantallas dejo de funcionar.
-
-		// PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
+		PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreCiudad);
 
 		vista.getContentPane().removeAll();
-		// vista.add(pnlPartida);
-		vista.add(new PanelNuevaPartida());
+		vista.add(pnlPartida);
 		vista.getContentPane().validate();
 	}
 
@@ -150,6 +146,16 @@ public class PantallasControlador {
 		vista.getContentPane().removeAll();
 		String nombreLadron = this.modeloPartida.getLadron().verNombre();
 		vista.add(new PanelPerfilLadron(nombreLadron));
+		vista.getContentPane().validate();
+	}
+	
+	public void abrirPanelNuevaPartida() {
+		ObjetoRobado objetoRobado = modeloPartida.getObjetoRobado();
+		Ciudad ciudadActual = modeloPartida.ciudadActual();
+		PanelNuevaPartida pnlNuevaPartida = new PanelNuevaPartida(ciudadActual, objetoRobado);
+		
+		vista.getContentPane().removeAll();
+		vista.add(pnlNuevaPartida);
 		vista.getContentPane().validate();
 	}
 
