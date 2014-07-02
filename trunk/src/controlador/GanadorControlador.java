@@ -11,7 +11,7 @@ import vista.pantallas.*;
 
 public class GanadorControlador {
 
-	private JPanel panel;
+	private PanelGanador panel;
 	private JuegoVista vista;
 	
 	public GanadorControlador(JuegoVista vista) {

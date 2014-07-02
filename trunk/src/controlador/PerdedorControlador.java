@@ -11,7 +11,7 @@ import vista.pantallas.*;
 
 public class PerdedorControlador {
 
-	private JPanel panel;
+	private PanelPerdedor panel;
 	private JuegoVista vista;
 	
 	public PerdedorControlador(JuegoVista vista) {
