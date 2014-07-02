@@ -27,10 +27,11 @@ public class PartidaControlador {
 		
 		update();
 
-		this.panel.addViajarListener(new ActionListener() {
+		this.panel.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String destinoString = ((JButton) e.getSource()).getText();
-				viajar(destinoString);
+				/*String destinoString = ((JButton) e.getSource()).getText();
+				viajar(destinoString);*/
+				AbrirPanelViajar();
 			}
 		});
 
@@ -43,6 +44,10 @@ public class PartidaControlador {
 		 * emitirOrden(); } });
 		 */
 
+	}
+
+	private void AbrirPanelViajar() {
+		new ViajeControlador(modeloPartida, vista);		
 	}
 
 	private void update() {
