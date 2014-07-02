@@ -5,6 +5,7 @@ import javax.swing.*;
 import modelo.mapa.Ciudad;
 import vista.LabelImagen;
 import vista.botonesGenericos.BotonBaseLadrones;
+import vista.botonesGenericos.BotonEmitirOrdenArresto;
 import vista.botonesGenericos.BotonInfoPolicia;
 import vista.botonesGenericos.BotonInterrogar;
 import vista.botonesGenericos.BotonViajar;
@@ -34,6 +35,7 @@ public class PanelPartida extends PanelConFondo {
 	private BotonVolver btnVolver = new BotonVolver();
 	private BotonBaseLadrones btnLadrones = new BotonBaseLadrones();
 	private BotonViajar btnViajar = new BotonViajar();
+	private BotonEmitirOrdenArresto btnOrden= new BotonEmitirOrdenArresto();
 	private LabelImagen imagenCiudad;
 	private LabelImagen imagenEconomia = new LabelImagen(ICONOBANCO);
 	private LabelImagen imagenCultura = new LabelImagen(ICONOCULTURA);
@@ -71,6 +73,8 @@ public class PanelPartida extends PanelConFondo {
 		btnViajar.setBounds(10, 210, 200, 40);
 		this.add(btnLadrones);
 		btnLadrones.setBounds(10, 260, 200, 40);
+		this.add(btnOrden);
+		btnOrden.setBounds(10,310,200,40);
 		this.add(imagenCiudad);
 		imagenCiudad.setBounds(375, 110, 400, 200);
 		this.add(imagenEconomia);
