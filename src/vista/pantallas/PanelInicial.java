@@ -40,4 +40,5 @@ public class PanelInicial extends PanelConFondo {
 	public void addCargarPartidaListener(ActionListener l) {
 		btnCargarPartida.addActionListener(l);
 	}
+	
 }

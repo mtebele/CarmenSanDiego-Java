@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import controlador.PantallasControlador;
+import controlador.*;
 import vista.pantallas.*;
 import modelo.Partida;
 import modelo.mapa.*;
@@ -41,20 +41,28 @@ public class PartidaControlador {
 		
 		this.panel.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*String destinoString = ((JButton) e.getSource()).getText();
-				viajar(destinoString);*/
 				AbrirPanelViajar();
 			}
 		});
+		
+		this.panel.addVolverAPanelNuevaPartidaListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				volverAPanelNuevaPartida();
+			}
+		});
 
-		/*
-		 * this.vista.addInterrogarListener(new ActionListener() { public void actionPerformed(ActionEvent e) { String
-		 * localString = ((JButton) e.getSource()).getText(); interrogar(localString); } });
-		 * 
-		 * this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
-		 * 
-		 * emitirOrden(); } });
-		 */
+		
+		 this.panel.addInterrogarListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent e) {
+				 String localString = ((JButton) e.getSource()).getText(); 
+				 interrogar(localString); 
+			 } 
+		 });
+		  
+		/* this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
+		  
+		 emitirOrden(); } }); */
+		 
 
 	}
 
@@ -101,7 +109,7 @@ public class PartidaControlador {
 		update();
 	}
 
-	/*public void interrogar(String localString) {
+	public void interrogar(String localString) {
 		String pista = null;
 		for (int i = 1; i <= MAX_LOCALES; i++) {
 			Local local = modeloPartida.verLocalNro(i);
@@ -109,19 +117,25 @@ public class PartidaControlador {
 				pista = modeloPartida.interrogar(local);
 				break;
 			}
-			if (modeloPartida.partidaGanada())
-				controladorPantallas.abrirPanelGanador();
-			else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada())
+			if (modeloPartida.partidaGanada()){
+				new GanadorControlador(this.vista);
+			}
+			else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
 				new PerdedorControlador(this.vista);
+			}
 
-			controladorPantallas.abrirPanelInterrogar(pista);
+			new InterrogarControlador(modeloPartida, this.vista, pista);
 		}
 		if (!modeloPartida.quedaTiempo())
 			new PerdedorControlador(this.vista);
-	}*/
+	}
 
 	/*public void emitirOrden() {
 		this.modeloPartida.emitirOrden(ladron);
 	}*/
 
+	public void volverAPanelNuevaPartida() {
+		new NuevaPartidaControlador(modeloPartida, vista);
+	}
+	
 }

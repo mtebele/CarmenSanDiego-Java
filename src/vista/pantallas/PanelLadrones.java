@@ -1,5 +1,7 @@
 package vista.pantallas;
 
+import java.awt.event.ActionListener;
+
 import vista.LabelImagen;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
@@ -36,7 +38,7 @@ public class PanelLadrones extends PanelConFondo {
 	private LabelImagen ladron8 = new LabelImagen(LADRON8);
 	private LabelImagen ladron9 = new LabelImagen(LADRON9);
 	private LabelImagen ladron10 = new LabelImagen(LADRON10);
-	private BotonVolver volver= new BotonVolver();
+	private BotonVolver btnVolver= new BotonVolver();
 
 	public PanelLadrones() {
 		super(FONDO);
@@ -60,8 +62,13 @@ public class PanelLadrones extends PanelConFondo {
 		add(ladron9);
 		ladron9.setBounds(480,250,150,250);
 		add(ladron10);
-		add(volver);
-		volver.setBounds(0,500,784,75);
+		add(btnVolver);
+		btnVolver.setBounds(0,500,784,75);
 		ladron10.setBounds(630,250,150,250);
 	}
+	
+	public void addVolverAPanelPartida(ActionListener l) {
+		btnVolver.addActionListener(l);
+	}
+	
 }

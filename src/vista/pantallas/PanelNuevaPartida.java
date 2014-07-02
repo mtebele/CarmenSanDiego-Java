@@ -40,6 +40,8 @@ public class PanelNuevaPartida extends PanelConFondo {
 		btnContinuar.addActionListener(l);
 	}
 
-	// Faltaria hacer el Volver este.
+	public void addVolverAPanelInicialListener(ActionListener l) {
+		btnVolver.addActionListener(l);
+	}
 
 }

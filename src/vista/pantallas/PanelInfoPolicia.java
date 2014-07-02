@@ -1,6 +1,8 @@
 package vista.pantallas;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -42,6 +44,10 @@ public class PanelInfoPolicia extends PanelConFondo {
 		add(lblNombre);
 		setVisible(true);
 
+	}
+	
+	public void addVolverAPanelPartida(ActionListener l) {
+		btnVolver.addActionListener(l);
 	}
 
 }
