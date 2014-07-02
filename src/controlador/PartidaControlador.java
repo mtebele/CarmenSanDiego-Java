@@ -42,6 +42,12 @@ public class PartidaControlador {
 			}
 		});
 		
+		this.panel.addAbrirPanelOrdenArrestoListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbrirPanelOrdenArresto();
+			}
+		});
+		
 		this.panel.addVolverAPanelNuevaPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				volverAPanelNuevaPartida();
@@ -73,6 +79,10 @@ public class PartidaControlador {
 	
 	private void AbrirPanelViajar() {
 		new ViajeControlador(modeloPartida, vista);		
+	}
+	
+	private void AbrirPanelOrdenArresto() {
+		new OrdenArrestoControlador(modeloPartida, vista);		
 	}
 
 	private void update() {
