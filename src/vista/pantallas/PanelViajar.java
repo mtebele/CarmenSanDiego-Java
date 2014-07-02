@@ -1,12 +1,15 @@
 package vista.pantallas;
 
 import java.awt.Color;
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import vista.LabelImagen;
+import vista.botonesGenericos.BotonDestinoViajar;
+import vista.botonesGenericos.BotonViajar;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
@@ -40,15 +43,20 @@ public class PanelViajar extends PanelConFondo {
 	static final int ALTO_MAPA = 300;
 
 	private JLabel lblViajarA = new JLabel("¿A dónde desea viajar?");
-	private JButton btnDestino1 = new JButton("<destino1>");
-	private JButton btnDestino2 = new JButton("<destino2>");
-	private JButton btnDestino3 = new JButton("<destino3>");
-	private JButton btnDestino4 = new JButton("<destino4>");
+	
 	private BotonVolver btnVolver = new BotonVolver();
 	private LabelImagen mapa = new LabelImagen(MAPA);
+	private BotonDestinoViajar btnDestino1;
+	private BotonDestinoViajar btnDestino2;
+	private BotonDestinoViajar btnDestino3;
+	private BotonDestinoViajar btnDestino4;
 
 	public PanelViajar(String destino1, String destino2, String destino3, String destino4) {
 		super(FONDO);
+		btnDestino1 = new BotonDestinoViajar(destino1);
+		btnDestino2 = new BotonDestinoViajar(destino2);
+		btnDestino3 = new BotonDestinoViajar(destino3);
+		btnDestino4 = new BotonDestinoViajar(destino4);	
 		setLayout(null);
 		lblViajarA.setBounds(XVIAJAR, YVIAJAR, ANCHO_VIAJAR, ALTO_VIAJAR);
 		lblViajarA.setForeground(Color.white);

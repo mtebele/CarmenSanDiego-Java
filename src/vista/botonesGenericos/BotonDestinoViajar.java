@@ -4,9 +4,9 @@ import modelo.mapa.Ciudad;
 
 public class BotonDestinoViajar extends JButton {
 	
-	public BotonDestinoViajar(){
+	public BotonDestinoViajar(String destino){
 		// TODO: Poner el nombre de cada destino
-		super("Destino NOMBRE DESTINO");
+		super(destino);
 		
 	}
 	
