@@ -116,6 +116,10 @@ public class Partida {
 		return this.policia.getRango();
 	}
 	
+	public String verNombrePolicia() {
+		return this.policia.getNombre();
+	}
+	
 	public int getHorasRestantes() {
 		return this.turno.getHorasRestantes();
 	}

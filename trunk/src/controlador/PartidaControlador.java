@@ -26,7 +26,19 @@ public class PartidaControlador {
 		this.vista = vista;
 		
 		update();
+		
+		this.panel.addAbrirPanelInfoPoliciaListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbrirPanelInfoPolicia();
+			}
+		});
 
+		this.panel.addAbrirPanelLadronesListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbrirPanelLadrones();
+			}
+		});
+		
 		this.panel.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/*String destinoString = ((JButton) e.getSource()).getText();
@@ -46,6 +58,14 @@ public class PartidaControlador {
 
 	}
 
+	private void AbrirPanelInfoPolicia() {
+		new InfoPoliciaControlador(modeloPartida, vista);		
+	}
+	
+	private void AbrirPanelLadrones() {
+		new LadronesControlador(modeloPartida, vista);		
+	}
+	
 	private void AbrirPanelViajar() {
 		new ViajeControlador(modeloPartida, vista);		
 	}

@@ -22,7 +22,7 @@ public class JuegoVista extends JFrame implements Observer {
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");
 		setSize(MAX_ALTURA, MAX_ANCHURA);
-		setResizable(true);
+		setResizable(false);
 		setVisible(true);
 		getContentPane().add(pnlInicial);
 		setLocationRelativeTo(null);
