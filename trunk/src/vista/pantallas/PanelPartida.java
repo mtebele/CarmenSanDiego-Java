@@ -1,6 +1,8 @@
 package vista.pantallas;
 
 import javax.swing.*;
+
+import modelo.mapa.Ciudad;
 import vista.LabelImagen;
 import vista.botonesGenericos.BotonBaseLadrones;
 import vista.botonesGenericos.BotonInfoPolicia;
@@ -8,6 +10,7 @@ import vista.botonesGenericos.BotonInterrogar;
 import vista.botonesGenericos.BotonViajar;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,8 +19,13 @@ public class PanelPartida extends PanelConFondo {
 
 	private static final long serialVersionUID = -441040584998861794L;
 	private static final String IMGPATH = "images/";
+	private static final String IMGPATHCIUDADES = "images/ciudades/";
 	static final String FONDO = IMGPATH + "partida.png";
-
+	static final String ICONOBANCO = IMGPATH + "banco.png";
+	static final String ICONOCULTURA = IMGPATH + "cultura.png";
+	static final String IMGCIUDAD = IMGPATHCIUDADES + "buenos aires.png";
+	static final String ICONOTRANSPORTE = IMGPATH + "transporte.png";
+	
 	private JLabel lblReloj = new JLabel("<HORA>");
 	private JLabel lblHsRestantes = new JLabel("<HORAS RESTANTES>");
 	private BotonInterrogar btnInterrogarEconomia;
@@ -27,10 +35,10 @@ public class PanelPartida extends PanelConFondo {
 	private BotonVolver btnVolver = new BotonVolver();
 	private BotonBaseLadrones btnLadrones = new BotonBaseLadrones();
 	private BotonViajar btnViajar = new BotonViajar();
-	private LabelImagen imagenCiudad = new LabelImagen("images/fiuba.png");
-	private LabelImagen imagenEconomia = new LabelImagen("images/banco.png");
-	private LabelImagen imagenCultura = new LabelImagen("images/cultura.png");
-	private LabelImagen imagenTransportes = new LabelImagen("images/transporte.png");
+	private LabelImagen imagenCiudad = new LabelImagen(IMGCIUDAD);
+	private LabelImagen imagenEconomia = new LabelImagen(ICONOBANCO);
+	private LabelImagen imagenCultura = new LabelImagen(ICONOCULTURA);
+	private LabelImagen imagenTransportes = new LabelImagen(ICONOTRANSPORTE);
 	private JLabel imagenReloj = new JLabel();
 	
 
@@ -100,6 +108,5 @@ public class PanelPartida extends PanelConFondo {
 	public void addViajarListener(ActionListener l) {
 		btnViajar.addActionListener(l);
 	}
-	
-	
+
 }
