@@ -56,11 +56,10 @@ public class PanelPartida extends PanelConFondo {
 		imagenReloj.setIcon(imageIcon);
 		imagenReloj.setBounds(230, 0, 120, 120);
 		this.add(imagenReloj);
-		lblReloj.setBounds(200, 60, 125, 20);
 		lblReloj.setText("HORA: " + Integer.toString(horaActual) + ":00");
 		lblReloj.setForeground(Color.white);
 		this.add(lblReloj);
-		lblReloj.setBounds(180, 60, 125, 20);
+		lblReloj.setBounds(180, 60, 200, 20);
 		lblHsRestantes.setText("HORAS RESTANTES: " + Integer.toString(hsRestantes));
 		lblHsRestantes.setForeground(Color.white);
 		this.add(lblHsRestantes);
