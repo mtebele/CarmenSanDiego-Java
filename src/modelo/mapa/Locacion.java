@@ -85,9 +85,9 @@ public class Locacion {
 	public List<Ciudad> getDestinos() {
 		return this.ciudadesDestino;
 	}
-	
+
 	public Ciudad verDestinoNro(int nro) {
-		return ciudadesDestino.get(nro-1);
+		return ciudadesDestino.get(nro - 1);
 	}
 
 	public Ladron getLadron() {
