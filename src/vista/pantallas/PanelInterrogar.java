@@ -21,7 +21,7 @@ public class PanelInterrogar extends PanelConFondo {
 	public PanelInterrogar(String pista) {
 		super(IMGPATH + "interrogar.gif");
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		lblPista.setText(pista);
+		lblPista.setText("PISTA: " + pista);
 		lblPista.setForeground(Color.black);
 		lblPista.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(lblPista);
