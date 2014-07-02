@@ -33,19 +33,24 @@ public class NuevaPartidaControlador {
 	}
 
 	public void abrirPanelPartida() {
+
+		/* VIEJO:
 		int horasRestantes = modeloPartida.getHorasRestantes();
 		int horaActual = modeloPartida.getHoraActual();
 		String nombreLocal1 = modeloPartida.verLocalNro(1).getNombre();
 		String nombreLocal2 = modeloPartida.verLocalNro(2).getNombre();
 		String nombreLocal3 = modeloPartida.verLocalNro(3).getNombre();
 		String nombreCiudad = modeloPartida.ciudadActual().getNombre();
-
+		 
 		PanelPartida pnlPartida = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreLocal2,
 				nombreLocal3, nombreCiudad);
 
 		vista.getContentPane().removeAll();
 		vista.add(pnlPartida);
-		vista.getContentPane().validate();
+		vista.getContentPane().validate();*/
+		
+		/* NUEVO: */
+		new PartidaControlador(modeloPartida, vista);
 	}
 
 }

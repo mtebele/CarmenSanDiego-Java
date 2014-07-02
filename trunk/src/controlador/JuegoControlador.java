@@ -62,9 +62,6 @@ public class JuegoControlador {
 			Partida modeloPartida = this.modelo.nuevaPartida();
 
 			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
-			this.controladorPartida = new PartidaControlador(modeloPartida, vista, controladorPantallas);
-
-			//this.controladorPantallas.abrirPanelNuevaPartida();//
 			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
@@ -77,9 +74,7 @@ public class JuegoControlador {
 			Partida modeloPartida = this.modelo.cargarPartida();
 
 			this.controladorPantallas = new PantallasControlador(modeloPartida, vista);
-			this.controladorPartida = new PartidaControlador(modeloPartida, vista, this.controladorPantallas);
-
-			this.controladorPantallas.abrirPanelNuevaPartida();
+			new NuevaPartidaControlador(modeloPartida, this.vista);
 
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
