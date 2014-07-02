@@ -15,25 +15,38 @@ import modelo.mapa.*;
 public class PartidaControlador {
 	private Partida modeloPartida;
 	private JuegoVista vista;
-	private PantallasControlador controladorPantallas;
+	private PanelPartida panel;
 
 	private static int MAX_CIUDADES = 4;
 	private static int MAX_LOCALES = 3;
 
-	public PartidaControlador(Partida modeloPartida, JuegoVista vista, PantallasControlador controladorPantallas) {
+	public PartidaControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
-		this.controladorPantallas = controladorPantallas;
 
-		/*this.vista.addViajarListener(new ActionListener() {
+		int horasRestantes = modeloPartida.getHorasRestantes();
+		int horaActual = modeloPartida.getHoraActual();
+		String nombreLocal1 = modeloPartida.verLocalNro(1).getNombre();
+		String nombreLocal2 = modeloPartida.verLocalNro(2).getNombre();
+		String nombreLocal3 = modeloPartida.verLocalNro(3).getNombre();
+		String nombreCiudad = modeloPartida.ciudadActual().getNombre();
+
+		this.panel = new PanelPartida(horasRestantes, horaActual, nombreLocal1, nombreLocal2, nombreLocal3,
+				nombreCiudad);
+
+		vista.getContentPane().removeAll();
+		vista.add(panel);
+		vista.getContentPane().validate();
+
+		this.panel.addViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String destinoString = ((JButton) e.getSource()).getText();
-				viajar(destinoString);
+				/*String destinoString = ((JButton) e.getSource()).getText();
+				viajar(destinoString);*/
 				JOptionPane.showMessageDialog(null, "funciona :)");
 			}
 		});
 
-		this.vista.addInterrogarListener(new ActionListener() {
+		/*this.vista.addInterrogarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String localString = ((JButton) e.getSource()).getText();
 				interrogar(localString);
@@ -49,41 +62,23 @@ public class PartidaControlador {
 
 	}
 
-	public void viajar(String destinoString) {
-		for (int i = 0; i < MAX_CIUDADES; i++) {
-			Ciudad destino = modeloPartida.verDestinoNro(i);
-			if (destino.getNombre() == destinoString) {
-				modeloPartida.viajar(destino);
-				break;
-			}
-		}
-		if (!modeloPartida.quedaTiempo())
-			controladorPantallas.abrirPanelPerdedor();
-
-		controladorPantallas.abrirPanelPartida();
-	}
-
-	public void interrogar(String localString) {
-		String pista = null;
-		for (int i = 0; i < MAX_LOCALES; i++) {
-			Local local = modeloPartida.verLocalNro(i);
-			if (local.getNombre() == localString) {
-				pista = modeloPartida.interrogar(local);
-				break;
-			}
-			if (modeloPartida.partidaGanada())
-				controladorPantallas.abrirPanelGanador();
-			else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada())
-				controladorPantallas.abrirPanelPerdedor();
-
-			controladorPantallas.abrirPanelInterrogar(pista);
-		}
-		if (!modeloPartida.quedaTiempo())
-			controladorPantallas.abrirPanelPerdedor();
-	}
-
 	/*
-	 * public void emitirOrden() { this.modeloPartida.emitirOrden(ladron); }
+	 * public void viajar(String destinoString) { for (int i = 0; i < MAX_CIUDADES; i++) { Ciudad destino =
+	 * modeloPartida.verDestinoNro(i); if (destino.getNombre() == destinoString) { modeloPartida.viajar(destino); break;
+	 * } } if (!modeloPartida.quedaTiempo()) controladorPantallas.abrirPanelPerdedor();
+	 * 
+	 * controladorPantallas.abrirPanelPartida(); }
+	 * 
+	 * public void interrogar(String localString) { String pista = null; for (int i = 0; i < MAX_LOCALES; i++) { Local
+	 * local = modeloPartida.verLocalNro(i); if (local.getNombre() == localString) { pista =
+	 * modeloPartida.interrogar(local); break; } if (modeloPartida.partidaGanada())
+	 * controladorPantallas.abrirPanelGanador(); else if (!modeloPartida.partidaGanada() &&
+	 * modeloPartida.partidaTerminada()) controladorPantallas.abrirPanelPerdedor();
+	 * 
+	 * controladorPantallas.abrirPanelInterrogar(pista); } if (!modeloPartida.quedaTiempo())
+	 * controladorPantallas.abrirPanelPerdedor(); }
+	 * 
+	 * /* public void emitirOrden() { this.modeloPartida.emitirOrden(ladron); }
 	 */
 
 }
