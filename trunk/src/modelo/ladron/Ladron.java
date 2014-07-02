@@ -16,9 +16,6 @@ public class Ladron {
 
 	public Ladron(Perfil perfil) {
 		this.perfil = perfil;
-		this.ciudadActual = null;
-		this.ciudadAnterior = null;
-		this.objeto = null;
 		this.itinerario = new Itinerario();
 	}
 
@@ -44,7 +41,7 @@ public class Ladron {
 		return true;
 	}
 
-	public void robarObjeto(ObjetoRobado objeto) throws LadronNoPlaneoEscapeException{
+	public void robarObjeto(ObjetoRobado objeto) throws LadronNoPlaneoEscapeException {
 		this.objeto = objeto;
 		Ciudad ciudadActual = this.itinerario.ciudadNro(0);
 		this.ciudadActual = ciudadActual;
@@ -55,10 +52,10 @@ public class Ladron {
 		int cantDeEscapes = this.objeto.getValor().getCantidadDeEscapes();
 		return this.itinerario.esCiudadFinal(cantDeEscapes, ciudadActual);
 	}
-	
-	/*public boolean sigueEnCiudadDelRobo() {
-		return this.itinerario.esCiudadInicial(this.ciudadActual);
-	}*/
+
+	/*
+	 * public boolean sigueEnCiudadDelRobo() { return this.itinerario.esCiudadInicial(this.ciudadActual); }
+	 */
 
 	public String verNombre() {
 		return this.perfil.getNombre();
@@ -68,28 +65,28 @@ public class Ladron {
 		Perfil unPerfil = Perfil.deserializar(elementoLadron.getChildNodes().item(0));
 		return new Ladron(unPerfil);
 	}
-	
+
 	public void setItinerario(Itinerario itinerario) {
 		this.itinerario = itinerario;
 	}
-	
+
 	public Itinerario getItinerario() {
 		return this.itinerario;
 	}
-	
+
 	public String verDatos() {
 		StringBuilder datos = new StringBuilder();
-		datos.append("Nombre: " +  this.perfil.getNombre());
+		datos.append("Nombre: " + this.perfil.getNombre());
 		datos.append(System.lineSeparator());
-		datos.append("Sexo: " +  this.perfil.getSexo().toString());
+		datos.append("Sexo: " + this.perfil.getSexo().toString());
 		datos.append(System.lineSeparator());
-		datos.append("Cabello: " +  this.perfil.getCabello().toString());
+		datos.append("Cabello: " + this.perfil.getCabello().toString());
 		datos.append(System.lineSeparator());
-		datos.append("Seña: " +  this.perfil.getSenia().toString());
+		datos.append("Seña: " + this.perfil.getSenia().toString());
 		datos.append(System.lineSeparator());
-		datos.append("Hobby: " +  this.perfil.getHobby().toString());
+		datos.append("Hobby: " + this.perfil.getHobby().toString());
 		datos.append(System.lineSeparator());
-		datos.append("Vehículo: " +  this.perfil.getVehiculo().toString());
+		datos.append("Vehículo: " + this.perfil.getVehiculo().toString());
 		datos.append(System.lineSeparator());
 		return datos.toString();
 	}
