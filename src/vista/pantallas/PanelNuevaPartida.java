@@ -16,7 +16,7 @@ public class PanelNuevaPartida extends PanelConFondo {
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "newspaper.png";
 	private JTextArea textoReporte = new JTextArea();
-	private JButton btnContinuar = new JButton("Iniciar investigacion");
+	private JButton btnContinuar = new JButton("Investigacion");
 	private JButton btnVolver = new BotonVolver();
 
 	public PanelNuevaPartida(String ciudadActual) {

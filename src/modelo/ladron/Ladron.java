@@ -44,10 +44,11 @@ public class Ladron {
 		return true;
 	}
 
-	public void robarObjeto(ObjetoRobado objeto) {
+	public void robarObjeto(ObjetoRobado objeto) throws LadronNoPlaneoEscapeException{
 		this.objeto = objeto;
 		Ciudad ciudadActual = this.itinerario.ciudadNro(0);
 		this.ciudadActual = ciudadActual;
+		this.escapar();
 	}
 
 	public boolean hizoUltimoEscape() {
@@ -55,9 +56,9 @@ public class Ladron {
 		return this.itinerario.esCiudadFinal(cantDeEscapes, ciudadActual);
 	}
 	
-	public boolean sigueEnCiudadDelRobo() {
+	/*public boolean sigueEnCiudadDelRobo() {
 		return this.itinerario.esCiudadInicial(this.ciudadActual);
-	}
+	}*/
 
 	public String verNombre() {
 		return this.perfil.getNombre();

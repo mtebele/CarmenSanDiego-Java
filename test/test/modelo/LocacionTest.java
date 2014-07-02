@@ -73,7 +73,10 @@ public class LocacionTest {
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
-		ladron.robarObjeto(objeto);
+		try { ladron.robarObjeto(objeto);
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
 
 		// Creo Locacion
 		Locacion locacion = new Locacion(mapa, ciudad0, ladron);
@@ -89,12 +92,6 @@ public class LocacionTest {
 	public void interrogarEnCiudadQuePasoLadronDeberiaDevolverRespuestaCorrecta() {
 
 		// Ladron viaja de la ciudad0 a la ciudad1.
-		try {
-			this.ladron.escapar();
-		} catch (LadronNoPlaneoEscapeException e) {
-			Assert.fail();
-		}
-
 		// Una vez que escapo, en la ciudad0 saben a donde se fue.
 		Local local0 = this.locacion.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.locacion.interrogar(local0));

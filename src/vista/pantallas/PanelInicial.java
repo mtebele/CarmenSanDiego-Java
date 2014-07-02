@@ -22,8 +22,8 @@ public class PanelInicial extends PanelConFondo {
 		super(FONDO);
 		setLayout(null);
 		btnNuevaPartida.setBounds(150,100,150,40);
-		btnSalirJuego.setBounds(350,100,150,40);
-		btnCargarPartida.setBounds(550,100,150,40);
+		btnSalirJuego.setBounds(550,100,150,40);
+		btnCargarPartida.setBounds(350,100,150,40);
 		add(btnNuevaPartida);
 		add(btnCargarPartida);
 		add(btnSalirJuego);

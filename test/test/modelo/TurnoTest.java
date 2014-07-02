@@ -76,7 +76,10 @@ public class TurnoTest {
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
-		ladron.robarObjeto(objeto);
+		try { ladron.robarObjeto(objeto);
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
 
 		// Creo Locacion
 		Locacion locacionInicial = new Locacion(mapa, ciudad0, ladron);
@@ -152,13 +155,7 @@ public class TurnoTest {
 	@Test
 	public void interrogarEnCiudadQuePasoLadronDeberiaDevolverRespuestaCorrecta() {
 
-		// Ladron viaja de la ciudad0 a la ciudad1.
-		try {
-			this.turno.getLocacion().getLadron().escapar();
-		} catch (LadronNoPlaneoEscapeException e) {
-			Assert.fail();
-		}
-
+		// Ladron viaja de la ciudad0 a la ciudad1 al iniciarse el juego.
 		Local local0 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.turno.interrogar(local0));
 
