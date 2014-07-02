@@ -78,7 +78,10 @@ public class PoliciaTest {
 		ladron.planearNuevoDestino(ciudad1);
 		ladron.planearNuevoDestino(ciudad2);
 		ladron.planearNuevoDestino(ciudad3);
-		ladron.robarObjeto(objeto);
+		try { ladron.robarObjeto(objeto);
+		} catch (LadronNoPlaneoEscapeException e) {
+			Assert.fail();
+		}
 
 		// Creo Locacion
 		Locacion locacionInicial = new Locacion(mapa, ciudad0, ladron);
@@ -145,7 +148,7 @@ public class PoliciaTest {
 
 	@Test
 	public void policiaDeberiaCambiarDeLugarAlViajar() {
-
+		
 		List<Ciudad> listaDestinos = policia.verDestinos();
 		Ciudad ciudadObjetivo = listaDestinos.get(0);
 
@@ -163,12 +166,7 @@ public class PoliciaTest {
 	@Test
 	public void interrogarDeberiaDevolverLaRespuestaCorrecta() {
 
-		// Ladron viaja de la ciudad0 a la ciudad1.
-		try {
-			this.ladron.escapar();
-		} catch (LadronNoPlaneoEscapeException e) {
-			Assert.fail();
-		}
+		// Ladron viaja de la ciudad0 a la ciudad1 al iniciar el juego.
 
 		Local local0 = this.turno.getLocales().get(0);
 		Assert.assertEquals("Queria escalar el Monte Everest.", this.turno.interrogar(local0));

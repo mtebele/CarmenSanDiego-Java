@@ -20,12 +20,13 @@ public class PanelInterrogar extends PanelConFondo {
 
 	public PanelInterrogar(String pista) {
 		super(IMGPATH + "interrogar.gif");
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		lblPista.setText("PISTA: " + pista);
+		setLayout(null);
+		lblPista.setText("- " + pista);
 		lblPista.setForeground(Color.black);
-		lblPista.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblPista.setBounds(50, 525, 400, 50);
 		add(lblPista);
 		btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnVolver.setBounds(350, 0, 100, 40);
 		add(btnVolver);
 		setVisible(true);
 	}
