@@ -74,6 +74,10 @@ public class Partida {
 		return pista;
 	}
 
+	public boolean fueAtacado() {
+		return this.policia.fueAtacado();
+	}
+
 	private void perder() {
 		this.terminarPartida();
 	}
@@ -87,19 +91,19 @@ public class Partida {
 	private void terminarPartida() {
 		this.partidaTerminada = true;
 	}
-	
+
 	public boolean partidaGanada() {
-		return ( this.partidaGanada );
+		return this.partidaGanada;
 	}
-	
+
 	public boolean partidaTerminada() {
-		return ( this.partidaTerminada );
+		return this.partidaTerminada;
 	}
 
 	public List<Ciudad> verDestinos() {
 		return this.policia.verDestinos();
 	}
-	
+
 	public Ciudad verDestinoNro(int nro) {
 		return this.policia.verDestinoNro(nro);
 	}
@@ -107,23 +111,23 @@ public class Partida {
 	public boolean quedaTiempo() {
 		return turno.quedaTiempo();
 	}
-	
+
 	public int verCantDeArrestos() {
 		return this.policia.getCantidadArrestos();
 	}
-	
+
 	public Rango verRangoPolicia() {
 		return this.policia.getRango();
 	}
-	
+
 	public String verNombrePolicia() {
 		return this.policia.getNombre();
 	}
-	
+
 	public int getHorasRestantes() {
 		return this.turno.getHorasRestantes();
 	}
-	
+
 	public int getHoraActual() {
 		return this.turno.getHoraActual();
 	}
@@ -131,50 +135,51 @@ public class Partida {
 	public Ciudad ciudadActual() {
 		return this.policia.ciudadActual();
 	}
-	
+
 	public Local verLocalNro(int nro) {
 		return this.ciudadActual().verLocalNro(nro);
 	}
-	
+
 	public Ladron getLadron() {
 		return this.ladron;
 	}
-	
+
 	public OrdenDeArresto verOrdenDeArresto() {
 		return this.orden;
 	}
-	
+
 	public void guardarPartida() throws ParserConfigurationException, TransformerException {
 		Juego juego = new Juego();
 		juego.guardarPartida(this.policia);
 	}
 
 	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {
-	    Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
-	 
-	    Node nodeLadron = unaPartida.getChildNodes().item(0);
-	    Ladron ladron = Ladron.deserializar(nodeLadron);
-	       
-	   
-	 
-	    Node nodeItinerario = nodeLadron.getChildNodes().item(1);
-	    ladron.setItinerario(Itinerario.deserializar(nodeItinerario));
-	 
-	    Ciudad ciudadActual = Ciudad.deserializar(nodeItinerario.getFirstChild());
-	    Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
-	   
-	    // Agrega las ciudades como destinos de locacion
-	    for (Ciudad destino : ladron.getItinerario().ciudades()) {
-	            locacionInicial.agregarDestino(destino);
-	    }
-	    
-	    Node nodeObjeto = nodeLadron.getChildNodes().item(2);
-	    try { ladron.robarObjeto(ObjetoRobado.deserializar(nodeObjeto));
-	    } catch (LadronNoPlaneoEscapeException e) { System.exit(0); }
-	   
-	    Turno turno = new Turno(locacionInicial);
-	 
-	    return new Partida(policia, ladron, turno, orden);
+		Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
+
+		Node nodeLadron = unaPartida.getChildNodes().item(0);
+		Ladron ladron = Ladron.deserializar(nodeLadron);
+
+		Node nodeItinerario = nodeLadron.getChildNodes().item(1);
+		ladron.setItinerario(Itinerario.deserializar(nodeItinerario));
+
+		Ciudad ciudadActual = Ciudad.deserializar(nodeItinerario.getFirstChild());
+		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
+
+		// Agrega las ciudades como destinos de locacion
+		for (Ciudad destino : ladron.getItinerario().ciudades()) {
+			locacionInicial.agregarDestino(destino);
+		}
+
+		Node nodeObjeto = nodeLadron.getChildNodes().item(2);
+		try {
+			ladron.robarObjeto(ObjetoRobado.deserializar(nodeObjeto));
+		} catch (LadronNoPlaneoEscapeException e) {
+			System.exit(0);
+		}
+
+		Turno turno = new Turno(locacionInicial);
+
+		return new Partida(policia, ladron, turno, orden);
 	}
 
 }
