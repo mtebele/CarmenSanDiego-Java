@@ -101,21 +101,6 @@ public class PartidaControlador {
 		vista.getContentPane().validate();
 	}
 
-	public void viajar(String destinoString) {
-		for (Ciudad destino : modeloPartida.verDestinos()) {
-			if (destino.getNombre() == destinoString) {
-				modeloPartida.viajar(destino);
-				break;
-			}
-		}
-		if (!modeloPartida.quedaTiempo()) {
-			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
-			new PerdedorControlador(this.vista);
-		} else {
-			update();
-		}
-	}
-
 	public void interrogar(String localString) {
 		String pista = null;
 		for (int i = 1; i <= MAX_LOCALES; i++) {
