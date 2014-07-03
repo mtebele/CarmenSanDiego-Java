@@ -63,7 +63,7 @@ public class PanelLadrones extends PanelConFondo {
 		ladron9.setBounds(480,250,160,250);
 		add(ladron10);
 		add(btnVolver);
-		btnVolver.setBounds(0,500,820,75);
+		btnVolver.setBounds(0,500,795,75);
 		ladron10.setBounds(630,250,170,250);
 	}
 	

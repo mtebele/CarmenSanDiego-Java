@@ -162,7 +162,7 @@ public class PartidaTest {
 	}
 
 	@Test
-	public void interrogarDeberiaAtraparLadronSiLadronTerminoItinerario() {
+	public void deberiaAtraparLadronSiLadronTerminoItinerario() {
 		// Ladron viaja de ciudad en ciudad hasta llegar a la ultima del recorrido.
 		try {
 			for (int i = 0; i < 3; i++) {
@@ -179,7 +179,7 @@ public class PartidaTest {
 		}
 
 		this.partida.emitirOrden(this.ladron);
-		this.partida.interrogar(this.partida.ciudadActual().getLocales().get(0));
+		this.partida.atraparLadron();
 
 		Assert.assertEquals(this.policia.getCantidadArrestos(), 1);
 	}
@@ -191,9 +191,4 @@ public class PartidaTest {
 
 		Assert.assertEquals(ciudadDestino, this.partida.ciudadActual());
 	}
-	/*
-	 * @Test public void partidaSeGuardaOK() { try { this.partida.guardarPartida(); } catch
-	 * (ParserConfigurationException | TransformerException e) { // TODO Auto-generated catch block e.printStackTrace();
-	 * } }
-	 */
 }
