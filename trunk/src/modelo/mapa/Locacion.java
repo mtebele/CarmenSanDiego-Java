@@ -1,6 +1,5 @@
 package modelo.mapa;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -26,23 +25,16 @@ public class Locacion {
 		return (this.ciudadesDestino.contains(ciudad));
 	}
 
-	private void generarNuevosDestinos() {
-		ArrayList<Ciudad> destinos = new ArrayList<Ciudad>();
-		
+	private void generarNuevosDestinos() {		
 		this.ciudadesDestino.clear();
-		destinos.add(this.ladron.ciudadActual());
+		this.agregarDestino(this.ladron.ciudadActual());
 
 		for (int i = 0; i < (CANTIDAD_DESTINOS-1); i++) {
 			Ciudad destino = this.mapa.elegirCiudadAlAzar();
-			while (destinos.contains(destino)) {
+			while ( this.ciudadesDestino.contains(destino) ) {
 				destino = this.mapa.elegirCiudadAlAzar();
 			}
-			destinos.add(destino);
-		}
-		Collections.shuffle(destinos);
-		
-		for (Ciudad destinoAAgregar : destinos) {
-			this.agregarDestino(destinoAAgregar);
+			this.agregarDestino(destino);
 		}
 	}
 
