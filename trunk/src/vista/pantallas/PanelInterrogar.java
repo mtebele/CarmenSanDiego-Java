@@ -24,11 +24,12 @@ public class PanelInterrogar extends PanelConFondo {
 		setLayout(null);
 		lblPista.setText("- " + pista);
 		lblPista.setForeground(Color.black);
-		lblPista.setBounds(100, 350, 700, 50);
-		lblPista.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		lblPista.setBounds(100, 200, 700, 50);
+		lblPista.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		add(lblPista);
 		btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnVolver.setBounds(300, 150, 150, 50);
+		btnVolver.setBounds(350, 500, 100, 40);
+		btnVolver.setFont(new Font("Trebuchet MS", Font.HANGING_BASELINE, 20));
 		add(btnVolver);
 		setVisible(true);
 	}
