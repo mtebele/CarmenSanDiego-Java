@@ -125,7 +125,7 @@ public class PartidaControlador {
 				pista = modeloPartida.interrogar(local);
 				boolean fueAtacado = modeloPartida.fueAtacado();
 				if (fueAtacado)
-					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado!");
+					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado! Esto te demorará un poco...");
 				break;
 			}
 		}
