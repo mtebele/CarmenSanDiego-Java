@@ -7,7 +7,7 @@ public class Disparo implements IAtaque {
 	private int probabilidad;
 	
 	public Disparo() {
-		this.probabilidad = 3;
+		this.probabilidad = 10;
 	}
 
 	public int ejecutarAtaque() {
