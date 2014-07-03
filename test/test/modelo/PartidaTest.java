@@ -191,4 +191,13 @@ public class PartidaTest {
 
 		Assert.assertEquals(ciudadDestino, this.partida.ciudadActual());
 	}
+	
+	@Test
+	public void deberiaSaberLasHorasDeViajeEntreCiudadActualYOtraCiudad() {
+		Ciudad ciudad = this.partida.verDestinos().get(3);
+		
+		int hsViaje = this.partida.hsViajeAOtraCiudad(ciudad);
+
+		Assert.assertEquals(3, hsViaje);
+	}
 }
