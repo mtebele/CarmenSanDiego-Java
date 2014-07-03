@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -47,7 +48,6 @@ public class Partida {
 	}
 
 	public void viajar(Ciudad destino) {
-		// TODO: ver lo de la excepcion.
 		try {
 			this.policia.viajar(destino);
 		} catch (LadronNoPlaneoEscapeException e) {
@@ -101,7 +101,7 @@ public class Partida {
 	public boolean partidaTerminada() {
 		return this.partidaTerminada;
 	}
-	
+
 	public boolean esUltimaCiudad() {
 		return this.ladron.hizoUltimoEscape();
 	}
@@ -165,7 +165,13 @@ public class Partida {
 	}
 
 	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {
-		Element unaPartida = (Element) doc.getElementsByTagName("partida").item(0);
+		Element partidas = (Element) doc.getElementsByTagName("partidas").item(0);
+		int cantPartidas = partidas.getChildNodes().getLength();
+
+		Random rand = new Random();
+		int numPartida = rand.nextInt(cantPartidas);
+
+		Element unaPartida = (Element) doc.getElementsByTagName("partida").item(numPartida);
 
 		Node nodeLadron = unaPartida.getChildNodes().item(0);
 		Ladron ladron = Ladron.deserializar(nodeLadron);
@@ -177,11 +183,11 @@ public class Partida {
 		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
 
 		// Agrega las ciudades como destinos de locacion
-		
-		Itinerario itinerarioLadron= ladron.getItinerario();
-		Ciudad ciudadDeEscape= itinerarioLadron.ciudadSiguiente(ciudadActual);
+
+		Itinerario itinerarioLadron = ladron.getItinerario();
+		Ciudad ciudadDeEscape = itinerarioLadron.ciudadSiguiente(ciudadActual);
 		locacionInicial.agregarDestino(ciudadDeEscape);
-		for (int i = 0; i < (CANTIDAD_DESTINOS-1); i++) {
+		for (int i = 0; i < (CANTIDAD_DESTINOS - 1); i++) {
 			Ciudad destino = mapa.elegirCiudadAlAzar();
 			while (locacionInicial.tieneDestino(destino)) {
 				destino = mapa.elegirCiudadAlAzar();
