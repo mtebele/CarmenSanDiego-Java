@@ -130,7 +130,9 @@ public class PartidaControlador {
 			}
 		}
 		
-		if (modeloPartida.esUltimaCiudad()) modeloPartida.atraparLadron();
+		if (modeloPartida.esUltimaCiudad() && modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())) {
+			modeloPartida.atraparLadron();
+		}
 		if (modeloPartida.partidaGanada()) {
 			new GanadorControlador(this.vista);
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
