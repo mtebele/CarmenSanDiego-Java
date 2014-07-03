@@ -43,8 +43,9 @@ public class OrdenArrestoControlador {
 		Ladron ladronSeleccionado = null;
 		String nombreLadron = this.panel.verLadronSeleccionado();
 		for (Ladron ladron : modeloPartida.verOrdenDeArresto().getBaseDeLadrones()) {
-			if ( nombreLadron.toUpperCase() == ladron.verNombre().toUpperCase() ) {
+			if ( nombreLadron.toUpperCase().equals(ladron.verNombre().toUpperCase()) ) {
 				ladronSeleccionado = ladron;
+				break;
 			}
 		}
 		if ( modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado) ) {

@@ -40,7 +40,7 @@ public class Partida {
 	}
 
 	public void atraparLadron() {
-		if ((this.orden.verLadron() != null) && (this.orden.verLadron().equals(this.ladron))) {
+		if ((orden.verLadron() != null) && (orden.verLadron().verNombre().equals(ladron.verNombre()))) {
 			this.ganar();
 		} else {
 			this.perder();
@@ -98,6 +98,10 @@ public class Partida {
 
 	public boolean partidaTerminada() {
 		return this.partidaTerminada;
+	}
+	
+	public boolean esUltimaCiudad() {
+		return this.ladron.hizoUltimoEscape();
 	}
 
 	public List<Ciudad> verDestinos() {

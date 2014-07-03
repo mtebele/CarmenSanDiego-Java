@@ -38,7 +38,7 @@ public class PanelOrdenArresto extends PanelConFondo {
 	}
 	
 	public String verLadronSeleccionado() {
-		String nombreLadron = (String) cmbLadrones.getSelectedItem();
+		String nombreLadron = cmbLadrones.getSelectedItem().toString();
 		return nombreLadron;
 	}
 
