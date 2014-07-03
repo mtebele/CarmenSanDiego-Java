@@ -2,6 +2,7 @@ package vista.pantallas;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
@@ -19,14 +20,15 @@ public class PanelInterrogar extends PanelConFondo {
 	private JButton btnVolver = new BotonVolver();
 
 	public PanelInterrogar(String pista) {
-		super(IMGPATH + "interrogar.gif");
+		super(IMGPATH + "interrogar.png");
 		setLayout(null);
 		lblPista.setText("- " + pista);
 		lblPista.setForeground(Color.black);
-		lblPista.setBounds(50, 525, 800, 50);
+		lblPista.setBounds(100, 350, 700, 50);
+		lblPista.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		add(lblPista);
 		btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnVolver.setBounds(350, 0, 100, 40);
+		btnVolver.setBounds(300, 150, 150, 50);
 		add(btnVolver);
 		setVisible(true);
 	}
