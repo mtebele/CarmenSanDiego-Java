@@ -17,7 +17,7 @@ public class PanelLadrones extends PanelConFondo {
 	private static final String IMGPATH = "images/";
 	private static final String IMGPATHFICHAS = "images/fichas/";
 
-	private static final String FONDO = IMGPATH + "fondo.png";
+	private static final String FONDO = IMGPATH + "partida.png";
 	private static final String LADRON1 = IMGPATHFICHAS + "Carmen Sandiego.png";
 	private static final String LADRON2 = IMGPATHFICHAS + "Dazzle Annie.png";
 	private static final String LADRON3 = IMGPATHFICHAS + "Fast Eddie B.png";
