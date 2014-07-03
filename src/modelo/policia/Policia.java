@@ -22,7 +22,7 @@ public class Policia {
 		this.rango = DefinicionRangoPolicia.getObjetoRango(this.cantidadArrestos);
 		this.nombre = nombre;
 	}
-	
+
 	public Policia(String nombre, Rango rango, int cantArrestos) {
 		this.cantidadArrestos = cantArrestos;
 		this.rango = rango;
@@ -47,6 +47,10 @@ public class Policia {
 		return this.turno.interrogar(local);
 	}
 
+	public boolean fueAtacado() {
+		return this.turno.fueAtacado();
+	}
+
 	public Ciudad ciudadActual() {
 		return this.turno.ciudadActual();
 	}
@@ -54,7 +58,7 @@ public class Policia {
 	public List<Ciudad> verDestinos() {
 		return this.turno.getDestinos();
 	}
-	
+
 	public Ciudad verDestinoNro(int nro) {
 		return this.turno.verDestinoNro(nro);
 	}
@@ -84,7 +88,7 @@ public class Policia {
 		String nombre = elePolicia.getAttribute("nombre");
 		int cantArrestos = Integer.parseInt(elePolicia.getAttribute("arrestos"));
 		Rango rango = DefinicionRangoPolicia.getObjetoRango(cantArrestos);
-		
+
 		return new Policia(nombre, rango, cantArrestos);
 	}
 

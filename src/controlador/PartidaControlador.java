@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import controlador.*;
 import vista.pantallas.*;
@@ -21,9 +22,9 @@ public class PartidaControlador {
 	public PartidaControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
-		
+
 		update();
-		
+
 		this.panel.addAbrirPanelInfoPoliciaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AbrirPanelInfoPolicia();
@@ -35,58 +36,58 @@ public class PartidaControlador {
 				AbrirPanelLadrones();
 			}
 		});
-		
+
 		this.panel.addAbrirPanelViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AbrirPanelViajar();
 			}
 		});
-		
+
 		this.panel.addAbrirPanelOrdenArrestoListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AbrirPanelOrdenArresto();
 			}
 		});
-		
+
 		this.panel.addVolverAPanelNuevaPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				volverAPanelNuevaPartida();
 			}
 		});
 
-		
-		 this.panel.addInterrogarListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e) {
-				 String localString = ((JButton) e.getSource()).getText(); 
-				 interrogar(localString); 
-			 } 
-		 });
-		  
-		/* this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
-		  
-		 emitirOrden(); } }); */
-		 
+		this.panel.addInterrogarListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String localString = ((JButton) e.getSource()).getText();
+				interrogar(localString);
+			}
+		});
+
+		/*
+		 * this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
+		 * 
+		 * emitirOrden(); } });
+		 */
 
 	}
 
 	private void AbrirPanelInfoPolicia() {
-		new InfoPoliciaControlador(modeloPartida, vista);		
+		new InfoPoliciaControlador(modeloPartida, vista);
 	}
-	
+
 	private void AbrirPanelLadrones() {
-		new LadronesControlador(modeloPartida, vista);		
+		new LadronesControlador(modeloPartida, vista);
 	}
-	
+
 	private void AbrirPanelViajar() {
-		new ViajeControlador(modeloPartida, vista);		
+		new ViajeControlador(modeloPartida, vista);
 	}
-	
+
 	private void AbrirPanelOrdenArresto() {
-		new OrdenArrestoControlador(modeloPartida, vista);		
+		new OrdenArrestoControlador(modeloPartida, vista);
 	}
 
 	private void update() {
-		
+
 		int horasRestantes = modeloPartida.getHorasRestantes();
 		int horaActual = modeloPartida.getHoraActual();
 		String nombreLocal1 = modeloPartida.verLocalNro(1).getNombre();
@@ -99,7 +100,7 @@ public class PartidaControlador {
 
 		vista.getContentPane().removeAll();
 		vista.add(panel);
-		vista.getContentPane().validate();		
+		vista.getContentPane().validate();
 	}
 
 	public void viajar(String destinoString) {
@@ -112,7 +113,7 @@ public class PartidaControlador {
 		if (!modeloPartida.quedaTiempo()) {
 			new PerdedorControlador(this.vista);
 		}
-		
+
 		update();
 	}
 
@@ -122,26 +123,30 @@ public class PartidaControlador {
 			Local local = modeloPartida.verLocalNro(i);
 			if (local.getNombre().toUpperCase() == localString.toUpperCase()) {
 				pista = modeloPartida.interrogar(local);
+				boolean fueAtacado = modeloPartida.fueAtacado();
+				if (fueAtacado)
+					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado!");
+				break;
 			}
-			if (modeloPartida.partidaGanada()){
-				new GanadorControlador(this.vista);
-			}
-			else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
-				new PerdedorControlador(this.vista);
-			}
+		}
 
+		if (modeloPartida.partidaGanada()) {
+			new GanadorControlador(this.vista);
+		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
+			new PerdedorControlador(this.vista);
+		} else if (!modeloPartida.quedaTiempo()) {
+			new PerdedorControlador(this.vista);
+		} else {
 			new InterrogarControlador(modeloPartida, this.vista, pista);
 		}
-		if (!modeloPartida.quedaTiempo())
-			new PerdedorControlador(this.vista);
 	}
 
-	/*public void emitirOrden() {
-		this.modeloPartida.emitirOrden(ladron);
-	}*/
+	/*
+	 * public void emitirOrden() { this.modeloPartida.emitirOrden(ladron); }
+	 */
 
 	public void volverAPanelNuevaPartida() {
 		new NuevaPartidaControlador(modeloPartida, vista);
 	}
-	
+
 }

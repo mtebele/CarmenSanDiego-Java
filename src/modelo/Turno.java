@@ -16,6 +16,7 @@ public class Turno {
 	private Locacion locacion;
 	private IAtaque disparo;
 	private IAtaque cuchillazo;
+	private boolean fueAtacado;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
@@ -42,8 +43,8 @@ public class Turno {
 	}
 
 	public String interrogar(Local local) {
+		
 		int horasInterrogatorio = local.getHorasProximoInterrogatorio();
-
 		int horasPerdidasPorCuchillazo = this.horasPerdidasPorAtaque(cuchillazo);
 		int horasPerdidasPorDisparo = 0;
 		if (horasPerdidasPorCuchillazo == 0) {
@@ -51,8 +52,17 @@ public class Turno {
 		}
 
 		this.actualizar(horasInterrogatorio + horasPerdidasPorCuchillazo + horasPerdidasPorDisparo);
+		
+		this.fueAtacado = (horasPerdidasPorCuchillazo + horasPerdidasPorDisparo > 0);
 
 		return this.locacion.interrogar(local);
+	}
+	
+	public boolean fueAtacado() {
+		boolean atacado = this.fueAtacado;
+		if (atacado)
+			this.fueAtacado = false;
+		return atacado;
 	}
 
 	public boolean quedaTiempo() {
@@ -75,7 +85,7 @@ public class Turno {
 	public int getHorasRestantes() {
 		return this.tiempo.horasRestantes();
 	}
-	
+
 	public int getHoraActual() {
 		return this.tiempo.horaActual();
 	}
@@ -87,7 +97,7 @@ public class Turno {
 	public List<Local> getLocales() {
 		return this.locacion.getLocales();
 	}
-	
+
 	public Ciudad verDestinoNro(int nro) {
 		return this.locacion.verDestinoNro(nro);
 	}
