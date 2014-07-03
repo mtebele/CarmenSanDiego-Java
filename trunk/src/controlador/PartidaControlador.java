@@ -129,7 +129,8 @@ public class PartidaControlador {
 				break;
 			}
 		}
-
+		
+		if (modeloPartida.esUltimaCiudad()) modeloPartida.atraparLadron();
 		if (modeloPartida.partidaGanada()) {
 			new GanadorControlador(this.vista);
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
