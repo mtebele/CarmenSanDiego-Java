@@ -65,9 +65,9 @@ public class PanelPartida extends PanelConFondo {
 		this.add(lblHsRestantes);
 		lblHsRestantes.setBounds(10, 60, 200, 20);
 		this.add(btnInfoPolicia);
-		btnInfoPolicia.setBounds(10, 110, 200, 40);
+		btnInfoPolicia.setBounds(10, 160, 200, 40);
 		this.add(btnVolver);
-		btnVolver.setBounds(10, 160, 200, 40);
+		btnVolver.setBounds(10, 110, 200, 40);
 		this.add(btnViajar);
 		btnViajar.setBounds(10, 210, 200, 40);
 		this.add(btnLadrones);
