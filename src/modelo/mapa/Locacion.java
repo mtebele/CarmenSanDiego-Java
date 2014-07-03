@@ -67,7 +67,7 @@ public class Locacion {
 	}
 
 	public String interrogar(Local local) {
-		if (pasoLadronRecientemente()) {
+		if (pasoLadronRecientemente() || estaLadron()) {
 			return local.responder();
 		}
 		local.visitar();

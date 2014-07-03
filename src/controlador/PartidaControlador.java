@@ -115,7 +115,8 @@ public class PartidaControlador {
 		}
 		
 		if (modeloPartida.esUltimaCiudad()
-				&& modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())) {
+				&& modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())
+					&& (modeloPartida.ciudadActual().cantLocalesVisitados() == 3)) {
 			modeloPartida.atraparLadron();
 		}
 		
