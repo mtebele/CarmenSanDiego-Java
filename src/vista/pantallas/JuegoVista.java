@@ -4,13 +4,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-
 public class JuegoVista extends JFrame {
 	private static final long serialVersionUID = -3021501308427221124L;
 	private static int MAX_ALTURA = 800;
 	private static int MAX_ANCHURA = 600;
 
-	
 	PanelInicial pnlInicial = new PanelInicial();
 
 	public JuegoVista() {
@@ -34,7 +32,7 @@ public class JuegoVista extends JFrame {
 	public void addCargarPartidaListener(ActionListener l) {
 		pnlInicial.addCargarPartidaListener(l);
 	}
-	
+
 	public void enableCargarPartida(boolean valor) {
 		pnlInicial.enableCargarPartida(valor);
 	}
