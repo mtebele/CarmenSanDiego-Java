@@ -1,6 +1,5 @@
 package modelo;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -86,6 +85,11 @@ public class Partida {
 		this.policia.realizarArresto();
 		this.partidaGanada = true;
 		this.terminarPartida();
+		try {
+			guardarPartida();
+		} catch (ParserConfigurationException | TransformerException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void terminarPartida() {

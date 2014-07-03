@@ -56,13 +56,9 @@ public class JuegoControlador {
 	}
 
 	private void nuevaPartida() {
-
 		try {
-
 			Partida modeloPartida = this.modelo.nuevaPartida();
-
 			new NuevaPartidaControlador(modeloPartida, this.vista);
-
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
 		}
@@ -71,9 +67,7 @@ public class JuegoControlador {
 	private void cargarPartida() {
 		try {
 			Partida modeloPartida = this.modelo.cargarPartida();
-
 			new NuevaPartidaControlador(modeloPartida, this.vista);
-
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
 			e1.printStackTrace();
 		}

@@ -71,7 +71,7 @@ public class LectorXML {
 	}
 
 	public static Partida cargarPartida(Policia policia) throws ParserConfigurationException, SAXException, IOException {
-		File archivo = new File(PATH + "partidaNovato.xml");
+		File archivo = new File(PATH + "partida" + policia.getRango().getNombre() + ".xml");
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
