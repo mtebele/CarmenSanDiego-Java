@@ -1,8 +1,6 @@
 package vista.pantallas;
 
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JFrame;
 
@@ -15,9 +13,6 @@ public class JuegoVista extends JFrame {
 
 	PanelCarga carga = new PanelCarga();
 	PanelInicial pnlInicial = new PanelInicial();
-
-    //PanelOrdenError pnlInicial = new PanelOrdenError();//DESCOMENTAR EL DE ARRIBA EN LA VERSION FINAL. SE USA
-	// PARA PROBAR PANELES ESTO
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");

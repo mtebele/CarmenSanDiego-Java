@@ -165,7 +165,6 @@ public class PoliciaTest {
 
 	@Test
 	public void interrogarDeberiaDevolverLaRespuestaCorrecta() {
-
 		// Ladron viaja de la ciudad0 a la ciudad1 al iniciar el juego.
 
 		Local local0 = this.turno.getLocales().get(0);

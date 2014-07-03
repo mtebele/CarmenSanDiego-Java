@@ -6,11 +6,6 @@ import vista.LabelImagen;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
-/*Este seria el panel que muestra la base de datos de los ladrones.
- Podria ser una lista de ladrones y cuando clickeas en uno se abre el panel
- correspodiente a cada ladron particular (PanelPerfilLadron.java).
- */
-
 public class PanelLadrones extends PanelConFondo {
 
 	private static final long serialVersionUID = -7469145946869200592L;
