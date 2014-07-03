@@ -13,7 +13,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.ladron.Ladron;
 import modelo.mapa.Mapa;
 import modelo.policia.OrdenDeArresto;

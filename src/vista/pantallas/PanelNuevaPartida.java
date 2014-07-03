@@ -2,13 +2,10 @@ package vista.pantallas;
 
 import javax.swing.*;
 
-import modelo.mapa.Ciudad;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelNuevaPartida extends PanelConFondo {

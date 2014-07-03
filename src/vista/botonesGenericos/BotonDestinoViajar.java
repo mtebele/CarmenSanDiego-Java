@@ -1,13 +1,12 @@
 package vista.botonesGenericos;
+
 import javax.swing.JButton;
-import modelo.mapa.Ciudad;
 
 public class BotonDestinoViajar extends JButton {
-	
-	public BotonDestinoViajar(String destino){
-		// TODO: Poner el nombre de cada destino
+
+	private static final long serialVersionUID = -4914327896498930603L;
+
+	public BotonDestinoViajar(String destino) {
 		super(destino);
-		
 	}
-	
 }

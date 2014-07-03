@@ -13,7 +13,6 @@ import org.xml.sax.SAXException;
 import vista.pantallas.*;
 import modelo.Juego;
 import modelo.Partida;
-import controlador.*;
 
 public class JuegoControlador {
 	private Juego modelo;

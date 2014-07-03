@@ -5,7 +5,6 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -33,9 +32,9 @@ public class PanelInterrogar extends PanelConFondo {
 		add(btnVolver);
 		setVisible(true);
 	}
-	
+
 	public void addVolverAPanelPartida(ActionListener l) {
 		btnVolver.addActionListener(l);
 	}
-	
+
 }

@@ -3,11 +3,10 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import modelo.Partida;
 import modelo.Juego;
-import modelo.mapa.Ciudad;
-import vista.pantallas.*;
-import controlador.*;
+import modelo.Partida;
+import vista.pantallas.JuegoVista;
+import vista.pantallas.PanelNuevaPartida;
 
 public class NuevaPartidaControlador {
 
@@ -30,25 +29,25 @@ public class NuevaPartidaControlador {
 				abrirPanelPartida();
 			}
 		});
-		
+
 		this.panel.addVolverAPanelInicialListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				volverAPanelInicial();
 			}
 		});
-		
+
 	}
 
 	public void abrirPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
 	}
-	
+
 	public void volverAPanelInicial() {
 		vista.dispose();
-		
+
 		Juego juego = new Juego();
 		JuegoVista vista = new JuegoVista();
 		new JuegoControlador(juego, vista);
 	}
-	
+
 }

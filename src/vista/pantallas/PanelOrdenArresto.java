@@ -1,6 +1,5 @@
 package vista.pantallas;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import vista.botonesGenericos.BotonEmitirOrdenArresto;
@@ -28,15 +27,15 @@ public class PanelOrdenArresto extends PanelConFondo {
 		add(btnArresto);
 		add(btnVolver);
 	}
-	
+
 	public void addEmitirOrdenListener(ActionListener l) {
 		btnArresto.addActionListener(l);
 	}
-	
+
 	public void addVolverAPanelPartidaListener(ActionListener l) {
 		btnVolver.addActionListener(l);
 	}
-	
+
 	public String verLadronSeleccionado() {
 		String nombreLadron = cmbLadrones.getSelectedItem().toString();
 		return nombreLadron;
