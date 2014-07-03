@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 import vista.panelesGenericos.PanelCarga;
 
-public class JuegoVista extends JFrame implements Observer {
+public class JuegoVista extends JFrame {
 	private static final long serialVersionUID = -3021501308427221124L;
 	private static int MAX_ALTURA = 800;
 	private static int MAX_ANCHURA = 600;
@@ -43,10 +43,5 @@ public class JuegoVista extends JFrame implements Observer {
 	
 	public void enableCargarPartida(boolean valor) {
 		pnlInicial.enableCargarPartida(valor);
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-
 	}
 }
