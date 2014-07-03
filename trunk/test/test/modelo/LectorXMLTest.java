@@ -46,7 +46,7 @@ public class LectorXMLTest {
 
 	@Test
 	public void testMapaCantidadCiudades() throws Exception {
-		assertEquals(this.mapa.cantidadCiudades(), 29);
+		assertEquals(this.mapa.cantidadCiudades(), 28);
 	}
 
 	@Test
