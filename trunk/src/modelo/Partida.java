@@ -15,7 +15,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class Partida {
-
+	private static int CANTIDAD_DESTINOS = 4;
 	private Policia policia;
 	private Ladron ladron;
 	private Turno turno;
@@ -174,10 +174,17 @@ public class Partida {
 		Locacion locacionInicial = new Locacion(mapa, ciudadActual, ladron);
 
 		// Agrega las ciudades como destinos de locacion
-		for (Ciudad destino : ladron.getItinerario().ciudades()) {
+		
+		Itinerario itinerarioLadron= ladron.getItinerario();
+		Ciudad ciudadDeEscape= itinerarioLadron.ciudadSiguiente(ciudadActual);
+		locacionInicial.agregarDestino(ciudadDeEscape);
+		for (int i = 0; i < (CANTIDAD_DESTINOS-1); i++) {
+			Ciudad destino = mapa.elegirCiudadAlAzar();
+			while (locacionInicial.tieneDestino(destino)) {
+				destino = mapa.elegirCiudadAlAzar();
+			}
 			locacionInicial.agregarDestino(destino);
 		}
-
 		Node nodeObjeto = nodeLadron.getChildNodes().item(2);
 		try {
 			ladron.robarObjeto(ObjetoRobado.deserializar(nodeObjeto));

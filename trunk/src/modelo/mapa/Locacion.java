@@ -21,6 +21,10 @@ public class Locacion {
 		this.ciudadActual = ciudadActual;
 		this.ciudadesDestino = new ArrayList<Ciudad>();
 	}
+	
+	public boolean tieneDestino(Ciudad ciudad){
+		return (this.ciudadesDestino.contains(ciudad));
+	}
 
 	private void generarNuevosDestinos() {
 		ArrayList<Ciudad> destinos = new ArrayList<Ciudad>();
