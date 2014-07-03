@@ -46,13 +46,13 @@ public class OrdenArrestoControlador {
 				break;
 			}
 		}
-		if (modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado)) {
+		if ( ladronSeleccionado == null) {
+			JOptionPane.showMessageDialog(null, "No has seleccionado ningun ladron.");
+		}else if (modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado)) {
 			modeloPartida.emitirOrden(ladronSeleccionado);
 			JOptionPane.showMessageDialog(null, "La orden se ha emitido correctamente.");
-			// new OrdenOKControlador(modeloPartida, vista);
 		} else {
 			JOptionPane.showMessageDialog(null, "Ya fue emitida una orden de arresto. No puedes emitir otra!");
-			// new OrdenErrorControlador(modeloPartida, vista);
 		}
 	}
 
