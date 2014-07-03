@@ -53,12 +53,12 @@ public class Ladron {
 		return this.itinerario.esCiudadFinal(cantDeEscapes, ciudadActual);
 	}
 
-	/*
-	 * public boolean sigueEnCiudadDelRobo() { return this.itinerario.esCiudadInicial(this.ciudadActual); }
-	 */
-
 	public String verNombre() {
 		return this.perfil.getNombre();
+	}
+	
+	public String verSexo() {
+		return this.perfil.getSexo().toString();
 	}
 
 	public static Ladron deserializar(Node elementoLadron) {

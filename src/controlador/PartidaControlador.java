@@ -60,12 +60,6 @@ public class PartidaControlador {
 			}
 		});
 
-		/*
-		 * this.vista.addEmitirOrdenListener(new ActionListener() { public void actionPerformed(ActionEvent e) {
-		 * 
-		 * emitirOrden(); } });
-		 */
-
 	}
 
 	private void AbrirPanelInfoPolicia() {

@@ -16,7 +16,8 @@ public class NuevaPartidaControlador {
 
 	public NuevaPartidaControlador(Partida partida, JuegoVista vista) {
 		String ciudadActual = partida.ciudadActual().getNombre();
-		this.panel = new PanelNuevaPartida(ciudadActual);
+		String sexoLadron = partida.getLadron().verSexo();
+		this.panel = new PanelNuevaPartida(ciudadActual, sexoLadron);
 		this.modeloPartida = partida;
 		this.vista = vista;
 
