@@ -11,7 +11,7 @@ public class PanelOrdenArresto extends PanelConFondo {
 
 	private static final long serialVersionUID = 7731072860454486108L;
 	private static final String IMGPATH = "images/";
-	static final String FONDO = IMGPATH + "ordenarresto.jpg";
+	static final String FONDO = IMGPATH + "ordenarresto.png";
 
 	private BotonVolver btnVolver = new BotonVolver();
 	private BotonEmitirOrdenArresto btnArresto = new BotonEmitirOrdenArresto();
