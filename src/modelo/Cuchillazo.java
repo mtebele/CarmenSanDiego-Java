@@ -9,7 +9,7 @@ public class Cuchillazo implements IAtaque {
 	
 	public Cuchillazo() {
 		this.vecesEjecutado = 0;
-		this.probabilidad = 10;
+		this.probabilidad = 5;
 	}
 
 	public int ejecutarAtaque() {

@@ -3,6 +3,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import controlador.*;
 import vista.pantallas.*;
 import modelo.Partida;
@@ -47,9 +49,11 @@ public class OrdenArrestoControlador {
 		}
 		if ( modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado) ) {
 			modeloPartida.emitirOrden(ladronSeleccionado);
-			new OrdenOKControlador(modeloPartida, vista);
+			JOptionPane.showMessageDialog(null, "La orden se ha emitido correctamente.");
+			//new OrdenOKControlador(modeloPartida, vista);
 		} else {
-			new OrdenErrorControlador(modeloPartida, vista);
+			JOptionPane.showMessageDialog(null, "Ya fue emitida una orden de arresto. No puedes emitir otra!");
+			//new OrdenErrorControlador(modeloPartida, vista);
 		}
 	}
 	
