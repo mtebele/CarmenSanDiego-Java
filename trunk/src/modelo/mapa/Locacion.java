@@ -30,7 +30,7 @@ public class Locacion {
 
 		for (int i = 0; i < CANTIDAD_DESTINOS; i++) {
 			Ciudad destino = this.mapa.elegirCiudadAlAzar();
-			while (this.ciudadesDestino.contains(destino)) {
+			while (destinos.contains(destino)) {
 				destino = this.mapa.elegirCiudadAlAzar();
 			}
 			destinos.add(destino);
