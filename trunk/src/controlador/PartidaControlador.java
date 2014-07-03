@@ -122,7 +122,7 @@ public class PartidaControlador {
 		if (modeloPartida.partidaGanada()) {
 			new GanadorControlador(this.vista);
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
-			JOptionPane.showMessageDialog(null, "Has atrapado al ladron pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
+			JOptionPane.showMessageDialog(null, "Has atrapado al ladrón pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
 			new PerdedorControlador(this.vista);
 		} else {
 			new InterrogarControlador(modeloPartida, this.vista, pista);
