@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import javax.swing.*;
 
@@ -8,7 +8,7 @@ import vista.panelesGenericos.PanelConFondo;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
-public class PanelNuevaPartida extends PanelConFondo {
+public class NuevaPartidaVista extends PanelConFondo {
 	private static final long serialVersionUID = -8273049611334044944L;
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "newspaper.png";
@@ -16,7 +16,7 @@ public class PanelNuevaPartida extends PanelConFondo {
 	private JButton btnContinuar = new JButton("Investigar");
 	private JButton btnVolver = new BotonVolver();
 
-	public PanelNuevaPartida(String ciudadActual, String sexoLadron) {
+	public NuevaPartidaVista(String ciudadActual, String sexoLadron) {
 		super(FONDO);
 		setLayout(null);
 		textoReporte.setOpaque(false);

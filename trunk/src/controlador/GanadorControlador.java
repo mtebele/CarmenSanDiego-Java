@@ -4,17 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+
 import modelo.Juego;
-import vista.pantallas.*;
+import vista.GanadorVista;
+import vista.JuegoVista;
 
 public class GanadorControlador {
 
-	private PanelGanador panel;
+	private GanadorVista panel;
 	private JuegoVista vista;
 
 	public GanadorControlador(JuegoVista vista) {
 		this.vista = vista;
-		this.panel = new PanelGanador();
+		this.panel = new GanadorVista();
 		vista.getContentPane().removeAll();
 		vista.add(panel);
 		vista.getContentPane().validate();

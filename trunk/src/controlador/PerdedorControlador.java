@@ -4,17 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+
 import modelo.Juego;
-import vista.pantallas.*;
+import vista.JuegoVista;
+import vista.PerdedorVista;
 
 public class PerdedorControlador {
 
-	private PanelPerdedor panel;
+	private PerdedorVista panel;
 	private JuegoVista vista;
 
 	public PerdedorControlador(JuegoVista vista) {
 		this.vista = vista;
-		this.panel = new PanelPerdedor();
+		this.panel = new PerdedorVista();
 		vista.getContentPane().removeAll();
 		vista.add(panel);
 		vista.getContentPane().validate();

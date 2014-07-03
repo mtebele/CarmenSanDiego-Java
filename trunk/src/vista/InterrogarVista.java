@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -11,14 +11,14 @@ import javax.swing.JButton;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelInterrogar extends PanelConFondo {
+public class InterrogarVista extends PanelConFondo {
 
 	private static final long serialVersionUID = 7605711877812338233L;
 	private static final String IMGPATH = "images/";
 	private JLabel lblPista = new JLabel();
 	private JButton btnVolver = new BotonVolver();
 
-	public PanelInterrogar(String pista) {
+	public InterrogarVista(String pista) {
 		super(IMGPATH + "interrogar.png");
 		setLayout(null);
 		lblPista.setText("- " + pista);

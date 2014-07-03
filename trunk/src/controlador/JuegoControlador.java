@@ -10,7 +10,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import vista.pantallas.*;
+import vista.JuegoVista;
 import modelo.Juego;
 import modelo.Partida;
 

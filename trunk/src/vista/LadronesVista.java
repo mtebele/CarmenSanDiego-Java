@@ -1,12 +1,12 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.event.ActionListener;
 
-import vista.LabelImagen;
 import vista.botonesGenericos.BotonVolver;
+import vista.controlesGenericos.LabelImagen;
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelLadrones extends PanelConFondo {
+public class LadronesVista extends PanelConFondo {
 
 	private static final long serialVersionUID = -7469145946869200592L;
 	private static final String IMGPATH = "images/";
@@ -35,7 +35,7 @@ public class PanelLadrones extends PanelConFondo {
 	private LabelImagen ladron10 = new LabelImagen(LADRON10);
 	private BotonVolver btnVolver = new BotonVolver();
 
-	public PanelLadrones() {
+	public LadronesVista() {
 		super(FONDO);
 		setLayout(null);
 		add(ladron1);

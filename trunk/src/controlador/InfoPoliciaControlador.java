@@ -3,14 +3,14 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import vista.pantallas.JuegoVista;
-import vista.pantallas.PanelInfoPolicia;
+import vista.InfoPoliciaVista;
+import vista.JuegoVista;
 import modelo.Partida;
 
 public class InfoPoliciaControlador {
 
 	private JuegoVista vista;
-	private PanelInfoPolicia panel;
+	private InfoPoliciaVista panel;
 	private Partida modeloPartida;
 
 	public InfoPoliciaControlador(Partida modeloPartida, JuegoVista vista) {
@@ -21,7 +21,7 @@ public class InfoPoliciaControlador {
 		String nombre = this.modeloPartida.verNombrePolicia();
 		String rango = this.modeloPartida.verRangoPolicia().getNombre();
 		int cantArrestos = this.modeloPartida.verCantDeArrestos();
-		this.panel = new PanelInfoPolicia(nombre, rango, cantArrestos);
+		this.panel = new InfoPoliciaVista(nombre, rango, cantArrestos);
 
 		vista.getContentPane().removeAll();
 		vista.add(panel);

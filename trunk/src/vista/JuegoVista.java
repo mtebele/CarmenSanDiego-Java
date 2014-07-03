@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.event.ActionListener;
 
@@ -9,7 +9,7 @@ public class JuegoVista extends JFrame {
 	private static int MAX_ALTURA = 800;
 	private static int MAX_ANCHURA = 600;
 
-	PanelInicial pnlInicial = new PanelInicial();
+	InicialVista pnlInicial = new InicialVista();
 
 	public JuegoVista() {
 		super("Carmen SanDiego - 75.07 FIUBA");

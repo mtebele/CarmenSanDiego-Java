@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
@@ -6,7 +6,7 @@ import vista.botonesGenericos.BotonEmitirOrdenArresto;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelOrdenArresto extends PanelConFondo {
+public class OrdenArrestoVista extends PanelConFondo {
 
 	private static final long serialVersionUID = 7731072860454486108L;
 	private static final String IMGPATH = "images/";
@@ -21,7 +21,7 @@ public class PanelOrdenArresto extends PanelConFondo {
 
 	private JComboBox<String> cmbLadrones = new JComboBox<String>(ladrones);
 
-	public PanelOrdenArresto() {
+	public OrdenArrestoVista() {
 		super(FONDO);
 		add(cmbLadrones);
 		add(btnArresto);

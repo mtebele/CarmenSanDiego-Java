@@ -5,19 +5,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import vista.pantallas.*;
+import vista.JuegoVista;
+import vista.OrdenArrestoVista;
 import modelo.Partida;
 import modelo.ladron.*;
 
 public class OrdenArrestoControlador {
 	private Partida modeloPartida;
 	private JuegoVista vista;
-	private PanelOrdenArresto panel;
+	private OrdenArrestoVista panel;
 
 	public OrdenArrestoControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
-		this.panel = new PanelOrdenArresto();
+		this.panel = new OrdenArrestoVista();
 
 		vista.getContentPane().removeAll();
 		vista.add(panel);
@@ -46,7 +47,7 @@ public class OrdenArrestoControlador {
 				break;
 			}
 		}
-		if ( nombreLadron == "Seleccione un ladron") {
+		if (nombreLadron == "Seleccione un ladron") {
 			JOptionPane.showMessageDialog(null, "No has seleccionado ningún ladrón.");
 		} else if (modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado)) {
 			modeloPartida.emitirOrden(ladronSeleccionado);

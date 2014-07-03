@@ -5,19 +5,19 @@ import java.awt.event.ActionListener;
 
 import modelo.Juego;
 import modelo.Partida;
-import vista.pantallas.JuegoVista;
-import vista.pantallas.PanelNuevaPartida;
+import vista.JuegoVista;
+import vista.NuevaPartidaVista;
 
 public class NuevaPartidaControlador {
 
 	private JuegoVista vista;
-	private PanelNuevaPartida panel;
+	private NuevaPartidaVista panel;
 	private Partida modeloPartida;
 
 	public NuevaPartidaControlador(Partida partida, JuegoVista vista) {
 		String ciudadActual = partida.ciudadActual().getNombre();
 		String sexoLadron = partida.getLadron().verSexo();
-		this.panel = new PanelNuevaPartida(ciudadActual, sexoLadron);
+		this.panel = new NuevaPartidaVista(ciudadActual, sexoLadron);
 		this.modeloPartida = partida;
 		this.vista = vista;
 
