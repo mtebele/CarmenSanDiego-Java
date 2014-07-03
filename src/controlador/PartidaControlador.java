@@ -109,10 +109,11 @@ public class PartidaControlador {
 			}
 		}
 		if (!modeloPartida.quedaTiempo()) {
+			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
 			new PerdedorControlador(this.vista);
+		} else {
+			update();
 		}
-
-		update();
 	}
 
 	public void interrogar(String localString) {
@@ -128,13 +129,18 @@ public class PartidaControlador {
 			}
 		}
 
+		if (!modeloPartida.quedaTiempo()) {
+			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
+			new PerdedorControlador(this.vista);
+			return;
+		}
+		
 		if (modeloPartida.esUltimaCiudad()
 				&& modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())) {
 			modeloPartida.atraparLadron();
 		}
-		if (!modeloPartida.quedaTiempo()) {
-			new PerdedorControlador(this.vista);
-		} else if (modeloPartida.partidaGanada()) {
+		
+		if (modeloPartida.partidaGanada()) {
 			new GanadorControlador(this.vista);
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
 			JOptionPane.showMessageDialog(null, "Has atrapado al ladron pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
