@@ -13,7 +13,7 @@ public class Locacion {
 	private Ladron ladron;
 	private Ciudad ciudadActual;
 	private List<Ciudad> ciudadesDestino;
-	private static int CANTIDAD_DESTINOS = 3;
+	private static int CANTIDAD_DESTINOS = 4;
 
 	public Locacion(Mapa mapa, Ciudad ciudadActual, Ladron ladron) {
 		this.mapa = mapa;
@@ -28,7 +28,7 @@ public class Locacion {
 		this.ciudadesDestino.clear();
 		destinos.add(this.ladron.ciudadActual());
 
-		for (int i = 0; i < CANTIDAD_DESTINOS; i++) {
+		for (int i = 0; i < (CANTIDAD_DESTINOS-1); i++) {
 			Ciudad destino = this.mapa.elegirCiudadAlAzar();
 			while (destinos.contains(destino)) {
 				destino = this.mapa.elegirCiudadAlAzar();
@@ -49,12 +49,21 @@ public class Locacion {
 
 		// Hago escapar al ladron si el policia lo alcanza.
 		if (estaLadron()) {
-			try {
-				this.ladron.escapar();
-			} catch (LadronNoPlaneoEscapeException e) {
-				throw new LadronNoPlaneoEscapeException(e.getMessage());
+			if ( this.ladron.escapar() ) {
+				this.generarNuevosDestinos();
+			} else {
+				//Si ladron no pudo escapar es porque estoy en su escondite.
+				//No puedo llamar a generarNuevosDestinos() pues figuraria dos veces el escondite.
+				this.ciudadesDestino.clear();
+				this.agregarDestino(ciudadAnterior);
+				for ( int i=0; i < (CANTIDAD_DESTINOS-1); i++ ) {
+					Ciudad nuevoDestino = this.mapa.elegirCiudadAlAzar();
+					while (this.ciudadesDestino.contains(nuevoDestino)) {
+						nuevoDestino = this.mapa.elegirCiudadAlAzar();
+					}
+					this.agregarDestino(nuevoDestino);
+				}
 			}
-			this.generarNuevosDestinos();
 		} else {
 			this.ciudadesDestino.remove(destino);
 			this.agregarDestino(ciudadAnterior);
