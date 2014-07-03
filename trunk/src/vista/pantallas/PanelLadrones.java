@@ -52,7 +52,7 @@ public class PanelLadrones extends PanelConFondo {
 		add(ladron4);
 		ladron4.setBounds(480,0,150,250);
 		add(ladron5);
-		ladron5.setBounds(630,0,150,250);
+		ladron5.setBounds(630,0,170,250);
 		add(ladron6);
 		ladron6.setBounds(0,250,160,250);
 		add(ladron7);
@@ -60,11 +60,11 @@ public class PanelLadrones extends PanelConFondo {
 		add(ladron8);
 		ladron8.setBounds(320,250,160,250);
 		add(ladron9);
-		ladron9.setBounds(480,250,150,250);
+		ladron9.setBounds(480,250,160,250);
 		add(ladron10);
 		add(btnVolver);
-		btnVolver.setBounds(0,500,784,75);
-		ladron10.setBounds(630,250,150,250);
+		btnVolver.setBounds(0,500,820,75);
+		ladron10.setBounds(630,250,170,250);
 	}
 	
 	public void addVolverAPanelPartidaListener(ActionListener l) {
