@@ -5,11 +5,8 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
-import javax.swing.JButton;
-
 import vista.LabelImagen;
 import vista.botonesGenericos.BotonDestinoViajar;
-import vista.botonesGenericos.BotonViajar;
 import vista.botonesGenericos.BotonVolver;
 import vista.panelesGenericos.PanelConFondo;
 
@@ -43,7 +40,7 @@ public class PanelViajar extends PanelConFondo {
 	static final int ALTO_MAPA = 300;
 
 	private JLabel lblViajarA = new JLabel("¿A dónde desea viajar?");
-	
+
 	private BotonVolver btnVolver = new BotonVolver();
 	private LabelImagen mapa = new LabelImagen(MAPA);
 	private BotonDestinoViajar btnDestino1;
@@ -57,7 +54,7 @@ public class PanelViajar extends PanelConFondo {
 		btnDestino1 = new BotonDestinoViajar(destino1);
 		btnDestino2 = new BotonDestinoViajar(destino2);
 		btnDestino3 = new BotonDestinoViajar(destino3);
-		btnDestino4 = new BotonDestinoViajar(destino4);	
+		btnDestino4 = new BotonDestinoViajar(destino4);
 		setLayout(null);
 		lblViajarA.setBounds(XVIAJAR, YVIAJAR, ANCHO_VIAJAR, ALTO_VIAJAR);
 		lblViajarA.setForeground(Color.white);
@@ -86,14 +83,14 @@ public class PanelViajar extends PanelConFondo {
 		add(btnVolver);
 		add(mapa);
 	}
-	
+
 	public void addViajarListener(ActionListener l) {
 		btnDestino1.addActionListener(l);
 		btnDestino2.addActionListener(l);
 		btnDestino3.addActionListener(l);
 		btnDestino4.addActionListener(l);
 	}
-	
+
 	public void addVolverAPanelPartida(ActionListener l) {
 		btnVolver.addActionListener(l);
 	}

@@ -1,12 +1,9 @@
 package modelo;
 
 import java.io.IOException;
-import java.util.Observable;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.policia.Policia;
 
 import org.xml.sax.SAXException;

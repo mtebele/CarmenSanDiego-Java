@@ -1,7 +1,6 @@
 package vista.pantallas;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
@@ -43,7 +42,7 @@ public class PanelInfoPolicia extends PanelConFondo {
 		lblCantidadArrestos.setForeground(Color.black);
 		lblCantidadArrestos.setText("ARRESTOS: " + cantArrestos);
 		btnVolver.setBounds(POS_BOTON, POS_BOTON, BOT_ANCHURA, BOT_ALTURA);
-		fotopolicia.setBounds(465,60,TAM_FOTO+25,TAM_FOTO);
+		fotopolicia.setBounds(465, 60, TAM_FOTO + 25, TAM_FOTO);
 		add(lblCantidadArrestos);
 		add(btnVolver);
 		add(lblRango);
@@ -52,7 +51,7 @@ public class PanelInfoPolicia extends PanelConFondo {
 		setVisible(true);
 
 	}
-	
+
 	public void addVolverAPanelPartida(ActionListener l) {
 		btnVolver.addActionListener(l);
 	}

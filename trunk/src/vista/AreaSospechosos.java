@@ -13,12 +13,11 @@ import modelo.ladron.perfil.Vehiculo;
 
 public class AreaSospechosos extends JTextArea {
 
+	private static final long serialVersionUID = -5392495346064595432L;
+
 	public AreaSospechosos() {
 		super();
-		this.setOpaque(false); // hacer que esto sea opaco
-		// o hacer una imagen que permita que al hacer append se vea el texto
-		// si tienen dudas de como se ven los resultados, corran el main de aca
-		// o hagan un append en el constructor para ver como se ve el texto.
+		this.setOpaque(false);
 	}
 
 	public void AgregarSospechoso(Ladron unLadron) {
@@ -26,7 +25,8 @@ public class AreaSospechosos extends JTextArea {
 	}
 
 	public static void main(String[] args) {
-		Ladron unLadron = new Ladron(new Perfil("Carmen Sandiego", Sexo.MASCULINO, Cabello.ROJO, Senia.ANILLO, Vehiculo.LIMUSINA, Hobby.MUSICA));
+		Ladron unLadron = new Ladron(new Perfil("Carmen Sandiego", Sexo.MASCULINO, Cabello.ROJO, Senia.ANILLO,
+				Vehiculo.LIMUSINA, Hobby.MUSICA));
 		JFrame frame = new JFrame("Sospechosos");
 		AreaSospechosos area = new AreaSospechosos();
 		frame.getContentPane().add(area);

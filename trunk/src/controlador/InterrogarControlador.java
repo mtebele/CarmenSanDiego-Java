@@ -3,7 +3,6 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import controlador.*;
 import vista.pantallas.*;
 import modelo.Partida;
 

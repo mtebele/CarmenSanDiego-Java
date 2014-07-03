@@ -10,7 +10,6 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import modelo.LectorXML;
 import modelo.Partida;
-import modelo.Turno;
 import modelo.excepciones.LadronNoPlaneoEscapeException;
 import modelo.ladron.Itinerario;
 import modelo.ladron.Ladron;
@@ -18,7 +17,6 @@ import modelo.mapa.Ciudad;
 import modelo.mapa.Coordenada;
 import modelo.mapa.Local;
 import modelo.mapa.Mapa;
-import modelo.policia.OrdenDeArresto;
 import modelo.policia.Policia;
 
 import org.junit.Before;
@@ -75,9 +73,9 @@ public class LectorXMLTest {
 		assertFalse(this.partida.partidaGanada());
 		assertFalse(this.partida.partidaTerminada());
 		assertTrue(this.partida.quedaTiempo());
-		
+
 		Itinerario itinerario = this.partida.getLadron().getItinerario();
-		
+
 		List<Ciudad> destinos = itinerario.ciudades();
 		assertTrue(destinos.size() > 0);
 		for (Ciudad destino : destinos) {

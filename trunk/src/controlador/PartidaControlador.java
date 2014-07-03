@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import controlador.*;
 import vista.pantallas.*;
 import modelo.Partida;
 import modelo.mapa.*;
@@ -16,7 +15,6 @@ public class PartidaControlador {
 	private JuegoVista vista;
 	private PanelPartida panel;
 
-	private static int MAX_CIUDADES = 4;
 	private static int MAX_LOCALES = 3;
 
 	public PartidaControlador(Partida modeloPartida, JuegoVista vista) {
@@ -129,8 +127,9 @@ public class PartidaControlador {
 				break;
 			}
 		}
-		
-		if (modeloPartida.esUltimaCiudad() && modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())) {
+
+		if (modeloPartida.esUltimaCiudad()
+				&& modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())) {
 			modeloPartida.atraparLadron();
 		}
 		if (!modeloPartida.quedaTiempo()) {
@@ -138,16 +137,12 @@ public class PartidaControlador {
 		} else if (modeloPartida.partidaGanada()) {
 			new GanadorControlador(this.vista);
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
-			JOptionPane.showMessageDialog(null, "Has atrapado al ladron pero fue liberado debido a que no existia una orden de arresto emitida en su contra.");
+			JOptionPane.showMessageDialog(null, "Has atrapado al ladron pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
 			new PerdedorControlador(this.vista);
 		} else {
 			new InterrogarControlador(modeloPartida, this.vista, pista);
 		}
 	}
-
-	/*
-	 * public void emitirOrden() { this.modeloPartida.emitirOrden(ladron); }
-	 */
 
 	public void volverAPanelNuevaPartida() {
 		new NuevaPartidaControlador(modeloPartida, vista);
