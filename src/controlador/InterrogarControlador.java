@@ -10,12 +10,10 @@ public class InterrogarControlador {
 	private Partida modeloPartida;
 	private JuegoVista vista;
 	private PanelInterrogar panel;
-	private String pista;
 
 	public InterrogarControlador(Partida modeloPartida, JuegoVista vista, String pista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
-		this.pista = pista;
 		this.panel = new PanelInterrogar(pista);
 
 		vista.getContentPane().removeAll();
