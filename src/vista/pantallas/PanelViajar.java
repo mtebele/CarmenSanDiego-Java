@@ -16,26 +16,26 @@ public class PanelViajar extends PanelConFondo {
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "viajar.png";
 	static final String MAPA = IMGPATH + "mapa.jpg";
-	static final int TAMLETRA = 21;
-	static final int ANCHO = 80;
-	static final int ALTO = 125;
-	static final int YDESTINO = 450;
-	static final int XDESTINO1 = 50;
-	static final int XDESTINO2 = 250;
-	static final int XDESTINO3 = 450;
-	static final int XDESTINO4 = 650;
+	static final int TAMLETRA = 22;
+	static final int ALTO = 50;
+	static final int ANCHO = 150;
+	static final int YDESTINO = 400;
+	static final int XDESTINO1 = 20;
+	static final int XDESTINO2 = 220;
+	static final int XDESTINO3 = 420;
+	static final int XDESTINO4 = 620;
 	static final int ANCHO_VIAJAR = 250;
 	static final int ALTO_VIAJAR = 50;
-	static final int XVIAJAR = 300;
+	static final int XVIAJAR = 290;
 	static final int YVIAJAR = 0;
 	static final int XBOTON = 700;
 	static final int YBOTON = 0;
 	static final int ANCHO_VOLVER = 150;
-	static final int ALTO_VOLVER = 50;
-	static final int XVOLVER = 350;
-	static final int YVOLVER = 375;
+	static final int ALTO_VOLVER = 40;
+	static final int XVOLVER = 320;
+	static final int YVOLVER = 500;
 	static final int XMAPA = 100;
-	static final int YMAPA = 50;
+	static final int YMAPA = 60;
 	static final int ANCHO_MAPA = 600;
 	static final int ALTO_MAPA = 300;
 
@@ -50,7 +50,7 @@ public class PanelViajar extends PanelConFondo {
 
 	public PanelViajar(String destino1, String destino2, String destino3, String destino4) {
 		super(FONDO);
-		Font fuenteDestinos = new Font("Trebuchet.MS",Font.BOLD,11);
+		Font fuenteDestinos = new Font("Trebuchet.MS", Font.BOLD, 14);
 		btnDestino1 = new BotonDestinoViajar(destino1);
 		btnDestino2 = new BotonDestinoViajar(destino2);
 		btnDestino3 = new BotonDestinoViajar(destino3);
@@ -61,10 +61,10 @@ public class PanelViajar extends PanelConFondo {
 		lblViajarA.setBackground(Color.black);
 		lblViajarA.setOpaque(true);
 		lblViajarA.setFont(new java.awt.Font("Tahoma", 0, TAMLETRA));
-		btnDestino1.setBounds(XDESTINO1, YDESTINO, ALTO, ANCHO);
-		btnDestino2.setBounds(XDESTINO2, YDESTINO, ALTO, ANCHO);
-		btnDestino3.setBounds(XDESTINO3, YDESTINO, ALTO, ANCHO);
-		btnDestino4.setBounds(XDESTINO4, YDESTINO, ALTO, ANCHO);
+		btnDestino1.setBounds(XDESTINO1, YDESTINO, ANCHO, ALTO);
+		btnDestino2.setBounds(XDESTINO2, YDESTINO, ANCHO, ALTO);
+		btnDestino3.setBounds(XDESTINO3, YDESTINO, ANCHO, ALTO);
+		btnDestino4.setBounds(XDESTINO4, YDESTINO, ANCHO, ALTO);
 		btnDestino1.setText(destino1);
 		btnDestino1.setFont(fuenteDestinos);
 		btnDestino2.setText(destino2);
