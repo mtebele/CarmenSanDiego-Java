@@ -33,7 +33,7 @@ public class PanelLadrones extends PanelConFondo {
 	private LabelImagen ladron8 = new LabelImagen(LADRON8);
 	private LabelImagen ladron9 = new LabelImagen(LADRON9);
 	private LabelImagen ladron10 = new LabelImagen(LADRON10);
-	private BotonVolver btnVolver= new BotonVolver();
+	private BotonVolver btnVolver = new BotonVolver();
 
 	public PanelLadrones() {
 		super(FONDO);
@@ -41,29 +41,29 @@ public class PanelLadrones extends PanelConFondo {
 		add(ladron1);
 		ladron1.setBounds(0, 0, 160, 250);
 		add(ladron2);
-		ladron2.setBounds(160,0,160,250);
+		ladron2.setBounds(160, 0, 160, 250);
 		add(ladron3);
-		ladron3.setBounds(320,0,160,250);
+		ladron3.setBounds(320, 0, 160, 250);
 		add(ladron4);
-		ladron4.setBounds(480,0,150,250);
+		ladron4.setBounds(480, 0, 150, 250);
 		add(ladron5);
-		ladron5.setBounds(630,0,170,250);
+		ladron5.setBounds(630, 0, 170, 250);
 		add(ladron6);
-		ladron6.setBounds(0,250,160,250);
+		ladron6.setBounds(0, 250, 160, 250);
 		add(ladron7);
-		ladron7.setBounds(160,250,160,250);
+		ladron7.setBounds(160, 250, 160, 250);
 		add(ladron8);
-		ladron8.setBounds(320,250,160,250);
+		ladron8.setBounds(320, 250, 160, 250);
 		add(ladron9);
-		ladron9.setBounds(480,250,160,250);
+		ladron9.setBounds(480, 250, 160, 250);
 		add(ladron10);
 		add(btnVolver);
-		btnVolver.setBounds(0,500,795,75);
-		ladron10.setBounds(630,250,170,250);
+		btnVolver.setBounds(300, 510, 200, 40);
+		ladron10.setBounds(630, 250, 170, 250);
 	}
-	
+
 	public void addVolverAPanelPartidaListener(ActionListener l) {
 		btnVolver.addActionListener(l);
 	}
-	
+
 }
