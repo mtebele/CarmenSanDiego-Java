@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import vista.pantallas.JuegoVista;
 import vista.pantallas.PanelViajar;
@@ -57,6 +58,7 @@ public class ViajeControlador {
 		}
 		
 		if (!modeloPartida.quedaTiempo()) {
+			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
 			new PerdedorControlador(this.vista);
 		} else {
 			volverAPanelPartida();
