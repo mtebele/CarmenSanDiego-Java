@@ -110,6 +110,11 @@ public class Partida {
 		return this.policia.verDestinos();
 	}
 
+	public int hsViajeAOtraCiudad(Ciudad ciudad) {
+		int distancia = this.ciudadActual().getUbicacion().distanciaAOtraCoordenada(ciudad.getUbicacion());
+		return this.policia.getRango().getVelocidad().calcularTiempo(distancia);
+	}
+
 	public Ciudad verDestinoNro(int nro) {
 		return this.policia.verDestinoNro(nro);
 	}
