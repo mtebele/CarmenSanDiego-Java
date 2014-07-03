@@ -28,6 +28,16 @@ public class Ciudad {
 	public List<Local> getLocales() {
 		return this.locales;
 	}
+	
+	public int cantLocalesVisitados() {
+		int cantLocalesVisitados = 0;
+		for (Local local : this.locales) {
+			if (local.vecesVisitado() != 0) {
+				cantLocalesVisitados++;
+			}
+		}
+		return cantLocalesVisitados;
+	}
 
 	public Local verLocalNro(int nro) {
 		return this.locales.get(nro - 1);
