@@ -28,9 +28,9 @@ public class PanelNuevaPartida extends PanelConFondo {
 		textoReporte.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		textoReporte.setBounds(200, 200, 500, 200);
 		add(btnContinuar);
-		btnContinuar.setBounds(175, 400, 200, 40);
+		btnContinuar.setBounds(340, 380, 150, 40);
 		add(btnVolver);
-		btnVolver.setBounds(425, 400, 200, 40);
+		btnVolver.setBounds(530, 380, 150, 40);
 	}
 
 	public void addAbrirPanelPartidaListener(ActionListener l) {
