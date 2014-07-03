@@ -67,9 +67,6 @@ public class Partida {
 		if (!this.quedaTiempo()) {
 			this.perder();
 		}
-		/*} else if (this.policia.ciudadActual().equals(this.ladron.ciudadActual()) && this.ladron.hizoUltimoEscape()) {
-			this.atraparLadron();
-		}*/
 
 		return pista;
 	}
