@@ -48,7 +48,7 @@ public class OrdenArrestoControlador {
 		}
 		if ( ladronSeleccionado == null) {
 			JOptionPane.showMessageDialog(null, "No has seleccionado ningun ladron.");
-		}else if (modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado)) {
+		} else if (modeloPartida.verOrdenDeArresto().arrestoEsValido(ladronSeleccionado)) {
 			modeloPartida.emitirOrden(ladronSeleccionado);
 			JOptionPane.showMessageDialog(null, "La orden se ha emitido correctamente.");
 		} else {

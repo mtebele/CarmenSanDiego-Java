@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class ViajeControlador {
 		this.vista = vista;
 		this.modeloPartida = modeloPartida;
 		
+		Collections.shuffle(modeloPartida.verDestinos());
 		Ciudad destino1 = this.modeloPartida.verDestinoNro(1);
 		Ciudad destino2 = this.modeloPartida.verDestinoNro(2);
 		Ciudad destino3 = this.modeloPartida.verDestinoNro(3);
