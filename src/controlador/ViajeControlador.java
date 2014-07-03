@@ -7,15 +7,15 @@ import java.util.Collections;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import vista.pantallas.JuegoVista;
-import vista.pantallas.PanelViajar;
+import vista.JuegoVista;
+import vista.ViajarVista;
 import modelo.Partida;
 import modelo.mapa.Ciudad;
 
 public class ViajeControlador {
 
 	private JuegoVista vista;
-	private PanelViajar panel;
+	private ViajarVista panel;
 	private Partida modeloPartida;
 
 	public ViajeControlador(Partida modeloPartida, JuegoVista vista) {
@@ -33,7 +33,7 @@ public class ViajeControlador {
 		Integer hsDestino3 = this.modeloPartida.hsViajeAOtraCiudad(destino3);
 		Integer hsDestino4 = this.modeloPartida.hsViajeAOtraCiudad(destino4);
 		
-		this.panel = new PanelViajar(destino1.getNombre(), destino2.getNombre(), destino3.getNombre(),
+		this.panel = new ViajarVista(destino1.getNombre(), destino2.getNombre(), destino3.getNombre(),
 				destino4.getNombre(), hsDestino1, hsDestino2, hsDestino3, hsDestino4);
 
 		vista.getContentPane().removeAll();

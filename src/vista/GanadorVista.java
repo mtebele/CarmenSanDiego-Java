@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import vista.botonesGenericos.BotonMenuPrincipal;
 import vista.botonesGenericos.BotonSalirJuego;
@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
-public class PanelGanador extends PanelConFondo {
+public class GanadorVista extends PanelConFondo {
 	
 	private static final long serialVersionUID = 1L;
 	private static final String IMGPATH = "images/";
@@ -20,7 +20,7 @@ public class PanelGanador extends PanelConFondo {
 	private BotonSalirJuego btnSalirJuego = new BotonSalirJuego();
 	private JLabel mensajeGanaste = new JLabel("FELICITACIONES, HAS RESUELTO EL CASO");
 
-	public PanelGanador() {
+	public GanadorVista() {
 		super(FONDO);
 		SpringLayout springLayout = new SpringLayout();
 		springLayout.putConstraint(SpringLayout.SOUTH, botonSaltarInicio, -60, SpringLayout.SOUTH, this);

@@ -4,20 +4,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import modelo.Partida;
-import vista.pantallas.JuegoVista;
-import vista.pantallas.PanelLadrones;
+import vista.JuegoVista;
+import vista.LadronesVista;
 
 public class LadronesControlador {
 
 	private JuegoVista vista;
-	private PanelLadrones panel;
+	private LadronesVista panel;
 	private Partida modeloPartida;
 
 	public LadronesControlador(Partida modeloPartida, JuegoVista vista) {
 
 		this.vista = vista;
 		this.modeloPartida = modeloPartida;
-		this.panel = new PanelLadrones();
+		this.panel = new LadronesVista();
 
 		vista.getContentPane().removeAll();
 		vista.add(panel);

@@ -1,16 +1,17 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
-import vista.LabelImagen;
+
 import vista.botonesGenericos.BotonDestinoViajar;
 import vista.botonesGenericos.BotonVolver;
+import vista.controlesGenericos.LabelImagen;
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelViajar extends PanelConFondo {
+public class ViajarVista extends PanelConFondo {
 
 	private static final long serialVersionUID = 5319443758271459237L;
 	private static final String IMGPATH = "images/";
@@ -52,7 +53,7 @@ public class PanelViajar extends PanelConFondo {
 	private JLabel lblhsDestino3;
 	private JLabel lblhsDestino4;
 
-	public PanelViajar(String destino1, String destino2, String destino3, String destino4, Integer hsDestino1,
+	public ViajarVista(String destino1, String destino2, String destino3, String destino4, Integer hsDestino1,
 			Integer hsDestino2, Integer hsDestino3, Integer hsDestino4) {
 		super(FONDO);
 		Font fuenteDestinos = new Font("Trebuchet.MS", Font.BOLD, 14);

@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.event.ActionListener;
 
@@ -9,7 +9,7 @@ import vista.botonesGenericos.BotonNuevoJuego;
 import vista.botonesGenericos.BotonSalirJuego;
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelInicial extends PanelConFondo {
+public class InicialVista extends PanelConFondo {
 	private static final long serialVersionUID = -4043817001005784022L;
 	private static final String IMGPATH = "images/";
 	static final String FONDO = IMGPATH + "fondo.png";
@@ -17,7 +17,7 @@ public class PanelInicial extends PanelConFondo {
 	private JButton btnSalirJuego = new BotonSalirJuego();
 	private JButton btnCargarPartida = new BotonCargarJuego();
 
-	public PanelInicial() {
+	public InicialVista() {
 		super(FONDO);
 		setLayout(null);
 		btnNuevaPartida.setBounds(150, 100, 150, 40);

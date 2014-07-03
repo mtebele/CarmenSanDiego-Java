@@ -1,21 +1,21 @@
-package vista.pantallas;
+package vista;
 
 import javax.swing.*;
 
-import vista.LabelImagen;
 import vista.botonesGenericos.BotonBaseLadrones;
 import vista.botonesGenericos.BotonEmitirOrdenArresto;
 import vista.botonesGenericos.BotonInfoPolicia;
 import vista.botonesGenericos.BotonInterrogar;
 import vista.botonesGenericos.BotonViajar;
 import vista.botonesGenericos.BotonVolver;
+import vista.controlesGenericos.LabelImagen;
 import vista.panelesGenericos.PanelConFondo;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
-public class PanelPartida extends PanelConFondo {
+public class PartidaVista extends PanelConFondo {
 
 	private static final long serialVersionUID = -441040584998861794L;
 	private static final String IMGPATH = "images/";
@@ -40,7 +40,7 @@ public class PanelPartida extends PanelConFondo {
 	private LabelImagen imagenTransportes = new LabelImagen(ICONOTRANSPORTE);
 	private JLabel imagenReloj = new JLabel();
 
-	public PanelPartida(int hsRestantes, int horaActual, String nombreLocal1, String nombreLocal2, String nombreLocal3,
+	public PartidaVista(int hsRestantes, int horaActual, String nombreLocal1, String nombreLocal2, String nombreLocal3,
 			String nombreCiudad) {
 		super(FONDO);
 		setLayout(null);

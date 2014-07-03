@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,7 +12,7 @@ import javax.swing.SpringLayout;
 
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelPerdedor extends PanelConFondo {
+public class PerdedorVista extends PanelConFondo {
 
 	private static final long serialVersionUID = -8392658315975218132L;
 	private static final String IMGPATH = "images/";
@@ -22,7 +22,7 @@ public class PanelPerdedor extends PanelConFondo {
 	private JLabel mensajePerdiste = new JLabel("¡NO HAS PODIDO ATRAPAR AL LADRON!");
 	private JLabel lblCarita = new JLabel(":(");
 
-	public PanelPerdedor() {
+	public PerdedorVista() {
 		super(FONDO);
 		setLayout(null);
 		add(botonSaltarInicio);

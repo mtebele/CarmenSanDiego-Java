@@ -1,4 +1,4 @@
-package vista.pantallas;
+package vista;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-import vista.LabelImagen;
 import vista.botonesGenericos.BotonVolver;
+import vista.controlesGenericos.LabelImagen;
 import vista.panelesGenericos.PanelConFondo;
 
-public class PanelInfoPolicia extends PanelConFondo {
+public class InfoPoliciaVista extends PanelConFondo {
 	private static int POS_X = 200;
 	private static int POS_Y = 120;
 	private static int POS_X_BOTON = 300;
@@ -30,7 +30,7 @@ public class PanelInfoPolicia extends PanelConFondo {
 	private JButton btnVolver = new BotonVolver();
 	private LabelImagen fotopolicia = new LabelImagen(FOTOPOLICIA);
 
-	public PanelInfoPolicia(String nombre, String rango, int cantArrestos) {
+	public InfoPoliciaVista(String nombre, String rango, int cantArrestos) {
 		super(FONDO);
 		setLayout(null);
 		lblNombre.setBounds(POS_X, 40, TAMLETRAS, TAMLETRAS);

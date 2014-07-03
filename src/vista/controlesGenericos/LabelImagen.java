@@ -1,4 +1,4 @@
-package vista;
+package vista.controlesGenericos;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
