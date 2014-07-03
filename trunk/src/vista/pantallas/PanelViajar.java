@@ -1,7 +1,7 @@
 package vista.pantallas;
 
 import java.awt.Color;
-
+import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
@@ -53,6 +53,7 @@ public class PanelViajar extends PanelConFondo {
 
 	public PanelViajar(String destino1, String destino2, String destino3, String destino4) {
 		super(FONDO);
+		Font fuenteDestinos = new Font("Trebuchet.MS",Font.BOLD,11);
 		btnDestino1 = new BotonDestinoViajar(destino1);
 		btnDestino2 = new BotonDestinoViajar(destino2);
 		btnDestino3 = new BotonDestinoViajar(destino3);
@@ -68,9 +69,13 @@ public class PanelViajar extends PanelConFondo {
 		btnDestino3.setBounds(XDESTINO3, YDESTINO, ALTO, ANCHO);
 		btnDestino4.setBounds(XDESTINO4, YDESTINO, ALTO, ANCHO);
 		btnDestino1.setText(destino1);
+		btnDestino1.setFont(fuenteDestinos);
 		btnDestino2.setText(destino2);
+		btnDestino2.setFont(fuenteDestinos);
 		btnDestino3.setText(destino3);
+		btnDestino3.setFont(fuenteDestinos);
 		btnDestino4.setText(destino4);
+		btnDestino4.setFont(fuenteDestinos);
 		btnVolver.setBounds(XVOLVER, YVOLVER, ANCHO_VOLVER, ALTO_VOLVER);
 		mapa.setBounds(XMAPA, YMAPA, ANCHO_MAPA, ALTO_MAPA);
 		add(lblViajarA);
