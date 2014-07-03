@@ -133,11 +133,12 @@ public class PartidaControlador {
 		if (modeloPartida.esUltimaCiudad() && modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())) {
 			modeloPartida.atraparLadron();
 		}
-		if (modeloPartida.partidaGanada()) {
+		if (!modeloPartida.quedaTiempo()) {
+			new PerdedorControlador(this.vista);
+		} else if (modeloPartida.partidaGanada()) {
 			new GanadorControlador(this.vista);
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
-			new PerdedorControlador(this.vista);
-		} else if (!modeloPartida.quedaTiempo()) {
+			JOptionPane.showMessageDialog(null, "Has atrapado al ladron pero fue liberado debido a que no existia una orden de arresto emitida en su contra.");
 			new PerdedorControlador(this.vista);
 		} else {
 			new InterrogarControlador(modeloPartida, this.vista, pista);
