@@ -28,7 +28,6 @@ public class LectorXMLTest {
 	private Mapa mapa;
 	private ArrayList<Ladron> ladrones;
 	private Partida partida;
-	private Policia policia;
 
 	@Before
 	public void setUp() throws ParserConfigurationException, SAXException, IOException, LadronNoPlaneoEscapeException {
@@ -60,12 +59,6 @@ public class LectorXMLTest {
 	@Test
 	public void testPartidaSeCargaOK() throws Exception {
 		assertNotNull(this.partida);
-	}
-
-	@Test
-	public void testPoliciaSeCargaOK() throws Exception {
-		this.policia = LectorXML.cargarPolicia();
-		assertNotNull(this.policia);
 	}
 
 	@Test
