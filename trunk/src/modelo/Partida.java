@@ -105,6 +105,10 @@ public class Partida {
 	public boolean esUltimaCiudad() {
 		return this.ladron.hizoUltimoEscape();
 	}
+	
+	public Ciudad verCiudadInicial() {
+		return this.ladron.getItinerario().ciudadNro(0);
+	}
 
 	public List<Ciudad> verDestinos() {
 		return this.policia.verDestinos();
