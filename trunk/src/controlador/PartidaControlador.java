@@ -60,7 +60,6 @@ public class PartidaControlador {
 				interrogar(localString);
 			}
 		});
-
 	}
 
 	private void AbrirPanelInfoPolicia() {
@@ -91,9 +90,7 @@ public class PartidaControlador {
 		this.panel = new PartidaVista(horasRestantes, horaActual, nombreLocal1, nombreLocal2, nombreLocal3,
 				nombreCiudad);
 
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 	}
 
 	public void interrogar(String localString) {
