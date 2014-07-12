@@ -18,10 +18,9 @@ public class InterrogarVista extends PanelConFondo {
 	private JLabel lblPista = new JLabel();
 	private JButton btnVolver = new BotonVolver();
 
-	public InterrogarVista(String pista) {
+	public InterrogarVista() {
 		super(IMGPATH + "interrogar.png");
 		setLayout(null);
-		lblPista.setText("- " + pista);
 		lblPista.setForeground(Color.black);
 		lblPista.setBounds(100, 200, 700, 50);
 		lblPista.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -37,4 +36,7 @@ public class InterrogarVista extends PanelConFondo {
 		btnVolver.addActionListener(l);
 	}
 
+	public void setPista(String pista) {
+		lblPista.setText("- " + pista);
+	}
 }

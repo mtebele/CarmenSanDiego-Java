@@ -16,11 +16,27 @@ public class PartidaControlador {
 	private JuegoVista vista;
 	private PartidaVista panel;
 
+	private ViajeControlador viajeControlador;
+	private GanadorControlador ganadorControlador;
+	private InfoPoliciaControlador infoPoliciaControlador;
+	private InterrogarControlador interrogarControlador;
+	private LadronesControlador ladronesControlador;
+	private OrdenArrestoControlador ordenArrestoControlador;
+	private PerdedorControlador perdedorControlador;
+
 	private static int MAX_LOCALES = 3;
 
 	public PartidaControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
+
+		viajeControlador = new ViajeControlador(modeloPartida, vista);
+		ganadorControlador = new GanadorControlador(vista);
+		infoPoliciaControlador = new InfoPoliciaControlador(modeloPartida, vista);
+		interrogarControlador = new InterrogarControlador(modeloPartida, vista);
+		ladronesControlador = new LadronesControlador(modeloPartida, vista);
+		ordenArrestoControlador = new OrdenArrestoControlador(modeloPartida, vista);
+		perdedorControlador = new PerdedorControlador(vista);
 
 		update();
 
@@ -63,19 +79,19 @@ public class PartidaControlador {
 	}
 
 	private void AbrirPanelInfoPolicia() {
-		new InfoPoliciaControlador(modeloPartida, vista);
+		infoPoliciaControlador.activar();
 	}
 
 	private void AbrirPanelLadrones() {
-		new LadronesControlador(modeloPartida, vista);
+		ladronesControlador.activar();
 	}
 
 	private void AbrirPanelViajar() {
-		new ViajeControlador(modeloPartida, vista);
+		viajeControlador.activar();
 	}
 
 	private void AbrirPanelOrdenArresto() {
-		new OrdenArrestoControlador(modeloPartida, vista);
+		ordenArrestoControlador.activar();
 	}
 
 	private void update() {
@@ -108,7 +124,7 @@ public class PartidaControlador {
 
 		if (!modeloPartida.quedaTiempo()) {
 			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
-			new PerdedorControlador(this.vista);
+			perdedorControlador.activar();
 			return;
 		}
 
@@ -119,14 +135,14 @@ public class PartidaControlador {
 		}
 
 		if (modeloPartida.partidaGanada()) {
-			new GanadorControlador(this.vista);
+			ganadorControlador.activar();
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
 			JOptionPane
 					.showMessageDialog(null,
 							"Has atrapado al ladrón pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
-			new PerdedorControlador(this.vista);
+			perdedorControlador.activar();
 		} else {
-			new InterrogarControlador(modeloPartida, this.vista, pista);
+			interrogarControlador.activar(pista);
 		}
 	}
 
@@ -134,4 +150,7 @@ public class PartidaControlador {
 		new NuevaPartidaControlador(modeloPartida, vista);
 	}
 
+	public void activar() {
+		vista.mostrarPanel(panel);
+	}
 }

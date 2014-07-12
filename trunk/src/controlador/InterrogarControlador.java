@@ -12,12 +12,10 @@ public class InterrogarControlador {
 	private JuegoVista vista;
 	private InterrogarVista panel;
 
-	public InterrogarControlador(Partida modeloPartida, JuegoVista vista, String pista) {
+	public InterrogarControlador(Partida modeloPartida, JuegoVista vista) {
 		this.modeloPartida = modeloPartida;
 		this.vista = vista;
-		this.panel = new InterrogarVista(pista);
-
-		vista.mostrarPanel(panel);
+		this.panel = new InterrogarVista();
 
 		this.panel.addVolverAPanelPartida(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -28,6 +26,11 @@ public class InterrogarControlador {
 
 	public void volverAPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
+	}
+	
+	public void activar(String pista) {
+		this.panel.setPista(pista);
+		vista.mostrarPanel(panel);
 	}
 
 }

@@ -17,7 +17,6 @@ public class PerdedorControlador {
 	public PerdedorControlador(JuegoVista vista) {
 		this.vista = vista;
 		this.panel = new PerdedorVista();
-		vista.mostrarPanel(panel);
 
 		this.panel.addVolverAPanelInicialListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,6 +42,10 @@ public class PerdedorControlador {
 		Juego juego = new Juego();
 		JuegoVista vista = new JuegoVista();
 		new JuegoControlador(juego, vista);
+	}
+	
+	public void activar() {
+		vista.mostrarPanel(panel);
 	}
 
 }
