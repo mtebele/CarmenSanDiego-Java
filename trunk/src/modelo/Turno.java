@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.List;
 
@@ -14,15 +15,14 @@ public class Turno {
 
 	private Tiempo tiempo;
 	private Locacion locacion;
-	private IAtaque disparo;
-	private IAtaque cuchillazo;
+	private List<IAtaque> ataques;
 	private boolean fueAtacado;
 
 	public Turno(Locacion locacionInicial) {
 		this.locacion = locacionInicial;
 		this.tiempo = new Tiempo();
-		this.cuchillazo = new Cuchillazo();
-		this.disparo = new Disparo();
+		ataques = new ArrayList<IAtaque>();
+		cargarAtaques();
 	}
 
 	public void actualizar(int horas) {
@@ -43,21 +43,24 @@ public class Turno {
 	}
 
 	public String interrogar(Local local) {
-		
+
 		int horasInterrogatorio = local.getHorasProximoInterrogatorio();
-		int horasPerdidasPorCuchillazo = this.horasPerdidasPorAtaque(cuchillazo);
-		int horasPerdidasPorDisparo = 0;
-		if (horasPerdidasPorCuchillazo == 0) {
-			horasPerdidasPorDisparo = this.horasPerdidasPorAtaque(disparo);
+		int horasPerdidasPorAtaque = 0;
+
+		for (IAtaque unAtaque : ataques) {
+			horasPerdidasPorAtaque = this.horasPerdidasPorAtaque(unAtaque);
+			// Permito solo un ataque
+			if (horasPerdidasPorAtaque > 0) {
+				this.fueAtacado = true;
+				break;
+			}
 		}
 
-		this.actualizar(horasInterrogatorio + horasPerdidasPorCuchillazo + horasPerdidasPorDisparo);
-		
-		this.fueAtacado = (horasPerdidasPorCuchillazo + horasPerdidasPorDisparo > 0);
+		this.actualizar(horasInterrogatorio + horasPerdidasPorAtaque);
 
 		return this.locacion.interrogar(local);
 	}
-	
+
 	public boolean fueAtacado() {
 		boolean atacado = this.fueAtacado;
 		if (atacado)
@@ -106,19 +109,24 @@ public class Turno {
 		return this.locacion;
 	}
 
-	public IAtaque getDisparo() {
-		return this.disparo;
-	}
-
-	public IAtaque getCuchillazo() {
-		return this.cuchillazo;
-	}
-
 	public void setProbabilidadCuchillazo(int porcentaje) {
-		cuchillazo.setProbabilidadDeAtaque(porcentaje);
+		for (IAtaque unAtaque : ataques) {
+			if (unAtaque.getClass() == Cuchillazo.class) {
+				unAtaque.setProbabilidadDeAtaque(porcentaje);				
+			}
+		}
 	}
 
 	public void setProbabilidadDisparo(int porcentaje) {
-		disparo.setProbabilidadDeAtaque(porcentaje);
+		for (IAtaque unAtaque : ataques) {
+			if (unAtaque.getClass() == Disparo.class) {
+				unAtaque.setProbabilidadDeAtaque(porcentaje);				
+			}
+		}
+	}
+
+	private void cargarAtaques() {
+		ataques.add(new Cuchillazo());
+		ataques.add(new Disparo());
 	}
 }
