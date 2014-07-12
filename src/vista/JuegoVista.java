@@ -3,6 +3,7 @@ package vista;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class JuegoVista extends JFrame {
 	private static final long serialVersionUID = -3021501308427221124L;
@@ -35,5 +36,11 @@ public class JuegoVista extends JFrame {
 
 	public void enableCargarPartida(boolean valor) {
 		pnlInicial.enableCargarPartida(valor);
+	}
+	
+	public void mostrarPanel(JPanel panel) {
+		this.getContentPane().removeAll();
+		this.add(panel);
+		this.getContentPane().validate();
 	}
 }

@@ -46,7 +46,6 @@ public class JuegoControlador {
 				cargarPartida();
 			}
 		});
-
 	}
 
 	private void checkPartidaGuardada() {
@@ -71,9 +70,4 @@ public class JuegoControlador {
 			e1.printStackTrace();
 		}
 	}
-
-	/*
-	 * private void guardarPartida() { try { this.modelo.guardarPartida(policia); } catch (ParserConfigurationException
-	 * | SAXException | IOException e1) { e1.printStackTrace(); } }
-	 */
 }

@@ -20,10 +20,8 @@ public class NuevaPartidaControlador {
 		this.panel = new NuevaPartidaVista(ciudadActual, sexoLadron);
 		this.modeloPartida = partida;
 		this.vista = vista;
-
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		
+		vista.mostrarPanel(panel);
 
 		this.panel.addAbrirPanelPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

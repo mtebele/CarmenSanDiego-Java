@@ -23,9 +23,7 @@ public class InfoPoliciaControlador {
 		int cantArrestos = this.modeloPartida.verCantDeArrestos();
 		this.panel = new InfoPoliciaVista(nombre, rango, cantArrestos);
 
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addVolverAPanelPartida(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

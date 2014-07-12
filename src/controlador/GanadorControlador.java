@@ -17,9 +17,7 @@ public class GanadorControlador {
 	public GanadorControlador(JuegoVista vista) {
 		this.vista = vista;
 		this.panel = new GanadorVista();
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addVolverAPanelInicialListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

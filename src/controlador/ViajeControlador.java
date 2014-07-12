@@ -38,9 +38,7 @@ public class ViajeControlador {
 
 		this.panel = new ViajarVista(destinos, horas);
 
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

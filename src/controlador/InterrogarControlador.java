@@ -17,9 +17,7 @@ public class InterrogarControlador {
 		this.vista = vista;
 		this.panel = new InterrogarVista(pista);
 
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addVolverAPanelPartida(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

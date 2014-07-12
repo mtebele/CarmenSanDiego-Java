@@ -20,9 +20,7 @@ public class OrdenArrestoControlador {
 		this.vista = vista;
 		this.panel = new OrdenArrestoVista();
 
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addEmitirOrdenListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -35,7 +33,6 @@ public class OrdenArrestoControlador {
 				volverAPanelPartida();
 			}
 		});
-
 	}
 
 	public void emitirOrden() {
@@ -60,5 +57,4 @@ public class OrdenArrestoControlador {
 	public void volverAPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
 	}
-
 }

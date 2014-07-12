@@ -17,9 +17,7 @@ public class PerdedorControlador {
 	public PerdedorControlador(JuegoVista vista) {
 		this.vista = vista;
 		this.panel = new PerdedorVista();
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addVolverAPanelInicialListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -19,20 +19,16 @@ public class LadronesControlador {
 		this.modeloPartida = modeloPartida;
 		this.panel = new LadronesVista();
 
-		vista.getContentPane().removeAll();
-		vista.add(panel);
-		vista.getContentPane().validate();
+		vista.mostrarPanel(panel);
 
 		this.panel.addVolverAPanelPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				volverAPanelPartida();
 			}
 		});
-
 	}
 
 	public void volverAPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
 	}
-
 }
