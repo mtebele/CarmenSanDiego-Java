@@ -28,34 +28,14 @@ public class LectorXML {
 	static final String SAVEDPATH = "xml/saved/";
 
 	public static Mapa cargarMapa() throws ParserConfigurationException, SAXException, IOException {
-
-		File archivo = new File(PATH + "mapa.xml");
-
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document doc = db.newDocument();
-
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		doc = dBuilder.parse(archivo);
-		doc.getDocumentElement().normalize();
+		Document doc = inicializarDocumento(PATH + "mapa.xml");
 
 		Mapa mapaCargado = Mapa.deserializar(doc);
 		return mapaCargado;
 	}
 
 	public static ArrayList<Ladron> cargarLadrones() throws ParserConfigurationException, SAXException, IOException {
-
-		File archivo = new File(PATH + "ladrones.xml");
-
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document doc = db.newDocument();
-
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		doc = dBuilder.parse(archivo);
-		doc.getDocumentElement().normalize();
+		Document doc = inicializarDocumento(PATH + "ladrones.xml");
 
 		ArrayList<Ladron> listaLadrones = new ArrayList<Ladron>();
 		Element ladrones = (Element) doc.getElementsByTagName("ladrones").item(0);
@@ -70,16 +50,7 @@ public class LectorXML {
 	}
 
 	public static Partida cargarPartida(Policia policia) throws ParserConfigurationException, SAXException, IOException {
-		File archivo = new File(PATH + "partida" + policia.getRango().getNombre() + ".xml");
-
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document doc = db.newDocument();
-
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		doc = dBuilder.parse(archivo);
-		doc.getDocumentElement().normalize();
+		Document doc = inicializarDocumento(PATH + "partida" + policia.getRango().getNombre() + ".xml");
 
 		Mapa mapa = cargarMapa();
 
@@ -91,17 +62,7 @@ public class LectorXML {
 	}
 
 	public static Policia cargarPolicia() throws ParserConfigurationException, SAXException, IOException {
-		File archivo = new File(SAVEDPATH + "partidaGuardada.xml");
-
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document doc = db.newDocument();
-
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		doc = dBuilder.parse(archivo);
-		doc.getDocumentElement().normalize();
-
+		Document doc = inicializarDocumento(SAVEDPATH + "partidaGuardada.xml");
 		return Policia.deserializar(doc);
 	}
 
@@ -111,10 +72,6 @@ public class LectorXML {
 		Document doc = db.newDocument();
 
 		Element policiaSerializado = policia.serializar(doc);
-		/*
-		 * Date date = new Date(); SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss"); String
-		 * fileName = dateFormat.format(date) + ".xml";
-		 */
 		String fileName = "partidaGuardada.xml";
 
 		doc.appendChild(policiaSerializado);
@@ -124,6 +81,20 @@ public class LectorXML {
 		File archivoDestino = new File(SAVEDPATH + fileName);
 		StreamResult result = new StreamResult(archivoDestino);
 		transformer.transform(source, result);
+	}
+	
+	private static Document inicializarDocumento(String path) throws ParserConfigurationException, SAXException, IOException {
+		File archivo = new File(path);
+
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db = dbf.newDocumentBuilder();
+		Document doc = db.newDocument();
+
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		doc = dBuilder.parse(archivo);
+		doc.getDocumentElement().normalize();
+		return doc;
 	}
 
 }
