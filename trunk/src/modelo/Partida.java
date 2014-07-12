@@ -168,6 +168,12 @@ public class Partida {
 		juego.guardarPartida(this.policia);
 	}
 
+	public boolean ladronNoPuedeEscapar(){
+		return this.esUltimaCiudad() 
+				&& this.getLadron().ciudadActual().equals(this.ciudadActual())
+				&& (this.ciudadActual().cantLocalesVisitados() == 3);
+	}
+	
 	public static Partida deserializar(Document doc, Policia policia, Mapa mapa, OrdenDeArresto orden) {
 		Element partidas = (Element) doc.getElementsByTagName("partidas").item(0);
 		int cantPartidas = partidas.getChildNodes().getLength();
