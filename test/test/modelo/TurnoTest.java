@@ -132,8 +132,8 @@ public class TurnoTest {
 	@Test
 	public void interrogarDeberiaConsumir1HoraSiNuncaFueVisitado() {
 
-		turno.setProbabilidadCuchillazo(0);
-		turno.setProbabilidadDisparo(0);
+		turno.setProbabilidadAtaqueNro(0,0);
+		turno.setProbabilidadAtaqueNro(0,1);
 
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
@@ -143,8 +143,8 @@ public class TurnoTest {
 	@Test
 	public void interrogarDeberiaConsumir2HorasSiFueVisitado2Veces() {
 
-		turno.setProbabilidadCuchillazo(0);
-		turno.setProbabilidadDisparo(0);
+		turno.setProbabilidadAtaqueNro(0,0);
+		turno.setProbabilidadAtaqueNro(0,1);
 
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
@@ -191,8 +191,8 @@ public class TurnoTest {
 	@Test
 	public void deberiaPerderse1HoraAlSerAcuchilladoPorPrimeraVez() {
 
-		turno.setProbabilidadDisparo(0);
-		turno.setProbabilidadCuchillazo(100);
+		turno.setProbabilidadAtaqueNro(100,0);
+		turno.setProbabilidadAtaqueNro(0,1);
 
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);
@@ -202,8 +202,8 @@ public class TurnoTest {
 	@Test
 	public void deberianPerderse2HorasAlSerAcuchilladoPorSegundaVez() {
 
-		turno.setProbabilidadCuchillazo(100);
-		turno.setProbabilidadDisparo(0);
+		turno.setProbabilidadAtaqueNro(100,0);
+		turno.setProbabilidadAtaqueNro(0,1);
 
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0); // 1 por interrogar + 1 por ser acuchillado.
@@ -214,8 +214,8 @@ public class TurnoTest {
 	@Test
 	public void deberianPerderse4HorasAlRecibirDisparo() {
 
-		turno.setProbabilidadCuchillazo(0);
-		turno.setProbabilidadDisparo(100);
+		turno.setProbabilidadAtaqueNro(0, 0);
+		turno.setProbabilidadAtaqueNro(100, 1);
 
 		Local local0 = this.turno.getLocales().get(0);
 		this.turno.interrogar(local0);

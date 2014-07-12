@@ -108,21 +108,9 @@ public class Turno {
 	public Locacion getLocacion() {
 		return this.locacion;
 	}
-
-	public void setProbabilidadCuchillazo(int porcentaje) {
-		for (IAtaque unAtaque : ataques) {
-			if (unAtaque.getClass() == Cuchillazo.class) {
-				unAtaque.setProbabilidadDeAtaque(porcentaje);				
-			}
-		}
-	}
-
-	public void setProbabilidadDisparo(int porcentaje) {
-		for (IAtaque unAtaque : ataques) {
-			if (unAtaque.getClass() == Disparo.class) {
-				unAtaque.setProbabilidadDeAtaque(porcentaje);				
-			}
-		}
+	
+	public void setProbabilidadAtaqueNro(int porcentaje, int posicionAtaque){
+		ataques.get(posicionAtaque).setProbabilidadDeAtaque(porcentaje);
 	}
 
 	private void cargarAtaques() {

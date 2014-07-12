@@ -117,7 +117,7 @@ public class PartidaControlador {
 				pista = modeloPartida.interrogar(local);
 				boolean fueAtacado = modeloPartida.fueAtacado();
 				if (fueAtacado)
-					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado! Esto te demorará un poco...");
+					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado! Esto te demorarï¿½ un poco...");
 				break;
 			}
 		}
@@ -128,9 +128,7 @@ public class PartidaControlador {
 			return;
 		}
 
-		if (modeloPartida.esUltimaCiudad()
-				&& modeloPartida.getLadron().ciudadActual().equals(modeloPartida.ciudadActual())
-				&& (modeloPartida.ciudadActual().cantLocalesVisitados() == 3)) {
+		if (modeloPartida.ladronNoPuedeEscapar()) {
 			modeloPartida.atraparLadron();
 		}
 
@@ -139,7 +137,7 @@ public class PartidaControlador {
 		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
 			JOptionPane
 					.showMessageDialog(null,
-							"Has atrapado al ladrón pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
+							"Has atrapado al ladrï¿½n pero fue liberado debido a que no existï¿½a una orden de arresto emitida en su contra.");
 			perdedorControlador.activar();
 		} else {
 			interrogarControlador.activar(pista);

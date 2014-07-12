@@ -32,7 +32,7 @@ public class JuegoControlador {
 
 		this.vista.addSalirJuegoListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int salida = JOptionPane.showOptionDialog(null, "¿Desea Salir del Juego?", "Confirmar salida",
+				int salida = JOptionPane.showOptionDialog(null, "ï¿½Desea Salir del Juego?", "Confirmar salida",
 						JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
 						new String[] { "Si", "No" }, "default");
 				if (salida == 0) {
@@ -58,7 +58,7 @@ public class JuegoControlador {
 			Partida modeloPartida = this.modelo.nuevaPartida();
 			new NuevaPartidaControlador(modeloPartida, this.vista);
 		} catch (ParserConfigurationException | SAXException | IOException e1) {
-			e1.printStackTrace();
+			throw new RuntimeException(e1);
 		}
 	}
 
