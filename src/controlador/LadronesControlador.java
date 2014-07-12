@@ -19,8 +19,6 @@ public class LadronesControlador {
 		this.modeloPartida = modeloPartida;
 		this.panel = new LadronesVista();
 
-		vista.mostrarPanel(panel);
-
 		this.panel.addVolverAPanelPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				volverAPanelPartida();
@@ -30,5 +28,9 @@ public class LadronesControlador {
 
 	public void volverAPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
+	}
+	
+	public void activar() {
+		vista.mostrarPanel(panel);
 	}
 }

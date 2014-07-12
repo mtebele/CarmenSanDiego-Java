@@ -20,11 +20,15 @@ public class ViajeControlador {
 	private ViajarVista panel;
 	private Partida modeloPartida;
 	private final static int MAX_DESTINOS = 4;
+	
+	private PerdedorControlador perdedorControlador;
 
 	public ViajeControlador(Partida modeloPartida, JuegoVista vista) {
 
 		this.vista = vista;
 		this.modeloPartida = modeloPartida;
+		
+		perdedorControlador = new PerdedorControlador(vista);
 
 		Collections.shuffle(modeloPartida.verDestinos());
 
@@ -37,8 +41,6 @@ public class ViajeControlador {
 		}
 
 		this.panel = new ViajarVista(destinos, horas);
-
-		vista.mostrarPanel(panel);
 
 		this.panel.addViajarListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -55,6 +57,10 @@ public class ViajeControlador {
 
 	}
 
+	public void activar() {
+		vista.mostrarPanel(panel);
+	}
+
 	public void viajar(String destinoString) {
 		for (int i = 1; i <= MAX_DESTINOS; i++) {
 			Ciudad destino = modeloPartida.verDestinoNro(i);
@@ -66,7 +72,7 @@ public class ViajeControlador {
 
 		if (!modeloPartida.quedaTiempo()) {
 			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
-			new PerdedorControlador(this.vista);
+			perdedorControlador.activar();
 		} else {
 			volverAPanelPartida();
 		}

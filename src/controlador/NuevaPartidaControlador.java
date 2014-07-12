@@ -21,8 +21,6 @@ public class NuevaPartidaControlador {
 		this.modeloPartida = partida;
 		this.vista = vista;
 		
-		vista.mostrarPanel(panel);
-
 		this.panel.addAbrirPanelPartidaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				abrirPanelPartida();
@@ -34,7 +32,8 @@ public class NuevaPartidaControlador {
 				volverAPanelInicial();
 			}
 		});
-
+		
+		activar();
 	}
 
 	public void abrirPanelPartida() {
@@ -48,5 +47,8 @@ public class NuevaPartidaControlador {
 		JuegoVista vista = new JuegoVista();
 		new JuegoControlador(juego, vista);
 	}
-
+	
+	public void activar() {
+		vista.mostrarPanel(panel);
+	}
 }

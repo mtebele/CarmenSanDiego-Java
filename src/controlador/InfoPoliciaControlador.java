@@ -23,8 +23,6 @@ public class InfoPoliciaControlador {
 		int cantArrestos = this.modeloPartida.verCantDeArrestos();
 		this.panel = new InfoPoliciaVista(nombre, rango, cantArrestos);
 
-		vista.mostrarPanel(panel);
-
 		this.panel.addVolverAPanelPartida(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				volverAPanelPartida();
@@ -35,5 +33,10 @@ public class InfoPoliciaControlador {
 	public void volverAPanelPartida() {
 		new PartidaControlador(modeloPartida, vista);
 	}
+	
+	public void activar() {
+		vista.mostrarPanel(panel);
+	}
+
 
 }
