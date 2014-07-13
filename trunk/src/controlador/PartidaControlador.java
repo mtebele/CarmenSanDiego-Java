@@ -38,7 +38,10 @@ public class PartidaControlador {
 		ordenArrestoControlador = new OrdenArrestoControlador(modeloPartida, vista);
 		perdedorControlador = new PerdedorControlador(vista);
 
-		update();
+		activar();
+
+		if (!quedaTiempo())
+			return;
 
 		this.panel.addAbrirPanelInfoPoliciaListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,7 +97,7 @@ public class PartidaControlador {
 		ordenArrestoControlador.activar();
 	}
 
-	private void update() {
+	public void activar() {
 
 		int horasRestantes = modeloPartida.getHorasRestantes();
 		int horaActual = modeloPartida.getHoraActual();
@@ -117,16 +120,13 @@ public class PartidaControlador {
 				pista = modeloPartida.interrogar(local);
 				boolean fueAtacado = modeloPartida.fueAtacado();
 				if (fueAtacado)
-					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado! Esto te demorarï¿½ un poco...");
+					JOptionPane.showMessageDialog(null, "Oh! Has sido atacado! Esto te demorará un poco...");
 				break;
 			}
 		}
 
-		if (!modeloPartida.quedaTiempo()) {
-			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
-			perdedorControlador.activar();
+		if (!quedaTiempo())
 			return;
-		}
 
 		if (modeloPartida.ladronNoPuedeEscapar()) {
 			modeloPartida.atraparLadron();
@@ -134,10 +134,10 @@ public class PartidaControlador {
 
 		if (modeloPartida.partidaGanada()) {
 			ganadorControlador.activar();
-		} else if (!modeloPartida.partidaGanada() && modeloPartida.partidaTerminada()) {
+		} else if (modeloPartida.partidaTerminada()) {
 			JOptionPane
 					.showMessageDialog(null,
-							"Has atrapado al ladrï¿½n pero fue liberado debido a que no existï¿½a una orden de arresto emitida en su contra.");
+							"Has atrapado al ladrón pero fue liberado debido a que no existía una orden de arresto emitida en su contra.");
 			perdedorControlador.activar();
 		} else {
 			interrogarControlador.activar(pista);
@@ -148,7 +148,12 @@ public class PartidaControlador {
 		new NuevaPartidaControlador(modeloPartida, vista);
 	}
 
-	public void activar() {
-		vista.mostrarPanel(panel);
+	private boolean quedaTiempo() {
+		if (!modeloPartida.quedaTiempo()) {
+			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
+			perdedorControlador.activar();
+			return false;
+		}
+		return true;
 	}
 }
