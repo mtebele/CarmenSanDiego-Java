@@ -16,7 +16,7 @@ public class PanelConFondo extends JPanel {
 		try {
 			img = ImageIO.read(new File(filename));
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		// setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	}

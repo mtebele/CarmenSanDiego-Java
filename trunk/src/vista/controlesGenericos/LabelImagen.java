@@ -18,7 +18,7 @@ public class LabelImagen extends JLabel {
 		try {
 			img = ImageIO.read(new File(filename));
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		this.setIcon(new ImageIcon(img));
 	}

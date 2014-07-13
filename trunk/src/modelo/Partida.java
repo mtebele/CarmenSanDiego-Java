@@ -52,7 +52,7 @@ public class Partida {
 			this.policia.viajar(destino);
 		} catch (LadronNoPlaneoEscapeException e) {
 			System.out.println(e.getMessage());
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 		if (!this.quedaTiempo()) {
@@ -86,7 +86,7 @@ public class Partida {
 		try {
 			guardarPartida();
 		} catch (ParserConfigurationException | TransformerException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
