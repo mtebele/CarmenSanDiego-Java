@@ -69,14 +69,8 @@ public class ViajeControlador {
 				break;
 			}
 		}
-
-		if (!modeloPartida.quedaTiempo()) {
-			JOptionPane.showMessageDialog(null, "Oops! Te quedaste sin tiempo!");
-			perdedorControlador.activar();
-		} else {
-			volverAPanelPartida();
-		}
-
+		
+		volverAPanelPartida();
 	}
 
 	public void volverAPanelPartida() {
