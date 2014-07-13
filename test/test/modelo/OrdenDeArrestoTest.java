@@ -28,12 +28,6 @@ public class OrdenDeArrestoTest {
 
 	@Test
 	public void testOrdenDeArrestoSeCreaOK() throws Exception {
-		try {
-
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			fail("La orden no fue creada");
-		}
 		assertNotNull(this.orden);
 		assertNull(this.orden.verLadron());
 	}
