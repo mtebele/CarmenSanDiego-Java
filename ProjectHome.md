@@ -1,0 +1,2 @@
+Trabajo Práctico para la materia Algoritmos y Programación III de la Facultad de Ingeniería de la Universidad de Buenos Aires.
+El proyecto consiste en una implementación Java del reconocido juego "¿Dónde está Carmen Sandiego?".
